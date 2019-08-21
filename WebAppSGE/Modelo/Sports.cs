@@ -5,17 +5,16 @@ using System.Web;
 
 namespace WebAppSGE.Modelo
 {
-    public class Sports
+    internal class Sports
     {
-        public string id;
-        public string nome;
+        internal int id { get; set; }
+        internal string nome { get; set; }
 
-        public Sports()
+        internal Sports()
         {
-            this.id = "";
             this.nome = "";
         }
-        public Sports(string aid, string anome)
+        internal Sports(int aid, string anome)
         {
             this.id = aid;
             this.nome = anome;

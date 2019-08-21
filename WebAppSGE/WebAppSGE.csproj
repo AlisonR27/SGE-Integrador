@@ -76,6 +76,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DAL\Alternadores.cs" />
     <Compile Include="DAL\DALArea.cs" />
     <Compile Include="DAL\DALhDisponivel.cs" />
     <Compile Include="DAL\DALSport.cs" />

@@ -34,14 +34,13 @@ namespace WebAppSGE
             // int.Parse(Text.Text), TextBoxID.Text
             //  ));
         }
-        protected void DDChange(object sender, EventArgs e)
+        protected void FormSubmit_Click(object sender, EventArgs e)
         {
-
-        }
-
-        protected void CBDom_CheckedChanged(object sender, EventArgs e)
-        {
-
+            DALSport dSport = new DALSport();
+            dSport.Insert(
+                new Sports(
+                    TextBoxName.Text,TextBoxDesc.Text)
+                    );
         }
     }
 }

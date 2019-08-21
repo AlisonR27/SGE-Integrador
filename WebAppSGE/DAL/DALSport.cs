@@ -8,17 +8,18 @@ using System.Web;
 
 namespace WebAppSGE.DAL
 {
-    public class DALSport
+    internal class DALSport
     {
+        Alternadores a = new Alternadores();
         string connectionString = "";
 
-        public DALSport()
+        internal DALSport()
         {
             connectionString = ConfigurationManager.ConnectionStrings
                       ["SGEConnectionString"].ConnectionString;
         }
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Sports> SelectAll()
+        internal List<Modelo.Sports> SelectAll()
         {
             Modelo.Sports aSports;
             List<Modelo.Sports> aListSports = new List<Modelo.Sports>();
@@ -32,7 +33,7 @@ namespace WebAppSGE.DAL
                 while (dr.Read())
                 {
                     aSports = new Modelo.Sports(
-                        dr["id"].ToString(),
+                        a.AlternadorI(dr["id"].ToString()),
                         dr["nome"].ToString());
                     aListSports.Add(aSports);
                 }
@@ -42,7 +43,7 @@ namespace WebAppSGE.DAL
             return aListSports;
         }
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Sports obj)
+        internal void Delete(Modelo.Sports obj)
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
@@ -53,7 +54,7 @@ namespace WebAppSGE.DAL
 
         }
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Sports obj)
+        internal void Insert(Modelo.Sports obj)
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
@@ -63,7 +64,7 @@ namespace WebAppSGE.DAL
             cmd.ExecuteNonQuery();
         }
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Sports obj)
+        internal void Update(Modelo.Sports obj)
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
@@ -74,7 +75,7 @@ namespace WebAppSGE.DAL
             cmd.ExecuteNonQuery();
         }
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Sports> Select(string id)
+        internal List<Modelo.Sports> Select(string id)
         {
             Modelo.Sports aSports;
             List<Modelo.Sports> aListSports = new List<Modelo.Sports>();
@@ -88,7 +89,7 @@ namespace WebAppSGE.DAL
             {
                 while (dr.Read())
                 {
-                    aSports = new Modelo.Sports(dr["id"].ToString(), dr["nome"].ToString());
+                    aSports = new Modelo.Sports(a.AlternadorI(dr["id"].ToString()), dr["nome"].ToString());
                     aListSports.Add(aSports);
                 }
             }

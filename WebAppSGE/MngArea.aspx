@@ -6,6 +6,8 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+       <script src="Script/jquery341.js"></script>
+
 </head>
 <body>
     <form id="form1" runat="server">
@@ -33,17 +35,107 @@
             <asp:Button runat="server" ID="AddSport" Text="Adicionar"/>
             <br />
             <h6 class="inputTitle"> Lista de dias: </h6>
-            <asp:DropDownList ID="DaysList" runat="server" OnSelectedIndexChanged="DDChange"></asp:DropDownList>
-            <h6 class="inputTitle"> De: </h6>
-            <asp:TextBox runat="server" ID="InitialTime"></asp:TextBox>
-       &nbsp<h6 class="inputTitle"> Até: </h6>
-            <asp:TextBox runat="server" ID="FinalTime"></asp:TextBox>
-            <br />
-            <h6 class="inputTitle"> Dias adicionados: </h6>
-            <div class="daysDynBut"> </div>
-            <br />
+            <div class="flexrow">
+                <div class="slideDContainer">
+                    <div class="slideDTitle">   
+                        <h5>Domingo</h5>
+                    </div>
+                    <div class="slideDOcult">
+                       <input type="checkbox" class="checkDay"  onclick="enableForm"/>
+                        <h6> Inicio: </h6>
+                        <asp:TextBox runat="server" ID="TXTDomInit"></asp:TextBox>
+                        <br />
+                        <h6>Fim:</h6>
+                        <asp:TextBox runat="server" ID="TXTDomEnd"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="slideDContainer">
+                    <div class="slideDTitle">   
+                        <h5>Segunda</h5>
+                    </div>
+                    <div class="slideDOcult">
+                       <input type="checkbox" class="checkDay"  onclick="enableForm"/>
+                        <h6> Inicio: </h6>
+                        <asp:TextBox runat="server" ID="TXTSegInit"></asp:TextBox>
+                        <br />
+                        <h6>Fim:</h6>
+                        <asp:TextBox runat="server" ID="TXTSegEnd"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="slideDContainer">
+                    <div class="slideDTitle">   
+                        <h5>Terça</h5>
+                    </div>
+                    <div class="slideDOcult">
+                       <input type="checkbox" class="checkDay"  onclick="enableForm"/>
+                        <h6> Inicio: </h6>
+                        <asp:TextBox runat="server" ID="TXTTerInit"></asp:TextBox>
+                        <br />
+                        <h6>Fim:</h6>
+                        <asp:TextBox runat="server" ID="TXTTerEnd"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="slideDContainer">
+                    <div class="slideDTitle">   
+                        <h5>Quarta</h5>
+                    </div>
+                    <div class="slideDOcult">
+                       <input type="checkbox" class="checkDay"  onclick="enableForm"/>
+                        <h6> Inicio: </h6>
+                        <asp:TextBox runat="server" ID="TXTQuaInit"></asp:TextBox>
+                        <br />
+                        <h6>Fim:</h6>
+                        <asp:TextBox runat="server" ID="TXTQuaEnd"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="slideDContainer">
+                    <div class="slideDTitle">   
+                        <h5>Quinta</h5>
+                    </div>
+                    <div class="slideDOcult">
+                       <input type="checkbox" class="checkDay"  onclick="enableForm"/>
+                        <h6> Inicio: </h6>
+                        <asp:TextBox runat="server" ID="TXTQuiInit"></asp:TextBox>
+                        <br />
+                        <h6>Fim:</h6>
+                        <asp:TextBox runat="server" ID="TXTQuiEnd"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="slideDContainer">
+                    <div class="slideDTitle">   
+                        <h5>Sexta</h5>
+                    </div>
+                    <div class="slideDOcult">
+                       <input type="checkbox" class="checkDay"  onclick="enableForm"/>
+                        <h6> Inicio: </h6>
+                        <asp:TextBox runat="server" ID="TXTSexInit"></asp:TextBox>
+                        <br />
+                        <h6>Fim:</h6>
+                        <asp:TextBox runat="server" ID="TXTSexEnd"></asp:TextBox>
+                    </div>
+                </div>
+                <div class="slideDContainer">
+                    <div class="slideDTitle">   
+                        <h5>Sábado</h5>
+                    </div>
+                    <div class="slideDOcult">
+                       <input type="checkbox" class="checkDay"  onclick="enableForm"/>
+                        <h6> Inicio: </h6>
+                        <asp:TextBox runat="server" ID="TXTSabInit"></asp:TextBox>
+                        <br />
+                        <h6>Fim:</h6>
+                        <asp:TextBox runat="server" ID="TXTSabEnd"></asp:TextBox>
+                    </div>
+                </div>
+            </div>     
+            <asp:Button runat="server" Text="Submeter dias"/>
         </div>
         <asp:Button runat="server" OnClick="Submit" id="FormSubmit"/>
     </form>
+    <script>
+        $(document){
+            $()
+        }
+    </script>
 </body>
 </html>

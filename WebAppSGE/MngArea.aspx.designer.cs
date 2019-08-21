@@ -40,6 +40,24 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.TextBox TextBoxDesc;
         
         /// <summary>
+        /// Controle SportsList.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList SportsList;
+        
+        /// <summary>
+        /// Controle AddSport.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddSport;
+        
+        /// <summary>
         /// Controle TXTDomInit.
         /// </summary>
         /// <remarks>
