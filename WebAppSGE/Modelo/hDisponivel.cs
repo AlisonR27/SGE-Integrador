@@ -14,6 +14,9 @@ namespace WebAppSGE.Modelo
         internal int idAreaEsportiva { get; set; }
         internal hDisponivel()
         {
+            diaSemana = 0;
+            horaInicio = "";
+            horaFim = "";
 
         }
         internal hDisponivel(int id, int diaSemana, string horaInicio, string horaFim, int idAreaEsportiva)

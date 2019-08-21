@@ -10,6 +10,7 @@ namespace WebAppSGE.DAL
 {
     internal class DALhDisponivel
     {
+        Alternadores a = new Alternadores();
         string connectionstring = "";
         internal DALhDisponivel()
         {
@@ -31,11 +32,11 @@ namespace WebAppSGE.DAL
                 while (dr.Read())
                 {
                     aArea = new Modelo.hDisponivel(
-                        AlternadorI(dr["id"].ToString()),
-                        int.Parse(dr["dia_semana"].ToString()),
+                        a.AlternadorI(dr["id"].ToString()),
+                        a.AlternadorI(dr["dia_semana"].ToString()),
                         dr["hora_inicio"].ToString(),
                         dr["hora_fim"].ToString(),
-                        AlternadorI(dr["id_AreaPoliesportiva"].ToString())
+                        a.AlternadorI(dr["id_AreaPoliesportiva"].ToString())
                         );
                     aListAreas.Add(aArea);
                 }
@@ -67,14 +68,6 @@ namespace WebAppSGE.DAL
             cmd.Parameters.AddWithValue("@id", obj.id);
             cmd.ExecuteNonQuery();
 
-        }
-
-        internal int AlternadorI(string c)
-        {
-            int d;
-            if (c != "") d = Convert.ToInt16(c);
-            else d = 0;
-            return d;
         }
     }
 }
