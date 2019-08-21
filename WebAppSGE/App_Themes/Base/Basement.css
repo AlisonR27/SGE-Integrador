@@ -1,0 +1,243 @@
+﻿* {
+    font-family: sans-serif;
+}
+    /* Centering  */
+    .center100 {
+        width: 100%;
+        margin: auto;
+    }
+
+    .center90 {
+        width: 90%;
+        margin: auto;
+    }
+
+    .center80 {
+        width: 80%;
+        margin: auto;
+    }
+
+    .center70 {
+        width: 70%;
+        margin: auto;
+    }
+
+    .center60 {
+        width: 60%;
+        margin: auto;
+    }
+
+    .center50 {
+        width: 50%;
+        margin: auto;
+    }
+
+    .center40 {
+        width: 40%;
+        margin: auto;
+    }
+
+    .center30 {
+        width: 30%;
+        margin: auto;
+    }
+
+    .center20 {
+        width: 20%;
+        margin: auto;
+    }
+
+    .center10 {
+        width: 10%;
+        margin: auto;
+    }
+
+    .VAlign0 {
+        vertical-align: top;
+    }
+
+    VAlign {
+        margin: auto 0 !important;
+    }
+    /*  Float  */
+    .floatl {
+        float: left;
+    }
+
+    .floatr {
+        float: right;
+    }
+
+    .floatn {
+        float: none;
+    }
+    /*  Display */
+    .dblock {
+        display: block;
+    }
+
+    .diblock {
+        display: inline-block;
+    }
+
+    .dinline {
+        display: inline;
+    }
+
+    .dflex {
+        display: flex;
+    }
+    /*  Padding  */
+    .Pad0 {
+        padding: 0;
+    }
+
+    .Pad1Hor {
+        padding: 0.25% 1%;
+    }
+
+    .Pad1Ver {
+        padding: 1% 0.25%;
+    }
+
+    .Pad1Both {
+        padding: 1%;
+    }
+    /*  Margin   */
+    .Margin0 {
+        margin: 0;
+    }
+    /*  Text    */
+    .TAlignCenter {
+        text-align: center;
+        text-align-last: center;
+    }
+
+    .TAlignRight {
+        text-align: right;
+    }
+
+    .TAlignLeft {
+        text-align: left;
+    }
+    /*  Containers */
+    .fScreenContainer {
+        width: 100%;
+        padding: 1%;
+    }
+
+    .Row {
+        width: 100%;
+        display: flex;
+    }
+    /*   Width    */
+    .Width10 {
+        width: 10% !important;
+    }
+
+    .Width20 {
+        width: 20% !important;
+    }
+
+    .Width25 {
+        width: 25% !important;
+    }
+
+    .Width30 {
+        width: 30% !important;
+    }
+
+    .Width40 {
+        width: 40% !important;
+    }
+
+    .Width50 {
+        width: 50% !important;
+    }
+
+    .Width60 {
+        width: 60% !important;
+    }
+
+    .Width70 {
+        width: 70% !important;
+    }
+
+    .Width75 {
+        width: 75% !important;
+    }
+
+    .Width80 {
+        width: 80% !important;
+    }
+
+    .Width90 {
+        width: 90% !important;
+    }
+
+    .Width100 {
+        width: 100% !important;
+    }
+    /* FORMULÁRIO*/
+    /* Submeter Imagens */
+    .imgForm {
+        border: solid #1e1e1e 1px !important;
+        border-radius: 5px;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .imgFormIcon {
+        display: block;
+        width: 40%;
+        margin: auto;
+    }
+    /*     Input    */
+    .InputBox {
+        height: 100%;
+        box-sizing: border-box;
+        width: 60% !important;
+    }
+
+    .InputTitle {
+        font-size: 1.15em;
+    }
+
+    .InputBox input {
+        font-size: 18px;
+        height: initial;
+    }
+    /*    BOTÔES     */
+    .buttont1 {
+        border-radius: 20%;
+        border: none;
+    }
+    .flexrow {
+        display: flex !important;
+        width: 100%;
+    }
+    .slideDContainer {
+        display: inline-block;
+        padding:0 2%;
+    }
+    .slideDTitle {
+        display: block;
+        cursor: pointer;
+        text-align: center;
+    }
+    .slideDOcult {
+        display: block;
+    }
+    .checkDay::after {
+        content:"Disponivel";
+        margin-left:15px;
+    }
+/*    
+    .slideDTitle:active ~.slideDOcult{
+        display:block;
+    }
+    .slideDTitle:active ~ .slideDContainer {
+        padding: 0;
+    }
+ */
+
