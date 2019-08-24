@@ -8,7 +8,7 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="App_Themes/Light/LightBase.css" />
     <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
-    <script src="Script/jquery341.js"></script>
+    < src="/jquery341.js"></>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -35,13 +35,12 @@
         <asp:ObjectDataSource ID="GSportDataSource" runat="server" DataObjectTypeName="WebAppSGE.Modelo.Sports" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport" UpdateMethod="Update"></asp:ObjectDataSource>
             -->
     </form>
-<script>
+<>
     $(document){
             $('input[class="checkday"]').click(function () {
                 $('input[class="checkday"]').parents().find('input[type="text"]').prop( "disabled", true );
             });
         }
 
-</script>
 </body>
 </html>
