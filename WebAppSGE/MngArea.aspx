@@ -6,7 +6,9 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-       <script src="Script/jquery341.js"></script>
+           <script src="Script/default.js"></script>
+    <script src="Script/jquery341.js"></script>
+    <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
 
 </head>
 <body>
@@ -41,7 +43,7 @@
                         <h5>Domingo</h5>
                     </div>
                     <div class="slideDOcult">
-                       <input type="checkbox" class="checkDay"  onclick="enableForm"/>
+                       <input type="checkbox" class="checkDay"  checked/>
                         <h6> Inicio: </h6>
                         <asp:TextBox runat="server" ID="TXTDomInit"></asp:TextBox>
                         <br />
@@ -54,7 +56,7 @@
                         <h5>Segunda</h5>
                     </div>
                     <div class="slideDOcult">
-                       <input type="checkbox" class="checkDay"  onclick="enableForm"/>
+                       <input type="checkbox" class="checkDay"  checked/>
                         <h6> Inicio: </h6>
                         <asp:TextBox runat="server" ID="TXTSegInit"></asp:TextBox>
                         <br />
@@ -67,7 +69,7 @@
                         <h5>Terça</h5>
                     </div>
                     <div class="slideDOcult">
-                       <input type="checkbox" class="checkDay"  onclick="enableForm"/>
+                       <input type="checkbox" class="checkDay"  checked/>
                         <h6> Inicio: </h6>
                         <asp:TextBox runat="server" ID="TXTTerInit"></asp:TextBox>
                         <br />
@@ -80,7 +82,7 @@
                         <h5>Quarta</h5>
                     </div>
                     <div class="slideDOcult">
-                       <input type="checkbox" class="checkDay"  onclick="enableForm"/>
+                       <input type="checkbox" class="checkDay"  checked/>
                         <h6> Inicio: </h6>
                         <asp:TextBox runat="server" ID="TXTQuaInit"></asp:TextBox>
                         <br />
@@ -93,7 +95,7 @@
                         <h5>Quinta</h5>
                     </div>
                     <div class="slideDOcult">
-                       <input type="checkbox" class="checkDay"  onclick="enableForm"/>
+                       <input type="checkbox" class="checkDay"  checked/>
                         <h6> Inicio: </h6>
                         <asp:TextBox runat="server" ID="TXTQuiInit"></asp:TextBox>
                         <br />
@@ -106,7 +108,7 @@
                         <h5>Sexta</h5>
                     </div>
                     <div class="slideDOcult">
-                       <input type="checkbox" class="checkDay"  onclick="enableForm"/>
+                       <input type="checkbox" class="checkDay"  checked/>
                         <h6> Inicio: </h6>
                         <asp:TextBox runat="server" ID="TXTSexInit"></asp:TextBox>
                         <br />
@@ -119,7 +121,7 @@
                         <h5>Sábado</h5>
                     </div>
                     <div class="slideDOcult">
-                       <input type="checkbox" class="checkDay"  onclick="enableForm"/>
+                       <input type="checkbox" class="checkDay"  checked/>
                         <h6> Inicio: </h6>
                         <asp:TextBox runat="server" ID="TXTSabInit"></asp:TextBox>
                         <br />
@@ -133,11 +135,23 @@
         <asp:Button runat="server" OnClick="Submit" id="FormSubmit"/>
     </form>
     <script>
-            $('input[class="checkday"]').click(function () {
-                $('input[class="checkday"]').parents().find('input[type="text"]').prop("disabled", true);
+        //PageLoad
+        $(document).ready(function () {
+            $('div[class="slideDOcult"]').css("display", "block");
+            $('div[class="slideDTitle"]').css("width", $('div[class="slideDOcult"]').css("width"));
+            $('div[class="slideDOcult"]').css("display", "none");
+            console.log('rodou');
         });
-        $('div[class="slideDTitle"]').mouseover().parents().find('div[class="slideDOcult"]').slideDown();
-
+        //Ativar/Desativar Caixas de texto
+        $('input[class="checkDay"]').click(function () {
+            if ($(this).prop("checked") == true) { $(this).parents().children('input[type="text"]').prop("disabled", false); }
+            else { $(this).parents().children('input[type="text"]').prop("disabled", true); }
+        });
+        //SlideDown Dias
+        $('div[class="slideDTitle"]').click(function () {
+            if ($(this).parents().children('div[class="slideDOcult"]').css("display") == "none") $(this).parents().children('div[class="slideDOcult"]').slideDown();
+            else { $(this).parents().children('div[class="slideDOcult"]').slideUp();  }
+        });
     </script>
 </body>
 </html>

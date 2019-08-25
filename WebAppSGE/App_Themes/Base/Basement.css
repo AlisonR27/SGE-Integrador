@@ -217,8 +217,9 @@
         width: 100%;
     }
     .slideDContainer {
-        display: inline-block;
-        padding:0 2%;
+    display: inline-block;
+    padding: 0 2%;
+    width:calc(100%/7);
     }
     .slideDTitle {
         display: block;
@@ -226,12 +227,19 @@
         text-align: center;
     }
     .slideDOcult {
-        display: block;
+        display: none;
+        width: 100%;
+    }
+    .slideDOcult input{
+        width: 100%;
     }
     .checkDay::after {
         content:"Disponivel";
-        margin-left:15px;
+        margin: 10px 0 0 0;
+        text-align:center;
+        display:block;
     }
+
 /*    
     .slideDTitle:active ~.slideDOcult{
         display:block;

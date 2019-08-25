@@ -1,0 +1,72 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Script/default.js"></script>
+    <script src="Script/jquery341.js"></script>
+    <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
+</head>
+<body>
+    <div class="flexrow">
+        <div class="slideDContainer">
+            <div class="slideDTitle">
+                <h5>Domingo</h5>
+            </div>
+            <div class="slideDOcult">
+                <input type="checkbox" class="checkDay"/>
+                <h6> Inicio: </h6>
+                <input ID="TXTDomInit" disabled>
+                <br />
+                <h6>Fim:</h6>
+                <input ID="TXTDomEnd" disabled>
+            </div>
+        </div>
+        <div class="slideDContainer">
+            <div class="slideDTitle">
+                <h5>Segunda</h5>
+            </div>
+            <div class="slideDOcult">
+                <input type="checkbox" class="checkDay"/>
+                <h6> Inicio: </h6>
+                <input type="text" ID="TXTSegInit" disabled/>
+                <br />
+                <h6>Fim:</h6>
+                <input type="text" ID="TXTSegEnd" disabled/>
+            </div>
+        </div>
+        <div class="slideDContainer">
+            <div class="slideDTitle">
+                <h5>Terça</h5>
+            </div>
+            <div class="slideDOcult">
+                <input type="checkbox" class="checkDay"/>
+                <h6> Inicio: </h6>
+                <input type="text" ID="TXTTerInit" disabled/>
+                <br />
+                <h6>Fim:</h6>
+                <input type="text" ID="TXTTerEnd" disabled/>
+            </div>
+        </div>
+    </div>
+    <script>
+        //PageLoad
+        $(document).ready(function () {
+            $('div[class="slideDOcult"]').css("display", "block");
+            $('div[class="slideDTitle"]').css("width", $('div[class="slideDOcult"]').css("width"));
+            $('div[class="slideDOcult"]').css("display", "none");
+            console.log('rodou');
+        });
+        //Ativar/Desativar Caixas de texto
+        $('input[class="checkDay"]').click(function () {
+            if ($(this).prop("checked") == true) { $(this).parents().children('input[type="text"]').prop("disabled", false); }
+            else { $(this).parents().children('input[type="text"]').prop("disabled", true); }
+        });
+        //SlideDown Dias
+        $('div[class="slideDTitle"]').click(function () {
+            if ($(this).parents().children('div[class="slideDOcult"]').css("display") == "none") $(this).parents().children('div[class="slideDOcult"]').slideDown();
+            else { $(this).parents().children('div[class="slideDOcult"]').slideUp();  }
+        });
+    </script>
+</body>
+</html>

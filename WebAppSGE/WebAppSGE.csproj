@@ -70,6 +70,7 @@
     <Content Include="App_Themes\Base\Basement.css" />
     <Content Include="App_Themes\Dark\Basement.css" />
     <Content Include="App_Themes\Light\LightBase.css" />
+    <Content Include="jquerytest.html" />
     <Content Include="MngArea.aspx" />
     <Content Include="MngSport.aspx" />
     <Content Include="Script\default.js" />
