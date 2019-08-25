@@ -36,11 +36,7 @@ namespace WebAppSGE
         }
         protected void FormSubmit_Click(object sender, EventArgs e)
         {
-            DALSport dSport = new DALSport();
-            dSport.Insert(
-                new Sports(
-                    TextBoxName.Text,TextBoxDesc.Text)
-                    );
+
         }
     }
 }

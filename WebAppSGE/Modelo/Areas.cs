@@ -5,14 +5,14 @@ using System.Web;
 
 namespace WebAppSGE.Modelo
 {
-    internal class Areas
+    public class Areas
     {
-        internal int id { get; set; }
-        internal string desc { get; set; }
-        internal Areas() {
+        public int id { get; set; }
+        public string desc { get; set; }
+        public Areas() {
             desc = "";
         }
-        internal Areas(int aid, string adesc)
+        public Areas(int aid, string adesc)
         {
             this.id = aid;
             this.desc = adesc;

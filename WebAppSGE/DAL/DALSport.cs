@@ -8,18 +8,16 @@ using System.Web;
 
 namespace WebAppSGE.DAL
 {
-    internal class DALSport
+    public class DALSport
     {
-        Alternadores a = new Alternadores();
         string connectionString = "";
 
-        internal DALSport()
+        public DALSport()
         {
-            connectionString = ConfigurationManager.ConnectionStrings
-                      ["SGEConnectionString"].ConnectionString;
+            connectionString = ConfigurationManager.ConnectionStrings["SGEConnectionString"].ConnectionString;
         }
         [DataObjectMethod(DataObjectMethodType.Select)]
-        internal List<Modelo.Sports> SelectAll()
+        public List<Modelo.Sports> SelectAll()
         {
             Modelo.Sports aSports;
             List<Modelo.Sports> aListSports = new List<Modelo.Sports>();
@@ -33,8 +31,9 @@ namespace WebAppSGE.DAL
                 while (dr.Read())
                 {
                     aSports = new Modelo.Sports(
-                        a.AlternadorI(dr["id"].ToString()),
-                        dr["nome"].ToString());
+                        dr["id"].ToString(),
+                        dr["nome"].ToString(),
+                        dr["descricao"].ToString());
                     aListSports.Add(aSports);
                 }
             }
@@ -43,7 +42,7 @@ namespace WebAppSGE.DAL
             return aListSports;
         }
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        internal void Delete(Modelo.Sports obj)
+        public void Delete(Modelo.Sports obj)
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
@@ -54,28 +53,37 @@ namespace WebAppSGE.DAL
 
         }
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        internal void Insert(Modelo.Sports obj)
+        public bool Insert(Modelo.Sports obj)
         {
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand com = conn.CreateCommand();
-            SqlCommand cmd = new SqlCommand("INSERT INTO atividadeEsportiva (nome) VALUES(@nome)", conn);
-            cmd.Parameters.AddWithValue("@nome", obj.nome);
-            cmd.ExecuteNonQuery();
+            try { 
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand com = conn.CreateCommand();
+                SqlCommand cmd = new SqlCommand("INSERT INTO atividadeEsportiva  VALUES(@nome, @descricao)", conn);
+                cmd.Parameters.AddWithValue("@nome", obj.nome);
+                cmd.Parameters.AddWithValue("@descricao", obj.descricao);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
         [DataObjectMethod(DataObjectMethodType.Update)]
-        internal void Update(Modelo.Sports obj)
+        public void Update(Modelo.Sports obj)
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             SqlCommand com = conn.CreateCommand();
-            SqlCommand cmd = new SqlCommand("UPDATE atividadeEsportiva SET nome = @nome WHERE id = @id", conn);
+            SqlCommand cmd = new SqlCommand("UPDATE atividadeEsportiva SET nome = @nome, descricao = @desc WHERE id = @id", conn);
             cmd.Parameters.AddWithValue("@id", obj.id);
             cmd.Parameters.AddWithValue("@nome", obj.nome);
+            cmd.Parameters.AddWithValue("@desc", obj.descricao);
             cmd.ExecuteNonQuery();
         }
         [DataObjectMethod(DataObjectMethodType.Select)]
-        internal List<Modelo.Sports> Select(string id)
+        public List<Modelo.Sports> Select(string id)
         {
             Modelo.Sports aSports;
             List<Modelo.Sports> aListSports = new List<Modelo.Sports>();
@@ -89,7 +97,7 @@ namespace WebAppSGE.DAL
             {
                 while (dr.Read())
                 {
-                    aSports = new Modelo.Sports(a.AlternadorI(dr["id"].ToString()), dr["nome"].ToString());
+                    aSports = new Modelo.Sports(dr["id"].ToString(), dr["nome"].ToString(), dr["descricao"].ToString());
                     aListSports.Add(aSports);
                 }
             }

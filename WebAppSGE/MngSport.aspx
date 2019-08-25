@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MngArea.aspx.cs" Inherits="WebAppSGE.MngArea" StylesheetTheme="Base" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MngSport.aspx.cs" Inherits="WebAppSGE.MngSport" StylesheetTheme="Base" %>
 
 <!DOCTYPE html>
 
@@ -8,12 +8,13 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="App_Themes/Light/LightBase.css" />
     <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
-    < src="/jquery341.js"></>
+    <script src="Script/jquery341.js"></script>
+    <script src="Script/default.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            <h2>Gerenciamento de áreas poliesportivas </h2>
+            <h2>Gerenciamento de esportes </h2>
             <hr />
             <h6 class="inputTitle">Nome:</h6>
             <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
@@ -23,24 +24,15 @@
             <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator> 
             <br />
         </div>
-        <asp:Button runat="server" id="FormSubmit" Text="Adicionar" OnClick="FormSubmit_Click"/>
+        <asp:Button runat="server" ID="SubmitButton" OnClick="FormSubmit_Click" Text="Submeter"/>
         <br />
         <br />
         <br />
         <br />
-        <!--
-        <asp:DataGrid runat="server" ID="SportsGrid" DataSourceID="GSportDataSource">
-
-        </asp:DataGrid>
-        <asp:ObjectDataSource ID="GSportDataSource" runat="server" DataObjectTypeName="WebAppSGE.Modelo.Sports" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport" UpdateMethod="Update"></asp:ObjectDataSource>
-            -->
-    </form>
-<>
-    $(document){
-            $('input[class="checkday"]').click(function () {
-                $('input[class="checkday"]').parents().find('input[type="text"]').prop( "disabled", true );
-            });
-        }
-
+        <asp:GridView ID="SportsView" runat="server" DataSourceID="SportsOBJDS"></asp:GridView>
+        
+        <asp:ObjectDataSource ID="SportsOBJDS" runat="server" DataObjectTypeName="WebAppSGE.Modelo.Sports" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport" UpdateMethod="Update"></asp:ObjectDataSource>
+        
+    </form> 
 </body>
 </html>

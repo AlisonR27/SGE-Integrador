@@ -133,9 +133,11 @@
         <asp:Button runat="server" OnClick="Submit" id="FormSubmit"/>
     </form>
     <script>
-        $(document){
-            $()
-        }
+            $('input[class="checkday"]').click(function () {
+                $('input[class="checkday"]').parents().find('input[type="text"]').prop("disabled", true);
+        });
+        $('div[class="slideDTitle"]').mouseover().parents().find('div[class="slideDOcult"]').slideDown();
+
     </script>
 </body>
 </html>

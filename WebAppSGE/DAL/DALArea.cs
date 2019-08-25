@@ -10,16 +10,15 @@ using WebAppSGE.DAL;
 namespace WebAppSGE.DAL
 {
 
-    internal class DALArea
+    public class DALArea
     {
-        Alternadores a = new Alternadores();
         string connectionstring = "";
-        internal DALArea()
+        public DALArea()
         {
             connectionstring = ConfigurationManager.ConnectionStrings["SGEConnectionString"].ConnectionString;
         }
             [DataObjectMethod(DataObjectMethodType.Select)]
-            internal List<Modelo.Areas> SelectAll()
+            public List<Modelo.Areas> SelectAll()
             {
                 Modelo.Areas aArea;
                 List<Modelo.Areas> aListAreas = new List<Modelo.Areas>();
@@ -34,7 +33,7 @@ namespace WebAppSGE.DAL
                     while (dr.Read()) 
                     {
                         aArea = new Modelo.Areas(
-                            a.AlternadorI(dr["id"].ToString()),
+                            Alternadores.AlternadorI(dr["id"].ToString()),
                             dr["descricao"].ToString()    
                             );
                         aListAreas.Add(aArea);
@@ -46,19 +45,17 @@ namespace WebAppSGE.DAL
                 return aListAreas;
             }
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        internal void Insert(Modelo.Areas obj)
+        public void Insert(Modelo.Areas obj)
         {
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             SqlCommand com = conn.CreateCommand();
             SqlCommand cmd = new SqlCommand("INSERT INTO area_poliesportiva (descricao) VALUES(@descricao)", conn);
             cmd.Parameters.AddWithValue("@descricao", obj.desc);
-
             cmd.ExecuteNonQuery();
-
         }
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        internal void Delete(Modelo.Areas obj)
+        public void Delete(Modelo.Areas obj)
         {
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();

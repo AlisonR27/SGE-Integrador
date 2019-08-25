@@ -8,16 +8,15 @@ using System.Web;
 
 namespace WebAppSGE.DAL
 {
-    internal class DALhDisponivel
+    public class DALhDisponivel
     {
-        Alternadores a = new Alternadores();
         string connectionstring = "";
-        internal DALhDisponivel()
+        public DALhDisponivel()
         {
             connectionstring = ConfigurationManager.ConnectionStrings["SGEConnectionString"].ConnectionString;
         }
         [DataObjectMethod(DataObjectMethodType.Select)]
-        internal List<Modelo.hDisponivel> SelectAll()
+        public List<Modelo.hDisponivel> SelectAll()
         {
             Modelo.hDisponivel aArea;
             List<Modelo.hDisponivel> aListAreas = new List<Modelo.hDisponivel>();
@@ -32,11 +31,11 @@ namespace WebAppSGE.DAL
                 while (dr.Read())
                 {
                     aArea = new Modelo.hDisponivel(
-                        a.AlternadorI(dr["id"].ToString()),
-                        a.AlternadorI(dr["dia_semana"].ToString()),
+                        Alternadores.AlternadorI(dr["id"].ToString()),
+                        Alternadores.AlternadorI(dr["dia_semana"].ToString()),
                         dr["hora_inicio"].ToString(),
                         dr["hora_fim"].ToString(),
-                        a.AlternadorI(dr["id_AreaPoliesportiva"].ToString())
+                        Alternadores.AlternadorI(dr["id_AreaPoliesportiva"].ToString())
                         );
                     aListAreas.Add(aArea);
                 }
@@ -47,7 +46,7 @@ namespace WebAppSGE.DAL
             return aListAreas;
         }
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        internal void Insert(Modelo.hDisponivel obj)
+        public void Insert(Modelo.hDisponivel obj)
         {
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
@@ -59,7 +58,7 @@ namespace WebAppSGE.DAL
 
         }
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        internal void Delete(Modelo.hDisponivel obj)
+        public void Delete(Modelo.hDisponivel obj)
         {
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();

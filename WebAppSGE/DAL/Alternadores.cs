@@ -7,7 +7,7 @@ namespace WebAppSGE.DAL
 {
     public class Alternadores
     {
-        internal int AlternadorI(string c)
+        public static int AlternadorI(string c)
         {
             int d;
             if (c != "") d = Convert.ToInt16(c);

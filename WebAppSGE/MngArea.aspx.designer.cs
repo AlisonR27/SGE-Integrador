@@ -172,24 +172,24 @@ namespace WebAppSGE {
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TXTSabInit;
+        
+        /// <summary>
+        /// Controle TXTSabEnd.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TXTSabEnd;
+        
+        /// <summary>
+        /// Controle FormSubmit.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
         protected global::System.Web.UI.WebControls.Button FormSubmit;
-        
-        /// <summary>
-        /// Controle SportsGrid.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid SportsGrid;
-        
-        /// <summary>
-        /// Controle GSportDataSource.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource GSportDataSource;
     }
 }

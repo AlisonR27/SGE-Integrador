@@ -2,22 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WebAppSGE.DAL;
 
 namespace WebAppSGE.Modelo
 {
-    internal class Sports
+    public class Sports
     {
-        internal int id { get; set; }
-        internal string nome { get; set; }
+        public int id { get; set; }
+        public string nome { get; set; }
+        public string descricao { get; set; }
 
-        internal Sports()
+        public Sports()
         {
             this.nome = "";
         }
-        internal Sports(int aid, string anome)
+        public Sports(string aid, string anome,string adesc)
         {
-            this.id = aid;
+            this.id = Alternadores.AlternadorI(aid);
             this.nome = anome;
+            this.descricao = adesc;
+        }
+        public Sports(string anome)
+        {
+            this.nome = anome;
+        }
+        public Sports(string anome, string desc)
+        {
+            this.nome = anome;
+            this.descricao = desc;
         }
     }
 }

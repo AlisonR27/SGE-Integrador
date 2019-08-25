@@ -72,7 +72,10 @@
     <Content Include="App_Themes\Light\LightBase.css" />
     <Content Include="MngArea.aspx" />
     <Content Include="MngSport.aspx" />
+    <Content Include="Script\default.js" />
+    <Content Include="Script\jquery341.js" />
     <Content Include="StyleTesting.aspx" />
+    <Content Include="ViewSolicitacao.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +101,13 @@
     <Compile Include="Modelo\hDisponivel.cs" />
     <Compile Include="Modelo\Sports.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SGE.master.cs">
+      <DependentUpon>SGE.master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SGE.master.designer.cs">
+      <DependentUpon>SGE.master</DependentUpon>
+    </Compile>
     <Compile Include="StyleTesting.aspx.cs">
       <DependentUpon>StyleTesting.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -105,9 +115,17 @@
     <Compile Include="StyleTesting.aspx.designer.cs">
       <DependentUpon>StyleTesting.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ViewSolicitacao.aspx.cs">
+      <DependentUpon>ViewSolicitacao.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ViewSolicitacao.aspx.designer.cs">
+      <DependentUpon>ViewSolicitacao.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="SGE.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -115,9 +133,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Script\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

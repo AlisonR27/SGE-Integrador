@@ -7,19 +7,19 @@ namespace WebAppSGE.Modelo
 {
     public class hDisponivel
     {
-        internal int id { get; set; }
-        internal int diaSemana { get; set; }
-        internal string horaInicio { get; set; }
-        internal string horaFim { get; set; }
-        internal int idAreaEsportiva { get; set; }
-        internal hDisponivel()
+        public int id { get; set; }
+        public int diaSemana { get; set; }
+        public string horaInicio { get; set; }
+        public string horaFim { get; set; }
+        public int idAreaEsportiva { get; set; }
+        public hDisponivel()
         {
             diaSemana = 0;
             horaInicio = "";
             horaFim = "";
 
         }
-        internal hDisponivel(int id, int diaSemana, string horaInicio, string horaFim, int idAreaEsportiva)
+        public hDisponivel(int id, int diaSemana, string horaInicio, string horaFim, int idAreaEsportiva)
         {
             this.id = id;
             this.diaSemana = diaSemana;
