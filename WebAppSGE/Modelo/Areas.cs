@@ -17,5 +17,9 @@ namespace WebAppSGE.Modelo
             this.id = aid;
             this.desc = adesc;
         }
+        public Areas(string adesc)
+        {
+            this.desc = adesc;
+        }
     }
 }

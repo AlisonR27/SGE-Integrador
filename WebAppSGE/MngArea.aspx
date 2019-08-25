@@ -23,18 +23,20 @@
             <asp:TextBox ID="TextBoxDesc" TextMode="MultiLine" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator>
             <h6 class="inputTitle"> Imagens </h6>
-            <div class="imgSub">
-                <img src=""/>
-            </div>
-            <asp:Button runat="server" Text="Fazer Upload"/>
+            <asp:FileUpload ID="FileUpload1" runat="server" />
             <br />
             <h6 class="inputTitle"> Lista de esportes: </h6>
-            <div class="SportsContent">
-                <div class="sportItem"></div>
-            </div>
             <h6 class="inputTitle"> Lista de Esportes: </h6>
-            <asp:DropDownList ID="SportsList" runat="server"></asp:DropDownList>
-            <asp:Button runat="server" ID="AddSport" Text="Adicionar"/>
+            <asp:DropDownList ID="SportsList" runat="server" DataSourceID="SportsOBJDS" DataTextField="nome" DataValueField="id"></asp:DropDownList>
+            <asp:ObjectDataSource ID="SportsOBJDS" runat="server" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport"></asp:ObjectDataSource>
+            <asp:Button runat="server" data="addSpo" ID="AddSport" OnClick="AddSport_Click" Text="Adicionar"/>
+            <br />
+            <div class="selectedSports">
+                <h5 class="TAlignCenter">Esportes selecionados</h5>
+                <ul class="selectedSportsList">
+                    
+                </ul>
+            </div>
             <br />
             <h6 class="inputTitle"> Lista de dias: </h6>
             <div class="flexrow">
@@ -141,6 +143,11 @@
             $('div[class="slideDTitle"]').css("width", $('div[class="slideDOcult"]').css("width"));
             $('div[class="slideDOcult"]').css("display", "none");
             console.log('rodou');
+        });
+        //AddSport 
+        $('#AddSport').click(function () {
+            var string = $("#SportsList option:selected").text();
+            $(".selectedSportsList").append("<li>"+string+"</li>");
         });
         //Ativar/Desativar Caixas de texto
         $('input[class="checkDay"]').click(function () {
