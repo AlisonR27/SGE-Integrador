@@ -304,4 +304,12 @@ body{
 .pageContent {
     margin:0;
 }
+.selectedSportsList li{
+    padding: 1vh 2vw;
+    margin:0 1vw 1vh 0;
+    font-weight: normal;
+    display:inline-block;
+    border: 1px solid;
+    border-radius: 5px;
+}
 

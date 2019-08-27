@@ -76,6 +76,24 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.Button AddSport;
         
         /// <summary>
+        /// Controle Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
+        
+        /// <summary>
+        /// Controle selectedSportsL.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.BulletedList selectedSportsL;
+        
+        /// <summary>
         /// Controle TXTDomInit.
         /// </summary>
         /// <remarks>

@@ -33,7 +33,6 @@ namespace WebAppSGE.DAL
                     while (dr.Read()) 
                     {
                         aArea = new Modelo.Areas(
-                            Alternadores.AlternadorI(dr["id"].ToString()),
                             dr["descricao"].ToString()    
                             );
                         aListAreas.Add(aArea);

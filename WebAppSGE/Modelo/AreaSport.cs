@@ -9,6 +9,10 @@ namespace WebAppSGE.Modelo
     {
         public int idArea { get; set; }
         public int idSport { get; set; }
+        public AreaSport()
+        {
+
+        }
         public AreaSport(int aidArea, int aidSport)
         {
             this.idArea = aidArea;

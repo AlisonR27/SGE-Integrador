@@ -26,16 +26,15 @@
             <asp:FileUpload ID="FileUpload1" runat="server" />    
             <br />
             <h6 class="inputTitle"> Lista de Esportes: </h6>
-            <div class="sportsBox" style="display:none;">
                 <asp:DropDownList ID="SportsList" runat="server" DataSourceID="SportsOBJDS" DataTextField="nome" DataValueField="id"></asp:DropDownList>
                 <asp:ObjectDataSource ID="SportsOBJDS" runat="server" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport"></asp:ObjectDataSource>
-                <asp:Button runat="server" ID="AddSport" OnClick="AddSportevent" Text="Adicionar"/>
+                <asp:Button runat="server" ID="AddSport" Text="Adicionar"/>
+            <asp:Button ID="Button1" runat="server" Text="Button" onclick="Button1_Click"/>
                 <br />
                 <div class="selectedSports">
                     <h5 class="TAlignCenter">Esportes selecionados</h5>
-                    <ul class="selectedSportsList">
-                    
-                    </ul>
+                    <asp:BulletedList runat="server" id="selectedSportsL" class="selectedSportsList">
+                    </asp:BulletedList>
                 </div>
             </div>
             <br />
@@ -134,9 +133,8 @@
                 </div>
             </div>     
             <asp:Button runat="server" Text="Submeter dias"/>
-        </div>
         <asp:Button runat="server" OnClick="Submit" id="FormSubmit"/>
-    </form>
+  <!--  </form>
     <script>
         //PageLoad
         $(document).ready(function () {
@@ -146,10 +144,17 @@
             console.log('rodou');
         });
         //AddSport 
-       // $('#AddSport').click(function () {
-       //     var string = $("#SportsList option:selected").text();
-       //     $(".selectedSportsList").append("<li>"+string+"</li>");
-       // });
+        $('#AddSport').click(function () {
+            var flag = false;
+            var string = $("#SportsList option:selected").text();
+            $("h6.sportItem").each(
+                function () {
+                    if ($(this).attr("data") == $("#SportsList option:selected").attr("value")) flag = true;
+                }
+            );
+            if (!flag)
+            $(".selectedSportsList").append("<h6 class=\"sportItem\" data="+$("#SportsList option:selected").attr("value")+">"+string+"</h6>");
+        })
         //Ativar/Desativar Caixas de texto
         $('input[class="checkDay"]').click(function () {
             if ($(this).prop("checked") == true) { $(this).parents().children('input[type="text"]').prop("disabled", false); }
@@ -161,5 +166,6 @@
             else { $(this).parents().children('div[class="slideDOcult"]').slideUp();  }
         });
     </script>
+    -->
 </body>
 </html>
