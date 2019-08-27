@@ -1,6 +1,9 @@
 ﻿* {
     font-family: sans-serif;
 }
+body{
+    margin: 0;
+}
     /* Centering  */
     .center100 {
         width: 100%;
@@ -131,6 +134,9 @@
         display: flex;
     }
     /*   Width    */
+    .Width2 {
+        width: 2% !important;
+    }
     .Width10 {
         width: 10% !important;
     }
@@ -178,6 +184,20 @@
     .Width100 {
         width: 100% !important;
     }
+    /* Height  */
+    .Height100{
+        height: 100% !important;
+    }
+    /*   Position   */
+    .PAbsol{
+        position: absolute;
+    }
+    .PRel{
+        position: relative;
+    }
+    .PFix{
+        position:fixed;
+    }
     /* FORMULÁRIO*/
     /* Submeter Imagens */
     .imgForm {
@@ -215,13 +235,10 @@
 
 
 
-
-
-
-
     .flexrow {
         display: flex !important;
-        width: 100%;
+        max-width:95vw;
+        min-width:70vw;
     }
     .slideDContainer {
     display: inline-block;
@@ -258,4 +275,33 @@
         padding: 0;
     }
  */
+
+.toggleSideBar{
+    display:inline-block;
+    cursor: pointer;
+    width:2vh;
+    padding-top:45vh;
+    padding-left:0.5vh;
+    padding-bottom:52vh;
+}
+.menuUserDisplay{
+    width:20%;
+    display:block;
+}
+.sideMenu{
+    display:block;
+    max-width:40vw;
+    min-width:20vw;
+}
+.menuBody{
+    width:30vw;
+    margin-left:-30vw;
+    display:inline-block !important;
+}
+.VAlignCenter{
+    vertical-align:middle !important;
+}
+.pageContent {
+    margin:0;
+}
 

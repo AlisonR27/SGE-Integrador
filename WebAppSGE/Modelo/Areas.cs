@@ -12,11 +12,6 @@ namespace WebAppSGE.Modelo
         public Areas() {
             desc = "";
         }
-        public Areas(int aid, string adesc)
-        {
-            this.id = aid;
-            this.desc = adesc;
-        }
         public Areas(string adesc)
         {
             this.desc = adesc;

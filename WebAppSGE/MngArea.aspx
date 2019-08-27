@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-           <script src="Script/default.js"></script>
+    <script src="Script/default.js"></script>
     <script src="Script/jquery341.js"></script>
     <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
 
@@ -23,19 +23,20 @@
             <asp:TextBox ID="TextBoxDesc" TextMode="MultiLine" runat="server"></asp:TextBox>
             <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator>
             <h6 class="inputTitle"> Imagens </h6>
-            <asp:FileUpload ID="FileUpload1" runat="server" />
+            <asp:FileUpload ID="FileUpload1" runat="server" />    
             <br />
-            <h6 class="inputTitle"> Lista de esportes: </h6>
             <h6 class="inputTitle"> Lista de Esportes: </h6>
-            <asp:DropDownList ID="SportsList" runat="server" DataSourceID="SportsOBJDS" DataTextField="nome" DataValueField="id"></asp:DropDownList>
-            <asp:ObjectDataSource ID="SportsOBJDS" runat="server" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport"></asp:ObjectDataSource>
-            <asp:Button runat="server" data="addSpo" ID="AddSport" OnClick="AddSport_Click" Text="Adicionar"/>
-            <br />
-            <div class="selectedSports">
-                <h5 class="TAlignCenter">Esportes selecionados</h5>
-                <ul class="selectedSportsList">
+            <div class="sportsBox" style="display:none;">
+                <asp:DropDownList ID="SportsList" runat="server" DataSourceID="SportsOBJDS" DataTextField="nome" DataValueField="id"></asp:DropDownList>
+                <asp:ObjectDataSource ID="SportsOBJDS" runat="server" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport"></asp:ObjectDataSource>
+                <asp:Button runat="server" ID="AddSport" OnClick="AddSportevent" Text="Adicionar"/>
+                <br />
+                <div class="selectedSports">
+                    <h5 class="TAlignCenter">Esportes selecionados</h5>
+                    <ul class="selectedSportsList">
                     
-                </ul>
+                    </ul>
+                </div>
             </div>
             <br />
             <h6 class="inputTitle"> Lista de dias: </h6>
@@ -145,10 +146,10 @@
             console.log('rodou');
         });
         //AddSport 
-        $('#AddSport').click(function () {
-            var string = $("#SportsList option:selected").text();
-            $(".selectedSportsList").append("<li>"+string+"</li>");
-        });
+       // $('#AddSport').click(function () {
+       //     var string = $("#SportsList option:selected").text();
+       //     $(".selectedSportsList").append("<li>"+string+"</li>");
+       // });
         //Ativar/Desativar Caixas de texto
         $('input[class="checkDay"]').click(function () {
             if ($(this).prop("checked") == true) { $(this).parents().children('input[type="text"]').prop("disabled", false); }

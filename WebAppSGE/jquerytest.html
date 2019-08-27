@@ -6,49 +6,73 @@
     <script src="Script/default.js"></script>
     <script src="Script/jquery341.js"></script>
     <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
+    <link href="fontawesome/css/all.css" rel="stylesheet" />
 </head>
 <body>
-    <div class="flexrow">
-        <div class="slideDContainer">
-            <div class="slideDTitle">
-                <h5>Domingo</h5>
+    <!-- NÃO MEXER NESSA DESGRAÇA -->
+    <nav class="sideMenu Height100 PFix">
+        <nav class="menuBody">
+            <div class="menuUserDisplay">
+                <div class="roundIMG"></div>
+                <h3>User Name</h3>
             </div>
-            <div class="slideDOcult">
-                <input type="checkbox" class="checkDay"/>
-                <h6> Inicio: </h6>
-                <input ID="TXTDomInit" disabled>
-                <br />
-                <h6>Fim:</h6>
-                <input ID="TXTDomEnd" disabled>
-            </div>
+            <ul class="vMenu">
+                <li> Agendar Area </li>
+                <li> Agendar Area </li>
+                <li> Agendar Area </li>
+                <li> Agendar Area </li>
+                <li> Agendar Area </li>
+            </ul>
+        </nav>
+        <div class="toggleSideBar" flag="false">
+            <i class="fa fa-angle-right"></i>
         </div>
-        <div class="slideDContainer">
-            <div class="slideDTitle">
-                <h5>Segunda</h5>
+
+    </nav>
+    <div class="pageContent">
+        <div class="flexrow">
+            <div class="slideDContainer">
+                <div class="slideDTitle">
+                    <h5>Domingo</h5>
+                </div>
+                <div class="slideDOcult">
+                    <input type="checkbox" class="checkDay" />
+                    <h6> Inicio: </h6>
+                    <input ID="TXTDomInit" disabled>
+                    <br />
+                    <h6>Fim:</h6>
+                    <input ID="TXTDomEnd" disabled>
+                </div>
             </div>
-            <div class="slideDOcult">
-                <input type="checkbox" class="checkDay"/>
-                <h6> Inicio: </h6>
-                <input type="text" ID="TXTSegInit" disabled/>
-                <br />
-                <h6>Fim:</h6>
-                <input type="text" ID="TXTSegEnd" disabled/>
+            <div class="slideDContainer">
+                <div class="slideDTitle">
+                    <h5>Segunda</h5>
+                </div>
+                <div class="slideDOcult">
+                    <input type="checkbox" class="checkDay" />
+                    <h6> Inicio: </h6>
+                    <input type="text" ID="TXTSegInit" disabled />
+                    <br />
+                    <h6>Fim:</h6>
+                    <input type="text" ID="TXTSegEnd" disabled />
+                </div>
             </div>
-        </div>
-        <div class="slideDContainer">
-            <div class="slideDTitle">
-                <h5>Terça</h5>
-            </div>
-            <div class="slideDOcult">
-                <input type="checkbox" class="checkDay"/>
-                <h6> Inicio: </h6>
-                <input type="text" ID="TXTTerInit" disabled/>
-                <br />
-                <h6>Fim:</h6>
-                <input type="text" ID="TXTTerEnd" disabled/>
+            <div class="slideDContainer">
+                <div class="slideDTitle">
+                    <h5>Terça</h5>
+                </div>
+                <div class="slideDOcult">
+                    <input type="checkbox" class="checkDay" />
+                    <h6> Inicio: </h6>
+                    <input type="text" ID="TXTTerInit" disabled />
+                    <br />
+                    <h6>Fim:</h6>
+                    <input type="text" ID="TXTTerEnd" disabled />
+                </div>
             </div>
         </div>
     </div>
+
     <script>
         //PageLoad
         $(document).ready(function () {
@@ -65,7 +89,22 @@
         //SlideDown Dias
         $('div[class="slideDTitle"]').click(function () {
             if ($(this).parents().children('div[class="slideDOcult"]').css("display") == "none") $(this).parents().children('div[class="slideDOcult"]').slideDown();
-            else { $(this).parents().children('div[class="slideDOcult"]').slideUp();  }
+            else { $(this).parents().children('div[class="slideDOcult"]').slideUp(); }
+        });
+        //SideMenu Slide
+        $('div[class="toggleSideBar"]').click(function () {
+            if ($(this).attr("flag") == "false") {
+                $(this).attr("flag", true).children('i').attr("class", "fa fa-angle-left");
+                $('nav[class="menuBody"]').animate({ marginLeft: 0 });
+                $('div[class="pageContent"]').animate({ marginLeft: '32vw' });
+
+            }
+            else {
+                $(this).attr("flag", false).children('i').attr("class", "fa fa-angle-right");
+                $('nav[class="menuBody"]').animate({ marginLeft: '-30vw' });
+                $('div[class="pageContent"]').animate({ marginLeft: '0' });
+
+            }
         });
     </script>
 </body>

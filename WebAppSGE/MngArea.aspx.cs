@@ -18,15 +18,18 @@ namespace WebAppSGE
         protected void Submit(object sender, EventArgs e)
         {
             DALArea oDALArea = new DALArea();
-            oDALArea.Insert(new Areas());
+            oDALArea.Insert(new Areas(TextBoxDesc.Text));
         }
         protected void FormSubmit_Click(object sender, EventArgs e)
         {
-
         }
 
-        protected void AddSport_Click(object sender, EventArgs e)
+        protected void AddSportevent(object sender, EventArgs e)
         {
+            DALAreaSport oDALAreaSport = new DALAreaSport();
+             // if (oDALAreaSport.Insert(new AreaSport(Alternadores.AlternadorI(SportsList.DataValueField), DALArea.NextIdentity()))) ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful();console.log('y');", true);
+            // else { ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed();console.log('n')", true); }
+            oDALAreaSport.Insert(new AreaSport(Alternadores.AlternadorI(SportsList.SelectedValue), DALArea.NextIdentity()));
         }
     }
 }

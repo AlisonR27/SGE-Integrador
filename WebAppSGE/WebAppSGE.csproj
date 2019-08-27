@@ -70,6 +70,20 @@
     <Content Include="App_Themes\Base\Basement.css" />
     <Content Include="App_Themes\Dark\Basement.css" />
     <Content Include="App_Themes\Light\LightBase.css" />
+    <Content Include="css\all.css" />
+    <Content Include="css\all.min.css" />
+    <Content Include="css\brands.css" />
+    <Content Include="css\brands.min.css" />
+    <Content Include="css\fontawesome.css" />
+    <Content Include="css\fontawesome.min.css" />
+    <Content Include="css\regular.css" />
+    <Content Include="css\regular.min.css" />
+    <Content Include="css\solid.css" />
+    <Content Include="css\solid.min.css" />
+    <Content Include="css\svg-with-js.css" />
+    <Content Include="css\svg-with-js.min.css" />
+    <Content Include="css\v4-shims.css" />
+    <Content Include="css\v4-shims.min.css" />
     <Content Include="jquerytest.html" />
     <Content Include="MngArea.aspx" />
     <Content Include="MngSport.aspx" />
@@ -82,7 +96,9 @@
   <ItemGroup>
     <Compile Include="DAL\Alternadores.cs" />
     <Compile Include="DAL\DALArea.cs" />
+    <Compile Include="DAL\DALAreaSport.cs" />
     <Compile Include="DAL\DALhDisponivel.cs" />
+    <Compile Include="DAL\DALImage.cs" />
     <Compile Include="DAL\DALSport.cs" />
     <Compile Include="DAL\DALUsuario.cs" />
     <Compile Include="MngArea.aspx.cs">
@@ -100,7 +116,9 @@
       <DependentUpon>MngSport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Areas.cs" />
+    <Compile Include="Modelo\AreaSport.cs" />
     <Compile Include="Modelo\hDisponivel.cs" />
+    <Compile Include="Modelo\Image.cs" />
     <Compile Include="Modelo\Sports.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -136,7 +154,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="src\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

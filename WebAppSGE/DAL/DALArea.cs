@@ -65,6 +65,25 @@ namespace WebAppSGE.DAL
             cmd.ExecuteNonQuery();
 
         }
-
+        public static int NextIdentity()
+        {
+            int i = 0;
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SGEConnectionString"].ConnectionString);
+            conn.Open();
+            SqlCommand com = conn.CreateCommand();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = "IDENT_CURRENT( 'table_or_view' )";
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    i = Alternadores.AlternadorI(dr[0].ToString());
+                }
+            }
+            dr.Close();
+            conn.Close();
+            return i++;
+        }
     } 
 }
