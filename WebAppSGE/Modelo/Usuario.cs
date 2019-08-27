@@ -5,26 +5,28 @@ using System.Web;
 
 namespace WebAppSGE.Modelo
 {
-    internal class Usuario
+    public class Usuario
     {
-        internal int id { get; set; }
-        internal string senha { get; set; }
-        internal int tipo { get; set; }
-        internal string nome { get; set; }
-        internal byte[] foto { get; set; }
-        internal string email { get; set; }
-        internal string telefone { get; set; }
+        public int id { get; set; }
+        public string senha { get; set; }
+        public int tipo { get; set; }
+        public string nome { get; set; }
+        public byte[] foto { get; set; }
+        public string fotoURL { get; set; }
+        public string email { get; set; }
+        public string telefone { get; set; }
 
-        internal Usuario()
+        public Usuario()
         {
             this.senha = "";
             this.tipo = 0;
             this.nome = "";
             this.foto = null;
+            this.fotoURL = "";
             this.email = "";
             this.telefone = "";
         }
-        internal Usuario(int aid, string asenha, int atipo, string anome, byte[] afoto, string aemail, string atelefone)
+        public Usuario(int aid, string asenha, int atipo, string anome, string afotoURL, byte[] afoto, string aemail, string atelefone)
         {
             this.id = aid;
             this.senha = asenha;

@@ -45,14 +45,22 @@ namespace WebAppSGE.DAL
                 return aListAreas;
             }
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.Areas obj)
+        public bool Insert(Modelo.Areas obj)
         {
-            SqlConnection conn = new SqlConnection(connectionstring);
-            conn.Open();
-            SqlCommand com = conn.CreateCommand();
-            SqlCommand cmd = new SqlCommand("INSERT INTO area_poliesportiva (descricao) VALUES(@descricao)", conn);
-            cmd.Parameters.AddWithValue("@descricao", obj.desc);
-            cmd.ExecuteNonQuery();
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionstring);
+                conn.Open();
+                SqlCommand com = conn.CreateCommand();
+                SqlCommand cmd = new SqlCommand("INSERT INTO area_poliesportiva (descricao) VALUES(@descricao)", conn);
+                cmd.Parameters.AddWithValue("@descricao", obj.desc);
+                cmd.ExecuteNonQuery();
+                return true;
+            }              
+            catch
+            {
+                return false;
+            }
         }
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public void Delete(Modelo.Areas obj)
