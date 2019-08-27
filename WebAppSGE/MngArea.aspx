@@ -124,7 +124,7 @@
                         <h5>Sábado</h5>
                     </div>
                     <div class="slideDOcult">
-                       <input type="checkbox" class="checkDay"  checked/>
+                       <input type="checkbox" class="checkDay" checked="checked"/>
                         <h6> Inicio: </h6>
                         <asp:TextBox runat="server" ID="TXTSabInit"></asp:TextBox>
                         <br />

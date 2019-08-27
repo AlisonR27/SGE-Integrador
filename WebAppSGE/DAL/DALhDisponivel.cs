@@ -46,16 +46,20 @@ namespace WebAppSGE.DAL
             return aListAreas;
         }
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.hDisponivel obj)
+        public bool Insert(Modelo.hDisponivel obj)
         {
-            SqlConnection conn = new SqlConnection(connectionstring);
-            conn.Open();
-            SqlCommand com = conn.CreateCommand();
-            SqlCommand cmd = new SqlCommand("INSERT INTO horario_Disponivel (id,dia_semana,hora_inicio,hora_fim,id_AreaPoliesportiva) VALUES(@id,@dia,@hinit,@hfim,@idArea)", conn);
-            cmd.Parameters.AddWithValue("@id", obj.id); cmd.Parameters.AddWithValue("@dia", obj.diaSemana); cmd.Parameters.AddWithValue("@hinit", obj.horaInicio); cmd.Parameters.AddWithValue("@hfim", obj.horaFim); cmd.Parameters.AddWithValue("@idArea", obj.idAreaEsportiva);
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionstring);
+                conn.Open();
+                SqlCommand com = conn.CreateCommand();
+                SqlCommand cmd = new SqlCommand("INSERT INTO horario_Disponivel (id,dia_semana,hora_inicio,hora_fim,id_AreaPoliesportiva) VALUES(@id,@dia,@hinit,@hfim,@idArea)", conn);
+                cmd.Parameters.AddWithValue("@id", obj.id); cmd.Parameters.AddWithValue("@dia", obj.diaSemana); cmd.Parameters.AddWithValue("@hinit", obj.horaInicio); cmd.Parameters.AddWithValue("@hfim", obj.horaFim); cmd.Parameters.AddWithValue("@idArea", obj.idAreaEsportiva);
 
-            cmd.ExecuteNonQuery();
-
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch { return false; }
         }
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public void Delete(Modelo.hDisponivel obj)

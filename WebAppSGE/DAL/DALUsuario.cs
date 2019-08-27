@@ -10,17 +10,17 @@ namespace WebAppSGE.DAL
 {
     public class DALUsuario
     {
-        internal class DALSport
+        public class DALSport
         {
             string connectionString = "";
 
-            internal DALSport()
+            public DALSport()
             {
                 connectionString = ConfigurationManager.ConnectionStrings
                           ["SGEConnectionString"].ConnectionString;
             }
             [DataObjectMethod(DataObjectMethodType.Select)]
-            internal List<Modelo.Usuario> SelectAll()
+            public List<Modelo.Usuario> SelectAll()
             {
                 Modelo.Usuario aUsuario;
                 List<Modelo.Usuario> aListUsuario = new List<Modelo.Usuario>();
@@ -38,7 +38,8 @@ namespace WebAppSGE.DAL
                             dr["senha"].ToString(),
                             Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()),
                             dr["nome"].ToString(),
-                            (byte[])dr["foto"],
+                            dr["email"].ToString(),
+                            (byte[])dr["img"],
                             dr["email"].ToString(),
                             dr["telefone"].ToString()
                         );
@@ -50,7 +51,7 @@ namespace WebAppSGE.DAL
                 return aListUsuario;
             }
             [DataObjectMethod(DataObjectMethodType.Delete)]
-            internal void Delete(Modelo.Usuario obj)
+            public void Delete(Modelo.Usuario obj)
             {
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
@@ -61,22 +62,27 @@ namespace WebAppSGE.DAL
 
             }
             [DataObjectMethod(DataObjectMethodType.Insert)]
-            internal void Insert(Modelo.Usuario obj)
+            public bool Insert(Modelo.Usuario obj)
             {
-                SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                SqlCommand com = conn.CreateCommand();
-                SqlCommand cmd = new SqlCommand("INSERT INTO usuario (senha,tipo_Usuario,nome,foto,email,telefone) VALUES(@senha,@tipo_Usuario,@nome,@foto,@email,@telefone)", conn);
-                cmd.Parameters.AddWithValue("@senha", obj.senha);
-                cmd.Parameters.AddWithValue("@tipo_Usuario", obj.tipo);
-                cmd.Parameters.AddWithValue("@nome", obj.nome);
-                cmd.Parameters.AddWithValue("@foto", obj.foto);
-                cmd.Parameters.AddWithValue("@email", obj.email);
-                cmd.Parameters.AddWithValue("@telefone", obj.telefone);
-                cmd.ExecuteNonQuery();
+                try
+                {
+                    SqlConnection conn = new SqlConnection(connectionString);
+                    conn.Open();
+                    SqlCommand com = conn.CreateCommand();
+                    SqlCommand cmd = new SqlCommand("INSERT INTO usuario (senha,tipo_Usuario,nome,foto,email,telefone) VALUES(@senha,@tipo_Usuario,@nome,@foto,@email,@telefone)", conn);
+                    cmd.Parameters.AddWithValue("@senha", obj.senha);
+                    cmd.Parameters.AddWithValue("@tipo_Usuario", obj.tipo);
+                    cmd.Parameters.AddWithValue("@nome", obj.nome);
+                    cmd.Parameters.AddWithValue("@foto", obj.fotoURL);
+                    cmd.Parameters.AddWithValue("@email", obj.email);
+                    cmd.Parameters.AddWithValue("@telefone", obj.telefone);
+                    cmd.ExecuteNonQuery();
+                    return true;
+                }
+                catch { return false; }
             }
             [DataObjectMethod(DataObjectMethodType.Update)]
-            internal void Update(Modelo.Usuario obj)
+            public void Update(Modelo.Usuario obj)
             {
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
@@ -85,14 +91,14 @@ namespace WebAppSGE.DAL
                 cmd.Parameters.AddWithValue("@senha", obj.senha);
                 cmd.Parameters.AddWithValue("@tipo_Usuario", obj.tipo);
                 cmd.Parameters.AddWithValue("@nome", obj.nome);
-                cmd.Parameters.AddWithValue("@foto", obj.foto);
+                cmd.Parameters.AddWithValue("@foto", obj.fotoURL);
                 cmd.Parameters.AddWithValue("@email", obj.email);
                 cmd.Parameters.AddWithValue("@telefone", obj.telefone);
 
                 cmd.ExecuteNonQuery();
             }
             [DataObjectMethod(DataObjectMethodType.Select)]
-            internal List<Modelo.Usuario> Select(string id)
+            public List<Modelo.Usuario> Select(string id)
             {
                 Modelo.Usuario aUsuario;
                 List<Modelo.Usuario> aListUsuario = new List<Modelo.Usuario>();
@@ -106,7 +112,7 @@ namespace WebAppSGE.DAL
                 {
                     while (dr.Read())
                     {
-                        aUsuario = new Modelo.Usuario(Alternadores.AlternadorI(dr["id"].ToString()), dr["senha"].ToString(), Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()), dr["nome"].ToString(), (byte[])dr["foto"], dr["email"].ToString(), dr["telefone"].ToString());
+                        aUsuario = new Modelo.Usuario(Alternadores.AlternadorI(dr["id"].ToString()), dr["senha"].ToString(), Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()), dr["nome"].ToString(), dr["foto"].ToString(), (byte[])dr["img"], dr["email"].ToString(), dr["telefone"].ToString());
                         aListUsuario.Add(aUsuario);
                     }
                 }
