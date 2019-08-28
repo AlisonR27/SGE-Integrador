@@ -79,18 +79,20 @@ namespace WebAppSGE.DAL
             conn.Open();
             SqlCommand com = conn.CreateCommand();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = "IDENT_CURRENT( 'table_or_view' )";
+            cmd.CommandText = @"select top(1) id from area_Poliesportiva
+                                order by id desc";
+            cmd.Connection = conn;
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
                 while (dr.Read())
                 {
-                    i = Alternadores.AlternadorI(dr[0].ToString());
+                    i = Alternadores.AlternadorI(dr["id"].ToString());
                 }
             }
             dr.Close();
             conn.Close();
-            return i++;
+            return i;
         }
     } 
 }

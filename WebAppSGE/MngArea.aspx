@@ -134,27 +134,15 @@
             </div>     
             <asp:Button runat="server" Text="Submeter dias"/>
         <asp:Button runat="server" OnClick="Submit" id="FormSubmit"/>
-  <!--  </form>
-    <script>
-        //PageLoad
-        $(document).ready(function () {
-            $('div[class="slideDOcult"]').css("display", "block");
-            $('div[class="slideDTitle"]').css("width", $('div[class="slideDOcult"]').css("width"));
-            $('div[class="slideDOcult"]').css("display", "none");
-            console.log('rodou');
-        });
-        //AddSport 
-        $('#AddSport').click(function () {
-            var flag = false;
-            var string = $("#SportsList option:selected").text();
-            $("h6.sportItem").each(
-                function () {
-                    if ($(this).attr("data") == $("#SportsList option:selected").attr("value")) flag = true;
-                }
-            );
-            if (!flag)
-            $(".selectedSportsList").append("<h6 class=\"sportItem\" data="+$("#SportsList option:selected").attr("value")+">"+string+"</h6>");
-        })
+    </form>
+   <script>
+         //PageLoad
+      //  $(document).ready(function () {
+        //    $('div[class="slideDOcult"]').css("display", "block");
+       //     $('div[class="slideDTitle"]').css("width", $('div[class="slideDOcult"]').css("width"));
+        //    $('div[class="slideDOcult"]').css("display", "none");
+        //    console.log('rodou');
+      //  });
         //Ativar/Desativar Caixas de texto
         $('input[class="checkDay"]').click(function () {
             if ($(this).prop("checked") == true) { $(this).parents().children('input[type="text"]').prop("disabled", false); }
@@ -166,6 +154,5 @@
             else { $(this).parents().children('div[class="slideDOcult"]').slideUp();  }
         });
     </script>
-    -->
 </body>
 </html>

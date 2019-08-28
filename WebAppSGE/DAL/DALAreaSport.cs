@@ -53,14 +53,22 @@ namespace WebAppSGE.DAL
 
         }
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void Insert(Modelo.AreaSport obj)
+        public bool Insert(Modelo.AreaSport obj)
         {
+            try { 
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
                 SqlCommand com = conn.CreateCommand();
-                SqlCommand cmd = new SqlCommand("INSERT INTO area_Atividade  VALUES(@id1, @id2)", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO area_Atividade (id_AreaPoliesportiva,id_AtividadeEsportiva) VALUES(@id1, @id2)", conn);
                 cmd.Parameters.AddWithValue("@id1", obj.idArea);
                 cmd.Parameters.AddWithValue("@id2", obj.idSport);
-                cmd.ExecuteNonQuery();        }
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+            }
     }
 }

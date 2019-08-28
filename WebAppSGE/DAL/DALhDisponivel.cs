@@ -31,7 +31,6 @@ namespace WebAppSGE.DAL
                 while (dr.Read())
                 {
                     aArea = new Modelo.hDisponivel(
-                        Alternadores.AlternadorI(dr["id"].ToString()),
                         Alternadores.AlternadorI(dr["dia_semana"].ToString()),
                         dr["hora_inicio"].ToString(),
                         dr["hora_fim"].ToString(),
@@ -53,9 +52,11 @@ namespace WebAppSGE.DAL
                 SqlConnection conn = new SqlConnection(connectionstring);
                 conn.Open();
                 SqlCommand com = conn.CreateCommand();
-                SqlCommand cmd = new SqlCommand("INSERT INTO horario_Disponivel (id,dia_semana,hora_inicio,hora_fim,id_AreaPoliesportiva) VALUES(@id,@dia,@hinit,@hfim,@idArea)", conn);
-                cmd.Parameters.AddWithValue("@id", obj.id); cmd.Parameters.AddWithValue("@dia", obj.diaSemana); cmd.Parameters.AddWithValue("@hinit", obj.horaInicio); cmd.Parameters.AddWithValue("@hfim", obj.horaFim); cmd.Parameters.AddWithValue("@idArea", obj.idAreaEsportiva);
-
+                SqlCommand cmd = new SqlCommand("INSERT INTO horario_Disponivel (dia_semana,hora_inicio,hora_fim,id_AreaPoliesportiva) VALUES(@dia,@hinit,@hfim,@idArea)", conn);
+                cmd.Parameters.AddWithValue("@dia", obj.diaSemana);
+                cmd.Parameters.AddWithValue("@hinit", obj.horaInicio);
+                cmd.Parameters.AddWithValue("@hfim", obj.horaFim);
+                cmd.Parameters.AddWithValue("@idArea", obj.idAreaEsportiva);
                 cmd.ExecuteNonQuery();
                 return true;
             }
