@@ -16,7 +16,7 @@
         <div class="loginMegaBox">
             <div class="logo"></div>
             <div class="loginForm">
-                <asp:Login ID="Login1" runat="server"></asp:Login>
+                <asp:Login ID="Login1" runat="server" OnLoggingIn="Login1_LoggingIn" ></asp:Login>
             </div>
         </div>
         
