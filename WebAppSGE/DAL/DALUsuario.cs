@@ -10,14 +10,11 @@ namespace WebAppSGE.DAL
 {
     public class DALUsuario
     {
-        public class DALSport
-        {
             string connectionString = "";
 
-            public DALSport()
+            public DALUsuario()
             {
-                connectionString = ConfigurationManager.ConnectionStrings
-                          ["SGEConnectionString"].ConnectionString;
+                connectionString = ConfigurationManager.ConnectionStrings["SGEConnectionString"].ConnectionString;
             }
             [DataObjectMethod(DataObjectMethodType.Select)]
             public List<Modelo.Usuario> SelectAll()
@@ -34,7 +31,6 @@ namespace WebAppSGE.DAL
                     while (dr.Read())
                     {
                         aUsuario = new Modelo.Usuario(
-                            Alternadores.AlternadorI(dr["id"].ToString()),
                             dr["senha"].ToString(),
                             Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()),
                             dr["nome"].ToString(),
@@ -69,11 +65,10 @@ namespace WebAppSGE.DAL
                     SqlConnection conn = new SqlConnection(connectionString);
                     conn.Open();
                     SqlCommand com = conn.CreateCommand();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO usuario (senha,tipo_Usuario,nome,foto,email,telefone) VALUES(@senha,@tipo_Usuario,@nome,@foto,@email,@telefone)", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Usuario (senha,tipo_Usuario,nome,email,telefone) VALUES(@senha,@tipo_Usuario,@nome,@email,@telefone)", conn);
                     cmd.Parameters.AddWithValue("@senha", obj.senha);
                     cmd.Parameters.AddWithValue("@tipo_Usuario", obj.tipo);
                     cmd.Parameters.AddWithValue("@nome", obj.nome);
-                    cmd.Parameters.AddWithValue("@foto", obj.fotoURL);
                     cmd.Parameters.AddWithValue("@email", obj.email);
                     cmd.Parameters.AddWithValue("@telefone", obj.telefone);
                     cmd.ExecuteNonQuery();
@@ -87,7 +82,7 @@ namespace WebAppSGE.DAL
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
                 SqlCommand com = conn.CreateCommand();
-                SqlCommand cmd = new SqlCommand("UPDATE atividadeEsportiva SET senha = @senha, tipo_Usuario = @tipo_Usuario, nome = @nome, foto = @foto, email = @email, telefone = @telefone WHERE id = @id", conn);
+                SqlCommand cmd = new SqlCommand("UPDATE Usuario SET senha = @senha, tipo_Usuario = @tipo_Usuario, nome = @nome, foto = @foto, email = @email, telefone = @telefone WHERE id = @id", conn);
                 cmd.Parameters.AddWithValue("@senha", obj.senha);
                 cmd.Parameters.AddWithValue("@tipo_Usuario", obj.tipo);
                 cmd.Parameters.AddWithValue("@nome", obj.nome);
@@ -105,14 +100,14 @@ namespace WebAppSGE.DAL
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "Select * from usuario Where id = @id";
+                cmd.CommandText = "Select * from Usuario Where id = @id";
                 cmd.Parameters.AddWithValue("@id", id);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
                     while (dr.Read())
                     {
-                        aUsuario = new Modelo.Usuario(Alternadores.AlternadorI(dr["id"].ToString()), dr["senha"].ToString(), Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()), dr["nome"].ToString(), dr["foto"].ToString(), (byte[])dr["img"], dr["email"].ToString(), dr["telefone"].ToString());
+                        aUsuario = new Modelo.Usuario(dr["senha"].ToString(), Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()), dr["nome"].ToString(), dr["email"].ToString(), dr["telefone"].ToString());
                         aListUsuario.Add(aUsuario);
                     }
                 }
@@ -122,4 +117,3 @@ namespace WebAppSGE.DAL
             }
         }
     }
-}

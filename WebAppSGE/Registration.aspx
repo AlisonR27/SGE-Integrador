@@ -19,8 +19,12 @@
         <asp:BulletedList ID="selectedPhones" runat="server">
 
         </asp:BulletedList>
-        <h5>Nome:</h5>
-        <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox><br />
+        <h5>Senha:</h5>
+        <asp:TextBox runat="server" ID="Pass"></asp:TextBox>
+        <h5>Confirme a senha:</h5>
+      <!--    <asp:TextBox runat="server" ID="ConfirmPass" TextMode="Password"></asp:TextBox><br />-->
+        <br />
+      <asp:Button ID="Button2" runat="server" OnClick="Button2_Click" Text="Cadastrar usuário" /> 
     </form>
 </body>
 </html>
