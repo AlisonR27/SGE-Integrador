@@ -85,8 +85,10 @@
     <Content Include="css\v4-shims.css" />
     <Content Include="css\v4-shims.min.css" />
     <Content Include="jquerytest.html" />
+    <Content Include="Login.aspx" />
     <Content Include="MngArea.aspx" />
     <Content Include="MngSport.aspx" />
+    <Content Include="Registration.aspx" />
     <Content Include="Script\default.js" />
     <Content Include="Script\jquery341.js" />
     <Content Include="StyleTesting.aspx" />
@@ -101,6 +103,13 @@
     <Compile Include="DAL\DALImage.cs" />
     <Compile Include="DAL\DALSport.cs" />
     <Compile Include="DAL\DALUsuario.cs" />
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
     <Compile Include="MngArea.aspx.cs">
       <DependentUpon>MngArea.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -122,6 +131,13 @@
     <Compile Include="Modelo\Sports.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registration.aspx.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registration.aspx.designer.cs">
+      <DependentUpon>Registration.aspx</DependentUpon>
+    </Compile>
     <Compile Include="SGE.master.cs">
       <DependentUpon>SGE.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
