@@ -67,12 +67,30 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.BulletedList selectedPhones;
         
         /// <summary>
-        /// Controle TextBox4.
+        /// Controle Pass.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox Pass;
+        
+        /// <summary>
+        /// Controle ConfirmPass.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox ConfirmPass;
+        
+        /// <summary>
+        /// Controle Button2.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }
