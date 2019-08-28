@@ -22,7 +22,7 @@ namespace WebAppSGE.Modelo
             this.tipo = 0;
             this.nome = "";
             this.foto = null;
-            this.fotoURL = "";
+            this.fotoURL = "aa";
             this.email = "";
             this.telefone = "";
         }
@@ -34,12 +34,12 @@ namespace WebAppSGE.Modelo
             this.email = aemail;
             this.telefone = atelefone;
         }
-        public Usuario(string asenha, int atipo, string anome, string afotoURL, byte[] afoto, string aemail, string atelefone)
+        public Usuario(string asenha, int atipo, string anome, string afotoURL, string aemail, string atelefone)
         {
             this.senha = asenha;
             this.tipo = atipo;
             this.nome = anome;
-            this.foto = afoto;
+            this.fotoURL = afotoURL;
             this.email = aemail;
             this.telefone = atelefone;
         }

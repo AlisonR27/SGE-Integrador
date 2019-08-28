@@ -42,7 +42,7 @@ namespace WebAppSGE
                 TXT[6, 1] = TXTSabEnd.Text;
                 foreach (hDisponivel a in h)
                 {
-                    if (oDALhDisponivel.Insert(new hDisponivel(b+1, TXT[b, 0], TXT[b, 1], DALArea.NextIdentity()))) c++;
+                    if (oDALhDisponivel.Insert(new hDisponivel(b+1, TXT[b, 0], TXT[b, 1], DALArea.Identity()))) c++;
                     b++;
                 }
                 if (c == 7)
@@ -55,7 +55,7 @@ namespace WebAppSGE
                 DALAreaSport oDALAreaSport = new DALAreaSport();
                 foreach (ListItem li in selectedSportsL.Items)
             {
-                 if (oDALAreaSport.Insert(new AreaSport(DALArea.NextIdentity(), Alternadores.AlternadorI(li.Value))))
+                 if (oDALAreaSport.Insert(new AreaSport(DALArea.Identity(), Alternadores.AlternadorI(li.Value))))
                 {
                     ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
                 }

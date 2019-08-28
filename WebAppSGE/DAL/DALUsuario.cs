@@ -35,7 +35,6 @@ namespace WebAppSGE.DAL
                             Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()),
                             dr["nome"].ToString(),
                             dr["email"].ToString(),
-                            (byte[])dr["img"],
                             dr["email"].ToString(),
                             dr["telefone"].ToString()
                         );
@@ -60,21 +59,24 @@ namespace WebAppSGE.DAL
             [DataObjectMethod(DataObjectMethodType.Insert)]
             public bool Insert(Modelo.Usuario obj)
             {
-                try
-                {
+            try { 
                     SqlConnection conn = new SqlConnection(connectionString);
                     conn.Open();
                     SqlCommand com = conn.CreateCommand();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO Usuario (senha,tipo_Usuario,nome,email,telefone) VALUES(@senha,@tipo_Usuario,@nome,@email,@telefone)", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Usuario (senha,tipo_Usuario,nome,foto,email,telefones) VALUES(@senha,@tipo_Usuario,@nome,@foto,@email,@telefone)", conn);
                     cmd.Parameters.AddWithValue("@senha", obj.senha);
                     cmd.Parameters.AddWithValue("@tipo_Usuario", obj.tipo);
                     cmd.Parameters.AddWithValue("@nome", obj.nome);
+                    cmd.Parameters.AddWithValue("@foto", obj.fotoURL);
                     cmd.Parameters.AddWithValue("@email", obj.email);
                     cmd.Parameters.AddWithValue("@telefone", obj.telefone);
                     cmd.ExecuteNonQuery();
                     return true;
-                }
-                catch { return false; }
+            }
+            catch
+            {
+                return false;
+            }
             }
             [DataObjectMethod(DataObjectMethodType.Update)]
             public void Update(Modelo.Usuario obj)
@@ -115,5 +117,27 @@ namespace WebAppSGE.DAL
                 conn.Close();
                 return aListUsuario;
             }
+        public static int Identity()
+        {
+            int i = 0;
+            SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SGEConnectionString"].ConnectionString);
+            conn.Open();
+            SqlCommand com = conn.CreateCommand();
+            SqlCommand cmd = new SqlCommand();
+            cmd.CommandText = @"select top(1) id from usuario
+                                order by id desc";
+            cmd.Connection = conn;
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    i = Alternadores.AlternadorI(dr["id"].ToString());
+                }
+            }
+            dr.Close();
+            conn.Close();
+            return i+1;
         }
+    }
     }

@@ -6,9 +6,14 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
+        <script src="Script/default.js"></script>
+    <script src="Script/jquery341.js"></script>
+    <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
 </head>
 <body>
     <form id="form1" runat="server">
+        <h5>ID</h5><br />
+        <asp:TextBox ID="TXTId" runat="server" ReadOnly="true" Enabled="false"></asp:TextBox>
         <h5>Nome:</h5>
         <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />
         <h5>email:</h5>

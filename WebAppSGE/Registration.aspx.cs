@@ -15,7 +15,7 @@ namespace WebAppSGE
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            TXTId.Text = DALUsuario.Identity().ToString();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -45,8 +45,7 @@ namespace WebAppSGE
             foreach (ListItem li in selectedPhones.Items) {
                 phones += li.Text+";";
             }
-            if (oDALUsuario.Insert(new Usuario(Pass.Text, 2, TextBox1.Text,TextBox2.Text,phones)))
-                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
+            if (oDALUsuario.Insert(new Usuario(Pass.Text, 2, TextBox1.Text,"aaa",TextBox2.Text,phones))) ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
                 else
                 {
                     ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);

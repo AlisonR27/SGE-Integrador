@@ -72,7 +72,7 @@ namespace WebAppSGE.DAL
             cmd.ExecuteNonQuery();
 
         }
-        public static int NextIdentity()
+        public static int Identity()
         {
             int i = 0;
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SGEConnectionString"].ConnectionString);
