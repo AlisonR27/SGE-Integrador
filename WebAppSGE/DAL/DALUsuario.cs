@@ -109,10 +109,11 @@ namespace WebAppSGE.DAL
                 {
                     while (dr.Read())
                     {
-                        aUsuario = new Modelo.Usuario(dr["senha"].ToString(), Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()), dr["nome"].ToString(), dr["email"].ToString(), dr["telefone"].ToString());
+                        aUsuario = new Modelo.Usuario(dr["senha"].ToString(), Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()), dr["nome"].ToString(), dr["email"].ToString(), dr["telefones"].ToString());
                         aListUsuario.Add(aUsuario);
                     }
                 }
+                else { return null; }
                 dr.Close();
                 conn.Close();
                 return aListUsuario;
