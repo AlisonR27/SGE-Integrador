@@ -14,5 +14,12 @@ namespace WebAppSGE.DAL
             else d = 0;
             return d;
         }
+        public static DateTime AlternadorDT(string c)
+        {
+            DateTime d;
+            if (c != "") d = Convert.ToDateTime(c);
+            else d = new DateTime();
+            return d;
+        }
     }
 }
