@@ -48,17 +48,21 @@ namespace WebAppSGE.DAL
             return aListSolicitacaoReserva;
         }
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public bool InsertUsuario(Modelo.SolicitacaoReserva obj)
+        public bool Insert(Modelo.SolicitacaoReserva obj)
         {
             try
             {
                 SqlConnection conn = new SqlConnection(connectionstring);
                 conn.Open();
                 SqlCommand com = conn.CreateCommand();
-                SqlCommand cmd = new SqlCommand("INSERT INTO area_poliesportiva (horario_Solicitacao,atividades_Realizadas ,motivo_Solicitacao,Data_ini,Data_fim,id_Usuario_Solicitante,id_AreaPoliesportiva) VALUES(@horario_Solicitacao,@atividades_Realizadas,@motivo_Solicitacao,@Data_ini,Data_fim,@id_Usuario_Solicitante,@id_AreaPoliesportiva)", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO solicitacao_Reserva (horario_Solicitacao,atividades_Realizadas ,motivo_Solicitacao,Data_ini,Data_fim,id_Usuario_Solicitante,id_AreaPoliesportiva) VALUES(@horario_Solicitacao,@atividades_Realizadas,@motivo_Solicitacao,@Data_ini,Data_fim,@id_Usuario_Solicitante,@id_AreaPoliesportiva)", conn);
                 cmd.Parameters.AddWithValue("@horario_Solicitacao", obj.horario_Solicitacao);
                 cmd.Parameters.AddWithValue("@atividades_Realizadas", obj.atividades_Realizadas);
                 cmd.Parameters.AddWithValue("@motivo_Solicitacao", obj.motivo_Solicitacao);
+                cmd.Parameters.AddWithValue("@Data_ini", obj.Data_ini);
+                cmd.Parameters.AddWithValue("@Data_fim", obj.Data_fim);
+                cmd.Parameters.AddWithValue("@id_Usuario_Solicitante", obj.id_Usuario_Solicitante);
+                cmd.Parameters.AddWithValue("@id_AreaPoliesportiva", obj.id_AreaPoliesportiva);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -73,7 +77,7 @@ namespace WebAppSGE.DAL
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             SqlCommand com = conn.CreateCommand();
-            SqlCommand cmd = new SqlCommand("DELETE FROM area_poliesportiva WHERE ID = @id", conn);
+            SqlCommand cmd = new SqlCommand("DELETE FROM solicitacao_Reserva WHERE ID = @id", conn);
             cmd.Parameters.AddWithValue("@id", obj.id);
             cmd.ExecuteNonQuery();
 
@@ -85,7 +89,7 @@ namespace WebAppSGE.DAL
             conn.Open();
             SqlCommand com = conn.CreateCommand();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"select top(1) id from area_Poliesportiva
+            cmd.CommandText = @"select top(1) id from solicitacao_Reserva
                                 order by id desc";
             cmd.Connection = conn;
             SqlDataReader dr = cmd.ExecuteReader();
@@ -100,5 +104,52 @@ namespace WebAppSGE.DAL
             conn.Close();
             return i;
         }
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public bool UpdateUsuario(Modelo.SolicitacaoReserva obj)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionstring);
+                conn.Open();
+                SqlCommand com = conn.CreateCommand();
+                SqlCommand cmd = new SqlCommand("UPDATE solicitacao_Reserva SET horario_Solicitacao = @horario_Solicitacao,atividades = @atividades_Realizadas,motivo_Solicitacao = @motivo_Solicitacao,Data_ini = @Data_ini,Data_fim = @Data_fim,id_Usuario_Solicitante = @id_Usuario_Solicitante,id_AreaPoliesportiva = @id_AreaPoliesportiva, WHERE id = @id", conn);
+                cmd.Parameters.AddWithValue("@id", obj.id);
+                cmd.Parameters.AddWithValue("@horario_Solicitacao", obj.horario_Solicitacao);
+                cmd.Parameters.AddWithValue("@atividades_Realizadas", obj.atividades_Realizadas);
+                cmd.Parameters.AddWithValue("@motivo_Solicitacao", obj.motivo_Solicitacao);
+                cmd.Parameters.AddWithValue("@Data_ini", obj.Data_ini);
+                cmd.Parameters.AddWithValue("@Data_fim", obj.Data_fim);
+                cmd.Parameters.AddWithValue("@id_Usuario_Solicitante", obj.id_Usuario_Solicitante);
+                cmd.Parameters.AddWithValue("@id_AreaPoliesportiva", obj.id_AreaPoliesportiva);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch { return false; }
+        }
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public bool UpdateAdmin(Modelo.SolicitacaoReserva obj)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionstring);
+                conn.Open();
+                SqlCommand com = conn.CreateCommand();
+                SqlCommand cmd = new SqlCommand("UPDATE solicitacao_Reserva SET horario_Solicitacao = @horario_Solicitacao,atividades = @atividades_Realizadas,motivo_Solicitacao = @motivo_Solicitacao,motivo_Indeferimento = @motivo_Indeferimento,Data_ini = @Data_ini,Data_fim = @Data_fim,id_Usuario_Solicitante = @id_Usuario_Solicitante,id_Usuario_Analise = @id_Usuario_Analise,id_AreaPoliesportiva = @id_AreaPoliesportiva, WHERE id = @id", conn);
+                cmd.Parameters.AddWithValue("@id", obj.id);
+                cmd.Parameters.AddWithValue("@horario_Solicitacao", obj.horario_Solicitacao);
+                cmd.Parameters.AddWithValue("@atividades_Realizadas", obj.atividades_Realizadas);
+                cmd.Parameters.AddWithValue("@motivo_Solicitacao", obj.motivo_Solicitacao);
+                cmd.Parameters.AddWithValue("@motivo_Indeferimento", obj.motivo_Indeferimento);
+                cmd.Parameters.AddWithValue("@Data_ini", obj.Data_ini);
+                cmd.Parameters.AddWithValue("@Data_fim", obj.Data_fim);
+                cmd.Parameters.AddWithValue("@id_Usuario_Solicitante", obj.id_Usuario_Solicitante);
+                cmd.Parameters.AddWithValue("@id_Usuario_Analise", obj.id_Usuario_Analise);
+                cmd.Parameters.AddWithValue("@id_AreaPoliesportiva", obj.id_AreaPoliesportiva);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch { return false; }
+        }
+
     }
 }
