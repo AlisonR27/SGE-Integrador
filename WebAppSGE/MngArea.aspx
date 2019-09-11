@@ -2,39 +2,56 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html style="width:100vw;height:100vh;;background:linear-gradient(45deg,#999,#d0d0d0);background-size:cover;background-repeat:no-repeat;" xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <script src="Script/default.js"></script>
     <script src="Script/jquery341.js"></script>
     <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap-grid.css" />
 
 </head>
 <body>
     <form id="form1" runat="server">
+        <div class="container-fluid">
         <div>
             <h2>Gerenciamento de áreas poliesportivas </h2>
             <hr />
-            <h6 class="inputTitle">Nome:</h6>
-            <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ControlToValidate="TextBoxName" runat="server"></asp:RequiredFieldValidator> 
-            <h6 class="inputTitle">Descrição:</h6>
-            <asp:TextBox ID="TextBoxDesc" TextMode="MultiLine" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator> 
-            <h6 class="inputTitle"> Imagens </h6>
-            <asp:FileUpload ID="FileUpload1" runat="server" />    
-            <br />
+            <div class="Row">
+                <div class="col-sm-6">
+                    <h6 class="inputTitle">Nome:</h6>
+                    <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ControlToValidate="TextBoxName" runat="server"></asp:RequiredFieldValidator> 
+                    <h6 class="inputTitle">Descrição:</h6>
+                    <asp:TextBox ID="TextBoxDesc" TextMode="MultiLine" runat="server"></asp:TextBox>
+                    <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator> 
+                </div>
+                <div class="col-sm-6">
+                    <h6 class="inputTitle"> Imagens </h6>            
+                    <asp:FileUpload ID="FileUpload1" runat="server" />    
+                    <br />
+                </div>
+            </div>            
             <h6 class="inputTitle"> Lista de Esportes: </h6>
-                <asp:DropDownList ID="SportsList" runat="server" DataSourceID="SportsOBJDS" DataTextField="nome" DataValueField="id"></asp:DropDownList>
-                <asp:ObjectDataSource ID="SportsOBJDS" runat="server" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport"></asp:ObjectDataSource>
-                <asp:Button runat="server" ID="AddSport" Text="Adicionar"/>
-            <asp:Button ID="Button1" runat="server" Text="Button" onclick="Button1_Click"/>
-                <br />
-                <div class="selectedSports">
-                    <h5 class="TAlignCenter">Esportes selecionados</h5>
-                    <asp:BulletedList runat="server" id="selectedSportsL" class="selectedSportsList">
-                    </asp:BulletedList>
+            <div class="Row">
+                <div class="col-sm-6 ">
+                    <div class="selectedSports">
+                        <h5 class="TAlignCenter">Esportes selecionados</h5>
+                        <asp:BulletedList runat="server" id="selectedSportsL" class="selectedSportsList">
+                        </asp:BulletedList>
+                    </div>
+                </div>
+                    <div class="col-sm-6">
+                        <div class="Row">
+                        <asp:DropDownList ID="SportsList" runat="server" DataSourceID="SportsOBJDS" DataTextField="nome" DataValueField="id"></asp:DropDownList>
+                        <asp:ObjectDataSource ID="SportsOBJDS" runat="server" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport"></asp:ObjectDataSource>
+                        </div>
+                        <div class="Row mt-4">
+                    <asp:Button ID="Button1" runat="server" Text="Adicionar" onclick="Button1_Click"/>
+                        <br />   
+                        </div>
+                    </div>
                 </div>
             </div>
             <br />
@@ -132,8 +149,8 @@
                     </div>
                 </div>
             </div>     
-            <asp:Button runat="server" Text="Submeter dias"/>
-        <asp:Button runat="server" OnClick="Submit" id="FormSubmit"/>
+        <asp:Button runat="server" OnClick="Submit" id="FormSubmit" Text="Submeter dias"/>
+        </div>
     </form>
    <script>
          //PageLoad

@@ -72,6 +72,12 @@
     <Content Include="App_Themes\Light\LightBase.css" />
     <Content Include="css\all.css" />
     <Content Include="css\all.min.css" />
+    <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap-grid.css" />
+    <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap-grid.min.css" />
+    <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap-reboot.css" />
+    <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap-reboot.min.css" />
+    <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap.css" />
+    <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap.min.css" />
     <Content Include="css\brands.css" />
     <Content Include="css\brands.min.css" />
     <Content Include="css\fontawesome.css" />
@@ -163,6 +169,12 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap-grid.css.map" />
+    <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap-grid.min.css.map" />
+    <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap-reboot.css.map" />
+    <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap-reboot.min.css.map" />
+    <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap.css.map" />
+    <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap.min.css.map" />
     <None Include="packages.config" />
     <Content Include="SGE.master" />
     <None Include="Web.Debug.config">
