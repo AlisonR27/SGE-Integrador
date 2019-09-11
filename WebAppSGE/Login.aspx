@@ -60,14 +60,14 @@
                         <h3>Fazer Logon</h3>
                         <div class="center100 centerChild">
                             <div class="localflexrow">
-                                <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">Nome do Usuário:</asp:Label>
+                                <asp:Label ID="UserNameLabel" CssClass="Width40" runat="server" AssociatedControlID="UserName">Nome do Usuário:</asp:Label>
                                 <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="UserNAme" Text="O campo é obrigatório"></asp:RequiredFieldValidator>       
 
                             </div>
                             <br />         
                             <div class="localflexrow">
-                                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Senha:</asp:Label>
+                                <asp:Label ID="PasswordLabel" CssClass="Width40" runat="server" AssociatedControlID="Password">Senha:</asp:Label>
                                 <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
                                 <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" Text="O campo é obrigatório"></asp:RequiredFieldValidator>       
                             </div>

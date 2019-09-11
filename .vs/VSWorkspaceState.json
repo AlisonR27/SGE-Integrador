@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\packages",
+    "\\WebAppSGE",
+    "\\WebAppSGE\\css"
   ],
   "SelectedNode": "\\WebAppSGE.sln",
   "PreviewInSolutionExplorer": false
