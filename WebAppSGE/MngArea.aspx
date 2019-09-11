@@ -18,10 +18,10 @@
             <hr />
             <h6 class="inputTitle">Nome:</h6>
             <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ControlToValidate="TextBoxName" runat="server"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ControlToValidate="TextBoxName" runat="server"></asp:RequiredFieldValidator> 
             <h6 class="inputTitle">Descrição:</h6>
             <asp:TextBox ID="TextBoxDesc" TextMode="MultiLine" runat="server"></asp:TextBox>
-            <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator> 
             <h6 class="inputTitle"> Imagens </h6>
             <asp:FileUpload ID="FileUpload1" runat="server" />    
             <br />
@@ -137,12 +137,7 @@
     </form>
    <script>
          //PageLoad
-      //  $(document).ready(function () {
-        //    $('div[class="slideDOcult"]').css("display", "block");
-       //     $('div[class="slideDTitle"]').css("width", $('div[class="slideDOcult"]').css("width"));
-        //    $('div[class="slideDOcult"]').css("display", "none");
-        //    console.log('rodou');
-      //  });
+
         //Ativar/Desativar Caixas de texto
         $('input[class="checkDay"]').click(function () {
             if ($(this).prop("checked") == true) { $(this).parents().children('input[type="text"]').prop("disabled", false); }

@@ -21,8 +21,8 @@ namespace WebAppSGE
             DAL.DALUsuario D = new DAL.DALUsuario();
             Usuario o = new Usuario();
             Usuario s = new Usuario();
-            o.id = Alternadores.AlternadorI(Login1.UserName.ToString());
-            o.senha = Login1.Password.ToString();
+            o.id = Alternadores.AlternadorI(UserName.Text.ToString());
+            o.senha = Password.Text.ToString();
             List<Usuario> list = new List<Usuario>();
             list = D.Select(o.id.ToString());
             if (list == null)
