@@ -101,6 +101,7 @@
     <Compile Include="DAL\DALAreaSport.cs" />
     <Compile Include="DAL\DALhDisponivel.cs" />
     <Compile Include="DAL\DALImage.cs" />
+    <Compile Include="DAL\DALSolicitacaoReserva.cs" />
     <Compile Include="DAL\DALSport.cs" />
     <Compile Include="DAL\DALUsuario.cs" />
     <Compile Include="Login.aspx.cs">
@@ -128,6 +129,7 @@
     <Compile Include="Modelo\AreaSport.cs" />
     <Compile Include="Modelo\hDisponivel.cs" />
     <Compile Include="Modelo\Image.cs" />
+    <Compile Include="Modelo\SolicitacaoReserva.cs" />
     <Compile Include="Modelo\Sports.cs" />
     <Compile Include="Modelo\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
