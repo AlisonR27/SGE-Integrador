@@ -41,7 +41,6 @@
             top: 10px;
             background-color: #0CA22E;
             color: white;
-            border-radius: 5px;
         }
 
         .gridview_sport{
@@ -69,7 +68,7 @@
         <asp:Button runat="server" ID="SubmitButton" OnClick="FormSubmit_Click" Text="Submeter" class="submit_btn"/>
         <br />
         <h2 class="ttl">Atividades esportivas já cadastradas:</h2>
-        <asp:GridView ID="SportsView" runat="server" DataSourceID="SportsOBJDS" class="gridview_sport" BackColor="White"></asp:GridView>
+        <asp:GridView ID="SportsView" runat="server" DataSourceID="SportsOBJDS" class="gridview_sport" BackColor="White" EnableViewState="False"></asp:GridView>
         
         <asp:ObjectDataSource ID="SportsOBJDS" runat="server" DataObjectTypeName="WebAppSGE.Modelo.Sports" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport" UpdateMethod="Update"></asp:ObjectDataSource>
         
