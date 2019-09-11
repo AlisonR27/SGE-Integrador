@@ -15,6 +15,7 @@ namespace WebAppSGE
         Sports oSports = new Sports();
         protected void Page_Load(object sender, EventArgs e)
         {
+            
         }
         protected void Submit(object sender, EventArgs e)
         {

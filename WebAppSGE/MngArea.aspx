@@ -10,9 +10,14 @@
     <script src="Script/jquery341.js"></script>
     <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap-grid.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css" />
+
 
 </head>
 <body>
+    <nav class="navbar">
+        <div class="navbar-brand"></div>
+    </nav>
     <form id="form1" runat="server">
         <div class="container-fluid">
         <div>
@@ -29,7 +34,7 @@
                 </div>
                 <div class="col-sm-6">
                     <h6 class="inputTitle"> Imagens </h6>            
-                    <asp:FileUpload ID="FileUpload1" runat="server" />    
+                    <asp:FileUpload ID="FileUpload1" runat="server" />  
                     <br />
                 </div>
             </div>            
@@ -48,7 +53,7 @@
                         <asp:ObjectDataSource ID="SportsOBJDS" runat="server" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport"></asp:ObjectDataSource>
                         </div>
                         <div class="Row mt-4">
-                    <asp:Button ID="Button1" runat="server" Text="Adicionar" onclick="Button1_Click"/>
+                    <asp:Button ID="Button1" CssClass="btn-primary " runat="server" Text="Adicionar" onclick="Button1_Click"/>
                         <br />   
                         </div>
                     </div>
@@ -149,7 +154,7 @@
                     </div>
                 </div>
             </div>     
-        <asp:Button runat="server" OnClick="Submit" id="FormSubmit" Text="Submeter dias"/>
+        <asp:Button CssClass="btn-success rounded-pill" runat="server" OnClick="Submit" id="FormSubmit" Text="Submeter dias"/>
         </div>
     </form>
    <script>
