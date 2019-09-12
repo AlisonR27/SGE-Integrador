@@ -32,7 +32,7 @@ namespace WebAppSGE.DAL
 
                     while (dr.Read()) 
                     {
-                        aArea = new Modelo.Areas(
+                        aArea = new Modelo.Areas( dr["id"].ToString(),
                             dr["descricao"].ToString()    
                             );
                         aListAreas.Add(aArea);
@@ -93,6 +93,32 @@ namespace WebAppSGE.DAL
             dr.Close();
             conn.Close();
             return i;
+        }
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.Areas> SelectAll(string txt)
+        {
+            Modelo.Areas aArea;
+            List<Modelo.Areas> aListAreas = new List<Modelo.Areas>();
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "Select * from area_poliesportiva where descricao like '%"+txt+"%'";
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+
+                while (dr.Read())
+                {
+                    aArea = new Modelo.Areas(dr["id"].ToString(),
+                        dr["descricao"].ToString()
+                        );
+                    aListAreas.Add(aArea);
+                }
+            }
+            dr.Close();
+            conn.Close();
+
+            return aListAreas;
         }
     } 
 }

@@ -17,10 +17,14 @@ namespace WebAppSGE
         protected void Pesq_Click(object sender, EventArgs e)
         {
             GridView1.Controls.Clear();
+            DAL.DALArea d = new DAL.DALArea();
             if (TextBoxSearch.Text.ToString().Trim() == "")
             {
-                DAL.DALArea d = new DAL.DALArea();
                 GridView1.DataSource = d.SelectAll();
+                GridView1.DataBind();
+            }else if (TextBoxSearch.Text.ToString().Trim() != "")
+            {
+                GridView1.DataSource = d.SelectAll(TextBoxSearch.Text.ToString().Trim());
                 GridView1.DataBind();
             }
         }
