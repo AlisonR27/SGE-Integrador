@@ -110,9 +110,5 @@ namespace WebAppSGE
             postedFile.SaveAs(Server.MapPath("~/Uploads/") + Path.GetFileName(postedFile.FileName));
             Response.Redirect(Request.Url.AbsoluteUri);
         }
-        protected void Cancel(object sender, EventArgs e)
-        {
-            Response.Redirect(Request.Url.AbsoluteUri);
-        }
     }
 }

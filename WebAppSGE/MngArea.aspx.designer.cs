@@ -76,15 +76,6 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
-        /// Controle btnCancel.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnCancel;
-        
-        /// <summary>
         /// Controle selectedSportsL.
         /// </summary>
         /// <remarks>

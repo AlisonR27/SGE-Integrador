@@ -14,23 +14,22 @@
 
 
 </head>
-<body style="width:100vw;height:100vh;;background:linear-gradient(45deg,#999,#d0d0d0);background-size:cover;background-repeat:no-repeat;">
+<body style="width:100vw;height:100vh;background:linear-gradient(45deg,#999,#d0d0d0);background-size:cover;background-repeat:no-repeat;">
     <nav class="navbar">
         <div class="navbar-brand"></div>
     </nav>
     <form id="form1" runat="server">
-        <div class="container-fluid">
+        <div class="container-fuid mr-4">
         <div>
-            <h2>Gerenciamento de áreas poliesportivas </h2>
-            <hr />
-            <h6 class="inputTitle">Dados da Área </h6>
+            <h2  >Gerenciamento de áreas poliesportivas </h2>       
+            <h6 class="inputTitle">Dados da Área</h6>
             <div class="row ml-1">                
                 <div class="col-sm-6">
-                    <h6 class="inputTitle">Nome:</h6>
-                    <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
+                    <h6 class="inputTitle  ">Nome:</h6>
+                    <asp:TextBox ID="TextBoxName" CssClass="pillborder" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ControlToValidate="TextBoxName" runat="server"></asp:RequiredFieldValidator> 
                     <h6 class="inputTitle">Descrição:</h6>
-                    <asp:TextBox ID="TextBoxDesc" TextMode="MultiLine" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxDesc" TextMode="MultiLine" CssClass="pillborder" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator> 
                 </div>
                 <div class="col-sm-6">
@@ -40,14 +39,13 @@
                     </div>
                     <div class="mt-2">
                         <asp:Panel ID="Panel1" runat="server">
-                            <asp:Image ID="Image1" CssClass="col-12" runat="server"/>
-                            <asp:Button ID="btnSave" runat="server" Text="Salvar" OnClick = "Save" />
-                            <asp:Button ID="btnCancel" runat="server" Text="Cancelar" OnClick = "Cancel" />
+                            <asp:Image ID="Image1" CssClass="col-12 pillborder" runat="server"/>
+                            <asp:Button ID="btnSave" runat="server" CssClass="btn-outline-dark pillborder" Text="Fazer Upload" OnClick = "Save" />
                         </asp:Panel>
                     </div>
                 </div>
             </div>            
-            <h6 class="inputTitle">Lista de Esportes: </h6>
+            <h6 class="inputTitle mt-1">Lista de Esportes: </h6>
             <div class="row ml-1">
                 <div class="col-sm-6">
                     <div class="selectedSports">
@@ -58,17 +56,17 @@
                 </div>
                     <div class="col-sm-6">
                         <div>
-                        <asp:DropDownList ID="SportsList" runat="server" DataSourceID="SportsOBJDS" DataTextField="nome" DataValueField="id"></asp:DropDownList>
+                        <asp:DropDownList ID="SportsList" runat="server" DataSourceID="SportsOBJDS" DataTextField="nome" CssClass="pillborder" DataValueField="id"></asp:DropDownList>
                         <asp:ObjectDataSource ID="SportsOBJDS" runat="server" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport"></asp:ObjectDataSource>
                         </div>
                         <div class="mt-4">
                     <asp:Button ID="Button1" CssClass="btn-primary" runat="server" Text="Adicionar" onclick="Button1_Click"/>
-                        <br />   
+                            
                         </div>
                     </div>
                 </div>
             </div>
-            <br />
+             
             <h6 class="inputTitle">Lista de dias: </h6>
             <div class="row">
                 <div class="slideDcontainer col-md-auto">
@@ -79,7 +77,7 @@
                        <input type="checkbox" class="checkDay"  checked/>
                         <h6> Inicio: </h6>
                         <asp:TextBox runat="server" ID="TXTDomInit"></asp:TextBox>
-                        <br />
+                         
                         <h6>Fim:</h6>
                         <asp:TextBox runat="server" ID="TXTDomEnd"></asp:TextBox>
                     </div>
@@ -92,7 +90,7 @@
                        <input type="checkbox" class="checkDay"  checked/>
                         <h6> Inicio: </h6>
                         <asp:TextBox runat="server" ID="TXTSegInit"></asp:TextBox>
-                        <br />
+                         
                         <h6>Fim:</h6>
                         <asp:TextBox runat="server" ID="TXTSegEnd"></asp:TextBox>
                     </div>
@@ -105,7 +103,7 @@
                        <input type="checkbox" class="checkDay"  checked/>
                         <h6> Inicio: </h6>
                         <asp:TextBox runat="server" ID="TXTTerInit"></asp:TextBox>
-                        <br />
+                         
                         <h6>Fim:</h6>
                         <asp:TextBox runat="server" ID="TXTTerEnd"></asp:TextBox>
                     </div>
@@ -118,7 +116,7 @@
                        <input type="checkbox" class="checkDay"  checked/>
                         <h6> Inicio: </h6>
                         <asp:TextBox runat="server" ID="TXTQuaInit"></asp:TextBox>
-                        <br />
+                         
                         <h6>Fim:</h6>
                         <asp:TextBox runat="server" ID="TXTQuaEnd"></asp:TextBox>
                     </div>
@@ -131,7 +129,7 @@
                        <input type="checkbox" class="checkDay"  checked/>
                         <h6> Inicio: </h6>
                         <asp:TextBox runat="server" ID="TXTQuiInit"></asp:TextBox>
-                        <br />
+                         
                         <h6>Fim:</h6>
                         <asp:TextBox runat="server" ID="TXTQuiEnd"></asp:TextBox>
                     </div>
@@ -144,7 +142,7 @@
                        <input type="checkbox" class="checkDay"  checked/>
                         <h6> Inicio: </h6>
                         <asp:TextBox runat="server" ID="TXTSexInit"></asp:TextBox>
-                        <br />
+                         
                         <h6>Fim:</h6>
                         <asp:TextBox runat="server" ID="TXTSexEnd"></asp:TextBox>
                     </div>
@@ -157,7 +155,7 @@
                        <input type="checkbox" class="checkDay" checked="checked"/>
                         <h6> Inicio: </h6>
                         <asp:TextBox runat="server" ID="TXTSabInit"></asp:TextBox>
-                        <br />
+                         
                         <h6>Fim:</h6>
                         <asp:TextBox runat="server" ID="TXTSabEnd"></asp:TextBox>
                     </div>

@@ -242,13 +242,13 @@ body{
     width:calc(100%/7);
     }
     .slideDTitle {
-        display: block;
-        cursor: pointer;
-        text-align: center;
+    display: block;
+    cursor: pointer;
+    text-align:left;
     }
     .slideDOcult {
         display: none;
-        width: 100%;
+        width: 100% !important;
     }
     .slideDOcult input{
         width: 100%;
@@ -308,4 +308,9 @@ body{
     border: 1px solid;
     border-radius: 5px;
 }
+
+.pillborder{
+    border-radius: 10px;
+}
+
 
