@@ -8,79 +8,112 @@
     <title></title>
     <script src="Script/default.js"></script>
     <script src="Script/jquery341.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap-grid.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
     <style>
-        body{
-            background-image: linear-gradient(to bottom right, #2b0049, #202020);
-            background-size: cover;
+        label[for="RememberMe"]{
+            margin-left:8px;
+        }
+        div[name="VAlign"]{
+            margin-top:25vh !important;
+            margin-bottom:25vh !important;
+        }
+        div[name="mainBox"]{
+            background-color: #d8d8d8;
+        }
+        html{
+            background:linear-gradient(45deg,#9946d9,#bb3abd);
             width:100vw;
-            height:95vh;
+            height:100vh;
+            z-index:-2;
+            background-size:cover;
+            background-repeat:no-repeat;
         }
-        .loginMegaBox{
-            width: 60vw;
-            height: 80vh;
-            margin:auto;
-            background:linear-gradient(to bottom right, #d9d9d9, #342734);
-            border: 0.75px solid #757575;
-            border-radius:50px;
-            margin-top: 5vh;
-        }
-        .loginbox{
-            height:40%;
-            margin-top:20% !important;
-            width: 60%;
-            margin:auto;
-        }
-        .localflexrow{
-            width:100%;
-            display:block;
-        }
-        .localflexrow *{
-            display:inline-block;
-        }
-        .localflexrow label{
-            width:35%;
-            text-align:right;   
-        }
-        .localflexrow input{
-            width:55%;
-        }
-        .localflexrow span{
-            position: absolute;
+        body{
+            background:none;
         }
     </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="bg"></div>
-        <div class="loginMegaBox">
-            <div class="logo"></div>
-            <div class="loginForm">
-                <div class="loginbox">
-                        <h3>Fazer Logon</h3>
-                        <div class="center100 centerChild">
-                            <div class="localflexrow">
-                                <asp:Label ID="UserNameLabel" CssClass="Width40" runat="server" AssociatedControlID="UserName">Nome do Usuário:</asp:Label>
-                                <asp:TextBox ID="UserName" runat="server"></asp:TextBox>
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="UserNAme" Text="O campo é obrigatório"></asp:RequiredFieldValidator>       
-
+            <div name="VAlign" class="row bg-transparent">
+                <div class="col-3 bg-transparent"></div>
+                <div name="mainBox" class="col-6 align-content-center py-5 rounded-">
+                        <h3 class="align-content-center TAlignCenter">Fazer Logon</h3>
+                            <div name="UserRow" class="row">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-3"></div>
+                                        <div class="col-6">
+                                            <asp:Label ID="UserNameLabel" CssClass="align-content-lg-center  " runat="server" AssociatedControlID="UserName">Nome do Usuário:</asp:Label>
+                                        </div>
+                                        <div class="col-3"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3"></div>
+                                        <div class="col-6"> 
+                                            <asp:TextBox ID="UserName" CssClass="w-100" runat="server"></asp:TextBox>
+                                        </div>
+                                        <div class="col-3"></div>                                    
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3"></div>
+                                        <div class="col-6"> 
+                                           <asp:RequiredFieldValidator runat="server" ControlToValidate="UserNAme" Text="O campo é obrigatório"></asp:RequiredFieldValidator>       
+                                        </div>
+                                        <div class="col-3"></div>                                    
+                                    </div>
+                                </div>  
+                           </div>      
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-3"></div>
+                                        <div class="col-6">
+                                            <asp:Label ID="PasswordLabel" CssClass="Width40" runat="server" AssociatedControlID="Password">Senha:</asp:Label>
+                                        </div>
+                                        <div class="col-3"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3"></div>
+                                        <div class="col-6">
+                                            <asp:TextBox ID="Password" CssClass="w-100" runat="server" TextMode="Password"></asp:TextBox>
+                                        </div>
+                                        <div class="col-3"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-3"></div>
+                                        <div class="col-6">
+                                            <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" Text="O campo é obrigatório"></asp:RequiredFieldValidator>       
+                                        </div>
+                                        <div class="col-3"></div>
+                                    </div>
+                                </div>
                             </div>
-                            <br />         
-                            <div class="localflexrow">
-                                <asp:Label ID="PasswordLabel" CssClass="Width40" runat="server" AssociatedControlID="Password">Senha:</asp:Label>
-                                <asp:TextBox ID="Password" runat="server" TextMode="Password"></asp:TextBox>
-                                <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" Text="O campo é obrigatório"></asp:RequiredFieldValidator>       
+                            <div class="row">
+                                <div class="col-3"></div>
+                                <div class="col-6">
+                                    <asp:CheckBox ID="RememberMe" CssClass="" runat="server" Text="Lembrar na próxima vez." />                                 </asp:CheckBox>
+                                </div>
+                                <div class="col-3"></div>
                             </div>
-                            <br />          
-                            <asp:CheckBox ID="RememberMe" runat="server" Text="Lembrar na próxima vez." />                             
-                            <br />
-                            <br />
-                            <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Fazer Logon" ValidationGroup="Login1" />
-                        </div>   
-                    </div>
+                            <div class="row">
+                                <div class="col-3"></div>
+                                <div class="col-6 align-content-lg-center">
+                                    <div class="row">
+                                        <div class="col-2"></div>
+                                        <div class="col-8">
+                                             <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Fazer Logon" CssClass="btn-success w-100 border-0 rounded-pill m-auto" ValidationGroup="Login1" />
+                                        </div>
+                                        <div class="col-2"></div>
+                                    </div>
+                                </div>
+                                <div class="col-3"></div>
+                            </div>
+                        </div>  
+                <div class="col-3 bg-transparent"></div>                
             </div>
-        </div>
-        
     </form>
 </body>
 </html>
