@@ -8,70 +8,41 @@
     <title></title>
     <link rel="stylesheet" type="text/css" href="App_Themes/Light/LightBase.css" />
     <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap-grid.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap.css" />
+
     <script src="Script/jquery341.js"></script>
     <script src="Script/default.js"></script>
     <style>
         body{
             background-color: #d9d9d9;
         }
-        .ttl{
-            position: relative;
-            top: 20px;
-            left: 20px;
-        }
-
-        .div_info{
-            position: relative;
-            left: 20px;
-        }
-
-        .name_box{
-            width: 500px;
-
-        }
-
-        .desc_box{
-            width: 500px;
-            height: 50px;
-        }
-
-        .submit_btn{
-            position: relative;
-            left: 20px;
-            top: 10px;
-            background-color: #0CA22E;
-            color: white;
-        }
-
-        .gridview_sport{
-            position: relative;
-            left: 20px;
-            top: 10px;
-        }
     </style>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" class="container-fluid">
         <div>
-            <h2 class="ttl">Gerenciamento de esportes </h2>
+            <h2 class="ttl Row">Gerenciamento de esportes </h2>
             <hr />
-            <div class="div_info">
-                <h6 class="inputTitle">Nome:</h6>
-                <asp:TextBox ID="TextBoxName" runat="server" class="name_box"></asp:TextBox>
-                <asp:RequiredFieldValidator ControlToValidate="TextBoxName"  runat="server"></asp:RequiredFieldValidator>
-                <h6 class="inputTitle">Descrição:</h6>
-                <asp:TextBox ID="TextBoxDesc" TextMode="MultiLine" runat="server" class="desc_box"></asp:TextBox>
-                <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator> 
-                <br />
+            <div class="div_info fScreen row">
+                <div class="col-12 ml-3">
+                    <h6 class="inputTitle row">Nome:</h6>
+                    <asp:TextBox ID="TextBoxName" CssClass="row" runat="server" class="name_box"></asp:TextBox>
+                    <asp:RequiredFieldValidator ControlToValidate="TextBoxName"  runat="server"></asp:RequiredFieldValidator>
+                </div>
+                <div class="col-12 ml-3 mt-3">
+                    <h6 class="inputTitle row">Descrição:</h6>
+                    <asp:TextBox ID="TextBoxDesc" CssClass="row" TextMode="MultiLine" runat="server" class="desc_box"></asp:TextBox>
+                    <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator> 
+                </div>
             </div>
         </div>
-        <asp:Button runat="server" ID="SubmitButton" OnClick="FormSubmit_Click" Text="Submeter" class="submit_btn"/>
-        <br />
-        <h2 class="ttl">Atividades esportivas já cadastradas:</h2>
-        <asp:GridView ID="SportsView" runat="server" DataSourceID="SportsOBJDS" class="gridview_sport" BackColor="White" EnableViewState="False"></asp:GridView>
-        
-        <asp:ObjectDataSource ID="SportsOBJDS" runat="server" DataObjectTypeName="WebAppSGE.Modelo.Sports" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport" UpdateMethod="Update"></asp:ObjectDataSource>
-        
+        <asp:Button runat="server" ID="SubmitButton" OnClick="FormSubmit_Click" Text="Submeter" class="btn-success mt-3"/>
+        <div class="row mt-3" >
+            <h2 class="ttl col-12">Atividades esportivas já cadastradas:</h2>
+            <asp:GridView ID="SportsView" runat="server" DataSourceID="SportsOBJDS" class="gridview_sport" BackColor="White" EnableViewState="False"></asp:GridView>        
+            <asp:ObjectDataSource ID="SportsOBJDS" runat="server" DataObjectTypeName="WebAppSGE.Modelo.Sports" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport" UpdateMethod="Update"></asp:ObjectDataSource>
+        </div>
     </form> 
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 <!DOCTYPE html>
 
-<html style="width:100vw;height:100vh;;background:linear-gradient(45deg,#999,#d0d0d0);background-size:cover;background-repeat:no-repeat;" xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
@@ -14,7 +14,7 @@
 
 
 </head>
-<body>
+<body style="width:100vw;height:100vh;;background:linear-gradient(45deg,#999,#d0d0d0);background-size:cover;background-repeat:no-repeat;">
     <nav class="navbar">
         <div class="navbar-brand"></div>
     </nav>
@@ -23,7 +23,8 @@
         <div>
             <h2>Gerenciamento de áreas poliesportivas </h2>
             <hr />
-            <div class="Row">
+            <h6 class="inputTitle">Dados da Área </h6>
+            <div class="row ml-1">                
                 <div class="col-sm-6">
                     <h6 class="inputTitle">Nome:</h6>
                     <asp:TextBox ID="TextBoxName" runat="server"></asp:TextBox>
@@ -33,14 +34,22 @@
                     <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator> 
                 </div>
                 <div class="col-sm-6">
-                    <h6 class="inputTitle"> Imagens </h6>            
-                    <asp:FileUpload ID="FileUpload1" runat="server" />  
-                    <br />
+                    <div>
+                        <h6 class="inputTitle">Imagens </h6>            
+                        <asp:FileUpload ID="FileUpload1" runat="server" /> 
+                    </div>
+                    <div class="mt-2">
+                        <asp:Panel ID="Panel1" runat="server">
+                            <asp:Image ID="Image1" CssClass="col-12" runat="server"/>
+                            <asp:Button ID="btnSave" runat="server" Text="Salvar" OnClick = "Save" />
+                            <asp:Button ID="btnCancel" runat="server" Text="Cancelar" OnClick = "Cancel" />
+                        </asp:Panel>
+                    </div>
                 </div>
             </div>            
-            <h6 class="inputTitle"> Lista de Esportes: </h6>
-            <div class="Row">
-                <div class="col-sm-6 ">
+            <h6 class="inputTitle">Lista de Esportes: </h6>
+            <div class="row ml-1">
+                <div class="col-sm-6">
                     <div class="selectedSports">
                         <h5 class="TAlignCenter">Esportes selecionados</h5>
                         <asp:BulletedList runat="server" id="selectedSportsL" class="selectedSportsList">
@@ -48,21 +57,21 @@
                     </div>
                 </div>
                     <div class="col-sm-6">
-                        <div class="Row">
+                        <div>
                         <asp:DropDownList ID="SportsList" runat="server" DataSourceID="SportsOBJDS" DataTextField="nome" DataValueField="id"></asp:DropDownList>
                         <asp:ObjectDataSource ID="SportsOBJDS" runat="server" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport"></asp:ObjectDataSource>
                         </div>
-                        <div class="Row mt-4">
-                    <asp:Button ID="Button1" CssClass="btn-primary " runat="server" Text="Adicionar" onclick="Button1_Click"/>
+                        <div class="mt-4">
+                    <asp:Button ID="Button1" CssClass="btn-primary" runat="server" Text="Adicionar" onclick="Button1_Click"/>
                         <br />   
                         </div>
                     </div>
                 </div>
             </div>
             <br />
-            <h6 class="inputTitle"> Lista de dias: </h6>
-            <div class="flexrow">
-                <div class="slideDContainer">
+            <h6 class="inputTitle">Lista de dias: </h6>
+            <div class="row">
+                <div class="slideDcontainer col-md-auto">
                     <div class="slideDTitle">   
                         <h5>Domingo</h5>
                     </div>
@@ -75,7 +84,7 @@
                         <asp:TextBox runat="server" ID="TXTDomEnd"></asp:TextBox>
                     </div>
                 </div>
-                <div class="slideDContainer">
+                <div class="slideDcontainer col-md-auto">
                     <div class="slideDTitle">   
                         <h5>Segunda</h5>
                     </div>
@@ -88,7 +97,7 @@
                         <asp:TextBox runat="server" ID="TXTSegEnd"></asp:TextBox>
                     </div>
                 </div>
-                <div class="slideDContainer">
+                <div class="slideDcontainer col-md-auto">
                     <div class="slideDTitle">   
                         <h5>Terça</h5>
                     </div>
@@ -101,7 +110,7 @@
                         <asp:TextBox runat="server" ID="TXTTerEnd"></asp:TextBox>
                     </div>
                 </div>
-                <div class="slideDContainer">
+                <div class="slideDcontainer col-md-auto">
                     <div class="slideDTitle">   
                         <h5>Quarta</h5>
                     </div>
@@ -114,7 +123,7 @@
                         <asp:TextBox runat="server" ID="TXTQuaEnd"></asp:TextBox>
                     </div>
                 </div>
-                <div class="slideDContainer">
+                <div class="slideDcontainer col-md-auto">
                     <div class="slideDTitle">   
                         <h5>Quinta</h5>
                     </div>
@@ -127,7 +136,7 @@
                         <asp:TextBox runat="server" ID="TXTQuiEnd"></asp:TextBox>
                     </div>
                 </div>
-                <div class="slideDContainer">
+                <div class="slideDcontainer col-md-auto">
                     <div class="slideDTitle">   
                         <h5>Sexta</h5>
                     </div>
@@ -140,7 +149,7 @@
                         <asp:TextBox runat="server" ID="TXTSexEnd"></asp:TextBox>
                     </div>
                 </div>
-                <div class="slideDContainer">
+                <div class="slideDcontainer col-md-auto">
                     <div class="slideDTitle">   
                         <h5>Sábado</h5>
                     </div>

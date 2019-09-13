@@ -129,10 +129,6 @@ body{
         padding: 1%;
     }
 
-    .Row {
-        width: 100%;
-        display: flex;
-    }
     /*   Width    */
     .Width2 {
         width: 2% !important;
