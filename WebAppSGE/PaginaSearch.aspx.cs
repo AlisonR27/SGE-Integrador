@@ -9,23 +9,25 @@ namespace WebAppSGE
 {
     public partial class PaginaSearch : System.Web.UI.Page
     {
+        DAL.DALArea d = new DAL.DALArea();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Repeater1.DataSource = d.SelectAllFields();
+            Repeater1.DataBind();
         }
 
         protected void Pesq_Click(object sender, EventArgs e)
         {
-            GridView1.Controls.Clear();
-            DAL.DALArea d = new DAL.DALArea();
+            Repeater1.Controls.Clear();
             if (TextBoxSearch.Text.ToString().Trim() == "")
             {
-                GridView1.DataSource = d.SelectAll();
-                GridView1.DataBind();
-            }else if (TextBoxSearch.Text.ToString().Trim() != "")
+                Repeater1.DataSource = d.SelectAllFields();
+                Repeater1.DataBind();
+            }
+            else if (TextBoxSearch.Text.ToString().Trim() != "")
             {
-                GridView1.DataSource = d.SelectAll(TextBoxSearch.Text.ToString().Trim());
-                GridView1.DataBind();
+                Repeater1.DataSource = d.SelectAllFields(TextBoxSearch.Text.ToString().Trim());
+                Repeater1.DataBind();
             }
         }
     }

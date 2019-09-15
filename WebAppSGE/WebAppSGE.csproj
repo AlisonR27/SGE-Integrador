@@ -1672,6 +1672,7 @@
     </Compile>
     <Compile Include="Modelo\Areas.cs" />
     <Compile Include="Modelo\AreaSport.cs" />
+    <Compile Include="Modelo\FullFieldsArea.cs" />
     <Compile Include="Modelo\hDisponivel.cs" />
     <Compile Include="Modelo\Image.cs" />
     <Compile Include="Modelo\SolicitacaoReserva.cs" />
