@@ -16,14 +16,14 @@
             margin-left:8px;
         }
         div[name="VAlign"]{
-            margin-top:25vh !important;
-            margin-bottom:25vh !important;
+            margin-top:12.5vh !important;
+            margin-bottom:12.5vh !important;
         }
         div[name="mainBox"]{
             background-color: #d8d8d8;
         }
         html{
-            background:linear-gradient(45deg,#9946d9,#bb3abd);
+            background:linear-gradient(45deg,#4e3737,#505050,#393939);
             width:100vw;
             height:100vh;
             z-index:-2;
@@ -35,11 +35,10 @@
         }
     </style>
 </head>
-<body>
+<body class="h-auto">
     <form id="form1" runat="server">
-            <div name="VAlign" class="row bg-transparent">
-                <div class="col-3 bg-transparent"></div>
-                <div name="mainBox" class="col-6 align-content-center py-5 rounded-">
+            <div name="VAlign" class="row bg-transparent h-75 w-100">
+                <div name="mainBox" class="w-50 m-auto h-100 align-content-center py-5 rounded-">
                         <h3 class="align-content-center TAlignCenter">Fazer Logon</h3>
                             <div name="UserRow" class="row">
                                 <div class="col-12">
@@ -112,7 +111,6 @@
                                 <div class="col-3"></div>
                             </div>
                         </div>  
-                <div class="col-3 bg-transparent"></div>                
             </div>
     </form>
 </body>

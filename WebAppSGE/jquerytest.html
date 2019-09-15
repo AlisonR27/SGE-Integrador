@@ -5,122 +5,81 @@
     <title></title>
     <script src="Script/default.js"></script>
     <script src="Script/jquery341.js"></script>
-  
-    <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
-    <link href="fontawesome/css/all.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap-grid.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css" />
     <style>
-        #topBar div {
-            background: linear-gradient(0, transparent, #8600ce);
-            height:100%;
+        nav[name="topbar"] {
+            height: 8vh;
         }
-        #topBar{
+
+        .w-15 {
+            width: 15% !important;
+        }
+        .w-85{
+            width:85%;
+        }
+        .dir-rtl{
+            direction:rtl;
+        }
+        .dir-ltr{
+            direction:ltr;
+        }
+        div[name="toggle"]{
+            z-index: 1 !important;
+        }
+        img[name="userIMG"] {
+            width:40% !important;
+            margin-left:25%;
+            margin-top: 5px;
+            display: inline-block;
+        }
+        span[name="userName"]{
+            width:0%;
+            vertical-align:middle;
+        }
+        img[name="menuAngle"]{
+            height:80%;
+            padding:3px;
             display:none;
         }
-        #toggle {
-            position: absolute;
-            width: 100vw;
-            height: 5vw;
+        #menu{
+            visibility:visible;    
+            margin-right:-170vw;
+            z-index:0 !important;
+        }
+        .align-self-flex-start{
+            align-self:flex-start;
+        }
+        span[name="userName"]{
+            display:none;
         }
     </style>
 </head>
 <body>
     <!-- NÃO MEXER NESSA DESGRAÇA -->
-    <div id="toggle">
-
-    </div>
-    <nav id="topBar" style=" width: 100vw; height: 5vw; ">
-    <div style=" margin: 0; width: 15%;    box-sizing: border-box; ">
-        </div> 
-    <div style=" margin: 0;  width: 35%; box-sizing: border-box;   ">
-        </div> <div style=" margin: 0; width: 25%;    ">
-             </div> <div style="    width: 10%; "></div>
-    <div style=" width: 15%;    margin: 0; "></div>
-        </nav>
-    <div class="pageContent">
-        <div class="flexrow">
-            <div class="slideDContainer">
-                <div class="slideDTitle">
-                    <h5>Domingo</h5>
-                </div>
-                <div class="slideDOcult">
-                    <input type="checkbox" class="checkDay" />
-                    <h6> Inicio: </h6>
-                    <input ID="TXTDomInit" disabled>
-                    <br />
-                    <h6>Fim:</h6>
-                    <input ID="TXTDomEnd" disabled>
-                </div>
-            </div>
-            <div class="slideDContainer">
-                <div class="slideDTitle">
-                    <h5>Segunda</h5>
-                </div>
-                <div class="slideDOcult">
-                    <input type="checkbox" class="checkDay" />
-                    <h6> Inicio: </h6>
-                    <input type="text" ID="TXTSegInit" disabled />
-                    <br />
-                    <h6>Fim:</h6>
-                    <input type="text" ID="TXTSegEnd" disabled />
-                </div>
-            </div>
-            <div class="slideDContainer">
-                <div class="slideDTitle">
-                    <h5>Terça</h5>
-                </div>
-                <div class="slideDOcult">
-                    <input type="checkbox" class="checkDay" />
-                    <h6> Inicio: </h6>
-                    <input type="text" ID="TXTTerInit" disabled />
-                    <br />
-                    <h6>Fim:</h6>
-                    <input type="text" ID="TXTTerEnd" disabled />
-                </div>
-            </div>
+    <nav name="topbar" class="navbar w-100 d-flex flex-column dir-rtl p-0">
+        <div name="toggle" class="w-15 m-0 h-100 align-self-flex-start dir-ltr px-2 bg-primary">
+            <img name="menuAngle" class="pt-2" src="src/svgs/solid/angle-left.svg" />
+            <img name="userIMG" src="src/svgs/regular/user-circle.svg"/>
+            <span name="userName" class="pt-2"> User </span>
         </div>
-    </div>
-
+        <div id="menu" class="h-100 w-85 bg-danger align-self-flex-start"></div>
+    </nav>
     <script>
-        //PageLoad
-        $(document).ready(function () {
-            $('div[class="slideDOcult"]').css("display", "block");
-            $('div[class="slideDTitle"]').css("width", $('div[class="slideDOcult"]').css("width"));
-            $('div[class="slideDOcult"]').css("display", "none");
-            console.log('rodou');
-        });
-        //Ativar/Desativar Caixas de texto
-        $('input[class="checkDay"]').click(function () {
-            if ($(this).prop("checked") == true) { $(this).parents().children('input[type="text"]').prop("disabled", false); }
-            else { $(this).parents().children('input[type="text"]').prop("disabled", true); }
-        });
-        //SlideDown Dias
-        $('div[class="slideDTitle"]').click(function () {
-            if ($(this).parents().children('div[class="slideDOcult"]').css("display") == "none") $(this).parents().children('div[class="slideDOcult"]').slideDown();
-            else { $(this).parents().children('div[class="slideDOcult"]').slideUp(); }
-        });
-        //SideMenu Slide
-        $('div[class="toggleSideBar"]').click(function () {
-            if ($(this).attr("flag") == "false") {
-                $(this).attr("flag", true).children('i').attr("class", "fa fa-angle-left");
-                $('nav[class="menuBody"]').animate({ marginLeft: 0 });
-                $('div[class="pageContent"]').animate({ marginLeft: '32vw' });
+       
+        $('div[name="toggle"]').mouseenter(function () {
+            $(this).children('img[name="userIMG"]').animate({ 'padding': '5 5 5 0', 'marginLeft': '0%' }, 500);
+            $(this).children('span').fadeIn(600).css('paddingTop', 5);
+            $(this).children('img[name="menuAngle"]').fadeIn(300).animate({'marginLeft':'-15'});
 
-            }
-            else {
-                $(this).attr("flag", false).children('i').attr("class", "fa fa-angle-right");
-                $('nav[class="menuBody"]').animate({ marginLeft: '-30vw' });
-                $('div[class="pageContent"]').animate({ marginLeft: '0' });
+        });
+        $('div[name="toggle"]').mouseleave(function () {
+            $(this).children('img[name="userIMG"]').animate({ 'padding': '0px', 'marginLeft': '25%' }, 700);
+            $(this).children('img[name="menuAngle"]').fadeOut(500);
 
-            }
+            $(this).children('span').animate({ 'width': '0' }, 200).fadeOut(300);
         });
-        $('div[id="toggle"]').mouseenter(function () {
-            $('nav[id="topBar"]').slideDown(400, function () {
-                $(this).css("display", "flex").css("opacity", "1");
-            });
-        });
-        $('div[id="toggle"]').mouseleave(function () {
-            $('nav[id="topBar"]').slideUp();
-        });
+        $()
     </script>
 </body>
 </html>
