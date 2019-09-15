@@ -4,6 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
+    <link rel="stylesheet"  type="text/css" href="css/solid.css"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
     <style>
@@ -43,6 +44,23 @@
             </asp:DropDownList>
         </div>
         <div>
+            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="ObjectDataSource1">
+                <HeaderTemplate>
+                    <div class="row">
+                </HeaderTemplate>
+                <ItemTemplate>
+                    <div class="col-md-3">
+                        <asp:Image runat="server" src='<% DataBinder.Eval(Container.DataItem, "imgURL")%>' style="width:15%;"/>
+                        <asp:Label runat="server" Text='<% DataBinder.Eval(Container.DataItem, "areaName") %>'></asp:Label>
+                    </div>
+                </ItemTemplate>
+                <FooterTemplate>
+                    </div>
+                </FooterTemplate>
+            </asp:Repeater>
+            
+            <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DataObjectTypeName="WebAppSGE.Modelo.Areas" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALArea"></asp:ObjectDataSource>
+            
             <asp:GridView ID="GridView1" runat="server"></asp:GridView>
         </div>
     </form>
