@@ -3,23 +3,27 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
+
 namespace WebAppSGE.Modelo
 {
-    public class Areas
+    public class FullFieldsArea
     {
         public int id { get; set; }
         public string desc { get; set; }
-        public Areas() {
+        public string imgUrl { get; set; }
+        public FullFieldsArea()
+        {
             desc = "";
         }
-        public Areas(string adesc)
+        public FullFieldsArea(string adesc)
         {
             this.desc = adesc;
         }
-        public Areas(string aid, string adesc)
+        public FullFieldsArea(string aid, string adesc, string aimgUrl)
         {
-            this.id = int.Parse(aid);
+            this.id = WebAppSGE.DAL.Alternadores.AlternadorI(aid);
             this.desc = adesc;
+            this.imgUrl = aimgUrl;
         }
     }
 }
