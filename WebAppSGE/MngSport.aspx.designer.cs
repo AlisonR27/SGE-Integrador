@@ -13,15 +13,6 @@ namespace WebAppSGE {
     public partial class MngSport {
         
         /// <summary>
-        /// Controle form1.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
         /// Controle TextBoxName.
         /// </summary>
         /// <remarks>
@@ -65,5 +56,14 @@ namespace WebAppSGE {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource SportsOBJDS;
+        
+        /// <summary>
+        /// Controle Button1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }

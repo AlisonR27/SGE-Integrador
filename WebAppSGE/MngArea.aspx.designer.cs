@@ -13,15 +13,6 @@ namespace WebAppSGE {
     public partial class MngArea {
         
         /// <summary>
-        /// Controle form1.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
-        /// <summary>
         /// Controle TextBoxName.
         /// </summary>
         /// <remarks>
@@ -67,40 +58,49 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
-        /// Controle btnSave.
+        /// Controle CBL.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSave;
+        protected global::System.Web.UI.WebControls.CheckBoxList CBL;
         
         /// <summary>
-        /// Controle selectedSportsL.
+        /// Controle ObjectDataSource1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.BulletedList selectedSportsL;
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
         
         /// <summary>
-        /// Controle SportsList.
+        /// Controle GV1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList SportsList;
+        protected global::System.Web.UI.WebControls.GridView GV1;
         
         /// <summary>
-        /// Controle SportsOBJDS.
+        /// Controle FormSubmit.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource SportsOBJDS;
+        protected global::System.Web.UI.WebControls.Button FormSubmit;
+        
+        /// <summary>
+        /// Controle TextBoxSearch.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxSearch;
         
         /// <summary>
         /// Controle Button1.
@@ -112,138 +112,30 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// Controle TXTDomInit.
+        /// Controle Searchbtn.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTDomInit;
+        protected global::System.Web.UI.WebControls.LinkButton Searchbtn;
         
         /// <summary>
-        /// Controle TXTDomEnd.
+        /// Controle dropFiltro.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTDomEnd;
+        protected global::System.Web.UI.WebControls.DropDownList dropFiltro;
         
         /// <summary>
-        /// Controle TXTSegInit.
+        /// Controle GVAreasCadastradas.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTSegInit;
-        
-        /// <summary>
-        /// Controle TXTSegEnd.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTSegEnd;
-        
-        /// <summary>
-        /// Controle TXTTerInit.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTTerInit;
-        
-        /// <summary>
-        /// Controle TXTTerEnd.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTTerEnd;
-        
-        /// <summary>
-        /// Controle TXTQuaInit.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTQuaInit;
-        
-        /// <summary>
-        /// Controle TXTQuaEnd.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTQuaEnd;
-        
-        /// <summary>
-        /// Controle TXTQuiInit.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTQuiInit;
-        
-        /// <summary>
-        /// Controle TXTQuiEnd.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTQuiEnd;
-        
-        /// <summary>
-        /// Controle TXTSexInit.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTSexInit;
-        
-        /// <summary>
-        /// Controle TXTSexEnd.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTSexEnd;
-        
-        /// <summary>
-        /// Controle TXTSabInit.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTSabInit;
-        
-        /// <summary>
-        /// Controle TXTSabEnd.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTSabEnd;
-        
-        /// <summary>
-        /// Controle FormSubmit.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button FormSubmit;
+        protected global::System.Web.UI.WebControls.GridView GVAreasCadastradas;
     }
 }

@@ -43,7 +43,29 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Google.Apis, Version=1.41.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.41.1\lib\net45\Google.Apis.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth, Version=1.41.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.41.1\lib\net45\Google.Apis.Auth.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Auth.PlatformServices, Version=1.41.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Auth.1.41.1\lib\net45\Google.Apis.Auth.PlatformServices.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Core, Version=1.41.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Core.1.41.1\lib\net45\Google.Apis.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.Drive.v3, Version=1.41.1.1708, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.Drive.v3.1.41.1.1708\lib\net45\Google.Apis.Drive.v3.dll</HintPath>
+    </Reference>
+    <Reference Include="Google.Apis.PlatformServices, Version=1.41.1.0, Culture=neutral, PublicKeyToken=4b01fa6e34db77ab, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Apis.1.41.1\lib\net45\Google.Apis.PlatformServices.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -70,34 +92,27 @@
     <Content Include="App_Themes\Base\Basement.css" />
     <Content Include="App_Themes\Dark\Basement.css" />
     <Content Include="App_Themes\Light\LightBase.css" />
-    <Content Include="css\all.css" />
-    <Content Include="css\all.min.css" />
     <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap-grid.css" />
     <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap-grid.min.css" />
     <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap-reboot.css" />
     <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap-reboot.min.css" />
     <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap.css" />
     <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap.min.css" />
-    <Content Include="css\brands.css" />
-    <Content Include="css\brands.min.css" />
-    <Content Include="css\fontawesome.css" />
-    <Content Include="css\fontawesome.min.css" />
-    <Content Include="css\regular.css" />
-    <Content Include="css\regular.min.css" />
-    <Content Include="css\solid.css" />
-    <Content Include="css\solid.min.css" />
-    <Content Include="css\svg-with-js.css" />
-    <Content Include="css\svg-with-js.min.css" />
-    <Content Include="css\v4-shims.css" />
-    <Content Include="css\v4-shims.min.css" />
-    <Content Include="jquerytest.html" />
+    <Content Include="EditarPerfil.aspx" />
+    <Content Include="Entrar.aspx" />
+    <Content Include="InitialPage.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MngArea.aspx" />
     <Content Include="MngSport.aspx" />
     <Content Include="PaginaSearch.aspx" />
     <Content Include="Registration.aspx" />
+    <Content Include="Script\bootstrap.js" />
+    <Content Include="Script\bootstrap.min.js" />
     <Content Include="Script\default.js" />
+    <Content Include="Script\jquery-3.4.1.slim.min.js" />
     <Content Include="Script\jquery341.js" />
+    <Content Include="SlctAgendamento.aspx" />
+    <Content Include="SolicitacoesAgendamento.aspx" />
     <Content Include="src\svgs\brands\500px.svg" />
     <Content Include="src\svgs\brands\accessible-icon.svg" />
     <Content Include="src\svgs\brands\accusoft.svg" />
@@ -1636,9 +1651,10 @@
     <Content Include="src\svgs\solid\x-ray.svg" />
     <Content Include="src\svgs\solid\yen-sign.svg" />
     <Content Include="src\svgs\solid\yin-yang.svg" />
-    <Content Include="StyleTesting.aspx" />
     <Content Include="ViewSolicitacao.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\Alternadores.cs" />
@@ -1649,6 +1665,28 @@
     <Compile Include="DAL\DALSolicitacaoReserva.cs" />
     <Compile Include="DAL\DALSport.cs" />
     <Compile Include="DAL\DALUsuario.cs" />
+    <Compile Include="EditarPerfil.aspx.cs">
+      <DependentUpon>EditarPerfil.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditarPerfil.aspx.designer.cs">
+      <DependentUpon>EditarPerfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Entrar.aspx.cs">
+      <DependentUpon>Entrar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Entrar.aspx.designer.cs">
+      <DependentUpon>Entrar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="InitialPage.aspx.cs">
+      <DependentUpon>InitialPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InitialPage.aspx.designer.cs">
+      <DependentUpon>InitialPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="input\Value.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1700,12 +1738,19 @@
     <Compile Include="SGE.master.designer.cs">
       <DependentUpon>SGE.master</DependentUpon>
     </Compile>
-    <Compile Include="StyleTesting.aspx.cs">
-      <DependentUpon>StyleTesting.aspx</DependentUpon>
+    <Compile Include="SlctAgendamento.aspx.cs">
+      <DependentUpon>SlctAgendamento.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="StyleTesting.aspx.designer.cs">
-      <DependentUpon>StyleTesting.aspx</DependentUpon>
+    <Compile Include="SlctAgendamento.aspx.designer.cs">
+      <DependentUpon>SlctAgendamento.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="SolicitacoesAgendamento.aspx.cs">
+      <DependentUpon>SolicitacoesAgendamento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SolicitacoesAgendamento.aspx.designer.cs">
+      <DependentUpon>SolicitacoesAgendamento.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSolicitacao.aspx.cs">
       <DependentUpon>ViewSolicitacao.aspx</DependentUpon>
@@ -1724,6 +1769,8 @@
     <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap.min.css.map" />
     <None Include="packages.config" />
     <Content Include="SGE.master" />
+    <Content Include="Script\bootstrap.js.map" />
+    <Content Include="Script\bootstrap.min.js.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1731,7 +1778,9 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="src\temp\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -1748,6 +1797,8 @@
           <DevelopmentServerPort>57552</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:57552/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:57552/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
