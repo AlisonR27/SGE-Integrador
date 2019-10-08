@@ -1,19 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="WebAppSGE.Registration" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml" style="width:100vw;height:100vh;background:linear-gradient(45deg,#999,#d0d0d0);background-size:cover;background-repeat:no-repeat;">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-        <script src="Script/default.js"></script>
-    <script src="Script/jquery341.js"></script>
-    <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap-grid.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css" />
-</head>
-<body  class="bg-transparent">
-    <form id="form1" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SGE.master" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="WebAppSGE.Registration" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="row bg-dark">
+        <div class="col-sm-4 text-center"><a href="MngArea.aspx" class="text-light">Áreas</a></div>
+            <div class="col-sm-4 text-center"><a href="MngSport.aspx" class="text-light">Esportes</a></div>
+            <div class="col-sm-4 text-center"><a href="PaginaSearch.aspx" class="text-light">Buscar</a></div>
+        </div>  
         <div class="container-fluid bg-transparent">
         <h3>Cadastrar Usuário</h3><hr />
         <div class="row">
@@ -52,6 +45,9 @@
         <br />
       <asp:Button ID="Button2" CssClass="btn-success rounded-pill"  runat="server" OnClick="Button2_Click" Text="Cadastrar usuário" /> 
       </div>
-    </form>
-</body>
-</html>
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ButtonContent" runat="server">
+ <asp:Button  runat="server" ID="Button3" Text="Sair" CssClass="text-danger border-danger bg-transparent rounded-pill w-50  d-block  mt-2 mx-auto" />
+</asp:Content>
+
+    

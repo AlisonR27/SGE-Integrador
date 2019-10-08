@@ -32,7 +32,7 @@ namespace WebAppSGE.DAL
 
                     while (dr.Read()) 
                     {
-                        aArea = new Modelo.Areas(
+                        aArea = new Modelo.Areas( dr["id"].ToString(),
                             dr["descricao"].ToString()    
                             );
                         aListAreas.Add(aArea);
@@ -43,6 +43,34 @@ namespace WebAppSGE.DAL
 
                 return aListAreas;
             }
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.FullFieldsArea> SelectAllFields()
+        {
+            Modelo.FullFieldsArea aArea;
+            List<Modelo.FullFieldsArea> aListAreas = new List<Modelo.FullFieldsArea>();
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = @"Select * from area_poliesportiva areap inner
+                                       join area_img aimg on aimg.id_Area = areap.id inner
+                                       join Img img on img.id = aimg.id_Img";
+
+SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    aArea = new Modelo.FullFieldsArea(dr["id"].ToString(),
+                        dr["descricao"].ToString(),
+                        dr["img_url"].ToString());
+                    aListAreas.Add(aArea);
+                }
+            }
+            dr.Close();
+            conn.Close();
+
+            return aListAreas;
+        }
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public bool Insert(Modelo.Areas obj)
         {
@@ -93,6 +121,85 @@ namespace WebAppSGE.DAL
             dr.Close();
             conn.Close();
             return i;
+        }
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.Areas> SelectUnic(int id)
+        {
+            Modelo.Areas aArea;
+            List<Modelo.Areas> aListAreas = new List<Modelo.Areas>();
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "Select * from area_poliesportiva where id = @id ";
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+
+                while (dr.Read())
+                {
+                    aArea = new Modelo.Areas(dr["id"].ToString(),
+                        dr["descricao"].ToString()
+                        );
+                    aListAreas.Add(aArea);
+                }
+            }
+            dr.Close();
+            conn.Close();
+
+            return aListAreas;
+        }
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.Areas> SelectAll(string txt)
+        {
+            Modelo.Areas aArea;
+            List<Modelo.Areas> aListAreas = new List<Modelo.Areas>();
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "Select * from area_poliesportiva where descricao like '%"+txt+"%'";
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+
+                while (dr.Read())
+                {
+                    aArea = new Modelo.Areas(dr["id"].ToString(),
+                        dr["descricao"].ToString()
+                        );
+                    aListAreas.Add(aArea);
+                }
+            }
+            dr.Close();
+            conn.Close();
+
+            return aListAreas;
+        }
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.FullFieldsArea> SelectAllFields(string txt)
+        {
+            Modelo.FullFieldsArea aArea;
+            List<Modelo.FullFieldsArea> aListAreas = new List<Modelo.FullFieldsArea>();
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "Select * from area_poliesportiva areap inner join area_img aimg on aimg.id_Area = areap.id inner join Img img on  img.id = aimg.id_Img where descricao like '%" + txt + "%'";
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    aArea = new Modelo.FullFieldsArea(dr["id"].ToString(),
+                        dr["descricao"].ToString(),
+                        dr["img_Url"].ToString()
+                    );
+                    aListAreas.Add(aArea);
+                }
+            }
+            dr.Close();
+            conn.Close();
+
+            return aListAreas;
         }
     } 
 }

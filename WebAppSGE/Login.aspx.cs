@@ -16,7 +16,7 @@ namespace WebAppSGE
 
         }
 
-        protected void Login1_LoggingIn(object sender, LoginCancelEventArgs e)
+        protected void Login1_LoggingIn(object sender, EventArgs e)
         {
             DAL.DALUsuario D = new DAL.DALUsuario();
             Usuario o = new Usuario();

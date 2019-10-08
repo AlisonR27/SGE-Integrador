@@ -17,10 +17,10 @@ namespace WebAppSGE.DAL
             connectionString = ConfigurationManager.ConnectionStrings["SGEConnectionString"].ConnectionString;
         }
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Image> SelectAll()
+        public List<Modelo.Img> SelectAll()
         {
-            Modelo.Image aImage;
-            List<Modelo.Image> aListImages = new List<Modelo.Image>();
+            Modelo.Img aImage;
+            List<Modelo.Img> aListImages = new List<Modelo.Img>();
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
@@ -30,9 +30,8 @@ namespace WebAppSGE.DAL
             {
                 while (dr.Read())
                 {
-                    aImage = new Modelo.Image(
-                        dr["img_Url"].ToString(),
-                       Alternadores.AlternadorI(dr["id_AreaPoliesportiva"].ToString()));
+                    aImage = new Modelo.Img(
+                        dr["img_Url"].ToString());
                     aListImages.Add(aImage);
                 }
             }
@@ -41,7 +40,7 @@ namespace WebAppSGE.DAL
             return aListImages;
         }
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Image obj)
+        public void Delete(Modelo.Img obj)
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
@@ -52,7 +51,7 @@ namespace WebAppSGE.DAL
 
         }
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public bool Insert(Modelo.Image obj)
+        public bool Insert(Modelo.Img obj)
         {
             try
             {
@@ -61,7 +60,6 @@ namespace WebAppSGE.DAL
                 SqlCommand com = conn.CreateCommand();
                 SqlCommand cmd = new SqlCommand("INSERT INTO img_Area  VALUES(@img_Url, @id_Area)", conn);
                 cmd.Parameters.AddWithValue("@img_Url", obj.imgUrl);
-                cmd.Parameters.AddWithValue("@id_Area", obj.idArea);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -71,34 +69,31 @@ namespace WebAppSGE.DAL
             }
         }
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Image obj)
+        public void Update(Modelo.Img obj)
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             SqlCommand com = conn.CreateCommand();
-            SqlCommand cmd = new SqlCommand("UPDATE img_Area SET img_Url = @img_Url, id_AreaPoliesportiva = @id_Area WHERE id = @id", conn);
+            SqlCommand cmd = new SqlCommand("UPDATE img_Area SET img_Url = @img_Url WHERE id = @id", conn);
             cmd.Parameters.AddWithValue("@id", obj.id);
-            cmd.Parameters.AddWithValue("@img_Url", obj.imgUrl);
-            cmd.Parameters.AddWithValue("@id_Area", obj.idArea);
             cmd.ExecuteNonQuery();
         }
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Image> Select(string id)
+        public List<Modelo.Img> Select(string id)
         {
-            Modelo.Image aImage;
-            List<Modelo.Image> aListImages = new List<Modelo.Image>();
+            Modelo.Img aImage;
+            List<Modelo.Img> aListImages = new List<Modelo.Img>();
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "Select * from img_Area Where id = @id";
+            cmd.CommandText = "select * from Area_Img ai inner join Img i on i.id = ai.id_Img where ai.id_Area = 1";
             cmd.Parameters.AddWithValue("@id", id);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
                 while (dr.Read())
                 {
-                    aImage = new Modelo.Image(dr["img_Url"].ToString(),
-                       Alternadores.AlternadorI(dr["id_AreaPoliesportiva"].ToString()));
+                    aImage = new Modelo.Img(dr["img_Url"].ToString());
                     aListImages.Add(aImage);
                 }
             }
