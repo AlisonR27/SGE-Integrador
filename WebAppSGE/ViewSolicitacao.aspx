@@ -1,16 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ViewSolicitacao.aspx.cs" Inherits="WebAppSGE.ViewSolicitacao" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SGE.master" AutoEventWireup="true"  CodeBehind="ViewSolicitacao.aspx.cs" Inherits="WebAppSGE.ViewSolicitacao" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>
 
-<!DOCTYPE html>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+</asp:Content>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-</head>
-<body>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
-</body>
-</html>
+<asp:Content ID="Content3" ContentPlaceHolderID="ButtonContent" runat="server">
+    <asp:Button  runat="server" ID="Button1" Text="Sair" CssClass="text-danger border-danger bg-transparent rounded-pill w-50  d-block  mt-2 mx-auto" />
+</asp:Content>
