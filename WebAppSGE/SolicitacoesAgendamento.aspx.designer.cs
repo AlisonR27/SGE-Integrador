@@ -10,33 +10,42 @@
 namespace WebAppSGE {
     
     
-    public partial class Entrar {
+    public partial class SolicitacoesAgendamento {
         
         /// <summary>
-        /// Controle form1.
+        /// Controle TextBoxSearch.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox TextBoxSearch;
         
         /// <summary>
-        /// Controle UsuarioTXT.
+        /// Controle Searchbtn.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox UsuarioTXT;
+        protected global::System.Web.UI.WebControls.LinkButton Searchbtn;
         
         /// <summary>
-        /// Controle PassTXT.
+        /// Controle dropFiltro.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PassTXT;
+        protected global::System.Web.UI.WebControls.DropDownList dropFiltro;
+        
+        /// <summary>
+        /// Controle RepeaterTable.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater RepeaterTable;
     }
 }
