@@ -21,13 +21,6 @@ namespace WebAppSGE
             if (!IsPostBack)
             {
                 Session["Image"] = null;
-                DataColumn dc = new DataColumn("column1");
-                dt.Columns.Add(dc);
-                DataRow dr = dt.NewRow();
-                dr["column1"] = "value1";
-                dt.Rows.Add(dr);
-                GV1.DataSource = dt;
-                GV1.DataBind();
             }
         }
         protected void Submit(object sender, EventArgs e)
@@ -59,22 +52,5 @@ namespace WebAppSGE
         
         }
 
-        protected void Unnamed_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Unnamed_Click1(object sender, EventArgs e)
-        {
-            if (dt.Columns.Count < 6) { 
-            BoundField bf = new BoundField();
-            bf.DataField = "RRR";
-            bf.HeaderText = "New Header";
-            DataColumn dc = new DataColumn("column1");
-            dt.Columns.Add(dc);
-            GV1.Columns.Add(bf);
-            }
-            else { }
-        }
     }
 }

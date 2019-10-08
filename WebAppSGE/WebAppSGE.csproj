@@ -98,6 +98,7 @@
     <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap-reboot.min.css" />
     <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap.css" />
     <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap.min.css" />
+    <Content Include="DetalharArea.aspx" />
     <Content Include="EditarPerfil.aspx" />
     <Content Include="Entrar.aspx" />
     <Content Include="InitialPage.aspx" />
@@ -1664,6 +1665,13 @@
     <Compile Include="DAL\DALSolicitacaoReserva.cs" />
     <Compile Include="DAL\DALSport.cs" />
     <Compile Include="DAL\DALUsuario.cs" />
+    <Compile Include="DetalharArea.aspx.cs">
+      <DependentUpon>DetalharArea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalharArea.aspx.designer.cs">
+      <DependentUpon>DetalharArea.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditarPerfil.aspx.cs">
       <DependentUpon>EditarPerfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1685,7 +1693,6 @@
     <Compile Include="InitialPage.aspx.designer.cs">
       <DependentUpon>InitialPage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="input\Value.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1707,11 +1714,12 @@
     <Compile Include="MngSport.aspx.designer.cs">
       <DependentUpon>MngSport.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\AreaImage.cs" />
     <Compile Include="Modelo\Areas.cs" />
     <Compile Include="Modelo\AreaSport.cs" />
     <Compile Include="Modelo\FullFieldsArea.cs" />
     <Compile Include="Modelo\hDisponivel.cs" />
-    <Compile Include="Modelo\Image.cs" />
+    <Compile Include="Modelo\Img.cs" />
     <Compile Include="Modelo\SolicitacaoReserva.cs" />
     <Compile Include="Modelo\Sports.cs" />
     <Compile Include="Modelo\Usuario.cs" />

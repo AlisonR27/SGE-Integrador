@@ -59,7 +59,7 @@
                         <div class="row">
                     </HeaderTemplate>
                     <ItemTemplate>
-                        <div class="col-auto">
+                        <asp:LinkButton OnCommand="Unnamed_Command" CommandArgument='<%# DataBinder.Eval(Container.DataItem,"id") %>' runat="server" OnClick="Unnamed_Click" class="col-auto">
                             <div class="row justify-content-center">
                                 <div class="col-8 d-block m-auto">
                                     <div  class="thumb">
@@ -70,7 +70,7 @@
                             <div class="row justify-content-center">
                                 <asp:Label CssClass="align-middle" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "desc") %>'></asp:Label>
                             </div>
-                        </div>
+                        </asp:LinkButton>
                     </ItemTemplate>
                     <FooterTemplate>
                         </div>

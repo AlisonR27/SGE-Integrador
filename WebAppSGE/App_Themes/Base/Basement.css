@@ -264,7 +264,8 @@ body{
     .slideDContainer {
     display: inline-block;
     padding: 0 2%;
-    width:calc(100%/7);
+    width:14%;
+    vertical-align:top;
     }
     .slideDTitle {
     display: block;
@@ -277,12 +278,6 @@ body{
     }
     .slideDOcult input{
         width: 100%;
-    }
-    .checkDay::after {
-        content:"Disponivel";
-        margin: 10px 0 0 0;
-        text-align:center;
-        display:block;
     }
     .selectedSports{
         border: 1px solid #d9d9d9;
@@ -335,7 +330,6 @@ body{
 }
 
 .pillborder{
-    border: 1px solid black !important; 
     border-radius: 8px;
 }
 
@@ -354,12 +348,27 @@ body{
         font-family: 'Poiret One', cursive;
         color: rgba(255, 255, 255, 0.55);
     }
+@media (max-width: 575px){
+    .slideDContainer {
+        display: block;
+        width:100%;
+        margin:auto;
+        text-align:center;
+    }
+    .slideDTitle {
+        width: 100%;
+        text-align: center;
+    }
+}
 @media (min-width: 576px) {
     .login-input {
         margin:auto;
         width:75%;
         font-size: 1.25em;
         border-width: 1px;
+    }
+    .slideDContainer{
+        display:block;
     }
 }
 @media (min-width: 768px) {
@@ -369,7 +378,11 @@ body{
         padding: calc(1em/4) !important;
         font-size: 1.2em !important;
         border-width: 2px;
-    } 
+        text-align:left;
+    }
+    .slideDContainer {
+        display: inline-block;
+    }
 }
 @media (min-width: 992px) {
     .login-input {
