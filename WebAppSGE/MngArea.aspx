@@ -38,7 +38,7 @@
                 <div class="col-sm-6">
                     <div>
                         <h6 class="inputTitle">Imagens </h6>            
-                        <asp:FileUpload ID="FileUpload1" runat="server" /> 
+                        <asp:FileUpload ID="FileUpload1" runat="server" />
                     </div>
                     <div class="mt-2">
                         <asp:Panel ID="Panel1" runat="server">

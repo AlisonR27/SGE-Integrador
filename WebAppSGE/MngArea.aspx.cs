@@ -28,12 +28,11 @@ namespace WebAppSGE
             //Adicionando Area Esportiva
                 DALArea oDALArea = new DALArea();
                 oDALArea.Insert(new Areas(TextBoxDesc.Text));
-        
             // Rodando esportes
                 DALAreaSport oDALAreaSport = new DALAreaSport();
-            DALSport oDALSport = new DALSport();
+                DALSport oDALSport = new DALSport();
                 foreach (CheckBoxField li in CBL.Items)
-            {
+                {
                  if (oDALAreaSport.Insert(new AreaSport(DALArea.Identity(), Alternadores.AlternadorI(li.DataField.ToString()))))
                 {
                     ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
@@ -43,7 +42,9 @@ namespace WebAppSGE
                     ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
 
                 }
-            }
+                }
+            //Adiciona Imagem
+              oDALArea.Insert
             Response.Redirect("~//PaginaSearch.aspx");
 
         }

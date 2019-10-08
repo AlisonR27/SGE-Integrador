@@ -25,7 +25,7 @@ namespace WebAppSGE.DAL
                 SqlConnection conn = new SqlConnection(connectionstring);
                 conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "Select * from area_poliesportiva";
+                cmd.CommandText = "Select * from area_Esportiva";
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
@@ -51,7 +51,7 @@ namespace WebAppSGE.DAL
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = @"Select * from area_poliesportiva areap inner
+            cmd.CommandText = @"Select * from area_Esportiva areap inner
                                        join area_img aimg on aimg.id_Area = areap.id inner
                                        join Img img on img.id = aimg.id_Img";
 
@@ -79,7 +79,7 @@ SqlDataReader dr = cmd.ExecuteReader();
                 SqlConnection conn = new SqlConnection(connectionstring);
                 conn.Open();
                 SqlCommand com = conn.CreateCommand();
-                SqlCommand cmd = new SqlCommand("INSERT INTO area_poliesportiva (descricao) VALUES(@descricao)", conn);
+                SqlCommand cmd = new SqlCommand("INSERT INTO area_Esportiva (descricao) VALUES(@descricao)", conn);
                 cmd.Parameters.AddWithValue("@descricao", obj.desc);
                 cmd.ExecuteNonQuery();
                 return true;
@@ -95,7 +95,7 @@ SqlDataReader dr = cmd.ExecuteReader();
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             SqlCommand com = conn.CreateCommand();
-            SqlCommand cmd = new SqlCommand("DELETE FROM area_poliesportiva WHERE ID = @id", conn);
+            SqlCommand cmd = new SqlCommand("DELETE FROM area_Esportiva WHERE ID = @id", conn);
             cmd.Parameters.AddWithValue("@id", obj.id);
             cmd.ExecuteNonQuery();
 
@@ -107,7 +107,7 @@ SqlDataReader dr = cmd.ExecuteReader();
             conn.Open();
             SqlCommand com = conn.CreateCommand();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"select top(1) id from area_Poliesportiva
+            cmd.CommandText = @"select top(1) id from area_Esportiva
                                 order by id desc";
             cmd.Connection = conn;
             SqlDataReader dr = cmd.ExecuteReader();
@@ -130,7 +130,7 @@ SqlDataReader dr = cmd.ExecuteReader();
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "Select * from area_poliesportiva where id = @id ";
+            cmd.CommandText = "Select * from area_Esportiva where id = @id ";
             cmd.Parameters.AddWithValue("@id", id);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
@@ -157,7 +157,7 @@ SqlDataReader dr = cmd.ExecuteReader();
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "Select * from area_poliesportiva where descricao like '%"+txt+"%'";
+            cmd.CommandText = "Select * from area_Esportiva where descricao like '%" + txt+"%'";
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
@@ -175,6 +175,26 @@ SqlDataReader dr = cmd.ExecuteReader();
 
             return aListAreas;
         }
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public void InsertAreaImg(string url, int idArea)
+        {
+            Modelo.Img mimg = new Modelo.Img(url);
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "Select max(id) from Img";
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    int x = Alternadores.AlternadorI(dr["id"].ToString());
+                    SqlCommand ncmd = conn.CreateCommand();
+                    cmd.CommandText = "Insert into Area_Img (id_Area,id_Img) values (@idA,@idI)";cmd.Parameters.AddWithValue("@");
+                }
+            }
+            Modelo.AreaImage
+        }
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.FullFieldsArea> SelectAllFields(string txt)
         {
@@ -183,7 +203,7 @@ SqlDataReader dr = cmd.ExecuteReader();
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "Select * from area_poliesportiva areap inner join area_img aimg on aimg.id_Area = areap.id inner join Img img on  img.id = aimg.id_Img where descricao like '%" + txt + "%'";
+            cmd.CommandText = "Select * from area_Esportiva areap inner join area_img aimg on aimg.id_Area = areap.id inner join Img img on  img.id = aimg.id_Img where descricao like '%" + txt + "%'";
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
