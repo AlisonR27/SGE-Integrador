@@ -1,26 +1,13 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MngSport.aspx.cs" Inherits="WebAppSGE.MngSport" StylesheetTheme="Base" %>
-
-<!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <link rel="stylesheet" type="text/css" href="App_Themes/Light/LightBase.css" />
-    <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap-grid.css" />
-    <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap.css" />
-
-    <script src="Script/jquery341.js"></script>
-    <script src="Script/default.js"></script>
+﻿﻿<%@ Page Title="Gerenciar Esportes" Language="C#" MasterPageFile="~/SGE.master" AutoEventWireup="true" CodeBehind="MngSport.aspx.cs" Inherits="WebAppSGE.MngSport" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         body{
             background-color: #d9d9d9;
         }
     </style>
-</head>
-<body>
-    <form id="form1" runat="server" class="container-fluid">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+    <div class="container-fluid">
         <div>
             <h2 class="ttl Row">Gerenciamento de esportes </h2>
             <hr />
@@ -43,6 +30,8 @@
             <asp:GridView ID="SportsView" runat="server" DataSourceID="SportsOBJDS" class="gridview_sport" BackColor="White" EnableViewState="False"></asp:GridView>        
             <asp:ObjectDataSource ID="SportsOBJDS" runat="server" DataObjectTypeName="WebAppSGE.Modelo.Sports" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport" UpdateMethod="Update"></asp:ObjectDataSource>
         </div>
-    </form> 
-</body>
-</html>
+    </div> 
+</asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ButtonContent" runat="server">
+    <asp:Button  runat="server" ID="Button1" Text="Sair" CssClass="text-danger border-danger bg-transparent rounded-pill w-50  d-block  mt-2 mx-auto" />
+</asp:Content>      

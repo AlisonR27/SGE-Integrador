@@ -16,5 +16,10 @@ namespace WebAppSGE.Modelo
         {
             this.desc = adesc;
         }
+        public Areas(string aid, string adesc)
+        {
+            this.id = int.Parse(aid);
+            this.desc = adesc;
+        }
     }
 }

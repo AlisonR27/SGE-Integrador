@@ -16,30 +16,31 @@
             margin-left:8px;
         }
         div[name="VAlign"]{
-            margin-top:25vh !important;
-            margin-bottom:25vh !important;
+            margin-top:12.5vh !important;
+            margin-bottom:12.5vh !important;
         }
         div[name="mainBox"]{
             background-color: #d8d8d8;
         }
         html{
-            background:linear-gradient(45deg,#9946d9,#bb3abd);
+            background:linear-gradient(45deg,#4e3737,#505050,#393939);
             width:100vw;
             height:100vh;
             z-index:-2;
             background-size:cover;
             background-repeat:no-repeat;
+            overflow:hidden;
         }
         body{
             background:none;
         }
     </style>
 </head>
-<body>
+<body class="h-auto">
+    <!-- <img id="disDiscoteca" src="src/svgs/regular/pause-circle.svg"/> -->    
     <form id="form1" runat="server">
-            <div name="VAlign" class="row bg-transparent">
-                <div class="col-3 bg-transparent"></div>
-                <div name="mainBox" class="col-6 align-content-center py-5 rounded-">
+            <div name="VAlign" class="row bg-transparent h-75 w-100">
+                <div name="mainBox" class="w-50 m-auto h-100 align-content-center py-5 rounded-">
                         <h3 class="align-content-center TAlignCenter">Fazer Logon</h3>
                             <div name="UserRow" class="row">
                                 <div class="col-12">
@@ -104,16 +105,32 @@
                                     <div class="row">
                                         <div class="col-2"></div>
                                         <div class="col-8">
-                                             <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Fazer Logon" CssClass="btn-success w-100 border-0 rounded-pill m-auto" ValidationGroup="Login1" />
+                                             <asp:Button ID="LoginButton" runat="server" OnClick="Login1_LoggingIn" CommandName="Login" Text="Entrar" CssClass="btn-success w-100 border-0 rounded-pill m-auto" ValidationGroup="Login1" />
                                         </div>
                                         <div class="col-2"></div>
                                     </div>
                                 </div>
                                 <div class="col-3"></div>
                             </div>
+                            <div class="row mt-3">
+                                <div class="col-2"></div>
+                                <div class="col-3"><hr /></div>
+                                <div class="col-2"><h5 class="text-center">OU</h5></div>
+                                <div class="col-3"><hr /></div>
+                                <div class="col-2"></div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-3"></div>
+                                <div class="col-6">
+                                <asp:HyperLink runat="server" CssClass="w-100 text-center align-self-center d-block" Text="Registre-se clicando aqui." NavigateUrl="~/Registration.aspx"></asp:HyperLink>
+                                </div>
+                                <div class="col-3"></div>
+
+                            </div>
                         </div>  
-                <div class="col-3 bg-transparent"></div>                
             </div>
     </form>
+
 </body>
+
 </html>
