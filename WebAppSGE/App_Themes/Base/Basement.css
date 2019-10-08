@@ -1,6 +1,4 @@
-﻿* {
-    font-family: sans-serif;
-}
+﻿
 body{
     margin: 0;
 }
@@ -180,9 +178,33 @@ body{
     .Width100 {
         width: 100% !important;
     }
+    .w-100vw{
+        width: 100vw !important;
+    }
     /* Height  */
     .Height100{
         height: 100% !important;
+    }
+    .h-10{
+        height: 10% !important;
+    }
+    .h-15 {
+        height: 15% !important;
+    }
+    .h-20 {
+        height: 20% !important;
+    }
+    .h-25 {
+        height: 25% !important;
+    }
+    .h-30 {
+        height: 30% !important;
+    }
+    .h-35{
+        height: 35% !important;
+    }
+    .h-40{
+        height: 40% !important;
     }
     /*   Position   */
     .PAbsol{
@@ -193,6 +215,9 @@ body{
     }
     .PFix{
         position:fixed;
+    }
+    .left-0{
+        left: 0 !important;
     }
     /* FORMULÁRIO*/
     /* Submeter Imagens */
@@ -310,7 +335,46 @@ body{
 }
 
 .pillborder{
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
-
+.text-v-flow{
+    text-orientation: upright;
+}
+.login-input {
+    background: none;
+    color: #dddddd;
+    border: 0;
+    display: block;
+    border-bottom: solid #dddddd;
+}
+    .login-input::-webkit-input-placeholder {
+        font-weight: normal;
+        font-family: 'Poiret One', cursive;
+        color: rgba(255, 255, 255, 0.55);
+    }
+@media (min-width: 576px) {
+    .login-input {
+        margin:auto;
+        width:75%;
+        font-size: 1.25em;
+        border-width: 1px;
+    }
+}
+@media (min-width: 768px) {
+    .login-input {
+        margin:0;
+        width: 95%;
+        padding: calc(1em/4) !important;
+        font-size: 1.2em !important;
+        border-width: 2px;
+    } 
+}
+@media (min-width: 992px) {
+    .login-input {
+        font-size: 2em;
+        border-width: 3px;
+    }
+}
+@media (min-width: 1200px) {
+}
