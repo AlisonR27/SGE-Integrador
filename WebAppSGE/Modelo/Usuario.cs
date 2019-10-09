@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,8 +11,7 @@ namespace WebAppSGE.Modelo
         public string senha { get; set; }
         public int tipo { get; set; }
         public string nome { get; set; }
-        public byte[] foto { get; set; }
-        public string fotoURL { get; set; }
+        public int fotoId { get; set; }
         public string email { get; set; }
         public string telefone { get; set; }
 
@@ -21,8 +20,7 @@ namespace WebAppSGE.Modelo
             this.senha = "";
             this.tipo = 0;
             this.nome = "";
-            this.foto = null;
-            this.fotoURL = "aa";
+            this.fotoId = 0;
             this.email = "";
             this.telefone = "";
         }
@@ -34,12 +32,12 @@ namespace WebAppSGE.Modelo
             this.email = aemail;
             this.telefone = atelefone;
         }
-        public Usuario(string asenha, int atipo, string anome, string afotoURL, string aemail, string atelefone)
+        public Usuario(string asenha, int atipo, string anome, string afotoId, string aemail, string atelefone)
         {
             this.senha = asenha;
             this.tipo = atipo;
             this.nome = anome;
-            this.fotoURL = afotoURL;
+            this.fotoId =  int.Parse(afotoId);
             this.email = aemail;
             this.telefone = atelefone;
         }

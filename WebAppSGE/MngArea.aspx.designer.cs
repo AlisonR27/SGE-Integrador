@@ -1,4 +1,4 @@
-﻿//------------------------------------------------------------------------------
+//------------------------------------------------------------------------------
 // <gerado automaticamente>
 //     Este código foi gerado por uma ferramenta.
 //
@@ -211,30 +211,21 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.Button FormSubmit;
         
         /// <summary>
-        /// Controle SearchBox.
+        /// Controle GridView1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox SearchBox;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
         
         /// <summary>
-        /// Controle searchButton.
+        /// Controle ObjectDataSource3.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton searchButton;
-        
-        /// <summary>
-        /// Controle DGSearch.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DataGrid DGSearch;
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource3;
     }
 }

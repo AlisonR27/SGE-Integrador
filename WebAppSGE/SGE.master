@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SGE.master.cs" Inherits="WebAppSGE.SGE" %>
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SGE.master.cs" Inherits="WebAppSGE.SGE" %>
 
 <!DOCTYPE html>
 
@@ -114,10 +114,10 @@
             <a class="nav-link" href="InitialPage.aspx">Página Inicial <span class="sr-only">(Página atual)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Áreas Esportivas </a>
+            <a class="nav-link" href="PaginaSearch.aspx">Áreas Esportivas </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Solicitações</a>
+            <a class="nav-link" href="ListSolicitacoes.aspx">Solicitações</a>
           </li>    
         </ul>
         <ul class="navbar-nav">

@@ -1,4 +1,4 @@
-﻿<%@ Page  Language="C#" Title="Gerenciar Áreas Esportivas" MasterPageFile="~/SGE.master" AutoEventWireup="true" CodeBehind="MngArea.aspx.cs" Inherits="WebAppSGE.MngArea" %>
+<%@ Page  Language="C#" Title="Gerenciar Áreas Esportivas" MasterPageFile="~/SGE.master" AutoEventWireup="true" CodeBehind="MngArea.aspx.cs" Inherits="WebAppSGE.MngArea" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style>
         ul{
@@ -29,20 +29,20 @@
             <div class="row ml-1">                
                 <div class="col-sm-6">
                     <h6 class="inputTitle  ">Nome:</h6>
-                    <asp:TextBox ID="TextBoxName" CssClass="b-none w-75" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxName" CssClass="pillborder w-75" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ControlToValidate="TextBoxName" runat="server"></asp:RequiredFieldValidator> 
                     <h6 class="inputTitle">Descrição:</h6>
-                    <asp:TextBox ID="TextBoxDesc" TextMode="MultiLine" CssClass="b-none w-100" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxDesc" TextMode="MultiLine" CssClass="pillborder w-100" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator> 
                 </div>
                 <div class="col-sm-6">
                     <div>
                         <h6 class="inputTitle">Imagens </h6>            
-                        <asp:FileUpload ID="FileUpload1" runat="server" /> 
+                        <asp:FileUpload ID="FileUpload1" runat="server" />
                     </div>
                     <div class="mt-2">
                         <asp:Panel ID="Panel1" runat="server">
-                            <asp:Image ID="Image1" CssClass="col-12 b-none" runat="server"/>
+                            <asp:Image ID="Image1" CssClass="col-12 pillborder" runat="server"/>
                         </asp:Panel>
                     </div>
                 </div>
@@ -68,10 +68,10 @@
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>
                             <h6> Inicio: </h6>
-                            <asp:TextBox runat="server" ID="TXTDomInit"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTDomInit"></asp:TextBox>
                             <br />
                             <h6>Fim:</h6>
-                            <asp:TextBox runat="server" ID="TXTDomEnd"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTDomEnd"></asp:TextBox>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -81,10 +81,10 @@
                         <div class="slideDOcult">
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>                            <h6> Inicio: </h6>
-                            <asp:TextBox runat="server" ID="TXTSegInit"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSegInit"></asp:TextBox>
                             <br />
                             <h6>Fim:</h6>
-                            <asp:TextBox runat="server" ID="TXTSegEnd"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSegEnd"></asp:TextBox>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -95,10 +95,10 @@
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>
                             <h6> Inicio: </h6>
-                            <asp:TextBox runat="server" ID="TXTTerInit"></asp:TextBox>
+                            <asp:TextBox runat="server"  TextMode="Time" ID="TXTTerInit"></asp:TextBox>
                             <br />
                             <h6>Fim:</h6>
-                            <asp:TextBox runat="server" ID="TXTTerEnd"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTTerEnd"></asp:TextBox>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -109,10 +109,10 @@
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>
                             <h6> Inicio: </h6>
-                            <asp:TextBox runat="server" ID="TXTQuaInit"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTQuaInit"></asp:TextBox>
                             <br />
                             <h6>Fim:</h6>
-                            <asp:TextBox runat="server" ID="TXTQuaEnd"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTQuaEnd"></asp:TextBox>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -123,10 +123,10 @@
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>
                             <h6> Inicio: </h6>
-                            <asp:TextBox runat="server" ID="TXTQuiInit"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTQuiInit"></asp:TextBox>
                             <br />
                             <h6>Fim:</h6>
-                            <asp:TextBox runat="server" ID="TXTQuiEnd"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTQuiEnd"></asp:TextBox>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -137,10 +137,10 @@
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>
                             <h6> Inicio: </h6>
-                            <asp:TextBox runat="server" ID="TXTSexInit"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSexInit"></asp:TextBox>
                             <br />
                             <h6>Fim:</h6>
-                            <asp:TextBox runat="server" ID="TXTSexEnd"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSexEnd"></asp:TextBox>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -150,10 +150,10 @@
                         <div class="slideDOcult">
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>                            <h6> Inicio: </h6>
-                            <asp:TextBox runat="server" ID="TXTSabInit"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSabInit"></asp:TextBox>
                             <br />
                             <h6>Fim:</h6>
-                            <asp:TextBox runat="server" ID="TXTSabEnd"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSabEnd"></asp:TextBox>
                         </div>
                 </div>
             </div>        
@@ -161,24 +161,23 @@
                     </div>
                 </div>
             </div>
-            <div class="row">
+            </div>
+    <div class="row">
         <div class="col-12">
             <h2 class="h2">Áreas Esportivas já cadastradas</h2>
         </div>
         <div class="col-12 form-inline">
-            <asp:TextBox ID="SearchBox" runat="server" CssClass="col-sm-8" placeholder="Digite o nome da área aqui..."></asp:TextBox>
-            <asp:LinkButton CssClass="btn-primary b-nonepy-1 ml-sm-2 mb-sm-1 mt-1 col-auto" ID="searchButton" runat="server" OnClick="searchButton_Click">
-                <img class="h-1em" src="src/svgs/solid/search.svg"/>
-                <span class="text-light"> Buscar</span>
-            </asp:LinkButton>
-            <asp:DropDownList runat="server" CssClass="col-auto mb-sm-1 mt-1 ml-2">
-                <asp:ListItem>Ordernar Por:</asp:ListItem>
-            </asp:DropDownList>
-            <asp:DataGrid runat="server" ID="DGSearch"></asp:DataGrid>
+            <asp:GridView OnRowCommand="GridView1_RowCommand"  CssClass="table table-dark" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource3">
+                <Columns>
+                    <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
+                    <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome" />
+                    <asp:BoundField DataField="desc" HeaderText="desc" SortExpression="desc" />
+                    <asp:ButtonField Text="Editar" CommandName="Editar"   />
+                </Columns>
+            </asp:GridView>
+            <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALArea"></asp:ObjectDataSource>
         </div>
     </div>
-            </div>
-    
       <script>
          //PageLoad
 
