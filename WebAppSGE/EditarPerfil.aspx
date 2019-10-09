@@ -56,7 +56,7 @@
         <asp:Button  runat="server" ID="Button1" Text="Sair" CssClass="text-danger border-danger bg-transparent rounded-pill w-50  d-block  mt-2 mx-auto" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="col left-0 ">\
+    <div class="container-fluid ">
        <h2 class="h2">Gerenciar Perfil</h2>
        <div class="row bg-light m-0">
            <div class="col-4 ml-5">
@@ -67,8 +67,7 @@
            <div class="col align-items-end">
                <div class="row ">
                    <div class="col">
-                       <h3 class="h3 d-inline-block m-0">LOREM IPSUM</h3><img class="h3s" src="src/svgs/solid/pencil-alt.svg"/>
-
+                       <h3 class="h3 d-inline-block m-0"></h3><img class="h3s" src="src/svgs/solid/pencil-alt.svg"/>
                    </div>
                </div>
                <div class="row">
@@ -80,11 +79,18 @@
            </div>
        </div>
        <div class="row">
-           <div class="col-6">
-
+           <div class="col-sm-7 ml-2">
+               <div class="row">
+                    <div class="w-100">Nome:</div>
+                    <asp:TextBox runat="server" CssClass="w-100" ID="TXTNome"></asp:TextBox>
+               </div> 
+              <div class="row">
+                    <div class="w-100">Email:</div>
+                    <asp:TextBox runat="server" CssClass="w-100" ID="TXTEmail"></asp:TextBox>
+               </div> 
            </div>
-           <div class="col-6">
-
+           <div class="col-auto VAlignCenter">
+               <asp:FileUpload runat="server" ID="IMGUPLD" />
            </div>
        </div>
     </div>
