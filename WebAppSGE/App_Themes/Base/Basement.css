@@ -1,4 +1,4 @@
-﻿
+
 body{
     margin: 0;
 }
@@ -264,7 +264,8 @@ body{
     .slideDContainer {
     display: inline-block;
     padding: 0 2%;
-    width:calc(100%/7);
+    width:14%;
+    vertical-align:top;
     }
     .slideDTitle {
     display: block;
@@ -277,12 +278,6 @@ body{
     }
     .slideDOcult input{
         width: 100%;
-    }
-    .checkDay::after {
-        content:"Disponivel";
-        margin: 10px 0 0 0;
-        text-align:center;
-        display:block;
     }
     .selectedSports{
         border: 1px solid #d9d9d9;
@@ -325,14 +320,21 @@ body{
 .pageContent {
     margin:0;
 }
-
-.pillborder{
-    border: 0;
-    border-radius: 8px;
+.selectedSportsList li{
+    padding: 1vh 2vw;
+    margin:0 1vw 1vh 0;
+    font-weight: normal;
+    display:inline-block;
+    border: 1px solid;
+    border-radius: 5px;
 }
 
-.h-1 {
-    height: 1em;
+.b-none{
+    border: 0;
+}
+
+.pillborder{
+    border-radius: 8px;
 }
 
 .text-v-flow{
@@ -345,22 +347,34 @@ body{
     display: block;
     border-bottom: solid #dddddd;
 }
-
     .login-input::-webkit-input-placeholder {
         font-weight: normal;
         font-family: 'Poiret One', cursive;
         color: rgba(255, 255, 255, 0.55);
     }
-
+@media (max-width: 575px){
+    .slideDContainer {
+        display: block;
+        width:100%;
+        margin:auto;
+        text-align:center;
+    }
+    .slideDTitle {
+        width: 100%;
+        text-align: center;
+    }
+}
 @media (min-width: 576px) {
     .login-input {
         margin:auto;
         width:75%;
-        font-size: 1.25em;
+        font-size: 1em;
         border-width: 1px;
     }
+    .slideDContainer{
+        display:block;
+    }
 }
-
 @media (min-width: 768px) {
     .login-input {
         margin:0;
@@ -368,24 +382,21 @@ body{
         padding: calc(1em/4) !important;
         font-size: 1.2em !important;
         border-width: 2px;
-    } 
+        text-align:left;
+    }
+    .slideDContainer {
+        display: inline-block;
+    }
 }
-
 @media (min-width: 992px) {
     .login-input {
-        font-size: 2em;
+        font-size: 1.15em;
         border-width: 3px;
     }
 }
-
 @media (min-width: 1200px) {
-}
-
-.selectedSportsList li {
-    padding: 1vh 2vw;
-    margin: 0 1vw 1vh 0;
-    font-weight: normal;
-    display: inline-block;
-    border: 1px solid;
-    border-radius: 5px;
+    .login-input {
+        font-size: 1.15em;
+        border-width: 3px;
+    }
 }

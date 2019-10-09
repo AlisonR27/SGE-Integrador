@@ -30,5 +30,16 @@ namespace WebAppSGE
                 Repeater1.DataBind();
             }
         }
+
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+        }
+
+        protected void Unnamed_Command(object sender, CommandEventArgs e)
+        {
+
+            Session["AreaID"] = e.CommandArgument;
+            Response.Redirect("~\\DetalharArea.aspx");
+        }
     }
 }

@@ -1,10 +1,12 @@
-﻿<%@ Page Title="Gerenciar Esportes" Language="C#" MasterPageFile="~/SGE.master" AutoEventWireup="true" CodeBehind="MngSport.aspx.cs" Inherits="WebAppSGE.MngSport" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="Gerenciar Esportes" Language="C#" MasterPageFile="~/SGE.master" AutoEventWireup="true" CodeBehind="MngSport.aspx.cs" Inherits="WebAppSGE.MngSport"%>
+
+<asp:Content runat="server" ID="Content1" ContentPlaceHolderID="head">   
     <style>
         body{
             background-color: #d9d9d9;
         }
     </style>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
@@ -27,7 +29,13 @@
         <asp:Button runat="server" ID="SubmitButton" OnClick="FormSubmit_Click" Text="Submeter" class="btn-success mt-3"/>
         <div class="row mt-3" >
             <h2 class="ttl col-12">Atividades esportivas já cadastradas:</h2>
-            <asp:GridView ID="SportsView" runat="server" DataSourceID="SportsOBJDS" class="gridview_sport" BackColor="White" EnableViewState="False"></asp:GridView>        
+            <asp:GridView ID="SportsView" runat="server" ViewStateMode="Disabled" DataSourceID="SportsOBJDS" class="gridview_sport" BackColor="White" EnableViewState="False" AutoGenerateColumns="False">
+                <Columns>
+                    <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
+                    <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome" />
+                    <asp:BoundField DataField="descricao" HeaderText="descricao" SortExpression="descricao" />
+                </Columns>
+            </asp:GridView>        
             <asp:ObjectDataSource ID="SportsOBJDS" runat="server" DataObjectTypeName="WebAppSGE.Modelo.Sports" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport" UpdateMethod="Update"></asp:ObjectDataSource>
         </div>
     </div> 

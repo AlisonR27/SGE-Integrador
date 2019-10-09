@@ -11,10 +11,9 @@ namespace WebAppSGE
 {
     public partial class SlctAgendamento : System.Web.UI.Page
     {
-        DALSolicitacaoReserva d = new DALSolicitacaoReserva();
         protected void Page_Load(object sender, EventArgs e)
         {
-            //d.SelectAll().
+
         }
         protected void btnsolicitar_Click(object sender, EventArgs e)
         {

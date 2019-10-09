@@ -4,7 +4,8 @@
 
 <html>
 <head runat="server">
-        <script type="text/javascript" src="Script/jquery-3.4.1.slim.min.js"></script>
+
+        <script type="text/javascript" src="Script/jquery-3.3.1.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <script type="text/javascript" src="Script/default.js"></script>
     <script type="text/javascript" src="Script/bootstrap.min.js"></script>
@@ -114,10 +115,10 @@
             <a class="nav-link" href="InitialPage.aspx">Página Inicial <span class="sr-only">(Página atual)</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Áreas Esportivas </a>
+            <a class="nav-link" href="PaginaSearch.aspx">Áreas Esportivas </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Solicitações</a>
+            <a class="nav-link" href="ListSolicitacoes.aspx">Solicitações</a>
           </li>    
         </ul>
         <ul class="navbar-nav">

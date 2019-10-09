@@ -17,7 +17,7 @@
     <style>
         @media (min-width:600px){
             ::-webkit-scrollbar {
-                width:10px;
+                width:5px;
                 box-shadow: rgba(0,0,0,0.15) -2px 0px 10px;
             }
             ::-webkit-scrollbar-track {
@@ -25,8 +25,6 @@
              }
             ::-webkit-scrollbar-thumb {
                 background: linear-gradient(0deg,#f98003,#f96503);
-                border-left:1px solid #f1f1f1;
-                border-right:1px solid #f1f1f1;
             }
         }
 
@@ -120,6 +118,13 @@
         input:focus{
             outline:none;
         }
+        .login-input:focus {
+             border:0;
+        }
+        .login-input:focus {
+            border-bottom: solid #dddddd;
+            transition: 1s;
+        }
     </style>
 </head>
 <body style="margin:0 !important;overflow:hidden;" class="w-100vw">
@@ -151,27 +156,27 @@ Mauris varius maximus arcu nec sollicitudin. Vestibulum mauris neque, aliquam si
         <div class="left-0 m-0 col-sm-12 pl-sm-1 col-md-5 pr-md-0 pl-md-4 col-lg-4 pl-lg-4 bg-dark h-100 position-sticky d-block">
             <div style="height:100vh;">
                 <div class="h-30 pt-3 text-left text-white">
-                    <img class="h-20 d-block" src="https://angular.io/assets/images/logos/angular/angular_whiteTransparent.png"/>
+                    <img class="h-20 d-block" src="src/macaiba2.png"/>
                     <span class="" style="font-size:4em; font-family: 'Big Shoulders Display', cursive;">
                         Bem-vindo!
                     </span>
                     <br />
                     <span style="font-size:1em;text-rendering:optimizeLegibility;font-family:'Big Shoulders Display', cursive;"> Entre para utilizar todas as funcionalidades. </span>
                 </div>
-                <div class="h-50 pt-md-2">
-                    <asp:TextBox class="spa" runat="server" ID="UsuarioTXT" placeholder="Usuario" CssClass="login-input">
+                <div class="h-40 pt-md-2">
+                    <asp:TextBox class="p-0" runat="server" ID="UsuarioTXT" placeholder="Usuario" CssClass="login-input">
                     </asp:TextBox>
-                    <asp:TextBox class="spa pt-md-3" runat="server" ID="PassTXT" placeholder="Senha" CssClass="login-input">
+                    <asp:TextBox class="p-0 pt-md-3" runat="server" ID="PassTXT" TextMode="Password" placeholder="Senha" CssClass="login-input">
                     </asp:TextBox>
-                    <asp:Button runat="server" Text="Entrar" CssClass="bg-transparent border-light btn-light rounded-pill mt-md-5 text-secondary px-md-5 py-md-1"/>
+                    <asp:Button runat="server" Text="Entrar" CssClass="bg-transparent border-light btn-light rounded-pill mt-md-5 text-secondary px-md-5 py-md-1" OnClick="Unnamed1_Click"/>
                 </div>
                 <div class="h-20">
                     <div class="row pr-md-3">
-                        <div class="col-md-4 pr-0"><hr class=" border-white "/></div>
-                        <div class="col-md-4 text-center text-secondary"><h4>OU</h4></div>
-                        <div class="col-md-4 pl-0"><hr class=" border-white" /></div>
+                        <div class="col pr-0"><hr class=" border-white "/></div>
+                        <div class="col-md-4 text-center text-secondary"><h4 class="h5">OU</h4></div>
+                        <div class="col pl-0"><hr class=" border-white" /></div>
                     </div>
-                    <a class="text-warning" href="Registration.aspx">Clique aqui para se registrar.</a>
+                    <a class="text-warning mt-2 d-block" href="Registration.aspx">Clique aqui para se registrar.</a>
                 </div>
             </div>
         </div>

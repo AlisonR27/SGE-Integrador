@@ -11,15 +11,15 @@
                 <div class="row pl-3"><h5>Motivo:</h5></div>
                 <div class="row">
                     <div class="col-sm-8">
-                        <asp:TextBox runat="server" CssClass="pillborder w-100 h-100" ID="TextBoxMotivo"></asp:TextBox>
+                        <asp:TextBox runat="server" CssClass=" w-100 h-100" ID="TextBoxMotivo"></asp:TextBox>
                     </div>
                     <div class="col-sm-2">
                         <div><h5>De:</h5></div>
-                        <asp:TextBox runat="server" CssClass="pillborder col-auto" ID="TextBoxDe"></asp:TextBox>
+                        <asp:TextBox runat="server" CssClass=" col-auto" ID="TextBoxDe"></asp:TextBox>
                    </div>
                     <div class="col-sm-2">
                         <div><h5>Até:</h5></div>
-                        <asp:TextBox runat="server" CssClass="pillborder col-auto " ID="TextBoxAte"></asp:TextBox>
+                        <asp:TextBox runat="server" CssClass=" col-auto " ID="TextBoxAte"></asp:TextBox>
                     </div>
                 </div>
                 <div class="row mt-1">
@@ -48,16 +48,16 @@
                     </div>
                     <div class="col-md-2">
                         <h5 class="row pl-3">Data Limite:</h5>
-                        <asp:TextBox CssClass="pillborder col-auto" runat="server" ID="txtdatalmite" ToolTip="dd/mm/yyyy"></asp:TextBox>
+                        <asp:TextBox CssClass=" col-auto" runat="server" ID="txtdatalmite" ToolTip="dd/mm/yyyy"></asp:TextBox>
                     </div>
                     <div class="col-md-2">
                         <h5 class="row pl-3">ID da área:</h5>
-                        <asp:TextBox CssClass="pillborder col-auto" runat="server" ID="txtidarea" Enabled="False"></asp:TextBox>
+                        <asp:TextBox CssClass=" col-auto" runat="server" ID="txtidarea" Enabled="False"></asp:TextBox>
                     </div>
                     
                 </div>
                 <div class="row mt-2 pl-3">
-                    <asp:Button CssClass="col-auto btn-success rounded-pill" Text="Solicitar" runat="server" ID="btnsolicitar" OnClick="btnsolicitar_Click" />
+                    <asp:Button CssClass="col-auto btn-success rounded-pill b-none" Text="Solicitar" runat="server" ID="btnsolicitar" OnClick="btnsolicitar_Click" />
                 </div>                    
         </div>
 </asp:Content>
