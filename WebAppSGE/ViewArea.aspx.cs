@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace WebAppSGE
 {
-    public partial class EditarPerfil : System.Web.UI.Page
+    public partial class ViewArea : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

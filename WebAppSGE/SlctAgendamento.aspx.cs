@@ -29,5 +29,10 @@ namespace WebAppSGE
 
             }
         }
+
+        protected void calendar1_SelectionChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

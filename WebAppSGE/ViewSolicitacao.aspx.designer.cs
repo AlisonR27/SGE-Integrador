@@ -13,6 +13,42 @@ namespace WebAppSGE {
     public partial class ViewSolicitacao {
         
         /// <summary>
+        /// Controle TextBoxArea.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxArea;
+        
+        /// <summary>
+        /// Controle TextBoxCodArea.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxCodArea;
+        
+        /// <summary>
+        /// Controle TextBoxDataSlct.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDataSlct;
+        
+        /// <summary>
+        /// Controle TextBoxMotivo.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxMotivo;
+        
+        /// <summary>
         /// Controle Button1.
         /// </summary>
         /// <remarks>
