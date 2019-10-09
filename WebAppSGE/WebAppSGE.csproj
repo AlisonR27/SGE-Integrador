@@ -78,13 +78,17 @@
     <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap.css" />
     <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap.min.css" />
     <Content Include="DetalharArea.aspx" />
+    <Content Include="EditArea.aspx" />
     <Content Include="EditarPerfil.aspx" />
+    <Content Include="EditSport.aspx" />
     <Content Include="Entrar.aspx" />
     <Content Include="InitialPage.aspx" />
+    <Content Include="ListSolicitacoes.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MngArea.aspx" />
     <Content Include="MngSport.aspx" />
     <Content Include="PaginaSearch.aspx" />
+    <Content Include="Registrar.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Script\bootstrap.js" />
     <Content Include="Script\bootstrap.min.js" />
@@ -92,6 +96,7 @@
     <Content Include="Script\jquery-3.4.1.slim.min.js" />
     <Content Include="Script\jquery341.js" />
     <Content Include="SlctAgendamento.aspx" />
+    <Content Include="src\macaiba2.png" />
     <Content Include="src\svgs\brands\500px.svg" />
     <Content Include="src\svgs\brands\accessible-icon.svg" />
     <Content Include="src\svgs\brands\accusoft.svg" />
@@ -1651,12 +1656,26 @@
     <Compile Include="DetalharArea.aspx.designer.cs">
       <DependentUpon>DetalharArea.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EditArea.aspx.cs">
+      <DependentUpon>EditArea.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditArea.aspx.designer.cs">
+      <DependentUpon>EditArea.aspx</DependentUpon>
+    </Compile>
     <Compile Include="EditarPerfil.aspx.cs">
       <DependentUpon>EditarPerfil.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="EditarPerfil.aspx.designer.cs">
       <DependentUpon>EditarPerfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="EditSport.aspx.cs">
+      <DependentUpon>EditSport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EditSport.aspx.designer.cs">
+      <DependentUpon>EditSport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Entrar.aspx.cs">
       <DependentUpon>Entrar.aspx</DependentUpon>
@@ -1671,6 +1690,13 @@
     </Compile>
     <Compile Include="InitialPage.aspx.designer.cs">
       <DependentUpon>InitialPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListSolicitacoes.aspx.cs">
+      <DependentUpon>ListSolicitacoes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListSolicitacoes.aspx.designer.cs">
+      <DependentUpon>ListSolicitacoes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
@@ -1710,6 +1736,13 @@
       <DependentUpon>PaginaSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registrar.aspx.cs">
+      <DependentUpon>Registrar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registrar.aspx.designer.cs">
+      <DependentUpon>Registrar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Registration.aspx.cs">
       <DependentUpon>Registration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

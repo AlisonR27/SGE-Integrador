@@ -33,6 +33,7 @@ namespace WebAppSGE.DAL
                     while (dr.Read()) 
                     {
                         aArea = new Modelo.Areas( dr["id"].ToString(),
+                            dr["nome"].ToString(),
                             dr["descricao"].ToString()    
                             );
                         aListAreas.Add(aArea);
@@ -138,6 +139,7 @@ SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     aArea = new Modelo.Areas(dr["id"].ToString(),
+                        dr["nome"].ToString(),
                         dr["descricao"].ToString()
                         );
                     aListAreas.Add(aArea);

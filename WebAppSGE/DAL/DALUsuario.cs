@@ -63,11 +63,11 @@ namespace WebAppSGE.DAL
                     SqlConnection conn = new SqlConnection(connectionString);
                     conn.Open();
                     SqlCommand com = conn.CreateCommand();
-                    SqlCommand cmd = new SqlCommand("INSERT INTO Usuario (senha,tipo_Usuario,nome,foto,email,telefones) VALUES(@senha,@tipo_Usuario,@nome,@foto,@email,@telefone)", conn);
+                    SqlCommand cmd = new SqlCommand("INSERT INTO Usuario (senha,tipo_Usuario,nome,id_Img,email,telefones) VALUES(@senha,@tipo_Usuario,@nome,@foto,@email,@telefone)", conn);
                     cmd.Parameters.AddWithValue("@senha", obj.senha);
                     cmd.Parameters.AddWithValue("@tipo_Usuario", obj.tipo);
                     cmd.Parameters.AddWithValue("@nome", obj.nome);
-                    cmd.Parameters.AddWithValue("@foto", obj.fotoURL);
+                    cmd.Parameters.AddWithValue("@foto", obj.fotoId);
                     cmd.Parameters.AddWithValue("@email", obj.email);
                     cmd.Parameters.AddWithValue("@telefone", obj.telefone);
                     cmd.ExecuteNonQuery();
@@ -84,11 +84,11 @@ namespace WebAppSGE.DAL
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
                 SqlCommand com = conn.CreateCommand();
-                SqlCommand cmd = new SqlCommand("UPDATE Usuario SET senha = @senha, tipo_Usuario = @tipo_Usuario, nome = @nome, foto = @foto, email = @email, telefone = @telefone WHERE id = @id", conn);
+                SqlCommand cmd = new SqlCommand("UPDATE Usuario SET senha = @senha, tipo_Usuario = @tipo_Usuario, nome = @nome, id_Img = @foto, email = @email, telefone = @telefone WHERE id = @id", conn);
                 cmd.Parameters.AddWithValue("@senha", obj.senha);
                 cmd.Parameters.AddWithValue("@tipo_Usuario", obj.tipo);
                 cmd.Parameters.AddWithValue("@nome", obj.nome);
-                cmd.Parameters.AddWithValue("@foto", obj.fotoURL);
+                cmd.Parameters.AddWithValue("@foto", obj.fotoId);
                 cmd.Parameters.AddWithValue("@email", obj.email);
                 cmd.Parameters.AddWithValue("@telefone", obj.telefone);
 
