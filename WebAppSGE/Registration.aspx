@@ -42,11 +42,11 @@
         </div>
       <!--    <asp:TextBox runat="server" ID="ConfirmPass" TextMode="Password"></asp:TextBox><br />-->
         <br />
-        <asp:Button ID="Button2" CssClass="btn-success rounded-pill"  runat="server" OnClick="Button2_Click" Text="Cadastrar usuário" /> 
+        <asp:Button ID="Button2" CssClass="btn-success rounded-pill" runat="server" OnClick="Button2_Click" Text="Cadastrar" /> 
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ButtonContent" runat="server">
-    <asp:Button  runat="server" ID="Button3" Text="Sair" CssClass="text-danger border-danger bg-transparent rounded-pill w-50  d-block  mt-2 mx-auto" />
+    <asp:Button runat="server" ID="Button3" Text="Sair" CssClass="text-danger border-danger bg-transparent rounded-pill w-50 d-block mt-2 mx-auto" />
 </asp:Content>
 
     

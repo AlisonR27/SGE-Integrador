@@ -1,23 +1,5 @@
 ﻿<%@ Page  Language="C#" Title="Gerenciar Áreas Esportivas" MasterPageFile="~/SGE.master" AutoEventWireup="true" CodeBehind="MngArea.aspx.cs" Inherits="WebAppSGE.MngArea" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        ul{
-            list-style:none;
-        }
-        li{ margin: 2px 3px;
-            display:flex;
-            padding:2px;    
-            float:left;
-        }
-        li *{
-            display:inline-block;
-            vertical-align:middle;
-            margin:0 !important;
-        }
-        li input {
-            height:1.5rem;
-        }
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
@@ -75,3 +57,6 @@
         </div>
     </div>
 </asp:Content>
+<asp:Content ID="Content3" ContentPlaceHolderID="ButtonContent" runat="server">
+    <asp:Button runat="server" ID="Button1" Text="Sair" CssClass="text-danger border-danger bg-transparent rounded-pill w-50 d-block mt-2 mx-auto" />
+</asp:Content>  

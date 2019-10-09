@@ -43,7 +43,7 @@
                     </asp:Calendar>
                 </div>
                 <div class="col-md-2">
-                    <h6>Repetição</h6>
+                    <h6>Repetição:</h6>
                     <asp:DropDownList runat="server" CssClass="w-100 border-0 col-auto" ID="dropdown1"></asp:DropDownList>
                 </div>
                 <div class="col-md-2">
@@ -51,11 +51,11 @@
                     <%-- Não sei o que Colocar agora se puder adiantar ajudaria mt --%>
                 </div>
                 <div class="col-md-2">
-                    <h6>Data Limite:</h6>
+                    <h6>Data limite:</h6>
                         <asp:TextBox CssClass="w-100 border-0 col-auto" runat="server" ID="txtdatalmite" ToolTip="dd/mm/yyyy"></asp:TextBox>
                 </div>
                 <div class="col-md-2">
-                    <h6 class="row pl-3">ID da área:</h6>
+                    <h6>ID da área:</h6>
                     <asp:TextBox CssClass="w-100 border-0 col-auto" runat="server" ID="txtidarea" Enabled="False"></asp:TextBox>
                 </div>
             </div>

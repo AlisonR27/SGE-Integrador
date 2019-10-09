@@ -100,10 +100,12 @@
     <Content Include="css\bootstrap-4.3.1-dist\css\bootstrap.min.css" />
     <Content Include="EditarPerfil.aspx" />
     <Content Include="Entrar.aspx" />
+    <Content Include="EspDeferimento.aspx" />
     <Content Include="InitialPage.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MngArea.aspx" />
     <Content Include="MngSport.aspx" />
+    <Content Include="MngUser.aspx" />
     <Content Include="PaginaSearch.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Script\bootstrap.js" />
@@ -1678,6 +1680,13 @@
     <Compile Include="Entrar.aspx.designer.cs">
       <DependentUpon>Entrar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EspDeferimento.aspx.cs">
+      <DependentUpon>EspDeferimento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EspDeferimento.aspx.designer.cs">
+      <DependentUpon>EspDeferimento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InitialPage.aspx.cs">
       <DependentUpon>InitialPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1706,6 +1715,13 @@
     </Compile>
     <Compile Include="MngSport.aspx.designer.cs">
       <DependentUpon>MngSport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MngUser.aspx.cs">
+      <DependentUpon>MngUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MngUser.aspx.designer.cs">
+      <DependentUpon>MngUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\Areas.cs" />
     <Compile Include="Modelo\AreaSport.cs" />
