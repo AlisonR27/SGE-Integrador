@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
         <div class="col-sm-12">
-            <h2 style="padding-top: 1%">Solicitar Áreas Poliesportivas</h2>
+            <h2 style="padding-top: 1%">Solicitar áreas esportivas</h2>
         </div>       
         <hr />
         <div class="container-fluid">
@@ -13,7 +13,7 @@
                     <div>
                         <h6>Motivo:</h6>
                     </div>
-                    <asp:TextBox runat="server" CssClass="w-100 border-0" ID="TextBoxMotivo" TextMode="MultiLine"></asp:TextBox>
+                    <asp:TextBox runat="server" CssClass="w-100 border-0" ID="TextBoxMotivo" TextMode="MultiLine" Style="resize: none"></asp:TextBox>
                 </div>
                 <div class="col-sm-2">
                     <div>

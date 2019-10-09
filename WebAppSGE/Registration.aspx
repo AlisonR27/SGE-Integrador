@@ -13,41 +13,37 @@
         </div>
         <hr />
         <div class="container-fluid">
-            <div class="col-sm-6">
-                <div class="row">
-                    <div class="col-1">
-                        <h6>ID</h6>
-                    </div>
-                    <div class="col-5">
-                        <asp:TextBox ID="TXTId" CssClass="w-25" runat="server" ReadOnly="true" Enabled="false"></asp:TextBox>
-                    </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h6>ID</h6>
+                    <asp:TextBox ID="TXTId" CssClass="w-25" runat="server" ReadOnly="true" Enabled="false"></asp:TextBox>
                 </div>
-                <h6>Nome:</h6>
-                <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />
-              
-                <h6>Senha:</h6>
-                <asp:TextBox runat="server" ID="Pass"></asp:TextBox>
-                <h6>Confirme a senha:</h6>
-                <asp:TextBox runat="server" ID="CnfrmPass"></asp:TextBox>
-                
+                <div class="col-sm-6">
+                    <h6>Nome:</h6>
+                    <asp:TextBox ID="TextBox1" CssClass="w-75 col-auto border-0" runat="server"></asp:TextBox>
+                    <br />
+                    <h6>Senha:</h6>
+                    <asp:TextBox runat="server" CssClass="w-75 col-auto border-0" ID="Pass"></asp:TextBox>
+                    <h6>Confirme a senha:</h6>
+                    <asp:TextBox runat="server" CssClass="w-75 col-auto border-0" ID="CnfrmPass"></asp:TextBox>
+                </div>
+                <div class="col-sm-6">
+                    <h6>Email:</h6>                   
+                    <asp:TextBox ID="TextBox2" CssClass="w-75 col-auto border-0" runat="server"></asp:TextBox><br />
+                    <h6>Telefones:</h6> 
+                    <asp:TextBox ID="TXTPhones" CssClass="col-auto border-0" runat="server"></asp:TextBox>
+                    <asp:Button ID="Button1" CssClass="btn-outline-dark rounded-0 ml-2" runat="server" OnClick="Button1_Click" Text="Adicionar Telefone" /><br />
+                    <h6>Telefones cadastrados</h6>
+                    <asp:BulletedList ID="selectedPhones" CssClass="w-75 d-block list-group-item-primary" runat="server" EnableViewState="False">
+                        <asp:ListItem></asp:ListItem>
+                    </asp:BulletedList>
+                </div>
             </div>
-            <div class=" col-sm-6">
-                 <h6>Email:</h6>                   
-                <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox><br />
-                  <h6>Telefones:</h6> 
-                <asp:TextBox ID="TXTPhones" runat="server"></asp:TextBox><asp:Button ID="Button1" CssClass="btn-outline-dark rounded-0 ml-2" runat="server" OnClick="Button1_Click" Text="Adicionar Telefone" /><br />
-                <h6>Telefones cadastrados</h6>
-                <asp:BulletedList ID="selectedPhones" CssClass="d-block list-group-item-primary" runat="server" EnableViewState="False">
-                    <asp:ListItem></asp:ListItem>
-                </asp:BulletedList>
-             </div>
         </div>
-        
-       
       <!--    <asp:TextBox runat="server" ID="ConfirmPass" TextMode="Password"></asp:TextBox><br />-->
         <br />
-      <asp:Button ID="Button2" CssClass="btn-success rounded-pill"  runat="server" OnClick="Button2_Click" Text="Cadastrar usuário" /> 
-      </div>
+        <asp:Button ID="Button2" CssClass="btn-success rounded-pill"  runat="server" OnClick="Button2_Click" Text="Cadastrar usuário" /> 
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ButtonContent" runat="server">
     <asp:Button  runat="server" ID="Button3" Text="Sair" CssClass="text-danger border-danger bg-transparent rounded-pill w-50  d-block  mt-2 mx-auto" />
