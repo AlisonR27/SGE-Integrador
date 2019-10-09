@@ -227,5 +227,14 @@ namespace WebAppSGE {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton searchButton;
+        
+        /// <summary>
+        /// Controle DGSearch.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataGrid DGSearch;
     }
 }

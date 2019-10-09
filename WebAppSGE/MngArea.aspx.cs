@@ -16,11 +16,14 @@ namespace WebAppSGE
     {
         Sports oSports = new Sports();
         DataTable dt = new DataTable();
+        DALArea d = new DALArea();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 Session["Image"] = null;
+                DGSearch.DataSource = d.SelectAllFields();
+                DGSearch.DataBind();
             }
         }
         protected void Submit(object sender, EventArgs e)
@@ -52,5 +55,19 @@ namespace WebAppSGE
         
         }
 
+        protected void searchButton_Click(object sender, EventArgs e)
+        {
+            DGSearch.DataSource = null;
+            if (SearchBox.Text.ToString().Trim() == "")
+            {
+                DGSearch.DataSource = d.SelectAllFields();
+                DGSearch.DataBind();
+            }
+            else if (SearchBox.Text.ToString().Trim() != "")
+            {
+                DGSearch.DataSource = d.SelectAll(SearchBox.Text.ToString().Trim());
+                DGSearch.DataBind();
+            }
+        }
     }
 }

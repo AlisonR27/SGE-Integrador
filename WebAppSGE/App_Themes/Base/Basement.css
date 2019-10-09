@@ -333,6 +333,10 @@ body{
     border-radius: 8px;
 }
 
+.b-none{
+    border: 0;
+}
+
 .text-v-flow{
     text-orientation: upright;
 }

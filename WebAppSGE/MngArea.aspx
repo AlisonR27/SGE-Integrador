@@ -29,10 +29,10 @@
             <div class="row ml-1">                
                 <div class="col-sm-6">
                     <h6 class="inputTitle  ">Nome:</h6>
-                    <asp:TextBox ID="TextBoxName" CssClass="pillborder w-75" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxName" CssClass="b-none w-75" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ControlToValidate="TextBoxName" runat="server"></asp:RequiredFieldValidator> 
                     <h6 class="inputTitle">Descrição:</h6>
-                    <asp:TextBox ID="TextBoxDesc" TextMode="MultiLine" CssClass="pillborder w-100" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxDesc" TextMode="MultiLine" CssClass="b-none w-100" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator> 
                 </div>
                 <div class="col-sm-6">
@@ -42,7 +42,7 @@
                     </div>
                     <div class="mt-2">
                         <asp:Panel ID="Panel1" runat="server">
-                            <asp:Image ID="Image1" CssClass="col-12 pillborder" runat="server"/>
+                            <asp:Image ID="Image1" CssClass="col-12 b-none" runat="server"/>
                         </asp:Panel>
                     </div>
                 </div>
@@ -161,22 +161,24 @@
                     </div>
                 </div>
             </div>
-            </div>
-    <div class="row">
+            <div class="row">
         <div class="col-12">
             <h2 class="h2">Áreas Esportivas já cadastradas</h2>
         </div>
         <div class="col-12 form-inline">
-            <asp:TextBox ID="SearchBox" runat="server" placeholder="Digite o nome da área aqui..."></asp:TextBox>
-            <asp:LinkButton CssClass="btn-primary rounded-pill py-1 px-3" ID="searchButton" runat="server">
+            <asp:TextBox ID="SearchBox" runat="server" CssClass="col-sm-8" placeholder="Digite o nome da área aqui..."></asp:TextBox>
+            <asp:LinkButton CssClass="btn-primary b-nonepy-1 ml-sm-2 mb-sm-1 mt-1 col-auto" ID="searchButton" runat="server" OnClick="searchButton_Click">
                 <img class="h-1em" src="src/svgs/solid/search.svg"/>
                 <span class="text-light"> Buscar</span>
             </asp:LinkButton>
-            <asp:DropDownList runat="server">
+            <asp:DropDownList runat="server" CssClass="col-auto mb-sm-1 mt-1 ml-2">
                 <asp:ListItem>Ordernar Por:</asp:ListItem>
             </asp:DropDownList>
+            <asp:DataGrid runat="server" ID="DGSearch"></asp:DataGrid>
         </div>
     </div>
+            </div>
+    
       <script>
          //PageLoad
 
