@@ -1,4 +1,4 @@
-<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Entrar.aspx.cs" Inherits="WebAppSGE.Entrar" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Entrar.aspx.cs" Inherits="WebAppSGE.Entrar" %>
 
 <!DOCTYPE html>
 
@@ -168,7 +168,7 @@ Mauris varius maximus arcu nec sollicitudin. Vestibulum mauris neque, aliquam si
                     </asp:TextBox>
                     <asp:TextBox class="p-0 pt-md-3" runat="server" ID="PassTXT" TextMode="Password" placeholder="Senha" CssClass="login-input">
                     </asp:TextBox>
-                    <asp:Button runat="server" Text="Entrar" CssClass="bg-transparent border-light btn-light rounded-pill mt-md-5 text-secondary px-md-5 py-md-1"/>
+                    <asp:Button runat="server" Text="Entrar" CssClass="bg-transparent border-light btn-light rounded-pill mt-md-5 text-secondary px-md-5 py-md-1" OnClick="Unnamed1_Click"/>
                 </div>
                 <div class="h-20">
                     <div class="row pr-md-3">
