@@ -1,9 +1,10 @@
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SGE.master.cs" Inherits="WebAppSGE.SGE" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SGE.master.cs" Inherits="WebAppSGE.SGE" %>
 
 <!DOCTYPE html>
 
 <html>
 <head runat="server">
+
         <script type="text/javascript" src="Script/jquery-3.3.1.min.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <script type="text/javascript" src="Script/default.js"></script>

@@ -19,7 +19,12 @@ namespace WebAppSGE
         protected void Button2_Click(object sender, EventArgs e)
         {
             DALUsuario oDALUsuario = new DALUsuario();
-            if (oDALUsuario.Insert(new Usuario(Pass.Text, 2, TextBox1.Text, "0", TXTEmail.Text, TXTPhones.Text))) ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
+            int id = oDALUsuario.InsertUserImg("https://pbs.twimg.com/media/EEXqss-WwAQEwgM.png");
+            if (id < 0)
+            {
+                throw new Exception();
+            }
+            if (oDALUsuario.Insert(new Usuario(Pass.Text, 2, TextBox1.Text, id.ToString(), TXTEmail.Text, TXTPhones.Text))) ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
             else
             {
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);

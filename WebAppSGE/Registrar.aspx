@@ -43,9 +43,7 @@
                   <h5>Telefones:</h5> 
                 <asp:TextBox ID="TXTPhones" TextMode="Number" runat="server"></asp:TextBox>
              </div>
-        </div>
-        
-       
+        </div>    
       <!--    <asp:TextBox runat="server" ID="ConfirmPass" TextMode="Password"></asp:TextBox><br />-->
         <br />
       <asp:Button ID="Button2" CssClass="btn-success rounded-pill"  runat="server" OnClick="Button2_Click" Text="Cadastrar usuário" /> 

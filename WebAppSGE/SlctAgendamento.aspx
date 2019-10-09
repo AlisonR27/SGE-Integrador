@@ -57,7 +57,7 @@
                     
                 </div>
                 <div class="row mt-2 pl-3">
-                    <asp:Button CssClass="col-auto btn-success rounded-pill" Text="Solicitar" runat="server" ID="btnsolicitar" OnClick="btnsolicitar_Click" />
+                    <asp:Button CssClass="col-auto btn-success rounded-pill b-none" Text="Solicitar" runat="server" ID="btnsolicitar" OnClick="btnsolicitar_Click" />
                 </div>                    
         </div>
 </asp:Content>
