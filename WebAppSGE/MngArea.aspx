@@ -68,10 +68,10 @@
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>
                             <h6> Inicio: </h6>
-                            <asp:TextBox runat="server" ID="TXTDomInit"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTDomInit"></asp:TextBox>
                             <br />
                             <h6>Fim:</h6>
-                            <asp:TextBox runat="server" ID="TXTDomEnd"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTDomEnd"></asp:TextBox>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -81,10 +81,10 @@
                         <div class="slideDOcult">
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>                            <h6> Inicio: </h6>
-                            <asp:TextBox runat="server" ID="TXTSegInit"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSegInit"></asp:TextBox>
                             <br />
                             <h6>Fim:</h6>
-                            <asp:TextBox runat="server" ID="TXTSegEnd"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSegEnd"></asp:TextBox>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -95,10 +95,10 @@
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>
                             <h6> Inicio: </h6>
-                            <asp:TextBox runat="server" ID="TXTTerInit"></asp:TextBox>
+                            <asp:TextBox runat="server"  TextMode="Time" ID="TXTTerInit"></asp:TextBox>
                             <br />
                             <h6>Fim:</h6>
-                            <asp:TextBox runat="server" ID="TXTTerEnd"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTTerEnd"></asp:TextBox>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -109,10 +109,10 @@
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>
                             <h6> Inicio: </h6>
-                            <asp:TextBox runat="server" ID="TXTQuaInit"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTQuaInit"></asp:TextBox>
                             <br />
                             <h6>Fim:</h6>
-                            <asp:TextBox runat="server" ID="TXTQuaEnd"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTQuaEnd"></asp:TextBox>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -123,10 +123,10 @@
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>
                             <h6> Inicio: </h6>
-                            <asp:TextBox runat="server" ID="TXTQuiInit"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTQuiInit"></asp:TextBox>
                             <br />
                             <h6>Fim:</h6>
-                            <asp:TextBox runat="server" ID="TXTQuiEnd"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTQuiEnd"></asp:TextBox>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -137,10 +137,10 @@
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>
                             <h6> Inicio: </h6>
-                            <asp:TextBox runat="server" ID="TXTSexInit"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSexInit"></asp:TextBox>
                             <br />
                             <h6>Fim:</h6>
-                            <asp:TextBox runat="server" ID="TXTSexEnd"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSexEnd"></asp:TextBox>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -150,10 +150,10 @@
                         <div class="slideDOcult">
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>                            <h6> Inicio: </h6>
-                            <asp:TextBox runat="server" ID="TXTSabInit"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSabInit"></asp:TextBox>
                             <br />
                             <h6>Fim:</h6>
-                            <asp:TextBox runat="server" ID="TXTSabEnd"></asp:TextBox>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSabEnd"></asp:TextBox>
                         </div>
                 </div>
             </div>        
@@ -167,14 +167,15 @@
             <h2 class="h2">Áreas Esportivas já cadastradas</h2>
         </div>
         <div class="col-12 form-inline">
-            <asp:TextBox ID="SearchBox" runat="server" placeholder="Digite o nome da área aqui..."></asp:TextBox>
-            <asp:LinkButton CssClass="btn-primary rounded-pill py-1 px-3" ID="searchButton" runat="server">
-                <img class="h-1em" src="src/svgs/solid/search.svg"/>
-                <span class="text-light"> Buscar</span>
-            </asp:LinkButton>
-            <asp:DropDownList runat="server">
-                <asp:ListItem>Ordernar Por:</asp:ListItem>
-            </asp:DropDownList>
+            <asp:GridView CssClass="table table-dark" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource3">
+                <Columns>
+                    <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
+                    <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome" />
+                    <asp:BoundField DataField="desc" HeaderText="desc" SortExpression="desc" />
+                </Columns>
+            </asp:GridView>
+            <asp:ObjectDataSource ID="ObjectDataSource3" runat="server" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALArea"></asp:ObjectDataSource>
+            <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" SelectMethod="SelectAllFields" TypeName="WebAppSGE.DAL.DALArea"></asp:ObjectDataSource>
         </div>
     </div>
       <script>

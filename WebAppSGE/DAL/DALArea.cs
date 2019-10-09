@@ -79,8 +79,8 @@ SqlDataReader dr = cmd.ExecuteReader();
                 SqlConnection conn = new SqlConnection(connectionstring);
                 conn.Open();
                 SqlCommand com = conn.CreateCommand();
-                SqlCommand cmd = new SqlCommand("INSERT INTO area_Esportiva (descricao) VALUES(@descricao)", conn);
-                cmd.Parameters.AddWithValue("@descricao", obj.desc);
+                SqlCommand cmd = new SqlCommand("INSERT INTO area_Esportiva (nome,descricao) VALUES(@nome,@descricao)", conn);
+                cmd.Parameters.AddWithValue("@nome", obj.nome);cmd.Parameters.AddWithValue("@descricao", obj.desc);
                 cmd.ExecuteNonQuery();
                 return true;
             }              
@@ -107,8 +107,7 @@ SqlDataReader dr = cmd.ExecuteReader();
             conn.Open();
             SqlCommand com = conn.CreateCommand();
             SqlCommand cmd = new SqlCommand();
-            cmd.CommandText = @"select top(1) id from area_Esportiva
-                                order by id desc";
+            cmd.CommandText = @"select max(id) as id from area_Esportiva";
             cmd.Connection = conn;
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
@@ -176,24 +175,44 @@ SqlDataReader dr = cmd.ExecuteReader();
             return aListAreas;
         }
         [DataObjectMethod(DataObjectMethodType.Insert)]
-        public void InsertAreaImg(string url, int idArea)
+        public bool InsertAreaImg(string url, int idArea)
         {
-            Modelo.Img mimg = new Modelo.Img(url);
-            SqlConnection conn = new SqlConnection(connectionstring);
-            conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "Select max(id) from Img";
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.HasRows)
-            {
-                while (dr.Read())
+            try { 
+                Modelo.Img mimg = new Modelo.Img(url);
+                SqlConnection conn = new SqlConnection(connectionstring);
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = @"Insert into Img (img_Url) values (@url) 
+                                    Select max(id) as id from Img";
+                cmd.Parameters.AddWithValue("@url", url);
+                SqlDataReader dr = cmd.ExecuteReader();
+                int id = 0;
+                if (dr.HasRows)
                 {
-                    int x = Alternadores.AlternadorI(dr["id"].ToString());
-                    SqlCommand ncmd = conn.CreateCommand();
-                    cmd.CommandText = "Insert into Area_Img (id_Area,id_Img) values (@idA,@idI)";cmd.Parameters.AddWithValue("@");
+                    int i =0;
+                    while (dr.Read())
+                    {
+                        if (i > 0) {
+                            break;
+                        }
+                          id = Alternadores.AlternadorI(dr["id"].ToString());
+                        i++;
+                    }
                 }
+                dr.Close();
+                SqlCommand ncmd = conn.CreateCommand();
+                if (id > 0) { 
+                ncmd.CommandText = "Insert into Area_Img (id_Area,id_Img) values (@idA,@idI)"; ncmd.Parameters.AddWithValue("@idA", Identity()); ncmd.Parameters.AddWithValue("@idI", id);
+                ncmd.ExecuteNonQuery();
+                }
+                else{
+                    throw new Exception();
+                }
+                return true;
             }
-            Modelo.AreaImage
+            catch{
+                return false;
+            }
         }
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.FullFieldsArea> SelectAllFields(string txt)
