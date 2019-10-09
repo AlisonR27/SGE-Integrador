@@ -19,7 +19,7 @@
            <div class="container-fluid bg-transparent">
         <h3>Cadastrar Usuário</h3><hr />
         <div class="row">
-            <div class=" col-sm-6">
+            <div class="col">
                 <div class="row">
                     <div class="col-1">
                         <h5>ID</h5>
@@ -32,20 +32,20 @@
                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />
               
                 <h5>Senha:</h5>
-                <asp:TextBox runat="server" TextMode="Password" ID="Pass"></asp:TextBox>
+                <asp:TextBox runat="server" CssClass="w-75" TextMode="Password" ID="Pass"></asp:TextBox>
                 <h5>Confirme a senha:</h5>
-                <asp:TextBox runat="server" TextMode="Password" ID="CnfrmPass"></asp:TextBox>
+                <asp:TextBox runat="server" CssClass="w-75" TextMode="Password" ID="CnfrmPass"></asp:TextBox>
                 
             </div>
-            <div class=" col-sm-6">
+            <div class="col">
                  <h5>Email:</h5>                   
-                <asp:TextBox ID="TXTEmail"  TextMode="Email" runat="server"></asp:TextBox><br />
+                <asp:TextBox ID="TXTEmail" CssClass=" w-75" TextMode="Email" runat="server"></asp:TextBox><br />
                   <h5>Telefones:</h5> 
-                <asp:TextBox ID="TXTPhones" TextMode="Number" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TXTPhones" CssClass=" w-75" TextMode="Number" runat="server"></asp:TextBox>
              </div>
         </div>
         
-       
+       S
       <!--    <asp:TextBox runat="server" ID="ConfirmPass" TextMode="Password"></asp:TextBox><br />-->
         <br />
       <asp:Button ID="Button2" CssClass="btn-success rounded-pill"  runat="server" OnClick="Button2_Click" Text="Cadastrar usuário" /> 

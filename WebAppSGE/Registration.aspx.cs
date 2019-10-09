@@ -45,12 +45,11 @@ namespace WebAppSGE
             foreach (ListItem li in selectedPhones.Items) {
                 phones += li.Text+";";
             }
-            if (oDALUsuario.Insert(new Usuario(Pass.Text, 2, TextBox1.Text,"aaa",TextBox2.Text,phones))) ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
+            if(oDALUsuario.Insert(new Usuario(Pass.Text, 2, TextBox1.Text,"aaa",TextBox2.Text,phones))) ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
                 else
                 {
-                    ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
-
+                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
+                }
         }
-    }
     }
 }

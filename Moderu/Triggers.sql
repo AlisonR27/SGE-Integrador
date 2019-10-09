@@ -1,3 +1,12 @@
+drop trigger  if exists valAreaEsport
+go
+drop trigger  if exists valHorarioSoli
+go
+drop trigger  if exists valHorarioDispo
+go
+drop trigger  if exists valUsuario
+go
+drop trigger  if exists valAtividadeEsportiva
 go
 create trigger valAreaEsport on Area_Esportiva
 for insert, update
@@ -35,7 +44,7 @@ as
 		raiserror('Área já existente',0,0)
 	end
 go
-create trigger valAtividadeEsportiva atividadeEsportiva
+create trigger valAtividadeEsportiva on atividadeEsportiva
 for insert, update
 as
 	declare @id int
@@ -69,7 +78,7 @@ as
 		raiserror('Atividade já existente',0,0)
 	end
 go
-create trigger valUsuario Usuario
+create trigger valUsuario on Usuario
 for insert, update
 as
 	declare @id int
