@@ -123,25 +123,24 @@ SqlDataReader dr = cmd.ExecuteReader();
             return i;
         }
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Areas> SelectUnic(int id)
+        public List<Modelo.FullFieldsArea> SelectUnic(int id)
         {
-            Modelo.Areas aArea;
-            List<Modelo.Areas> aListAreas = new List<Modelo.Areas>();
+            Modelo.FullFieldsArea aArea;
+            List<Modelo.FullFieldsArea> aListAreas = new List<Modelo.FullFieldsArea>();
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "Select * from area_Esportiva where id = @id ";
-            cmd.Parameters.AddWithValue("@id", id);
+            cmd.CommandText = "Select * from area_Esportiva areap inner join area_img aimg on aimg.id_Area = areap.id inner join Img img on  img.id = aimg.id_Img where areap.id = @id";cmd.Parameters.AddWithValue("@id", id);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
-
                 while (dr.Read())
                 {
-                    aArea = new Modelo.Areas(dr["id"].ToString(),
+                    aArea = new Modelo.FullFieldsArea(dr["id"].ToString(),
                         dr["nome"].ToString(),
-                        dr["descricao"].ToString()
-                        );
+                        dr["descricao"].ToString(),
+                        dr["img_Url"].ToString()
+                    );
                     aListAreas.Add(aArea);
                 }
             }
