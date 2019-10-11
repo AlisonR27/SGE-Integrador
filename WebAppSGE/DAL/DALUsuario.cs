@@ -79,13 +79,16 @@ namespace WebAppSGE.DAL
             //}
             }
             [DataObjectMethod(DataObjectMethodType.Update)]
-            public void Update(Modelo.Usuario obj)
+            public void Update(Modelo.Usuario obj, string url)
             {
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
                 SqlCommand com = conn.CreateCommand();
+                com.CommandText= "UPDATE Image Set Img_Url = @img where id = @imgId"; com.Parameters.AddWithValue("@img",url);com.Parameters.AddWithValue("@imgId", obj.fotoId);
+            com.ExecuteNonQuery();
                 SqlCommand cmd = new SqlCommand("UPDATE Usuario SET senha = @senha, tipo_Usuario = @tipo_Usuario, nome = @nome, id_Img = @foto, email = @email, telefone = @telefone WHERE id = @id", conn);
                 cmd.Parameters.AddWithValue("@senha", obj.senha);
+                cmd.Parameters.AddWithValue("@id", obj.id);
                 cmd.Parameters.AddWithValue("@tipo_Usuario", obj.tipo);
                 cmd.Parameters.AddWithValue("@nome", obj.nome);
                 cmd.Parameters.AddWithValue("@foto", obj.fotoId);
@@ -93,7 +96,8 @@ namespace WebAppSGE.DAL
                 cmd.Parameters.AddWithValue("@telefone", obj.telefone);
 
                 cmd.ExecuteNonQuery();
-            }
+            conn.Close();
+        }
             [DataObjectMethod(DataObjectMethodType.Select)]
             public List<Modelo.Usuario> Select(string nome)
             {

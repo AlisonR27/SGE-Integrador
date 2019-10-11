@@ -33,5 +33,12 @@ namespace WebAppSGE.Modelo
             this.email = aemail;
             this.telefone = atelefone;
         }
+        public Usuario(string anome, string afotoId, string aemail, string atelefone) // User Update
+        {
+            this.nome = anome;
+            this.fotoId = int.Parse(afotoId);
+            this.email = aemail;
+            this.telefone = atelefone;
+        }
     }
 }
