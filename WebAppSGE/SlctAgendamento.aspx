@@ -4,27 +4,27 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
             <div class="container-fluid">
             <div class="row pl-3">
-                <div class="col-sm-6"><h2>Solicitar Áreas Poliesportivas</h2></div>
-                <div class="col-sm-6"></div>
+                <div class="col-sm-6"><h2 style="padding-top: 1%">Solicitar áreas esportivas</h2></div>
+                <hr />
             </div>            
             <div class="container-fluid">
-                <div class="row pl-3"><h5>Motivo:</h5></div>
+                <div class="row pl-3"><h6>Motivo:</h6></div>
                 <div class="row">
                     <div class="col-sm-8">
                         <asp:TextBox runat="server" CssClass=" w-100 h-100" ID="TextBoxMotivo"></asp:TextBox>
                     </div>
                     <div class="col-sm-2">
-                        <div><h5>De:</h5></div>
+                        <div><h6>De:</h6></div>
                         <asp:TextBox runat="server" CssClass=" col-auto" ID="TextBoxDe"></asp:TextBox>
                    </div>
                     <div class="col-sm-2">
-                        <div><h5>Até:</h5></div>
+                        <div><h6>Até:</h6></div>
                         <asp:TextBox runat="server" CssClass=" col-auto " ID="TextBoxAte"></asp:TextBox>
                     </div>
                 </div>
                 <div class="row mt-1">
                     <div class="col-md-4">
-                        <h5 class="row pl-3">Data:</h5>
+                        <h6 class="row pl-3">Data:</h6>
                         <asp:Calendar runat="server" ID="calendar1" DayNameFormat="FirstTwoLetters" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="220px" Width="240px" BorderStyle="None" BackColor="White">
                             <DayHeaderStyle  Font-Bold="True" ForeColor="#990000" Height="1pc" BorderColor="Black" BorderStyle="Ridge" BorderWidth="1px" />
                             <NextPrevStyle Font-Size="9pt" ForeColor="White" BorderStyle="None" />
@@ -37,22 +37,22 @@
                     </div>
                     
                     <div class="col-md-4">
-                            <h5 class="row pl-3">Repetição</h5>
+                            <h6 class="row pl-3">Repetição</h6>
                             <asp:DropDownList runat="server" CssClass="col-auto" ID="dropdown1"></asp:DropDownList>
                         <div class="row mt-1">
                         <div class="col-md-5">
-                            <h5 class="row pl-3">Lista de dias:</h5>
+                            <h6 class="row pl-3">Lista de dias:</h6>
                             <%-- Não sei o que Colocar agora se puder adiantar ajudaria mt --%>
                         </div>
                     </div>
                     </div>
                     <div class="col-md-2">
-                        <h5 class="row pl-3">Data Limite:</h5>
+                        <h6 class="row pl-3">Data Limite:</h6>
                         <asp:TextBox CssClass=" col-auto" runat="server" ID="txtdatalmite" ToolTip="dd/mm/yyyy"></asp:TextBox>
                     </div>
                     <div class="col-md-2">
-                        <h5 class="row pl-3">ID da área:</h5>
-                        <asp:TextBox CssClass=" col-auto" runat="server" ID="txtidarea" Enabled="False"></asp:TextBox>
+                        <h6 class="row pl-3">ID da área:</h6>
+                        <asp:TextBox CssClass=" col-auto" runat="server" ID="txtidarea" Enabled="False" Style="resize: none"></asp:TextBox>
                     </div>
                     
                 </div>

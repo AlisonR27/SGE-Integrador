@@ -24,11 +24,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
         <div class="container-fluid mr-4">          
         <div>
-            <h2>Gerenciamento de áreas poliesportivas </h2>       
+            <h2 style="padding-top: 1%">Gerenciamento de áreas poliesportivas </h2><hr />    
             <h6 class="inputTitle">Dados da Área</h6>
             <div class="row ml-1">                
                 <div class="col-sm-6">
-                    <h6 class="inputTitle  ">Nome:</h6>
+                    <h6 class="inputTitle">Nome:</h6>
                     <asp:TextBox ID="TextBoxName" CssClass="pillborder w-75" runat="server"></asp:TextBox>
                     <asp:RequiredFieldValidator ControlToValidate="TextBoxName" runat="server"></asp:RequiredFieldValidator> 
                     <h6 class="inputTitle">Descrição:</h6>

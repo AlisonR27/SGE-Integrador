@@ -78,20 +78,31 @@
                </div>
            </div>
        </div>
-       <div class="row">
-           <div class="col-sm-7 ml-2">
-               <div class="row">
-                    <div class="w-100">Nome:</div>
+       <div class="row mb-5">
+           <div class="col-sm-7">
+               <div class="w-100 mb-2">
+                    <div>Nome:</div>
                     <asp:TextBox runat="server" CssClass="w-100" ID="TXTNome"></asp:TextBox>
                </div> 
-              <div class="row">
-                    <div class="w-100">Email:</div>
+              <div class="w-100 mb-2">
+                    <div>Email:</div>
                     <asp:TextBox runat="server" CssClass="w-100" ID="TXTEmail"></asp:TextBox>
                </div> 
            </div>
-           <div class="col-auto VAlignCenter">
-               <asp:FileUpload runat="server" ID="IMGUPLD" />
+           <div class="col-auto">
+               <div class="w-100 mb-md-2">Foto:</div>
+               <asp:FileUpload runat="server" CssClass="mt-md-4" ID="IMGUPLD" />
            </div>
        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="w-100">
+                    <div>Telefone:</div>
+                    <asp:TextBox runat="server" CssClass="w-100" ID="TXTTelefone"></asp:TextBox>
+                    <div class="w-100">O telefone deve ser escrito da forma (xx) xxxx-xxxx.</div>
+               </div> 
+            </div>
+        </div>
+        <asp:Button CssClass="btn-success rounded-pill mt-3 b-none" runat="server" id="FormSubmit" Text="Submeter dias" OnClick="FormSubmit_Click"/>
     </div>
 </asp:Content>
