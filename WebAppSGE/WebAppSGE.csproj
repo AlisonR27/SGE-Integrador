@@ -1,4 +1,4 @@
-<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.0\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -82,11 +82,13 @@
     <Content Include="EditarPerfil.aspx" />
     <Content Include="EditSport.aspx" />
     <Content Include="Entrar.aspx" />
+    <Content Include="EspDeferimento.aspx" />
     <Content Include="InitialPage.aspx" />
     <Content Include="ListSolicitacoes.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MngArea.aspx" />
     <Content Include="MngSport.aspx" />
+    <Content Include="MngUser.aspx" />
     <Content Include="PaginaSearch.aspx" />
     <Content Include="Registrar.aspx" />
     <Content Include="Registration.aspx" />
@@ -1684,6 +1686,13 @@
     <Compile Include="Entrar.aspx.designer.cs">
       <DependentUpon>Entrar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="EspDeferimento.aspx.cs">
+      <DependentUpon>EspDeferimento.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="EspDeferimento.aspx.designer.cs">
+      <DependentUpon>EspDeferimento.aspx</DependentUpon>
+    </Compile>
     <Compile Include="InitialPage.aspx.cs">
       <DependentUpon>InitialPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1718,6 +1727,13 @@
     </Compile>
     <Compile Include="MngSport.aspx.designer.cs">
       <DependentUpon>MngSport.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MngUser.aspx.cs">
+      <DependentUpon>MngUser.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MngUser.aspx.designer.cs">
+      <DependentUpon>MngUser.aspx</DependentUpon>
     </Compile>
     <Compile Include="Modelo\AreaImage.cs" />
     <Compile Include="Modelo\Areas.cs" />

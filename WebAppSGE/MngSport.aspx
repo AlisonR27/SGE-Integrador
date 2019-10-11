@@ -11,7 +11,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
         <div>
-            <h2 class="ttl Row">Gerenciamento de esportes </h2>
+            <h2 style="padding-top: 1%">Gerenciamento de esportes </h2>
             <hr />
             <div class="div_info fScreen row">
                 <div class="col-12 ml-3">
@@ -21,7 +21,7 @@
                 </div>
                 <div class="col-12 ml-3 mt-3">
                     <h6 class="inputTitle row">Descrição:</h6>
-                    <asp:TextBox ID="TextBoxDesc" CssClass="row" TextMode="MultiLine" runat="server" class="desc_box"></asp:TextBox>
+                    <asp:TextBox ID="TextBoxDesc" CssClass="row" TextMode="MultiLine" runat="server" class="desc_box" Style="resize: none"></asp:TextBox>
                     <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator> 
                 </div>
             </div>
