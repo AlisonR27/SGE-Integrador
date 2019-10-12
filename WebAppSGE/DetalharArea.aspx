@@ -1,18 +1,31 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SGE.master" AutoEventWireup="true" CodeBehind="DetalharArea.aspx.cs" Inherits="WebAppSGE.DetalharArea" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <style>
+        .transparent-gray{
+            background: rgba(50,50,50,0.8);
+            z-index:4;
+        }
+        .intern{
+
+        }
+        .minw{
+            min-width:16.5rem;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ButtonContent" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row">
-        <div class="col-12">
-            <div class="carousel">
-                        <asp:Image ID="mainImg" runat="server" src=""/> 
-            </div>
-        </div>
-    </div>
+    <asp:Panel runat="server" ID="ErrorPanel"  CssClass="position-absolute transparent-gray w-100 h-100" Visible="false" ViewStateMode="Disabled"> 
+        <asp:Panel CssClass="d-block minw px-4 py-2 col-7 mb-5 bg-light m-auto align-middle" runat="server">
+            <img class="w-25 d-block mx-auto my-5" src="src/imgs/sad.png"/>
+            <h2 class="h2 text-center text-danger">Erro</h2>
+            <h3 class="h3 text-center">Essa página não pode ser acessada sem redirecionamento!</h3>
+            <a class="d-block mx-auto text-center py-2" href="InitialPage.aspx">Clique aqui para voltar para a página inicial.</a>
+        </asp:Panel>
+    </asp:Panel>
     <div class="col-8 m-auto"> 
-        <asp:Image CssClass="d-block m-auto" runat="server" ID="AreaImage" ImageUrl=""/>
+        <asp:Image CssClass="d-block m-auto" runat="server" ID="AreaImage"/>
             <asp:DetailsView CssClass="table-dark w-100" runat="server" ID="dv1" DataSourceID="ObjectDataSource1" AutoGenerateRows="False">
                 <Fields>
                     <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />

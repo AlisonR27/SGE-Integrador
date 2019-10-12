@@ -14,6 +14,22 @@
     <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
     <title></title>
     <style>
+        html{
+            overflow-x:hidden;
+        }
+        ::-webkit-scrollbar {
+                width:0.5vw;
+                box-shadow: rgba(0,0,0,0.15) -2px 0px 10px;
+        }
+        ::-webkit-scrollbar-track {
+                  background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+                background: linear-gradient(0deg,#f98003,#f96503);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+                background: linear-gradient(0deg,#9a3e00,#f93f03);
+        }
         .dropdown-toggle::after {
             border-top:0.35em solid #d9d9d9;
         }

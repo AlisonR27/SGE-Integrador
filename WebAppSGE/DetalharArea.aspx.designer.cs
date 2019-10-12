@@ -13,13 +13,13 @@ namespace WebAppSGE {
     public partial class DetalharArea {
         
         /// <summary>
-        /// Controle mainImg.
+        /// Controle ErrorPanel.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image mainImg;
+        protected global::System.Web.UI.WebControls.Panel ErrorPanel;
         
         /// <summary>
         /// Controle AreaImage.

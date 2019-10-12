@@ -37,7 +37,7 @@ namespace WebAppSGE
 
         protected void Unnamed_Command(object sender, CommandEventArgs e)
         {
-
+            Session["Redirected"] = true;
             Session["AreaID"] = e.CommandArgument;
             Response.Redirect("~\\DetalharArea.aspx");
         }
