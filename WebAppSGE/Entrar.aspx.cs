@@ -20,7 +20,7 @@ namespace WebAppSGE
         protected void Unnamed1_Click(object sender, EventArgs e)
         {           
             List<Usuario> list = new List<Usuario>();
-            list = D.Select(UsuarioTXT.Text.ToString().Trim());
+            list = D.SelectNome(UsuarioTXT.Text.ToString().Trim());
             if (list == null)
             {
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);

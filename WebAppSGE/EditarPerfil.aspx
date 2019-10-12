@@ -56,30 +56,28 @@
         <asp:Button  runat="server" ID="Button1" Text="Sair" CssClass="text-danger border-danger bg-transparent rounded-pill w-50  d-block  mt-2 mx-auto" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="container-fluid ">
+    <div class="container-fluid">
        <h2 class="h2">Gerenciar Perfil</h2>
-       <div class="row bg-light m-0">
-           <div class="col-4 ml-5">
-                <div class="thumb">
-                    <img class="" src="https://img.quizur.com/f/img5c9067f8413985.05623253.jpeg?lastEdited=1552967790  " />
+       <div class="row bg-light m-0 pt-3">
+           <div class="col-5 ml-sm-2 m-auto">
+                <div class="thumb mx-auto">
+                    <asp:Image runat="server" ID="ProfileImg" />
                 </div>
            </div>
-           <div class="col align-items-end">
-               <div class="row ">
-                   <div class="col">
-                       <h3 class="h3 d-inline-block m-0"></h3><img class="h3s" src="src/svgs/solid/pencil-alt.svg"/>
-                   </div>
+           <div class="col-auto mx-auto">
+               <div class="col-12 w-100 mt-sm-4">
+                       <asp:Label runat="server" ID="SlctNome" CssClass="f-200 font-italic">Teste</asp:Label><img class="h3s" src="src/svgs/solid/pencil-alt.svg"/>
                </div>
-               <div class="row">
-                   <h6 class="h6">ID #kdkskdjk</h6>
+               <div class="col-12">
+                   <h6 class="h6">ID #<asp:Label runat="server" ID="SlctID">Teste</asp:Label></h6>
                </div>
-               <div class="row">
-                   <h6 class="h6 small">Desde 02/02/2002</h6>
+               <div class="col-12">
+                   <h6 class="h6 small">desde <asp:Label runat="server" ID="SlctData">Teste</asp:Label></h6>
                </div>
            </div>
        </div>
        <div class="row mb-5">
-           <div class="col-sm-7">
+           <div class="col-md-7">
                <div class="w-100 mb-2">
                     <div>Nome:</div>
                     <asp:TextBox runat="server" CssClass="w-100" ID="TXTNome"></asp:TextBox>
@@ -103,6 +101,11 @@
                </div> 
             </div>
         </div>
-        <asp:Button CssClass="btn-success rounded-pill mt-3 b-none" runat="server" id="FormSubmit" Text="Submeter dias" OnClick="FormSubmit_Click"/>
+        <asp:Button CssClass="btn-success rounded-pill px-4 py-1 b-none mt-2" runat="server" id="FormSubmit" Text="Salvar" OnClick="FormSubmit_Click"/>
+        <asp:ObjectDataSource runat="server" ID="OBJ" SelectMethod="Select" TypeName="WebAppSGE.DAL.DALUsuario">
+            <SelectParameters>
+                <asp:SessionParameter Name="id" SessionField="id" Type="String" />
+            </SelectParameters>
+        </asp:ObjectDataSource>
     </div>
 </asp:Content>
