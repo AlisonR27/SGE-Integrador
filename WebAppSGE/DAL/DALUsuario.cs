@@ -98,16 +98,17 @@ namespace WebAppSGE.DAL
                 cmd.ExecuteNonQuery();
             conn.Close();
         }
+
             [DataObjectMethod(DataObjectMethodType.Select)]
-            public List<Modelo.Usuario> Select(string nome)
+            public List<Modelo.Usuario> Select(string id)
             {
                 Modelo.Usuario aUsuario;
                 List<Modelo.Usuario> aListUsuario = new List<Modelo.Usuario>();
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "Select * from Usuario Where nome = @nome";
-                cmd.Parameters.AddWithValue("@nome", nome);
+                cmd.CommandText = "Select * from Usuario Where id = @id";
+                cmd.Parameters.AddWithValue("@id", id);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
@@ -122,6 +123,31 @@ namespace WebAppSGE.DAL
                 conn.Close();
                 return aListUsuario;
             }
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.Usuario> SelectNome(string nome)
+        {
+            Modelo.Usuario aUsuario;
+            List<Modelo.Usuario> aListUsuario = new List<Modelo.Usuario>();
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "Select * from Usuario Where nome = @nome";
+            cmd.Parameters.AddWithValue("@nome", nome);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    aUsuario = new Modelo.Usuario(dr["senha"].ToString(), Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()), dr["nome"].ToString(), dr["Id_Img"].ToString(), dr["email"].ToString(), dr["telefones"].ToString());
+                    aListUsuario.Add(aUsuario);
+                }
+            }
+            else { return null; }
+            dr.Close();
+            conn.Close();
+            return aListUsuario;
+        }
+
         public static int Identity()
         {
             int i = 0;

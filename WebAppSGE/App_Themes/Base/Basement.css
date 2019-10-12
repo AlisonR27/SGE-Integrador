@@ -340,6 +340,11 @@ body{
 .text-v-flow{
     text-orientation: upright;
 }
+
+.f-200{
+    font-size:200%;
+}
+
 .login-input {
     background: none;
     color: #dddddd;
