@@ -12,7 +12,12 @@ namespace WebAppSGE
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            try { 
+                string x = dv1.Rows[3].Cells[1].Text;
+                AreaImage.ImageUrl = x;
+            dv1.Rows[3].Style.Add("display","none");
+            }
+            catch { }
         }
     }
 }

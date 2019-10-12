@@ -56,7 +56,7 @@
         <asp:Button  runat="server" ID="Button1" Text="Sair" CssClass="text-danger border-danger bg-transparent rounded-pill w-50  d-block  mt-2 mx-auto" />
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="col left-0 ">\
+    <div class="container-fluid ">
        <h2 class="h2">Gerenciar Perfil</h2>
        <div class="row bg-light m-0">
            <div class="col-4 ml-5">
@@ -67,8 +67,7 @@
            <div class="col align-items-end">
                <div class="row ">
                    <div class="col">
-                       <h3 class="h3 d-inline-block m-0">LOREM IPSUM</h3><img class="h3s" src="src/svgs/solid/pencil-alt.svg"/>
-
+                       <h3 class="h3 d-inline-block m-0"></h3><img class="h3s" src="src/svgs/solid/pencil-alt.svg"/>
                    </div>
                </div>
                <div class="row">
@@ -79,13 +78,31 @@
                </div>
            </div>
        </div>
-       <div class="row">
-           <div class="col-6">
-
+       <div class="row mb-5">
+           <div class="col-sm-7">
+               <div class="w-100 mb-2">
+                    <div>Nome:</div>
+                    <asp:TextBox runat="server" CssClass="w-100" ID="TXTNome"></asp:TextBox>
+               </div> 
+              <div class="w-100 mb-2">
+                    <div>Email:</div>
+                    <asp:TextBox runat="server" CssClass="w-100" ID="TXTEmail"></asp:TextBox>
+               </div> 
            </div>
-           <div class="col-6">
-
+           <div class="col-auto">
+               <div class="w-100 mb-md-2">Foto:</div>
+               <asp:FileUpload runat="server" CssClass="mt-md-4" ID="IMGUPLD" />
            </div>
        </div>
+        <div class="row">
+            <div class="col-md-7">
+                <div class="w-100">
+                    <div>Telefone:</div>
+                    <asp:TextBox runat="server" CssClass="w-100" ID="TXTTelefone"></asp:TextBox>
+                    <div class="w-100">O telefone deve ser escrito da forma (xx) xxxx-xxxx.</div>
+               </div> 
+            </div>
+        </div>
+        <asp:Button CssClass="btn-success rounded-pill mt-3 b-none" runat="server" id="FormSubmit" Text="Submeter dias" OnClick="FormSubmit_Click"/>
     </div>
 </asp:Content>
