@@ -47,7 +47,7 @@
                         <h6>Motivo:</h6>
                     </div>
                     <div>
-                        <asp:TextBox runat="server" CssClass="w-100 border-0" ID="TextBoxMotivo" TextMode="MultiLine" Style="resize: none"></asp:TextBox>
+                        <asp:TextBox runat="server" CssClass="w-100 border-0 pb-5" ID="TextBoxMotivo" TextMode="MultiLine" Style="resize: none"></asp:TextBox>
                     </div>
                 </div>
                 <div class="col-sm-6">
