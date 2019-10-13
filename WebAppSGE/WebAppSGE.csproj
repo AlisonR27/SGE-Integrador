@@ -1753,6 +1753,11 @@
       <DependentUpon>PaginaSearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Registrar.aspx.cs">
       <DependentUpon>Registrar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1800,6 +1805,10 @@
     <Content Include="SGE.master" />
     <Content Include="Script\bootstrap.js.map" />
     <Content Include="Script\bootstrap.min.js.map" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

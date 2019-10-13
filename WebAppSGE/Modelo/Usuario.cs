@@ -24,6 +24,13 @@ namespace WebAppSGE.Modelo
             this.email = "";
             this.telefone = "";
         }
+        public Usuario(string asenha, string aemail, string anome, int atipo)
+        {
+            this.senha = asenha;
+            this.email = asenha;
+            this.nome = anome;
+            this.tipo = atipo;
+        }
         public Usuario(string asenha, int atipo, string anome, string afotoId, string aemail, string atelefone)
         {
             this.senha = asenha;

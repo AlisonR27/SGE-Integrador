@@ -33,10 +33,6 @@
                     <h6>Telefones:</h6> 
                     <asp:TextBox ID="TXTPhones" CssClass="col-auto border-0" runat="server"></asp:TextBox>
                     <asp:Button ID="Button1" CssClass="btn-outline-dark rounded-0 ml-2" runat="server" OnClick="Button1_Click" Text="Adicionar Telefone" /><br />
-                    <h6>Telefones cadastrados</h6>
-                    <asp:BulletedList ID="selectedPhones" CssClass="w-75 d-block list-group-item-primary" runat="server" EnableViewState="False">
-                        <asp:ListItem></asp:ListItem>
-                    </asp:BulletedList>
                 </div>
             </div>
         </div>

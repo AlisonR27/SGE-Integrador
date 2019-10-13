@@ -13,13 +13,14 @@ namespace WebAppSGE
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
             DALUsuario oDALUsuario = new DALUsuario();
-            int id = oDALUsuario.InsertUserImg("https://pbs.twimg.com/media/EEXqss-WwAQEwgM.png");
+            FileUpload1.SaveAs(MapPath("/src/temp/" + FileUpload1.FileName));
+            int id = oDALUsuario.InsertUserImg("/src/temp/"+FileUpload1.FileName);
             if (id < 0)
             {
                 throw new Exception();
@@ -31,5 +32,7 @@ namespace WebAppSGE
 
             }
         }
+
+        
     }
 }

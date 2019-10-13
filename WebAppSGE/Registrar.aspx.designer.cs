@@ -22,15 +22,6 @@ namespace WebAppSGE {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Controle TXTId.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTId;
-        
-        /// <summary>
         /// Controle TextBox1.
         /// </summary>
         /// <remarks>
@@ -56,6 +47,33 @@ namespace WebAppSGE {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox CnfrmPass;
+        
+        /// <summary>
+        /// Controle up1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel up1;
+        
+        /// <summary>
+        /// Controle imgView.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image imgView;
+        
+        /// <summary>
+        /// Controle FileUpload1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUpload1;
         
         /// <summary>
         /// Controle TXTEmail.

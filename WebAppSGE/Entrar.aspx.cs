@@ -20,16 +20,22 @@ namespace WebAppSGE
         protected void Unnamed1_Click(object sender, EventArgs e)
         {           
             List<Usuario> list = new List<Usuario>();
-            list = D.SelectNome(UsuarioTXT.Text.ToString().Trim());
+            list = D.LoginSelect(UsuarioTXT.Text.ToString());
+            Usuario query = list.First<Usuario>();
             if (list == null)
             {
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
-            }
+            } 
             else
-            {
-                if (list.First<Usuario>().nome == UsuarioTXT.Text.ToString() && list.First<Usuario>().senha == PassTXT.Text.ToString())
+            { 
+                if (query.senha == PassTXT.Text.ToString())
                 {
-                    Response.Redirect("~//MngArea.aspx");
+                    Session["autenticado"] = true;
+                    Session["uemail"] = query.email;
+                    Session["unome"] = query.nome;
+                    Session["ufotoId"] = query.fotoId;
+                    Session["utipo"] = query.tipo;
+                    Response.Redirect("~//InitialPage.aspx");
                 }
                 else
                 {

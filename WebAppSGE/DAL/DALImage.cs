@@ -86,7 +86,30 @@ namespace WebAppSGE.DAL
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "select * from Area_Img ai inner join Img i on i.id = ai.id_Img where ai.id_Area = 1";
+            cmd.CommandText = "select * from Area_Img ai inner join Img i on i.id = ai.id_Img where ai.id_Area = @id";
+            cmd.Parameters.AddWithValue("@id", id);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    aImage = new Modelo.Img(dr["img_Url"].ToString());
+                    aListImages.Add(aImage);
+                }
+            }
+            dr.Close();
+            conn.Close();
+            return aListImages;
+        }
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.Img> SelectUnic(string id)
+        {
+            Modelo.Img aImage;
+            List<Modelo.Img> aListImages = new List<Modelo.Img>();
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "select * from Img where id = @id";
             cmd.Parameters.AddWithValue("@id", id);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)

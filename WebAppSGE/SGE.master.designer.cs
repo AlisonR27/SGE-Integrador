@@ -22,13 +22,22 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.ContentPlaceHolder head;
         
         /// <summary>
-        /// Controle ButtonContent.
+        /// Controle UserImg.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder ButtonContent;
+        protected global::System.Web.UI.WebControls.Image UserImg;
+        
+        /// <summary>
+        /// Controle exit.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button exit;
         
         /// <summary>
         /// Controle ContentPlaceHolder1.

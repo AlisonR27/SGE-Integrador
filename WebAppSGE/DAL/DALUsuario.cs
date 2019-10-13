@@ -107,8 +107,7 @@ namespace WebAppSGE.DAL
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "Select * from Usuario Where id = @id";
-                cmd.Parameters.AddWithValue("@id", id);
+                cmd.CommandText = "Select * from Usuario where id = @id"; cmd.Parameters.AddWithValue("@id", id);
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
@@ -124,15 +123,15 @@ namespace WebAppSGE.DAL
                 return aListUsuario;
             }
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Usuario> SelectNome(string nome)
+        public List<Modelo.Usuario> LoginSelect(string email)
         {
             Modelo.Usuario aUsuario;
             List<Modelo.Usuario> aListUsuario = new List<Modelo.Usuario>();
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "Select * from Usuario Where nome = @nome";
-            cmd.Parameters.AddWithValue("@nome", nome);
+            cmd.CommandText = "Select * from Usuario Where email = @email";
+            cmd.Parameters.AddWithValue("@email", email);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
