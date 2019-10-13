@@ -1,2 +1,5 @@
 
 .vs/WebAppSGE/v15/Server/sqlite3/storage.ide-wal
+*.ide-shm
+*.ide-shm
+*.ide-wal
