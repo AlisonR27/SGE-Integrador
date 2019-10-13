@@ -14,23 +14,22 @@ namespace WebAppSGE
         {
             if (Session["autenticado"] != null)
             {
-                if (oDALImage.SelectUnic(Session["ufotoId"].ToString()) != null)
-                {
-                    List<Modelo.Img> oImg = oDALImage.SelectUnic(Session["ufotoId"].ToString());
-                    UserImg.ImageUrl = oImg.First<Modelo.Img>().imgUrl;
-
-                }
-                else
-                {
-                    throw new BadImageFormatException();
-                }
+                UserImg.ImageUrl = Session["fotourl"].ToString();
+                Image2.ImageUrl = Session["fotourl"].ToString();
+                username1.Text = Session["unome"].ToString();
+                username2.Text = Session["unome"].ToString();
+               // Session["utipo"] = query.tipo;
+            }
+            else
+            {
+                exit_Click(null, EventArgs.Empty);
             }
         }
 
         protected void exit_Click(object sender, EventArgs e)
         {
-            Session.Abandon();
-            Response.Redirect("~//Entrar.aspx");
+            //Session.Abandon();
+            //Response.Redirect("~//Entrar.aspx");
         }
     }
 }

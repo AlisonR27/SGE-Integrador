@@ -405,3 +405,18 @@ body{
         border-width: 3px;
     }
 }
+
+.transparent-gray {
+    background: rgba(50,50,50,0.8);
+    z-index: 4;
+    margin-top:-9vh;
+}
+
+.intern {
+    margin-top:25%;
+}
+
+.minw {
+    min-width: 16.5rem;
+    margin-top:10% !important;
+}

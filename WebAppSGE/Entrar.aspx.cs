@@ -11,6 +11,7 @@ namespace WebAppSGE
     public partial class Entrar : System.Web.UI.Page
     {
         DAL.DALUsuario D = new DAL.DALUsuario();
+        DAL.DALImage oDALImage = new DAL.DALImage();
         DAL.Alternadores Alt = new DAL.Alternadores();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,8 +34,10 @@ namespace WebAppSGE
                     Session["autenticado"] = true;
                     Session["uemail"] = query.email;
                     Session["unome"] = query.nome;
-                    Session["ufotoId"] = query.fotoId;
+                    
                     Session["utipo"] = query.tipo;
+                    List<Modelo.Img> oImg = oDALImage.SelectUnic(query.fotoId.ToString());
+                    Session["fotourl"] = oImg.First<Modelo.Img>().imgUrl;
                     Response.Redirect("~//InitialPage.aspx");
                 }
                 else

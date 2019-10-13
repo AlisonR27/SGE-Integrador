@@ -62,8 +62,3 @@
         </div>
     </div>
 </asp:Content>
-
-<asp:Content ID="Content3" ContentPlaceHolderID="ButtonContent" runat="server">
-    <asp:Button runat="server" ID="Button1" Text="Sair" CssClass="text-danger border-danger bg-transparent rounded-pill w-50 d-block mt-2 mx-auto" />
-</asp:Content>
-
