@@ -28,8 +28,8 @@ namespace WebAppSGE
 
         protected void exit_Click(object sender, EventArgs e)
         {
-            //Session.Abandon();
-            //Response.Redirect("~//Entrar.aspx");
+            Session.Abandon();
+            Response.Redirect("~//Entrar.aspx");
         }
     }
 }

@@ -205,7 +205,6 @@ namespace WebAppSGE.DAL
                 {
                     throw new Exception();
                 }
-                throw new Exception();
             }
             catch
             {
