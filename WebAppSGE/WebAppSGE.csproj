@@ -1746,6 +1746,8 @@
     <Content Include="src\svgs\solid\x-ray.svg" />
     <Content Include="src\svgs\solid\yen-sign.svg" />
     <Content Include="src\svgs\solid\yin-yang.svg" />
+    <Content Include="src\sys\gym.jpeg" />
+    <Content Include="src\sys\gymblur.jpg" />
     <Content Include="ViewSolicitacao.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
