@@ -98,11 +98,6 @@
                </div> 
             </div>
         </div>
-        <asp:Button CssClass="btn-success rounded-pill px-4 py-1 b-none mt-2" runat="server" id="FormSubmit" Text="Salvar" OnClick="FormSubmit_Click"/>
-        <asp:ObjectDataSource runat="server" ID="OBJ" SelectMethod="Select" TypeName="WebAppSGE.DAL.DALUsuario">
-            <SelectParameters>
-                <asp:SessionParameter Name="id" SessionField="id" Type="String" />
-            </SelectParameters>
-        </asp:ObjectDataSource>
+        <asp:Button CssClass="btn-success rounded-pill px-4 py-1 b-none mt-2" runat="server" id="FormSubmit" Text="Salvar" OnClick="FormSubmit_Click"/>        
     </div>
 </asp:Content>

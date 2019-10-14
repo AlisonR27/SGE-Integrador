@@ -105,7 +105,7 @@ namespace WebAppSGE
                 // Copia o conteúdo da primeira célula da linha -> Código do Livro
                 codigo = GridView1.Rows[index].Cells[0].Text;
                 Session["AreaId"] = codigo;
-                Response.Redirect("~\\EditArea.aspx");
+                Response.Redirect("~//EditArea.aspx");
             }
         }
     }

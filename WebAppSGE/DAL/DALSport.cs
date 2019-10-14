@@ -42,13 +42,13 @@ namespace WebAppSGE.DAL
             return aListSports;
         }
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Sports obj)
+        public void Delete(string id)
         {
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             SqlCommand com = conn.CreateCommand();
             SqlCommand cmd = new SqlCommand("DELETE FROM atividadeEsportiva WHERE id = @id", conn);
-            cmd.Parameters.AddWithValue("@id", obj.id);
+            cmd.Parameters.AddWithValue("@id",id);
             cmd.ExecuteNonQuery();
 
         }

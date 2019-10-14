@@ -12,7 +12,7 @@ namespace WebAppSGE
 
         protected void Page_Load(object sender, EventArgs e)
         {
-                if (Session["Redirected"] != null && (Session["Redirected"].ToString() == "true" || Session["Redirected"].ToString() == "True"))
+               if (Session["Redirected"] != null && (Session["Redirected"].ToString() == "true" || Session["Redirected"].ToString() == "True"))
                 {
                         ErrorPanel.Style.Add("display", "none");
 

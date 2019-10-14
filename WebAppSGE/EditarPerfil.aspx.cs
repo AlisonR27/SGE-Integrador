@@ -11,15 +11,13 @@ namespace WebAppSGE
 {
     public partial class EditarPerfil : System.Web.UI.Page
     {
-        DALUsuario oDALUsuario = new DALUsuario();
-        Usuario a = new Usuario();
+        DALUsuario oDALUsuario = new DALUsuario();       
         protected void Page_Load(object sender, EventArgs e)
         {
             SlctNome.Text = SlctNome.Text.ToUpper();
-            a = (Usuario)OBJ.Select();         
-            SlctNome.Text = a.nome.ToString();
-            SlctID.Text = a.id.ToString();            
-            //Falta a lógica da data de criação da conta 
+            List<Usuario> b = oDALUsuario.Select(Session["id"].ToString());       
+            SlctNome.Text = b.First().nome.ToString();
+            SlctID.Text = b.First().id.ToString();
         }
 
         protected void FormSubmit_Click(object sender, EventArgs e)  

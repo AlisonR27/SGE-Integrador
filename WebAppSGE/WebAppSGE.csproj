@@ -91,6 +91,7 @@
     <Content Include="EspDeferimento.aspx" />
     <Content Include="InitialPage.aspx" />
     <Content Include="ListSolicitacoes.aspx" />
+    <Content Include="ListSport.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MngArea.aspx" />
     <Content Include="MngSport.aspx" />
@@ -1745,6 +1746,8 @@
     <Content Include="src\svgs\solid\x-ray.svg" />
     <Content Include="src\svgs\solid\yen-sign.svg" />
     <Content Include="src\svgs\solid\yin-yang.svg" />
+    <Content Include="src\sys\gym.jpeg" />
+    <Content Include="src\sys\gymblur.jpg" />
     <Content Include="ViewSolicitacao.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -1814,6 +1817,13 @@
     </Compile>
     <Compile Include="ListSolicitacoes.aspx.designer.cs">
       <DependentUpon>ListSolicitacoes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListSport.aspx.cs">
+      <DependentUpon>ListSport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListSport.aspx.designer.cs">
+      <DependentUpon>ListSport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>

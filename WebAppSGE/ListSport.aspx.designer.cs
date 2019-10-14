@@ -10,7 +10,7 @@
 namespace WebAppSGE {
     
     
-    public partial class EditSport {
+    public partial class ListSport {
         
         /// <summary>
         /// Controle ErrorPanel.
@@ -22,22 +22,13 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.Panel ErrorPanel;
         
         /// <summary>
-        /// Controle TextBoxName.
+        /// Controle ss.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxName;
-        
-        /// <summary>
-        /// Controle TextBoxDesc.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxDesc;
+        protected global::System.Web.UI.WebControls.GridView ss;
         
         /// <summary>
         /// Controle ObjectDataSource1.

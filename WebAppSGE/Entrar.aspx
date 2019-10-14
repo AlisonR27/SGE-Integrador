@@ -125,35 +125,35 @@
             border-bottom: solid #dddddd;
             transition: 1s;
         }
+        .login-input:focus #xxv{
+            filter:blur(10px);
+        }
+        .bg-img img{
+            width:100%;
+            height:100%;
+            position:absolute;
+            filter:blur(1px);
+        }
+        .z3{
+            z-index:3;
+        }
+        #xxv{
+            z-index:3;
+        }
     </style>
 </head>
 <body style="margin:0 !important;overflow:hidden;" class="w-100vw">
-    <form id="form1" runat="server" style="margin:0 !important;" class="row w-100vw">
-        <div class="left-0 m-0 col-sm-12 col-md-7 col-lg-8 p-0 h-100 d-block position-sticky" >
-            <div class="w-100 bg-secondary" style="height:100vh;overflow-y: scroll;">
+    <form id="form1" runat="server" style="margin:0 !important;" class="row">
+          <div class="w-100 bg-secondary" style="height:100vh;overflow-y: scroll;">
                <!-- <Span>Todos os seus esportes em um clique, sem complicação!</Span> -->
-                <div class="hovering h-50">
-                    <img class="sec-img persp-img-1" id="" src="src/soccer.jpg" style="z-index:4;"/>
-                    <img class="sec-img persp-img-2" src="src/futsal.jpg" style="margin-top:-50%;"/>
-                    <img class="sec-img persp-img-3" src="src/volley.jpg" style="margin-top:-50%;"/>
-                </div>   
-                <div class="p-3" style="height:1000px;">
-                                    <span>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vehicula efficitur diam ut faucibus. Duis molestie odio risus, eget cursus lectus vehicula in. Vivamus sagittis ipsum sit amet gravida posuere. Sed fermentum ac lectus quis pellentesque. Morbi ultrices ornare nibh sed molestie. Cras tortor mi, interdum sit amet semper ac, blandit ut est. Nullam tempor eleifend dapibus. Proin vel odio in erat bibendum auctor ac in metus.
-
-Sed non tortor turpis. Duis blandit felis et orci mattis congue. Nam in tristique enim, nec ultrices lacus. Pellentesque eget sem vitae lacus tempor porta ac quis orci. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Donec dignissim, lorem efficitur efficitur dapibus, velit turpis condimentum nibh, at vehicula justo erat et sem. Pellentesque placerat sollicitudin velit, id egestas velit ultricies a. Maecenas vitae ultrices sem. Morbi urna ipsum, aliquet eu sapien et, dapibus rutrum mauris. Sed cursus tellus sit amet augue lacinia dignissim.
-
-Nullam fringilla, velit non bibendum fringilla, est ante varius velit, nec varius sapien erat ut tellus. Duis et placerat mauris, quis ultrices arcu. Ut consequat sem velit, id volutpat risus iaculis nec. Quisque ultrices nulla in urna aliquet, vel gravida ligula rutrum. Nullam placerat consequat interdum. Fusce consequat eros eros, molestie convallis justo aliquet in. Duis finibus pretium felis, et dictum purus. Donec volutpat placerat ex eu lacinia.
-
-Nam varius consequat arcu, id faucibus ligula. Quisque elementum cursus dui. Nulla rutrum dolor quis lacus mattis, a sagittis libero finibus. Nullam a orci finibus nunc pellentesque maximus quis ut enim. Cras dictum egestas justo, ac fringilla sem convallis sit amet. Vestibulum tincidunt risus in nisl tincidunt gravida. Nulla in sagittis eros. Suspendisse maximus orci ac dapibus commodo. Praesent a accumsan dui, ac porta arcu. Quisque in tempus arcu. Proin vitae commodo augue, vel vestibulum erat. Ut a mi non odio sodales venenatis.
-
-Mauris varius maximus arcu nec sollicitudin. Vestibulum mauris neque, aliquam sit amet rutrum semper, varius quis est. Maecenas non maximus nisl, nec gravida ipsum. Integer et maximus massa. Nunc id metus felis. Etiam vitae neque sit amet urna vehicula placerat. Nulla fermentum, libero eu hendrerit efficitur, enim turpis pulvinar ligula, vel commodo enim ligula a neque. Ut lacinia sem ac lacus congue auctor. Quisque dictum, risus ut ullamcorper congue, enim turpis consequat libero, eu rutrum magna massa ut neque. Pellentesque dignissim imperdiet nisl vitae venenatis. Aenean mauris lorem, pretium nec bibendum id, sollicitudin ut sem. Nunc eleifend pretium mauris at venenatis. Cras in gravida ex. Etiam mollis sit amet neque id malesuada. Praesent bibendum semper placerat.
-                    </span>
+                <div class="w-100 bg-img">
+                    <img id="xxv" src="src/sys/gymblur.jpg"/>
+                    <img src="src/sys/gym.jpeg"/>
                 </div>
                     
             </div>
-        </div>
-        <div class="left-0 m-0 col-sm-12 pl-sm-1 col-md-5 pr-md-0 pl-md-4 col-lg-4 pl-lg-4 bg-dark h-100 position-sticky d-block">
+        <div class="position-absolute w-100 ">
+        <div class="righth float-right z3 left-0 m-0 col-md-3 bg-dark h-100 d-block offset-8">
             <div style="height:100vh;">
                 <div class="h-30 pt-3 text-left text-white">
                     <img class="h-20 d-block" src="src/macaiba2.png"/>
@@ -176,10 +176,27 @@ Mauris varius maximus arcu nec sollicitudin. Vestibulum mauris neque, aliquam si
                         <div class="col-md-4 text-center text-secondary"><h4 class="h5">OU</h4></div>
                         <div class="col pl-0"><hr class=" border-white" /></div>
                     </div>
-                    <a class="text-warning mt-2 d-block" href="Registration.aspx">Clique aqui para se registrar.</a>
+                    <a class="text-warning mt-2 d-block" href="Registrar.aspx">Clique aqui para se registrar.</a>
+                </div>
                 </div>
             </div>
         </div>
     </form>
+    <script>
+        $('.righth').mouseenter(function () {
+            $('#xxv').animate({
+                opacity: 1
+              }, 200, function() {
+                // Animation complete.
+              });
+        });
+        $('.righth').mouseleave(function () {
+            $('#xxv').animate({
+                opacity: 0
+              }, 200, function() {
+                // Animation complete.
+              });
+        });
+    </script>
 </body>
 </html>

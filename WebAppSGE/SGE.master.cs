@@ -18,7 +18,7 @@ namespace WebAppSGE
                 Image2.ImageUrl = Session["fotourl"].ToString();
                 username1.Text = Session["unome"].ToString();
                 username2.Text = Session["unome"].ToString();
-               // Session["utipo"] = query.tipo;
+                //Session["utipo"] = query.tipo;
             }
             else
             {
@@ -28,8 +28,8 @@ namespace WebAppSGE
 
         protected void exit_Click(object sender, EventArgs e)
         {
-            //Session.Abandon();
-            //Response.Redirect("~//Entrar.aspx");
+            Session.Abandon();
+            Response.Redirect("~//Entrar.aspx");
         }
     }
 }
