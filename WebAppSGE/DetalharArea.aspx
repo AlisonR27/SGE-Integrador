@@ -3,17 +3,6 @@
         
       <script src='Script/fullcalendar/core/main.js'></script>
     <script src='Script/fullcalendar/daygrid/main.js'></script>
-    <script type="text/javascript">
-        document.addEventListener('DOMContentLoaded', function() {
-                var calendarEl = document.getElementById('calendar');
-
-                var calendar = new Calendar(calendarEl, {
-                plugins: [ dayGridPlugin ]
-                });
-
-                calendar.renders();
-        });
-        </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel runat="server" ID="ErrorPanel"  CssClass="position-absolute transparent-gray w-100 h-100" Visible="false" ViewStateMode="Disabled"> 

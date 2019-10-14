@@ -19,7 +19,7 @@
                 <div class="row pl-3"><h6>Motivo:</h6></div>
                 <div class="row">
                     <div class="col-sm-8">
-                        <asp:TextBox runat="server" CssClass=" w-100 h-100 pb-sm-0 pb-4" ID="TextBoxMotivo"></asp:TextBox>
+                        <asp:TextBox runat="server" CssClass=" w-100 h-100" TextMode="MultiLine" ID="TextBoxMotivo"></asp:TextBox>
                     </div>
                     <div>
                         <asp:CheckBoxList runat="server" ID="CBL1" DataSourceID="ObjectDataSource1" DataTextField="nome" DataValueField="id"></asp:CheckBoxList>

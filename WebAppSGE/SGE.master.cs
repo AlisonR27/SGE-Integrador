@@ -18,7 +18,7 @@ namespace WebAppSGE
                 Image2.ImageUrl = Session["fotourl"].ToString();
                 username1.Text = Session["unome"].ToString();
                 username2.Text = Session["unome"].ToString();
-               // Session["utipo"] = query.tipo;
+                //Session["utipo"] = query.tipo;
             }
             else
             {

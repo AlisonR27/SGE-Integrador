@@ -91,6 +91,7 @@
     <Content Include="EspDeferimento.aspx" />
     <Content Include="InitialPage.aspx" />
     <Content Include="ListSolicitacoes.aspx" />
+    <Content Include="ListSport.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MngArea.aspx" />
     <Content Include="MngSport.aspx" />
@@ -1814,6 +1815,13 @@
     </Compile>
     <Compile Include="ListSolicitacoes.aspx.designer.cs">
       <DependentUpon>ListSolicitacoes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ListSport.aspx.cs">
+      <DependentUpon>ListSport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListSport.aspx.designer.cs">
+      <DependentUpon>ListSport.aspx</DependentUpon>
     </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
