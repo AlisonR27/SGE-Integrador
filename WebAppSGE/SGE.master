@@ -15,7 +15,6 @@
     <title></title>
     <style>
         html,body{
-            overflow-x:hidden;
             background: #c8c8c8;
         }
         ::-webkit-scrollbar {

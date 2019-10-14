@@ -69,6 +69,38 @@ namespace WebAppSGE.DAL
             {
                 return false;
             }
+        }
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.Sports> SelectSportsOfArea(string id)
+        {
+            try
+            {
+                Modelo.Sports aSports;
+                List<Modelo.Sports> aListSports = new List<Modelo.Sports>();
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.Parameters.AddWithValue("@idArea", id);
+                cmd.CommandText = "Select * from area_Atividade aa inner join atividadeEsportiva ae on ae.id = aa.id_AtividadeEsportiva where id_AreaPoliesportiva = @idArea";
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
+                {
+                    while (dr.Read())
+                    {
+                        aSports = new Modelo.Sports(
+                           dr["id"].ToString(), dr["nome"].ToString(), dr["descricao"].ToString());
+                        aListSports.Add(aSports);
+                    }
+                }
+                dr.Close();
+                conn.Close();
+                return aListSports;
             }
+            catch
+            {
+                return null;
+                throw new Exception();
+            }
+        }
     }
 }

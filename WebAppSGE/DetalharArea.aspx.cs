@@ -25,5 +25,10 @@ namespace WebAppSGE
                 ErrorPanel.Visible = true;
             }
         }
+
+        protected void Unnamed_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~//SlctAgendamento.aspx");
+        }
     }
 }

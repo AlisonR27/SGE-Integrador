@@ -21,34 +21,44 @@
                     <div class="col-sm-8">
                         <asp:TextBox runat="server" CssClass=" w-100 h-100 pb-sm-0 pb-4" ID="TextBoxMotivo"></asp:TextBox>
                     </div>
+                    <div>
+                        <asp:CheckBoxList runat="server" ID="CBL1" DataSourceID="ObjectDataSource1" DataTextField="nome" DataValueField="id"></asp:CheckBoxList>
+                        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="SelectSportsOfArea" TypeName="WebAppSGE.DAL.DALAreaSport">
+                            <SelectParameters>
+                                <asp:SessionParameter Name="id" SessionField="AreaID" Type="String" />
+                            </SelectParameters>
+                        </asp:ObjectDataSource>
+                    </div>
                     <div class="col-sm-2">
-                        <div><h6>De:</h6></div>
-                        <asp:TextBox runat="server" CssClass=" col-auto" ID="TextBoxDe"></asp:TextBox>
+                        <div><h6>Das:</h6></div>
+                        <asp:TextBox runat="server" CssClass="col-auto" TextMode="Time" ID="TextBoxDe"></asp:TextBox>
                    </div>
                     <div class="col-sm-2">
-                        <div><h6>Até:</h6></div>
-                        <asp:TextBox runat="server" CssClass=" col-auto " ID="TextBoxAte"></asp:TextBox>
+                        <div><h6>Até as:</h6></div>
+                        <asp:TextBox runat="server" CssClass="col-auto" TextMode="Time"  ID="TextBoxAte"></asp:TextBox>
                     </div>
                 </div>
                 <div class="row mt-1">
                     <div class="col-md-4">
                             <h6 class="row pl-3">Repetição</h6>
-                            <asp:DropDownList runat="server" CssClass="col-auto" ID="dropdown1"></asp:DropDownList>
+                            <asp:DropDownList runat="server" CssClass="col-auto" ID="dropdown1">
+                                <asp:ListItem Value="0">Nenhuma</asp:ListItem>
+                                <asp:ListItem Value="1">Diaria</asp:ListItem>
+                                <asp:ListItem Value="2">Semanal</asp:ListItem>
+                            </asp:DropDownList>
                         <div class="row mt-1">
                         <div class="col-md-5">
-                            <h6 class="row pl-3">Lista de dias:</h6>              
                         </div>
                     </div>
                     </div>
                     <div class="col-md-2">
-                        <h6 class="row pl-3">Data Limite:</h6>
-                        <asp:TextBox CssClass=" col-auto" runat="server" ID="txtdatalmite" ToolTip="dd/mm/yyyy"></asp:TextBox>
+                        <h6 class="row pl-3">Até o dia:</h6>
+                        <asp:TextBox CssClass=" col-auto" runat="server" ID="txtdatalmite" TextMode="Date" ToolTip="dd/mm/yyyy"></asp:TextBox>
                     </div>
                     <div class="col-md-2">
                         <h6 class="row Wpl-3">ID da área:</h6>
                         <asp:TextBox CssClass=" col-auto" runat="server" ID="txtidarea" Enabled="False" Style="resize: none"></asp:TextBox>
-                    </div>
-                    
+                    </div>      
                 </div>
                 <div class="row mt-2 pl-3">
                     <asp:Button CssClass="col-auto btn-success rounded-pill b-none" Text="Solicitar" runat="server" ID="btnsolicitar" OnClick="btnsolicitar_Click" />

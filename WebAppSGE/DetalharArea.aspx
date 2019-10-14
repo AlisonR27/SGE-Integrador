@@ -1,5 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/SGE.master" AutoEventWireup="true" CodeBehind="DetalharArea.aspx.cs" Inherits="WebAppSGE.DetalharArea" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+        
+      <script src='Script/fullcalendar/core/main.js'></script>
+    <script src='Script/fullcalendar/daygrid/main.js'></script>
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+                var calendarEl = document.getElementById('calendar');
+
+                var calendar = new Calendar(calendarEl, {
+                plugins: [ dayGridPlugin ]
+                });
+
+                calendar.renders();
+        });
+        </script>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <asp:Panel runat="server" ID="ErrorPanel"  CssClass="position-absolute transparent-gray w-100 h-100" Visible="false" ViewStateMode="Disabled"> 
@@ -17,18 +31,19 @@
                     <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
                     <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome" />
                     <asp:BoundField DataField="desc" HeaderText="desc" SortExpression="desc" />
-                    <asp:BoundField  DataField="imgUrl" HeaderText="imgUrl" SortExpression="imgUrl" InsertVisible="False" />
-                   
+                    <asp:BoundField  DataField="imgUrl" HeaderText="imgUrl" SortExpression="imgUrl" InsertVisible="False" />          
                 </Fields>
                 <PagerStyle />
                 <HeaderStyle  CssClass="w-25"/>
                 <FieldHeaderStyle CssClass="w-25"/>
             </asp:DetailsView>
+            <h3 class="h3">Horários Disponíveis</h3>
+            <div id="calendar"></div>
+                <asp:Button runat="server" CssClass="btn-primary rounded-pill" OnClick="Unnamed_Click" Text="Solicitar horário"/>
         </div>
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="SelectUnic" TypeName="WebAppSGE.DAL.DALArea">
         <SelectParameters>
             <asp:SessionParameter Name="id" SessionField="AreaId" Type="Int32" />
         </SelectParameters>
     </asp:ObjectDataSource>
-
 </asp:Content>
