@@ -176,7 +176,7 @@ Mauris varius maximus arcu nec sollicitudin. Vestibulum mauris neque, aliquam si
                         <div class="col-md-4 text-center text-secondary"><h4 class="h5">OU</h4></div>
                         <div class="col pl-0"><hr class=" border-white" /></div>
                     </div>
-                    <a class="text-warning mt-2 d-block" href="Registration.aspx">Clique aqui para se registrar.</a>
+                    <a class="text-warning mt-2 d-block" href="Registrar.aspx">Clique aqui para se registrar.</a>
                 </div>
             </div>
         </div>

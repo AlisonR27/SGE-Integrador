@@ -21,7 +21,7 @@ namespace WebAppSGE
         protected void Unnamed1_Click(object sender, EventArgs e)
         {           
             List<Usuario> list = new List<Usuario>();
-            list = D.LoginSelect(UsuarioTXT.Text.ToString());            
+            list = D.LoginSelect(UsuarioTXT.Text.ToString());
             if (list == null)
             {
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
