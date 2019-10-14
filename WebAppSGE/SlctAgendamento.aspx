@@ -12,7 +12,7 @@
     </asp:Panel>
             <div class="container-fluid">
             <div class="row pl-3">
-                <div class="col-sm-6"><h2 style="padding-top: 1%">Solicitar áreas esportivas</h2></div>
+                <div class="col-sm-6"><h2 style="padding-top: 10px">Solicitar áreas esportivas</h2></div>
                 <hr />
             </div>            
             <div class="container-fluid">
@@ -66,6 +66,3 @@
         </div>
         </div>
 </asp:Content>
-
-
-

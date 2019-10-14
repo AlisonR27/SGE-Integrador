@@ -33,12 +33,12 @@
         <h3>Cadastrar Usuário</h3><hr />
         <div class="row">
             <div class=" col-sm-6">
-                <h5>Nome:</h5>
+                <h6>Nome:</h6>
                 <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox><br />
               
-                <h5>Senha:</h5>
+                <h6>Senha:</h6>
                 <asp:TextBox runat="server" TextMode="Password" ID="Pass"></asp:TextBox>
-                <h5>Confirme a senha:</h5>
+                <h6>Confirme a senha:</h6>
                 <asp:TextBox runat="server" TextMode="Password" ID="CnfrmPass"></asp:TextBox>
                 
             </div>
@@ -53,10 +53,10 @@
                     </Triggers>
                 </asp:UpdatePanel>
             </div>
-            <div class=" col-sm-6">
-                 <h5>Email:</h5>                   
+            <div class="col-sm-6">
+                 <h6>Email:</h6>                   
                 <asp:TextBox ID="TXTEmail"  TextMode="Email" runat="server"></asp:TextBox><br />
-                  <h5>Telefones:</h5> 
+                 <h6>Telefones:</h6> 
                 <asp:TextBox ID="TXTPhones" TextMode="Number" runat="server"></asp:TextBox>
              </div>
         </div>    

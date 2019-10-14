@@ -4,7 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
         <div class="col-sm-12">
-            <h2 style="padding-top: 1%">Gerenciamento de usuários</h2>
+            <h2 style="padding-top: 10px">Gerenciamento de usuários</h2>
         </div>
         <hr />
         <div class="container-fluid">

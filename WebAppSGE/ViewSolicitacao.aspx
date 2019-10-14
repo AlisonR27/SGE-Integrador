@@ -10,7 +10,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
         <div class="col-sm-12">
-            <h2 style="padding-top: 1%">Detalhar solicitação</h2>
+            <h2 style="padding-top: 10px">Detalhar solicitação</h2>
         </div>
         <hr />
         <div class="container-fluid">
