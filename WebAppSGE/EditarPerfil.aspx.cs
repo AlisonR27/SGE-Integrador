@@ -14,10 +14,12 @@ namespace WebAppSGE
         DALUsuario oDALUsuario = new DALUsuario();       
         protected void Page_Load(object sender, EventArgs e)
         {
-            SlctNome.Text = SlctNome.Text.ToUpper();
-            List<Usuario> b = oDALUsuario.Select(Session["id"].ToString());       
-            SlctNome.Text = b.First().nome.ToString();
-            SlctID.Text = b.First().id.ToString();
+            if (!IsPostBack) { 
+                SlctNome.Text = SlctNome.Text.ToUpper();
+                List<Usuario> b = oDALUsuario.Select(Session["id"].ToString());       
+                SlctNome.Text = b.First().nome.ToString();
+                SlctID.Text = b.First().id.ToString();
+            }
         }
 
         protected void FormSubmit_Click(object sender, EventArgs e)  
