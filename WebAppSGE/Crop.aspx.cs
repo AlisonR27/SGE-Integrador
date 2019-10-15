@@ -28,11 +28,10 @@ namespace WebAppSGE
             Graphics grapics = Graphics.FromImage(bitmap);
             grapics.DrawImage(outputfile, new Rectangle(0, 0, bitmap.Width, bitmap.Height), cropcoordinate, GraphicsUnit.Pixel);
             confilename = "Crop_" + filename;
-            confilepath = Path.Combine(Server.MapPath("~/src/"), confilename);
+            confilepath = Path.Combine(Server.MapPath("~/src/temp/"), confilename);
             bitmap.Save(confilepath);
             cropimg.Visible = true;
-            cropimg.Src = "~/src/" + confilename;
-
+            cropimg.Src = "~/src/temp/" + confilename;
         }
 
         protected void btn1_Click(object sender, EventArgs e)
