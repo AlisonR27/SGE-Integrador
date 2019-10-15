@@ -45,7 +45,6 @@ namespace WebAppSGE
             else
             {
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
-
             }
         }
         protected void calendar1_SelectionChanged(object sender, EventArgs e)

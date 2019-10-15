@@ -90,6 +90,7 @@
     <Content Include="Entrar.aspx" />
     <Content Include="EspDeferimento.aspx" />
     <Content Include="InitialPage.aspx" />
+    <Content Include="jcrop.aspx" />
     <Content Include="ListSolicitacoes.aspx" />
     <Content Include="ListSport.aspx" />
     <Content Include="Login.aspx" />
@@ -98,11 +99,35 @@
     <Content Include="MngUser.aspx" />
     <Content Include="PaginaSearch.aspx" />
     <Content Include="Registrar.aspx" />
+    <Content Include="Scripts\jcrop\README.md" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar.js" />
     <Content Include="Scripts\fullcalendar.min.js" />
     <Content Include="Scripts\gcal.js" />
     <Content Include="Scripts\gcal.min.js" />
+    <Content Include="Scripts\jcrop\css\Jcrop.gif" />
+    <Content Include="Scripts\jcrop\css\jquery.Jcrop.css" />
+    <Content Include="Scripts\jcrop\css\jquery.Jcrop.min.css" />
+    <Content Include="Scripts\jcrop\demos\crop.php" />
+    <Content Include="Scripts\jcrop\demos\demo_files\demos.css" />
+    <Content Include="Scripts\jcrop\demos\demo_files\main.css" />
+    <Content Include="Scripts\jcrop\demos\demo_files\pool.jpg" />
+    <Content Include="Scripts\jcrop\demos\demo_files\sago.jpg" />
+    <Content Include="Scripts\jcrop\demos\demo_files\sagomod.jpg" />
+    <Content Include="Scripts\jcrop\demos\demo_files\sagomod.png" />
+    <Content Include="Scripts\jcrop\demos\non-image.html" />
+    <Content Include="Scripts\jcrop\demos\styling.html" />
+    <Content Include="Scripts\jcrop\demos\tutorial1.html" />
+    <Content Include="Scripts\jcrop\demos\tutorial2.html" />
+    <Content Include="Scripts\jcrop\demos\tutorial3.html" />
+    <Content Include="Scripts\jcrop\demos\tutorial4.html" />
+    <Content Include="Scripts\jcrop\demos\tutorial5.html" />
+    <Content Include="Scripts\jcrop\index.html" />
+    <Content Include="Scripts\jcrop\js\jquery.color.js" />
+    <Content Include="Scripts\jcrop\js\jquery.Jcrop.js" />
+    <Content Include="Scripts\jcrop\js\jquery.Jcrop.min.js" />
+    <Content Include="Scripts\jcrop\js\jquery.min.js" />
+    <Content Include="Scripts\jcrop\MIT-LICENSE.txt" />
     <Content Include="Scripts\jquery-3.2.1.js" />
     <Content Include="Scripts\jquery-3.2.1.min.js" />
     <Content Include="Scripts\jquery-3.2.1.slim.js" />
@@ -1810,6 +1835,13 @@
     </Compile>
     <Compile Include="InitialPage.aspx.designer.cs">
       <DependentUpon>InitialPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="jcrop.aspx.cs">
+      <DependentUpon>jcrop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="jcrop.aspx.designer.cs">
+      <DependentUpon>jcrop.aspx</DependentUpon>
     </Compile>
     <Compile Include="ListSolicitacoes.aspx.cs">
       <DependentUpon>ListSolicitacoes.aspx</DependentUpon>

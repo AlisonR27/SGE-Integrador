@@ -10,78 +10,78 @@
 namespace WebAppSGE {
     
     
-    public partial class EditarPerfil {
+    public partial class jcrop {
         
         /// <summary>
-        /// Controle ProfileImg.
+        /// Controle form1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image ProfileImg;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// Controle SlctNome.
+        /// Controle cropimage1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SlctNome;
+        protected global::System.Web.UI.HtmlControls.HtmlImage cropimage1;
         
         /// <summary>
-        /// Controle SlctID.
+        /// Controle coordinate_x.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label SlctID;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden coordinate_x;
         
         /// <summary>
-        /// Controle TXTNome.
+        /// Controle coordinate_y.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTNome;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden coordinate_y;
         
         /// <summary>
-        /// Controle TXTEmail.
+        /// Controle coordinate_w.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden coordinate_w;
         
         /// <summary>
-        /// Controle IMGUPLD.
+        /// Controle coordinate_h.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload IMGUPLD;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden coordinate_h;
         
         /// <summary>
-        /// Controle TXTTelefone.
+        /// Controle Button1.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TXTTelefone;
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
-        /// Controle FormSubmit.
+        /// Controle cropimg.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button FormSubmit;
+        protected global::System.Web.UI.HtmlControls.HtmlImage cropimg;
     }
 }

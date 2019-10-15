@@ -11,20 +11,30 @@ namespace WebAppSGE
 {
     public partial class EditarPerfil : System.Web.UI.Page
     {
-        DALUsuario oDALUsuario = new DALUsuario();       
+        DALUsuario oDALUsuario = new DALUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) { 
+            if (!IsPostBack)
+            {
                 SlctNome.Text = SlctNome.Text.ToUpper();
-                List<Usuario> b = oDALUsuario.Select(Session["id"].ToString());       
+                List<Usuario> b = oDALUsuario.Select(Session["id"].ToString());
                 SlctNome.Text = b.First().nome.ToString();
                 SlctID.Text = b.First().id.ToString();
             }
         }
 
-        protected void FormSubmit_Click(object sender, EventArgs e)  
+        protected void FormSubmit_Click(object sender, EventArgs e)
         {
-            //oDALUsuario.Update(new Usuario(TXTNome.Text,,TXTEmail.Text,TXTTelefone.Text)); Falta a Lógica da Imagem
+            try
+            {
+                //oDALUsuario.Update(new Usuario(TXTNome.Text,,TXTEmail.Text,TXTTelefone.Text)); Falta a Lógica da Imagem
+                Response.Redirect("~//PaginaInicial.aspx");
+
+            }
+            catch
+            {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "2", "alertUpdateFailed()", false);
+            }
         }
     }
 }

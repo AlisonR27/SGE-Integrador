@@ -68,9 +68,6 @@
                <div class="col-12">
                    <h6 class="h6">ID #<asp:Label runat="server" ID="SlctID">Teste</asp:Label></h6>
                </div>
-               <div class="col-12">
-                   <h6 class="h6 small">desde <asp:Label runat="server" ID="SlctData">Teste</asp:Label></h6>
-               </div>
            </div>
        </div>
        <div class="row mb-5">
