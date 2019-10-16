@@ -27,11 +27,19 @@ namespace WebAppSGE.Modelo
             this.desc = adesc;
             this.imgUrl = aimgUrl;
         }
-        public FullFieldsArea(string aid, string anome, string aimgUrl)
+
+        public FullFieldsArea(string aid, string anome, string adesc)
+        {
+            this.id = WebAppSGE.DAL.Alternadores.AlternadorI(aid);
+            this.nome = anome;
+            this.desc = adesc;
+        }
+
+        /*public FullFieldsArea(string aid, string anome, string aimgUrl)
         {
             this.id = WebAppSGE.DAL.Alternadores.AlternadorI(aid);
             this.nome = anome;
             this.imgUrl = aimgUrl;
-        }
+        }*/
     }
 }

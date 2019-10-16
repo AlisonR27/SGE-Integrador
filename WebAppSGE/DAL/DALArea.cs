@@ -230,6 +230,7 @@ SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     aArea = new Modelo.FullFieldsArea(dr["id"].ToString(),
+                        dr["nome"].ToString(),
                         dr["descricao"].ToString(),
                         dr["img_Url"].ToString()
                     );
@@ -240,6 +241,75 @@ SqlDataReader dr = cmd.ExecuteReader();
             conn.Close();
 
             return aListAreas;
+        }
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public void Update(Modelo.FullFieldsArea obj)
+        {
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+            SqlCommand com = conn.CreateCommand();
+            SqlCommand cmd = new SqlCommand("UPDATE area_Esportiva SET nome = @nome, descricao = @desc WHERE id = @id", conn);
+            cmd.Parameters.AddWithValue("@id", obj.id);
+            cmd.Parameters.AddWithValue("@nome", obj.nome);
+            cmd.Parameters.AddWithValue("@desc", obj.desc);
+            //cmd.Parameters.AddWithValue("@img", obj.imgUrl); Configurar pra mudar a imagem também
+            cmd.ExecuteNonQuery();
+        }
+        /*[DataObjectMethod(DataObjectMethodType.Delete)]
+        public void Delete(string id)
+        {
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+            SqlCommand com = conn.CreateCommand();
+            SqlCommand cmd = new SqlCommand("DELETE FROM area_Atividade WHERE id_AreaPoliesportiva = @id DELETE FROM area_Esportiva WHERE id = @id DELETE FROM area_horario_Disponivel WHERE id_Area = @id DELETE FROM solicitacao_Reserva WHERE id_Area_Esportiva = @id", conn);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+
+        } Falta configurar pra ser capaz de excluir a imagem linkada a tabela de intermediação o horário disponível e o horário solicitado sobre essa área */
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public bool UpdateAreaImg(string url, int idArea)
+        {
+            try
+            {
+                Modelo.Img mimg = new Modelo.Img(url);
+                SqlConnection conn = new SqlConnection(connectionstring);
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = @"Update Img set img_Url = @url 
+                                    Select max(id) as id from Img";
+                cmd.Parameters.AddWithValue("@url", url);
+                SqlDataReader dr = cmd.ExecuteReader();
+                int id = 0;
+                if (dr.HasRows)
+                {
+                    int i = 0;
+                    while (dr.Read())
+                    {
+                        if (i > 0)
+                        {
+                            break;
+                        }
+                        id = Alternadores.AlternadorI(dr["id"].ToString());
+                        i++;
+                    }
+                }
+                dr.Close();
+                SqlCommand ncmd = conn.CreateCommand();
+                if (id > 0)
+                {
+                    ncmd.CommandText = "Update Area_Img set id_Area = @idA,set id_Img = @idI"; ncmd.Parameters.AddWithValue("@idA", Identity()); ncmd.Parameters.AddWithValue("@idI", id);
+                    ncmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    throw new Exception();
+                }
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     } 
 }

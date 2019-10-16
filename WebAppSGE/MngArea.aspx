@@ -169,9 +169,9 @@
         <div class="col-12 form-inline">
             <asp:GridView OnRowCommand="GridView1_RowCommand"  CssClass="table table-dark" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource3">
                 <Columns>
-                    <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
-                    <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome" />
-                    <asp:BoundField DataField="desc" HeaderText="desc" SortExpression="desc" />
+                    <asp:BoundField DataField="id" HeaderText="ID" SortExpression="id" />
+                    <asp:BoundField DataField="nome" HeaderText="Nome" SortExpression="nome" />
+                    <asp:BoundField DataField="desc" HeaderText="Descrição" SortExpression="desc" />
                     <asp:ButtonField Text="Editar" CommandName="Editar"   />
                 </Columns>
             </asp:GridView>
