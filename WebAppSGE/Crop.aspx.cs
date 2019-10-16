@@ -19,15 +19,17 @@ namespace WebAppSGE
 
         protected void Unnamed_Click(object sender, EventArgs e)
         {
-            string filename = "macaiba2.PNG";
-            string filepath = Path.Combine(Server.MapPath("~/src/"), filename);
+            // string filename = "macaiba2.PNG";
+            // string filepath = Path.Combine(Server.MapPath("~/src/"), filename);
+            btn1_Click(null, EventArgs.Empty);
+            string filepath = Path.Combine(Server.MapPath("/"), cropimage1.Src);
             Image outputfile = Image.FromFile(filepath);
             Rectangle cropcoordinate = new Rectangle(Convert.ToInt32(coordinate_x.Value), Convert.ToInt32(coordinate_y.Value), Convert.ToInt32(coordinate_w.Value), Convert.ToInt32(coordinate_h.Value));
             string confilename, confilepath;
             Bitmap bitmap = new Bitmap(cropcoordinate.Width, cropcoordinate.Height, outputfile.PixelFormat);
             Graphics grapics = Graphics.FromImage(bitmap);
             grapics.DrawImage(outputfile, new Rectangle(0, 0, bitmap.Width, bitmap.Height), cropcoordinate, GraphicsUnit.Pixel);
-            confilename = "Crop_" + filename;
+            confilename = "Crop_.png";
             confilepath = Path.Combine(Server.MapPath("~/src/temp/"), confilename);
             bitmap.Save(confilepath);
             cropimg.Visible = true;

@@ -28,6 +28,20 @@
             </asp:DetailsView>
             <h3 class="h3">Horários Disponíveis</h3>
             <div id="calendar"></div>
+            <asp:Table runat="server">
+                <asp:TableHeaderRow ID="semrow" CssClass="text-light">
+                    <asp:TableHeaderCell> Domingo </asp:TableHeaderCell>
+                    <asp:TableHeaderCell> Segunda </asp:TableHeaderCell>
+                    <asp:TableHeaderCell> Terça </asp:TableHeaderCell>
+                    <asp:TableHeaderCell> Quarta </asp:TableHeaderCell>
+                    <asp:TableHeaderCell> Quinta    </asp:TableHeaderCell>
+                    <asp:TableHeaderCell> Sexta </asp:TableHeaderCell>
+                    <asp:TableHeaderCell> Sábado </asp:TableHeaderCell>
+
+
+                </asp:TableHeaderRow>
+                <asp:TableRow></asp:TableRow>
+            </asp:Table>
                 <asp:Button runat="server" CssClass="btn-primary rounded-pill" OnClick="Unnamed_Click" Text="Solicitar horário"/>
         </div>
     <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="SelectUnic" TypeName="WebAppSGE.DAL.DALArea">

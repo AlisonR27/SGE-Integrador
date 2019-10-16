@@ -420,3 +420,21 @@ body{
     min-width: 16.5rem;
     margin-top:10% !important;
 }
+.bg-overlay{
+    background:rgba(80,80,80,0.7);
+}
+.z-4{
+    z-index:4;
+}
+.mt-15-perc{
+    margin-top:5% !important;
+}
+.h-60{
+    height:60% !important;
+}
+.h-90{
+    height:90% !important;
+}
+.w-98{
+    width:98% !important;
+}
