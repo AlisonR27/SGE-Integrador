@@ -37,8 +37,6 @@
                     <asp:TableHeaderCell> Quinta    </asp:TableHeaderCell>
                     <asp:TableHeaderCell> Sexta </asp:TableHeaderCell>
                     <asp:TableHeaderCell> Sábado </asp:TableHeaderCell>
-
-
                 </asp:TableHeaderRow>
                 <asp:TableRow></asp:TableRow>
             </asp:Table>

@@ -5,11 +5,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/> 
+        <script src="Scripts/jcrop/js/jquery.min.js"></script>
+    <link href="Scripts/jcrop/css/jquery.Jcrop.css" rel="stylesheet" />
+    <script type="text/javascript" src="Scripts/jcrop/js/jquery.Jcrop.js"></script>
     <link href="App_Themes/Base/LogReg.css" rel="stylesheet" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <script src="Scripts/jcrop/js/jquery.min.js"></script>
-    <link href="Scripts/jcrop/css/jquery.Jcrop.css" rel="stylesheet" />
-    <script src="Scripts/jcrop/js/jquery.Jcrop.js"></script>
     <script type="text/javascript" src="Script/default.js"></script>
     <script type="text/javascript" src="Script/bootstrap.min.js"></script>
     <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap-grid.css" />
