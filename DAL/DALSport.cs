@@ -7,5 +7,11 @@ namespace WebAppSGE.DAL
 {
     public class DALSport
     {
+        string connectionString = "";
+
+        public DALSport()
+        {
+            connectionString = ConfigurationManager.ConnectionStrings["nomeBDConnectionString"].ConnectionString;
+        }
     }
 }
