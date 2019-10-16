@@ -123,8 +123,8 @@
             </a>
             <div class="dropdown-menu w-a-300 bg-dark menu-dropdown-correction text-center border-0 box-shadow-10" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item dropdown-user text-left">             <asp:Image runat="server" ID="Image2"/> <asp:Label CssClass="pl-3 text-light" ID="username2" runat="server"></asp:Label></a>
-              <a class="dropdown-item text-light font-weight-lighter" href="~//EditarPerfil.aspx">Editar Perfil</a>
-              <a class="dropdown-item text-light font-weight-lighter" href="~//"></a>
+              <a class="dropdown-item text-light font-weight-lighter" href="/EditarPerfil.aspx">Editar Perfil</a>
+              <a class="dropdown-item text-light font-weight-lighter" href="/"></a>
               <a class="dropdown-item text-light font-weight-lighter" href="#">Algo mais aqui</a>
               <asp:Button runat="server" CssClass="btn-outline-danger bg-transparent border-danger" Text="Sair" CausesValidation="false" OnClick="exit_Click" ID="exit"/>
             </div>

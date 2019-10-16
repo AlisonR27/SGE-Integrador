@@ -40,12 +40,15 @@ namespace WebAppSGE.Modelo
             this.email = aemail;
             this.telefone = atelefone;
         }
-        public Usuario(string anome, string afotoId, string aemail, string atelefone) // User Update
+        public Usuario(string asenha, int atipo, string anome, string afotoId, string aemail, string atelefone, int aid)
         {
+            this.senha = asenha;
+            this.tipo = atipo;
             this.nome = anome;
             this.fotoId = int.Parse(afotoId);
             this.email = aemail;
             this.telefone = atelefone;
+            this.id = aid;
         }
     }
 }

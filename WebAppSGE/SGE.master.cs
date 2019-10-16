@@ -29,7 +29,7 @@ namespace WebAppSGE
         protected void exit_Click(object sender, EventArgs e)
         {
             Session.Abandon();
-            Response.Redirect("~//Entrar.aspx");
+            Response.Redirect("/Entrar.aspx");
         }
     }
 }

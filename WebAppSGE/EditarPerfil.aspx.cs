@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -11,15 +12,24 @@ namespace WebAppSGE
 {
     public partial class EditarPerfil : System.Web.UI.Page
     {
+        List<Usuario> b;
+        List<Img> c;
         DALUsuario oDALUsuario = new DALUsuario();
+        DALImage oDALImage = new DALImage();
         protected void Page_Load(object sender, EventArgs e)
         {
+            b = oDALUsuario.Select(Session["id"].ToString());
+            c = oDALImage.SelectUnic(b.First().fotoId.ToString());
             if (!IsPostBack)
             {
-                SlctNome.Text = SlctNome.Text.ToUpper();
-                List<Usuario> b = oDALUsuario.Select(Session["id"].ToString());
+                SlctNome.Text = SlctNome.Text.ToUpper();               
                 SlctNome.Text = b.First().nome.ToString();
-                SlctID.Text = b.First().id.ToString();
+                SlctNome.Text = SlctNome.Text.ToUpper();
+                ProfileImg.ImageUrl = c.First().imgUrl;
+                SlctID.Text = Session["id"].ToString();
+                TXTNome.Text = b.First().nome.ToString();
+                TXTEmail.Text = b.First().email.ToString();
+                TXTTelefone.Text = b.First().telefone.ToString();
             }
         }
 
@@ -27,13 +37,19 @@ namespace WebAppSGE
         {
             try
             {
-                //oDALUsuario.Update(new Usuario(TXTNome.Text,,TXTEmail.Text,TXTTelefone.Text)); Falta a Lógica da Imagem
-                Response.Redirect("~//PaginaInicial.aspx");
+                oDALUsuario.Update(new Usuario(b.First().senha, b.First().tipo, TXTNome.Text,"1",TXTEmail.Text,TXTTelefone.Text, Alternadores.AlternadorI(Session["id"].ToString())));
+                string p1 = IMGUPLD.FileName;
+                string p2 = Path.Combine("~/src/temp/" + p1);
+                oDALUsuario.UpdateUserImg(p2, Convert.ToInt16(Session["id"]));
+                //Session["fotourl"] = p2; ajeitar para abrir a imagem
+                Session["unome"] = TXTNome.Text;
+                Session["uemail"] = TXTEmail.Text;
+                Response.Redirect("/InitialPage.aspx");
 
             }
             catch
             {
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "2", "alertUpdateFailed()", false);
+                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
             }
         }
     }

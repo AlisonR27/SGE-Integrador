@@ -34,7 +34,7 @@ namespace WebAppSGE
                     Session["autenticado"] = true;
                     Session["uemail"] = query.email;
                     Session["unome"] = query.nome;
-                    
+                    Session["id"] = query.id;
                     Session["utipo"] = query.tipo;
                     List<Modelo.Img> oImg = oDALImage.SelectUnic(query.fotoId.ToString());
                     Session["fotourl"] = oImg.First<Modelo.Img>().imgUrl;

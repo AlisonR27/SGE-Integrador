@@ -25,17 +25,31 @@ namespace WebAppSGE
 
         protected void Unnamed3_Click(object sender, EventArgs e)
         {
-            oDALArea.Update(new FullFieldsArea(Session["AreaId"].ToString(), TextBoxName.Text, TextBoxDesc.Text)); //Corrigir Erro do banco de dados
-            string p1 = FileUpload1.FileName;
-            string p2 = Path.Combine("~/src/temp/"+p1);
-            oDALArea.UpdateAreaImg(p2, Convert.ToInt16(Session["Areaid"]));
-            Response.Redirect("~//MngArea.aspx");
+            try
+            {
+                oDALArea.Update(new FullFieldsArea(Session["AreaId"].ToString(), TextBoxName.Text, TextBoxDesc.Text)); //Corrigir Erro do banco de dados
+                string p1 = FileUpload1.FileName;
+                string p2 = Path.Combine("~/src/temp/" + p1);
+                oDALArea.UpdateAreaImg(p2, Convert.ToInt16(Session["Areaid"]));
+                Response.Redirect("~//MngArea.aspx");
+            }
+            catch
+            {
+                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
+            }
         }
 
         protected void Unnamed4_Click(object sender, EventArgs e)
         {
-            //oDALArea.Delete(Session["AreaId"].ToString()); Falta terminar de configurar seu DAL
-            Response.Redirect("~//MngArea.aspx");
+            try
+            {
+                //oDALArea.Delete(Session["AreaId"].ToString()); Falta terminar de configurar seu DAL
+                Response.Redirect("~//MngArea.aspx");
+            }
+            catch
+            {
+                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
+            }
         }
     }
 }
