@@ -71,8 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Base\Basement.css" />
-    <Content Include="App_Themes\Dark\Basement.css" />
-    <Content Include="App_Themes\Light\LightBase.css" />
+    <Content Include="App_Themes\Base\LogReg.css" />
     <Content Include="Content\fullcalendar.css" />
     <Content Include="Content\fullcalendar.min.css" />
     <Content Include="Content\fullcalendar.print.css" />
@@ -99,7 +98,14 @@
     <Content Include="MngUser.aspx" />
     <Content Include="PaginaSearch.aspx" />
     <Content Include="Registrar.aspx" />
+    <Content Include="Scripts\jcrop\css\jcrop.css" />
+    <Content Include="Scripts\jcrop\css\jcrop.dev.css" />
+    <Content Include="Scripts\jcrop\js\jcrop.dev.js" />
+    <Content Include="Scripts\jcrop\js\jcrop.js" />
     <Content Include="Scripts\jcrop\README.md" />
+    <Content Include="Scripts\jcrop\css\jcrop.css.map" />
+    <Content Include="Scripts\jcrop\js\jcrop.dev.js.map" />
+    <Content Include="Scripts\jcrop\js\jcrop.js.map" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar.js" />
     <Content Include="Scripts\fullcalendar.min.js" />

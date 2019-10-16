@@ -11,136 +11,7 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap-grid.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
-    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Display&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
-
-    <style>
-        @media (min-width:600px){
-            ::-webkit-scrollbar {
-                width:5px;
-                box-shadow: rgba(0,0,0,0.15) -2px 0px 10px;
-            }
-            ::-webkit-scrollbar-track {
-                  background: #f1f1f1;
-             }
-            ::-webkit-scrollbar-thumb {
-                background: linear-gradient(0deg,#f98003,#f96503);
-            }
-        }
-
-        .login-input{
-            background: url('user.svg');
-            background-repeat:no-repeat;
-            background-size:contain;
-            background-position-x:right;            
-            }
-        #PassTXT{
-            background: url('key.svg');
-            background-repeat:no-repeat;
-            background-size:contain;
-            background-position-x:right;   
-            margin-top:2em;
-            }
-        .sec-img{
-            width:80%;
-            box-shadow: rgba(0,0,0,0.35) 5px 10px 20px;
-            display:block;
-            lighting-color:white;
-            scrollbar-3dlight-color:white;
-            margin-bottom:0;
-            transform-style:preserve-3d;
-
-        }
-        .hovering{
-            width:42.5%;
-            padding:5px;
-            height:25%;
-        }
-        @media (min-width: 576px) {
-        }
-        @media (min-width: 768px) {
-            .hovering{
-                margin: 2em 2em 2em 2.5em;
-            }
-        }
-        @media (min-width: 992px) {
-        }
-        @media (min-width: 1200px) {
-        }
-
-        .hovering:hover .persp-img-1{
-            transform:translate3d(70px,25px,20px);  
-            transition: transform 1s;
-            transition-timing-function: ease-in-out;   
-        }
-        .hovering:hover .persp-img-2{
-            transform:translate3d(40px,5px,25px);
-            transition: transform 1s;
-            transition-timing-function: ease-in-out;   
-        }
-        .hovering:hover .persp-img-3{
-            transform:translate3d(10px,-15px,20px);  
-            transition: transform 1s;
-            transition-timing-function: ease-in-out;   
-        }
-        .persp-img-3{
-            transform:translate3d(-5px,-10px,10px);
-            transition: transform 1s;
-            transform: rotateX(0deg);
-        }
-        .persp-img-1{
-            transform:translate3d(45px,30px,0);
-            transition: transform 1s;
-            transform: rotateX(0deg);
-
-        }
-        .persp-img-2{
-            transform:translate3d(20px,10px,5px);
-            transition: transform 1s;
-            transform: rotateX(0deg);
-
-        }
-        .text-secondary{
-            color: #d8d8d8 !important;
-        }
-        .border-light{
-            border: 2px solid #d8d8d8 !important;
-        }
-        .bg-transparent{
-            transition: background 0.5s;
-            transition-timing-function:ease-out;
-        }
-        .btn-light:hover{
-            background-color: rgba(210,210,210,0.2) !important;
-            transition:0.5s;
-            transition-timing-function:ease-out;
-        }
-        input:focus{
-            outline:none;
-        }
-        .login-input:focus {
-             border:0;
-        }
-        .login-input:focus {
-            border-bottom: solid #dddddd;
-            transition: 1s;
-        }
-        .login-input:focus #xxv{
-            filter:blur(10px);
-        }
-        .bg-img img{
-            width:100%;
-            height:100%;
-            position:absolute;
-            filter:blur(1px);
-        }
-        .z3{
-            z-index:3;
-        }
-        #xxv{
-            z-index:3;
-        }
-    </style>
+    <link href="App_Themes/Base/LogReg.css" rel="stylesheet" />
 </head>
 <body style="margin:0 !important;overflow:hidden;" class="w-100vw">
     <form id="form1" runat="server" style="margin:0 !important;" class="row">
@@ -157,11 +28,11 @@
             <div style="height:100vh;">
                 <div class="h-30 pt-3 text-left text-white">
                     <img class="h-20 d-block" src="src/macaiba2.png"/>
-                    <span class="" style="font-size:4em; font-family: 'Big Shoulders Display', cursive;">
+                    <span class="" style="font-size:4em;">
                         Bem-vindo!
                     </span>
                     <br />
-                    <span style="font-size:1em;text-rendering:optimizeLegibility;font-family:'Big Shoulders Display', cursive;"> Entre para utilizar todas as funcionalidades. </span>
+                    <span style="font-size:1em;text-rendering:optimizeLegibility;"> Entre para utilizar todas as funcionalidades. </span>
                 </div>
                 <div class="h-40 pt-md-2">
                     <asp:TextBox class="p-0" runat="server" ID="UsuarioTXT" placeholder="Usuario" CssClass="login-input">

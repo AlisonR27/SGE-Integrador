@@ -124,5 +124,29 @@ namespace WebAppSGE.DAL
             conn.Close();
             return aListImages;
         }
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public string NextIdentity()
+        {
+            string x = "";
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "select max(id) as id from Img";
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+                while (dr.Read())
+                {
+                    x = (DAL.Alternadores.AlternadorI(dr["id"].ToString())+1).ToString();
+                }
+            }
+            else
+            {
+                x = "1";
+            }
+            dr.Close();
+            conn.Close();
+            return x;
+        }
     }
 }

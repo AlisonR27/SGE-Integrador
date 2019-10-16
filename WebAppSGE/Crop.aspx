@@ -6,7 +6,7 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title></title>
-        <script src="Scripts/jcrop/js/jquery.min.js"></script>
+    <script src="Scripts/jcrop/js/jquery.min.js"></script>
     <link href="Scripts/jcrop/css/jquery.Jcrop.css" rel="stylesheet" />
     <script src="Scripts/jcrop/js/jquery.Jcrop.js"></script>
     <script >
@@ -46,7 +46,6 @@
                 <ContentTemplate>
                     <asp:FileUpload  ViewStateMode="Disabled" EnableViewState="false"  onchange="ImagePreview(this);" runat="server" ID="FU1"/>
                     <img runat="server" src="" ID="cropimage1"/>
-                
                 </ContentTemplate>
                 <Triggers></Triggers>
             </asp:UpdatePanel>
