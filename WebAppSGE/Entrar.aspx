@@ -11,8 +11,8 @@
         <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap-grid.css" />
     <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
-    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Display&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Big+Shoulders+Display&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One&display=swap" rel="stylesheet"/>
 
     <style>
         @media (min-width:600px){
@@ -157,24 +157,24 @@
             <div style="height:100vh;">
                 <div class="h-30 pt-3 text-left text-white">
                     <img class="h-20 d-block" src="src/macaiba2.png"/>
-                    <span class="" style="font-size:4em; font-family: 'Big Shoulders Display', cursive;">
+                    <span class="w-100" style="font-size:4em; font-family: 'Big Shoulders Display', cursive;">
                         Bem-vindo!
                     </span>
                     <br />
                     <span style="font-size:1em;text-rendering:optimizeLegibility;font-family:'Big Shoulders Display', cursive;"> Entre para utilizar todas as funcionalidades. </span>
                 </div>
-                <div class="h-40 pt-md-2">
+                <div class="h-40 pt-md-2 mt-lg-0 mt-sm-5">
                     <asp:TextBox class="p-0" runat="server" ID="UsuarioTXT" placeholder="Usuario" CssClass="login-input">
                     </asp:TextBox>
                     <asp:TextBox class="p-0 pt-md-3" runat="server" ID="PassTXT" TextMode="Password" placeholder="Senha" CssClass="login-input">
                     </asp:TextBox>
-                    <asp:Button runat="server" Text="Entrar" CssClass="bg-transparent border-light btn-light rounded-pill mt-md-5 text-secondary px-md-5 py-md-1" OnClick="Unnamed1_Click"/>
+                    <asp:Button runat="server" Text="Entrar" CssClass="bg-transparent border-light btn-light rounded-pill mt-5 text-secondary px-md-5 py-md-1 col-md-12 col-sm-3 col-5" OnClick="Unnamed1_Click"/>
                 </div>
                 <div class="h-20">
                     <div class="row pr-md-3">
-                        <div class="col pr-0"><hr class=" border-white "/></div>
+                        <div class="col pr-md-0"><hr class=" border-white "/></div>
                         <div class="col-md-4 text-center text-secondary"><h4 class="h5">OU</h4></div>
-                        <div class="col pl-0"><hr class=" border-white" /></div>
+                        <div class="col pl-md-0"><hr class=" border-white" /></div>
                     </div>
                     <a class="text-warning mt-2 d-block" href="Registrar.aspx">Clique aqui para se registrar.</a>
                 </div>
