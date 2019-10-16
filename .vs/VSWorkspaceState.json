@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\DAL"
+    "\\packages",
+    "\\WebAppSGE",
+    "\\WebAppSGE\\css"
   ],
-  "SelectedNode": "\\DAL\\DALSport.cs",
+  "SelectedNode": "\\WebAppSGE.sln",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,146 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="SGE.master.cs" Inherits="WebAppSGE.SGE" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+        <script type="text/javascript" src="Script/jquery-3.3.1.min.js"></script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="Script/default.js"></script>
+    <script type="text/javascript" src="Script/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap-grid.css" />
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="App_Themes/Base/Basement.css" />
+    <title></title>
+    <style>
+        .dropdown-toggle::after {
+            border-top:0.35em solid #d9d9d9;
+        }
+        .dropdown-user img{
+            height:3em;
+        }
+                    .box-shadow-10{
+            }
+        .dropdown-user span{
+
+        }
+        .user-preview{
+            display:inline;
+        }
+        .w-a-300{
+            width:300px !important;
+            box-sizing:border-box;
+        }
+        @media (max-width:575px){
+                        .user-preview{
+                height:3em;
+            }
+        }
+        @media (min-width: 576px) { 
+            .user-preview{
+                height:1em;
+            }
+        }
+        }
+        @media (min-width: 768px) { 
+            .user-preview{
+                height:1em;
+            }
+            .menu-dropdown-correction{
+                margin-left:-120px !important;
+            }
+
+        }
+        @media (min-width: 992px) { 
+            .user-preview{
+                height:1.5em;
+            }
+            .menu-dropdown-correction{
+                margin-left:-144px !important;
+            }
+                        .box-shadow-10{
+                box-shadow: rgba(0,0,0,0.65) 0px 5px 15px !important;
+            }
+        }
+        @media (min-width: 1200px) { 
+            .user-preview{
+                height:1.75em;
+            }
+            .menu-dropdown-correction{
+                margin-left:-140px !important;
+            }
+        }
+        .navbar .navbar-collapse .navbar-nav .dropdown-menu a:hover{
+            background: #404040 !important;
+        }
+        .bg-dark-gradient1{
+            width: 100%;
+            height:100%;
+            position:absolute;
+            z-index:-2;
+            background-size:cover !important;
+            background-repeat: no-repeat !important;
+            background:linear-gradient(45deg,rgba(44, 44, 44, 0.30),rgb(137, 137, 137)) !important;
+        }
+        .bg-dark-gradient2{
+            width: 100%;
+            height:100%;
+            position:absolute;
+            background:linear-gradient(-20deg,rgba(129, 129, 129, 0.42),rgb(156, 156, 156)) !important;
+            background-size:cover !important;
+            background-repeat: no-repeat !important;
+            z-index:-2;
+        }
+    </style>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+        <div class="bg-dark-gradient2">
+    </div>
+    <div class="bg-dark-gradient1">
+    </div>
+
+    <form runat="server">
+    <nav class="navbar navbar-dark navbar-expand-lg navbar-light bg-dark text-light">
+      <a class="navbar-brand  text-light" href="#">SGE</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="InitialPage.aspx">Página Inicial <span class="sr-only">(Página atual)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="PaginaSearch.aspx">Áreas Esportivas </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="ListSolicitacoes.aspx">Solicitações</a>
+          </li>    
+        </ul>
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown ">
+            <img class="user-preview " src="user.svg"/>
+            <a class="nav-link dropdown-toggle d-inline-block border-light" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <asp:Label CssClass=" text-light" runat="server" Text="User Name"></asp:Label>
+            </a>
+            <div class="dropdown-menu w-a-300 bg-dark menu-dropdown-correction text-center border-0 box-shadow-10" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item dropdown-user text-left"> <img class="" src="user.svg"/> <asp:Label CssClass="pl-3 text-light" runat="server">User Name</asp:Label></a>
+              <a class="dropdown-item text-light font-weight-lighter" href="#">Editar Perfil</a>
+              <a class="dropdown-item text-light font-weight-lighter" href="#">Outra ação</a>
+              <a class="dropdown-item text-light font-weight-lighter" href="#">Algo mais aqui</a>
+              <asp:ContentPlaceHolder runat="server" ID="ButtonContent" ></asp:ContentPlaceHolder>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>  
+        <div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>
