@@ -17,13 +17,13 @@
     <form id="form1" runat="server" style="margin:0 !important;" class="row">
           <div class="w-100 bg-secondary" style="height:100vh;overflow-y: scroll;">
                <!-- <Span>Todos os seus esportes em um clique, sem complicação!</Span> -->
-                <div class="w-100 bg-img">
+                <div class="h-100 bg-img">
                     <img id="xxv" src="src/sys/gymblur.jpg"/>
                     <img src="src/sys/gym.jpeg"/>
                 </div>
                     
             </div>
-        <div class="position-absolute w-100 ">
+        <div class="position-absolute w-100">
         <div class="righth float-right z3 left-0 m-0 col-md-3 bg-dark h-100 d-block offset-8">
             <div style="height:100vh;">
                 <div class="h-30 pt-3 text-left text-white">
@@ -31,21 +31,20 @@
                     <span class="" style="font-size:4em;">
                         Bem-vindo!
                     </span>
-                    <br />
-                    <span style="font-size:1em;text-rendering:optimizeLegibility;"> Entre para utilizar todas as funcionalidades. </span>
+                    <p class="" style="font-size:1em;text-rendering:optimizeLegibility;"> Entre para utilizar todas as funcionalidades. </p>
                 </div>
-                <div class="h-40 pt-md-2">
+                <div class="h-40 mt-lg-0 mt-5 pt-5">
                     <asp:TextBox class="p-0" runat="server" ID="UsuarioTXT" placeholder="Usuario" CssClass="login-input">
                     </asp:TextBox>
                     <asp:TextBox class="p-0 pt-md-3" runat="server" ID="PassTXT" TextMode="Password" placeholder="Senha" CssClass="login-input">
                     </asp:TextBox>
-                    <asp:Button runat="server" Text="Entrar" CssClass="bg-transparent border-light btn-light rounded-pill mt-md-5 text-secondary px-md-5 py-md-1" OnClick="Unnamed1_Click"/>
+                    <asp:Button runat="server" Text="Entrar" CssClass="bg-transparent border-light btn-light rounded-pill mt-5 col-auto text-secondary px-sm-5 mx-auto" OnClick="Unnamed1_Click"/>
                 </div>
-                <div class="h-20">
-                    <div class="row pr-md-3">
-                        <div class="col pr-0"><hr class=" border-white "/></div>
-                        <div class="col-md-4 text-center text-secondary"><h4 class="h5">OU</h4></div>
-                        <div class="col pl-0"><hr class=" border-white" /></div>
+                <div class="h-20 pt-md-5">
+                    <div class="row pr-md-3 ">
+                        <div class="col pr-0 mr-md-0 mr-3"><hr class=" border-white "/></div>
+                        <div class="col-md-4 text-center text-secondary pr-md-1"><h4 class="h5">OU</h4></div>
+                        <div class="col pr-0 mr-md-0 mr-3"><hr class=" border-white" /></div>
                     </div>
                     <a class="text-warning mt-2 d-block" href="Registrar.aspx">Clique aqui para se registrar.</a>
                 </div>

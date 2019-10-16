@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -24,8 +25,10 @@ namespace WebAppSGE
 
         protected void Unnamed3_Click(object sender, EventArgs e)
         {
-            //oDALArea.Update(new FullFieldsArea(Session["AreaId"].ToString(), TextBoxName.Text, TextBoxDesc.Text)); Possui um erro que a descrição vira valor do nome e da descrição n sei pq
-            //oDALArea.UpdateAreaImg(FileUpload1.Controls.ToString(), Convert.ToInt16(Session["Areaid"])); Eu tentei fazer algo n sei se ta certo mt menos como tentar traduzir mas pelo menos o dal deve estar certo
+            oDALArea.Update(new FullFieldsArea(Session["AreaId"].ToString(), TextBoxName.Text, TextBoxDesc.Text)); //Corrigir Erro do banco de dados
+            string p1 = FileUpload1.FileName;
+            string p2 = Path.Combine("~/src/temp/"+p1);
+            oDALArea.UpdateAreaImg(p2, Convert.ToInt16(Session["Areaid"]));
             Response.Redirect("~//MngArea.aspx");
         }
 
