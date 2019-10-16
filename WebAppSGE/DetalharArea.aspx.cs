@@ -12,6 +12,11 @@ namespace WebAppSGE
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            foreach(TableHeaderCell thc in semrow.Cells)
+            {
+                semrow.
+            }
+            semrow.Cells
                if (Session["Redirected"] != null && (Session["Redirected"].ToString() == "true" || Session["Redirected"].ToString() == "True"))
                 {
                         ErrorPanel.Style.Add("display", "none");
