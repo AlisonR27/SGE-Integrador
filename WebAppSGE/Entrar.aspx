@@ -35,7 +35,7 @@
                     <span style="font-size:1em;text-rendering:optimizeLegibility;"> Entre para utilizar todas as funcionalidades. </span>
                 </div>
                 <div class="h-40 pt-md-2">
-                    <asp:TextBox class="p-0" runat="server" ID="UsuarioTXT" placeholder="Usuario" CssClass="login-input">
+                    <asp:TextBox class="p-0" runat="server" ID="UsuarioTXT" placeholder="E-mail" CssClass="login-input">
                     </asp:TextBox>
                     <asp:TextBox class="p-0 pt-md-3" runat="server" ID="PassTXT" TextMode="Password" placeholder="Senha" CssClass="login-input">
                     </asp:TextBox>

@@ -11,7 +11,10 @@ namespace WebAppSGE
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+           if(Session["uid"] == null){
+                Session["uid"] = 12;
+            }
         }
+
     }
 }

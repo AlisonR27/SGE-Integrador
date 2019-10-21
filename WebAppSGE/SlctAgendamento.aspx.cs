@@ -18,11 +18,12 @@ namespace WebAppSGE
             {
                 ErrorPanel.Style.Add("display", "none");
                 txtidarea.Text = Session["AreaID"].ToString();
+                txtdataInit.Text = Session["preSolDate"].ToString();
             }
             else
             {
-                CBL1.DataSource = null;
-                ErrorPanel.Visible = true;
+                //CBL1.DataSource = null;
+                //ErrorPanel.Visible = true;
             }
             }
             catch
