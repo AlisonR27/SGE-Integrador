@@ -19,18 +19,20 @@ namespace WebAppSGE
         }
 
         protected void Unnamed1_Click(object sender, EventArgs e)
-        {           
+        {
             List<Usuario> list = new List<Usuario>();
             list = D.LoginSelect(UsuarioTXT.Text.ToString());
             if (list == null)
             {
+                SQLErr(UsuarioTXT, "Usuário Inexistente");
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
-            } 
+            }
             else
             {
+                SQLCor(UsuarioTXT, "E-Mail");
                 Usuario query = list.First<Usuario>();
                 if (query.senha == PassTXT.Text.ToString())
-                {
+                {                    
                     Session["autenticado"] = true;
                     Session["uemail"] = query.email;
                     Session["unome"] = query.nome;
@@ -42,9 +44,21 @@ namespace WebAppSGE
                 }
                 else
                 {
-                    ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true); 
+                    SQLErr(PassTXT, "Senha incorreta");
+                    ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
                 }
             }
+        }
+        protected void SQLErr(TextBox t, string d)
+        {
+            t.BorderColor = System.Drawing.Color.Red;
+            t.Attributes.Add("placeholder", d);
+            t.Text = "";
+        }
+        protected void SQLCor(TextBox t, string d)
+        {
+            t.BorderColor = System.Drawing.Color.White;
+            t.Attributes.Add("placegolder", d);
         }
     }
 }
