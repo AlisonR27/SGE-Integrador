@@ -1796,6 +1796,7 @@
     <Compile Include="DAL\DALArea.cs" />
     <Compile Include="DAL\DALAreaSport.cs" />
     <Compile Include="DAL\DALhDisponivel.cs" />
+    <Compile Include="DAL\DALhRegistrado.cs" />
     <Compile Include="DAL\DALImage.cs" />
     <Compile Include="DAL\DALSolicitacaoReserva.cs" />
     <Compile Include="DAL\DALSport.cs" />
@@ -1896,6 +1897,7 @@
     <Compile Include="Modelo\AreaSport.cs" />
     <Compile Include="Modelo\FullFieldsArea.cs" />
     <Compile Include="Modelo\hDisponivel.cs" />
+    <Compile Include="Modelo\hRegistrado.cs" />
     <Compile Include="Modelo\Img.cs" />
     <Compile Include="Modelo\SolicitacaoReserva.cs" />
     <Compile Include="Modelo\Sports.cs" />
