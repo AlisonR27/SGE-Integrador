@@ -104,16 +104,22 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
+        <ul runat="server" class="navbar-nav mr-auto">
+          <li runat="server" id="Initial" class="nav-item active">
             <a class="nav-link" href="InitialPage.aspx">Página Inicial <span class="sr-only">(Página atual)</span></a>
           </li>
-          <li class="nav-item">
+          <li runat="server" id="Areas" class="nav-item">
             <a class="nav-link" href="PaginaSearch.aspx">Áreas Esportivas </a>
           </li>
-          <li class="nav-item">
+          <li runat="server" id="MySolicit" class="nav-item">
             <a class="nav-link" href="ListSolicitacoes.aspx">Solicitações</a>
-          </li>    
+          </li>
+          <li runat="server" id="allSolicit" class="nav-item">
+            <a class="nav-link" href="ListSolicitacoesAdmin.aspx">Solicitações</a>
+          </li>
+          <li runat="server" id="MngUser" class="nav-item">
+            <a class="nav-link" href="MngUser.aspx">Usuários Cadastros</a>
+          </li> 
         </ul>
         <ul class="navbar-nav">
           <li class="nav-item dropdown align-content-center">
@@ -124,8 +130,7 @@
             <div class="dropdown-menu w-a-300 bg-dark menu-dropdown-correction text-center border-0 box-shadow-10" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item dropdown-user text-left">             <asp:Image runat="server" ID="Image2"/> <asp:Label CssClass="pl-3 text-light" ID="username2" runat="server"></asp:Label></a>
               <a class="dropdown-item text-light font-weight-lighter" href="~//EditarPerfil.aspx">Editar Perfil</a>
-              <a class="dropdown-item text-light font-weight-lighter" href="~//"></a>
-              <a class="dropdown-item text-light font-weight-lighter" href="#">Algo mais aqui</a>
+              <a runat="server" class="dropdown-item text-light font-weight-lighter" href="~//MasterLinks.aspx">Mapa Geral</a>
               <asp:Button runat="server" CssClass="btn-outline-danger bg-transparent border-danger" Text="Sair" CausesValidation="false" OnClick="exit_Click" ID="exit"/>
             </div>
           </li>

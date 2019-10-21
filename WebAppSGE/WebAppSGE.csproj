@@ -91,6 +91,7 @@
     <Content Include="EspDeferimento.aspx" />
     <Content Include="InitialPage.aspx" />
     <Content Include="ListSolicitacoes.aspx" />
+    <Content Include="ListSolicitacoesAdmin.aspx" />
     <Content Include="ListSport.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="MngArea.aspx" />
@@ -1796,6 +1797,7 @@
     <Compile Include="DAL\DALArea.cs" />
     <Compile Include="DAL\DALAreaSport.cs" />
     <Compile Include="DAL\DALhDisponivel.cs" />
+    <Compile Include="DAL\DALhRegistrado.cs" />
     <Compile Include="DAL\DALImage.cs" />
     <Compile Include="DAL\DALSolicitacaoReserva.cs" />
     <Compile Include="DAL\DALSport.cs" />
@@ -1856,6 +1858,13 @@
     <Compile Include="ListSolicitacoes.aspx.designer.cs">
       <DependentUpon>ListSolicitacoes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ListSolicitacoesAdmin.aspx.cs">
+      <DependentUpon>ListSolicitacoesAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ListSolicitacoesAdmin.aspx.designer.cs">
+      <DependentUpon>ListSolicitacoesAdmin.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ListSport.aspx.cs">
       <DependentUpon>ListSport.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1896,6 +1905,7 @@
     <Compile Include="Modelo\AreaSport.cs" />
     <Compile Include="Modelo\FullFieldsArea.cs" />
     <Compile Include="Modelo\hDisponivel.cs" />
+    <Compile Include="Modelo\hRegistrado.cs" />
     <Compile Include="Modelo\Img.cs" />
     <Compile Include="Modelo\SolicitacaoReserva.cs" />
     <Compile Include="Modelo\Sports.cs" />

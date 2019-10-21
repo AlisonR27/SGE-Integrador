@@ -15,6 +15,7 @@ namespace WebAppSGE.DAL
         {
             connectionstring = ConfigurationManager.ConnectionStrings["SGEConnectionString"].ConnectionString;
         }
+        //Select para o administrador Somente
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.SolicitacaoReserva> SelectAll()
         {
@@ -31,13 +32,16 @@ namespace WebAppSGE.DAL
                 while (dr.Read())
                 {
                     aSolicitacaoReserva = new Modelo.SolicitacaoReserva(
-                        Alternadores.AlternadorDT(dr["horario_Solicitacao"].ToString()),
+                        Alternadores.AlternadorI(dr["id"].ToString()),
+                        Alternadores.AlternadorDT(dr["hor_Solicitacao"].ToString()),
+                        Alternadores.AlternadorI(dr["status"].ToString()),
                         dr["atividades_Realizadas"].ToString(),
                         dr["motivo_Solicitacao"].ToString(),
+                        dr["motivo_indeferimento"].ToString(),
                         Alternadores.AlternadorDT(dr["Data_ini"].ToString()),
                         Alternadores.AlternadorDT(dr["Data_fim"].ToString()),
                         Alternadores.AlternadorI(dr["id_Usuario_Solicitante"].ToString()),
-                        Alternadores.AlternadorI(dr["id_AreaPoliesportiva"].ToString())
+                        Alternadores.AlternadorI(dr["id_Area_esportiva"].ToString())
                         );
                     aListSolicitacaoReserva.Add(aSolicitacaoReserva);
                 }
@@ -47,6 +51,39 @@ namespace WebAppSGE.DAL
 
             return aListSolicitacaoReserva;
         }
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public List<Modelo.SolicitacaoReserva> SelectYours(int id)
+        {
+            Modelo.SolicitacaoReserva aSolicitacaoReserva;
+            List<Modelo.SolicitacaoReserva> aListSolicitacaoReserva = new List<Modelo.SolicitacaoReserva>();
+            SqlConnection conn = new SqlConnection(connectionstring);
+            conn.Open();
+            SqlCommand cmd = conn.CreateCommand();
+            cmd.CommandText = "Select * from solicitacao_Reserva where id_Usuario_Solicitante = @id";cmd.Parameters.AddWithValue("@id",id);
+            SqlDataReader dr = cmd.ExecuteReader();
+            if (dr.HasRows)
+            {
+
+                while (dr.Read())
+                {
+                    aSolicitacaoReserva = new Modelo.SolicitacaoReserva(
+                        Convert.ToDateTime(dr["hor_Solicitacao"].ToString()),
+                        dr["atividades_Realizadas"].ToString(),
+                        dr["motivo_Solicitacao"].ToString(),
+                        Alternadores.AlternadorDT(dr["Data_ini"].ToString()),
+                        Alternadores.AlternadorDT(dr["Data_fim"].ToString()),
+                        Alternadores.AlternadorI(dr["id_Usuario_Solicitante"].ToString()),
+                        Alternadores.AlternadorI(dr["id_Area_esportiva"].ToString())
+                        );
+                    aListSolicitacaoReserva.Add(aSolicitacaoReserva);
+                }
+            }
+            dr.Close();
+            conn.Close();
+
+            return aListSolicitacaoReserva;
+        }
+        //Select para usuário
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public bool Insert(Modelo.SolicitacaoReserva obj)
         {

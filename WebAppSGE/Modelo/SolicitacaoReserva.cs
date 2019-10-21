@@ -57,11 +57,11 @@ namespace WebAppSGE.Modelo
             this.id_Usuario_Solicitante = aid_Usuario_Solicitante;
             this.id_AreaPoliesportiva = aid_AreaPoliesportiva;
         }
-        public SolicitacaoReserva(int aid, DateTime ahorario_Solicitacao, string aatividades_Realizadas, string amotivo_Solicitacao, string amotivo_Indeferimento, DateTime adata_Ini, DateTime adata_Fim, int aid_Usuario_Solicitante, int aid_AreaPoliesportiva) // Total return
+        public SolicitacaoReserva(int aid, DateTime ahorario_Solicitacao, int astatus , string aatividades_Realizadas, string amotivo_Solicitacao, string amotivo_Indeferimento, DateTime adata_Ini, DateTime adata_Fim, int aid_Usuario_Solicitante, int aid_AreaPoliesportiva) // Total return
         {
             this.id = aid;
             this.horario_Solicitacao = ahorario_Solicitacao;
-            this.status = 0;
+            this.status = astatus;
             this.atividades_Realizadas = aatividades_Realizadas;
             this.motivo_Solicitacao = amotivo_Solicitacao;
             this.motivo_Indeferimento = amotivo_Indeferimento;

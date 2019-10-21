@@ -40,13 +40,49 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.DetailsView dv1;
         
         /// <summary>
+        /// Controle return1week.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button return1week;
+        
+        /// <summary>
+        /// Controle go1week.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button go1week;
+        
+        /// <summary>
+        /// Controle weekTable.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTable weekTable;
+        
+        /// <summary>
         /// Controle semrow.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TableHeaderRow semrow;
+        protected global::System.Web.UI.HtmlControls.HtmlTableRow semrow;
+        
+        /// <summary>
+        /// Controle solicit.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button solicit;
         
         /// <summary>
         /// Controle ObjectDataSource1.
