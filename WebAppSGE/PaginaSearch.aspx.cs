@@ -18,16 +18,23 @@ namespace WebAppSGE
 
         protected void Pesq_Click(object sender, EventArgs e)
         {
-            Repeater1.Controls.Clear();
-            if (TextBoxSearch.Text.ToString().Trim() == "")
+            try
             {
-                Repeater1.DataSource = d.SelectAllFields();
-                Repeater1.DataBind();
+                Repeater1.Controls.Clear();
+                if (TextBoxSearch.Text.ToString().Trim() == "")
+                {
+                    Repeater1.DataSource = d.SelectAllFields();
+                    Repeater1.DataBind();
+                }
+                else if (TextBoxSearch.Text.ToString().Trim() != "")
+                {
+                    Repeater1.DataSource = d.SelectAllFields(TextBoxSearch.Text.ToString().Trim());
+                    Repeater1.DataBind();
+                }
             }
-            else if (TextBoxSearch.Text.ToString().Trim() != "")
+            catch
             {
-                Repeater1.DataSource = d.SelectAllFields(TextBoxSearch.Text.ToString().Trim());
-                Repeater1.DataBind();
+                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
             }
         }
 
