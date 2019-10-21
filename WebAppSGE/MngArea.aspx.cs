@@ -28,7 +28,16 @@ namespace WebAppSGE
 
             //Adicionando Area Esportiva
             DALArea oDALArea = new DALArea();
-            oDALArea.Insert(new Areas(TextBoxName.Text,TextBoxDesc.Text));
+            try
+            {
+                oDALArea.Insert(new Areas(TextBoxName.Text, TextBoxDesc.Text));
+            }
+            catch(Exception ex)
+            {
+                string d = "Área já existente";
+                if (ex.Message.Contains(d)) { SQLErr(TextBoxName, d, NameErr); } else { SQLCor(TextBoxName, NameErr); }                
+                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
+            }
             //Criando horários
             hDisponivel[] h = new hDisponivel[7];
             DALhDisponivel oDALhDisponivel = new DALhDisponivel();
@@ -107,6 +116,16 @@ namespace WebAppSGE
                 Session["AreaId"] = codigo;
                 Response.Redirect("~//EditArea.aspx");
             }
+        }
+        protected void SQLErr(TextBox t, string d, Label a)
+        {
+            t.BorderColor = System.Drawing.Color.Red;
+            a.Text = d;
+        }
+        protected void SQLCor(TextBox t, Label a)
+        {
+            t.BorderColor = System.Drawing.Color.White;
+            a.Text = "";
         }
     }
 }

@@ -24,12 +24,12 @@ namespace WebAppSGE
             list = D.LoginSelect(UsuarioTXT.Text.ToString());
             if (list == null)
             {
-                SQLErr(UsuarioTXT, "Usuário Inexistente");
+                SQLErr(UsuarioTXT, "Usuário Inexistente",UsuarioErr);
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
             }
             else
             {
-                SQLCor(UsuarioTXT, "E-Mail");
+                SQLCor(UsuarioTXT,UsuarioErr);
                 Usuario query = list.First<Usuario>();
                 if (query.senha == PassTXT.Text.ToString())
                 {                    
@@ -44,21 +44,20 @@ namespace WebAppSGE
                 }
                 else
                 {
-                    SQLErr(PassTXT, "Senha incorreta");
+                    SQLErr(PassTXT, "Senha incorreta",PassErr);
                     ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
                 }
             }
         }
-        protected void SQLErr(TextBox t, string d)
+        protected void SQLErr(TextBox t, string d, Label a)
         {
             t.BorderColor = System.Drawing.Color.Red;
-            t.Attributes.Add("placeholder", d);
-            t.Text = "";
+            a.Text = d;            
         }
-        protected void SQLCor(TextBox t, string d)
+        protected void SQLCor(TextBox t, Label a)
         {
             t.BorderColor = System.Drawing.Color.White;
-            t.Attributes.Add("placegolder", d);
+            a.Text = "";
         }
     }
 }

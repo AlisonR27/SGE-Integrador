@@ -259,17 +259,17 @@ namespace WebAppSGE.DAL
             cmd.Parameters.AddWithValue("@desc", obj.desc);
             cmd.ExecuteNonQuery();
         }
-        /*[DataObjectMethod(DataObjectMethodType.Delete)]
+        [DataObjectMethod(DataObjectMethodType.Update)]
         public void Delete(string id)
         {
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             SqlCommand com = conn.CreateCommand();
-            SqlCommand cmd = new SqlCommand("DELETE FROM area_Atividade WHERE id_AreaPoliesportiva = @id DELETE FROM area_Esportiva WHERE id = @id DELETE FROM area_horario_Disponivel WHERE id_Area = @id DELETE FROM solicitacao_Reserva WHERE id_Area_Esportiva = @id", conn);
+            SqlCommand cmd = new SqlCommand("UPDATE area_Esportiva SET sit = 1 WHERE id = @id ", conn);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
 
-        } Falta configurar pra ser capaz de excluir a imagem linkada a tabela de intermediação o horário disponível e o horário solicitado sobre essa área */
+        }
         [DataObjectMethod(DataObjectMethodType.Update)]
         public bool UpdateAreaImg(string url, int idArea)
         {

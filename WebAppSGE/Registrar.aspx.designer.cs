@@ -85,6 +85,15 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
+        /// Controle NomeErr.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label NomeErr;
+        
+        /// <summary>
         /// Controle TXTEmail.
         /// </summary>
         /// <remarks>
@@ -92,6 +101,15 @@ namespace WebAppSGE {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TXTEmail;
+        
+        /// <summary>
+        /// Controle EmailErr.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EmailErr;
         
         /// <summary>
         /// Controle TXTPhone.
@@ -112,6 +130,15 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.TextBox Pass;
         
         /// <summary>
+        /// Controle PassErr.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PassErr;
+        
+        /// <summary>
         /// Controle CnfrmPass.
         /// </summary>
         /// <remarks>
@@ -119,6 +146,15 @@ namespace WebAppSGE {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox CnfrmPass;
+        
+        /// <summary>
+        /// Controle ConfirmPassErr.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label ConfirmPassErr;
         
         /// <summary>
         /// Controle cropimg.

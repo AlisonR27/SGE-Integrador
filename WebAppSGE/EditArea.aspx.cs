@@ -27,14 +27,16 @@ namespace WebAppSGE
         {
             try
             {
-                oDALArea.Update(new FullFieldsArea(Session["AreaId"].ToString(), TextBoxName.Text, TextBoxDesc.Text)); //Corrigir Erro do banco de dados
+                oDALArea.Update(new FullFieldsArea(Session["AreaId"].ToString(), TextBoxName.Text, TextBoxDesc.Text)); 
                 string p1 = FileUpload1.FileName;
                 string p2 = Path.Combine("~/src/temp/" + p1);
                 oDALArea.UpdateAreaImg(p2, Convert.ToInt16(Session["Areaid"]));
                 Response.Redirect("~//MngArea.aspx");
             }
-            catch
+            catch(Exception ex)
             {
+                string d = "Área já existente";
+                if (ex.Message.Contains(d)) { SQLErr(TextBoxName, d, NameErr); } else { SQLCor(TextBoxName, NameErr); }
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
             }
         }
@@ -43,13 +45,23 @@ namespace WebAppSGE
         {
             try
             {
-                //oDALArea.Delete(Session["AreaId"].ToString()); Falta terminar de configurar seu DAL
+                oDALArea.Delete(Session["AreaId"].ToString()); 
                 Response.Redirect("~//MngArea.aspx");
             }
             catch
             {
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
             }
+        }
+        protected void SQLErr(TextBox t, string d, Label a)
+        {
+            t.BorderColor = System.Drawing.Color.Red;
+            a.Text = d;
+        }
+        protected void SQLCor(TextBox t, Label a)
+        {
+            t.BorderColor = System.Drawing.Color.White;
+            a.Text = "";
         }
     }
 }

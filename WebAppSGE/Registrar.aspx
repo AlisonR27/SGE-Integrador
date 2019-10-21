@@ -21,11 +21,11 @@
         .h1{
             font-size:3.5em;
         }
-        .login-input::-webkit-input-placeholder{
+        . input::-webkit-input-placeholder{
             font-family: 'Big Shoulders Display', cursive !important;
             font-size:1.2em !important;
         }
-        .login-input{
+        . input{
             padding: 0.3em 0.5em !important;
             font-size:1.4em !important;
         }
@@ -110,14 +110,19 @@
 
                         <asp:FileUpload ViewStateMode="Disabled" EnableViewState="false" runat="server" onchange="ImagePreview(this);" ID="FU1"/>
                     </div>
-                    <asp:TextBox ToolTip="Nome" placeholder="Nome" CssClass="w-75 mb-4 login-input" ID="TextBox1" runat="server"></asp:TextBox>
-                    <asp:TextBox ToolTip="E-mail" placeholder="E-mail" CssClass="w-75  mb-4 login-input" ID="TXTEmail"  TextMode="Email" runat="server"></asp:TextBox>
-                    <input type="tel" placeholder="Telefone" title="Telefone" class="w-75 mb-3 login-input" id="TXTPhone" runat="server" name="phone" pattern="[0-9]{2}[0-9]{5}[0-9]{4}" required>
-                    <asp:TextBox ToolTip="Senha" placeholder="Senha" CssClass="w-75  mb-4 login-input" runat="server" TextMode="Password" ID="Pass"></asp:TextBox>
-                    <asp:TextBox  ToolTip="Repetir a senha" placeholder="Repita a senha" CssClass="w-75 mb-4 login-input" runat="server" TextMode="Password" ID="CnfrmPass"></asp:TextBox>
+                    <asp:TextBox ToolTip="Nome" placeholder="Nome" CssClass="w-75 login-input" ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:Label runat="server" ID="NomeErr" CssClass=" text-danger"></asp:Label>
+                    <asp:RequiredFieldValidator runat="server" ControlToValidate="TextBox1" ></asp:RequiredFieldValidator>
+                    <asp:TextBox ToolTip="E-mail" placeholder="E-mail" CssClass="w-75 mt-4 login-input" ID="TXTEmail"  TextMode="Email" runat="server"></asp:TextBox>
+                    <asp:Label runat="server" ID="EmailErr" CssClass=" text-danger "></asp:Label>
+                    <input type="tel" placeholder="Telefone" title="Telefone" class="w-75 mt-4 login-input" id="TXTPhone" runat="server" name="phone" pattern="[0-9]{2}[0-9]{5}[0-9]{4}" required>                    
+                    <asp:TextBox ToolTip="Senha" placeholder="Senha" CssClass="w-75 mt-3 login-input" runat="server" TextMode="Password" ID="Pass"></asp:TextBox>
+                    <asp:Label runat="server" ID="PassErr" CssClass=" text-danger"></asp:Label>
+                    <asp:TextBox  ToolTip="Repetir a senha" placeholder="Repita a senha" CssClass="w-75 mt-4 login-input" runat="server" TextMode="Password" ID="CnfrmPass"></asp:TextBox>
+                    <asp:Label runat="server" ID="ConfirmPassErr" CssClass=" text-danger d-block"></asp:Label>
                         <img src="" class="mw-100" id="cropimg" runat="server" visible="false" />
 
-                    <asp:Button  ID="Button12" class="btn-success px-3 py-2 rounded-pill w-75 border-0" OnClick="submitcrop_Click"  runat="server"  Text="Cadastrar usuário" />
+                    <asp:Button  ID="Button12" class="btn-success px-3 py-2 rounded-pill w-75 border-0 mt-5" OnClick="submitcrop_Click"  runat="server"  Text="Cadastrar usuário" />
                 </div>
             </div>
         </div>

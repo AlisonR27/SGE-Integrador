@@ -53,24 +53,25 @@ namespace WebAppSGE
             catch(Exception ex)
             {
                 string a = "Email invalido, por favor colocar um valido";
-                if (ex.Message.Contains(a)) { SQLErr(TXTEmail, a); } else { SQLCor(TXTEmail, "E-Mail"); }
+                if (ex.Message.Contains(a)) { SQLErr(TXTEmail, a, EmailErr); } else { SQLCor(TXTEmail, EmailErr); }
+                a = "Email já cadastrado";
+                if (ex.Message.Contains(a)) { SQLErr(TXTEmail, a, EmailErr); } else { SQLCor(TXTEmail, EmailErr); }
                 a = "Senha curta, por favor colocar uma com pelo menos 8 caracteres";
-                if (ex.Message.Contains(a)) { SQLErr(Pass, a); } else { SQLCor(Pass, "Senha"); }
-                if(Pass.Text != CnfrmPass.Text) { SQLErr(CnfrmPass, "As Senhas não batem"); } else { SQLCor(CnfrmPass,"Repita a Senha"); }
+                if (ex.Message.Contains(a)) { SQLErr(Pass, a,PassErr); } else { SQLCor(Pass,PassErr); }
+                if(Pass.Text != CnfrmPass.Text) { SQLErr(CnfrmPass, "As Senhas não batem",ConfirmPassErr); } else { SQLCor(CnfrmPass,ConfirmPassErr); }
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
 
             }
         }
-        protected void SQLErr(TextBox t, string d)
-        {                        
+        protected void SQLErr(TextBox t, string d, Label a)
+        {
             t.BorderColor = System.Drawing.Color.Red;
-            t.Attributes.Add("placeholder", d);
-            t.Text = "";
+            a.Text = d;
         }
-        protected void SQLCor(TextBox t, string d)
+        protected void SQLCor(TextBox t, Label a)
         {
             t.BorderColor = System.Drawing.Color.White;
-            t.Attributes.Add("placegolder", d);
+            a.Text = "";
         }
     }
 }

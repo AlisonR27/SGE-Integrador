@@ -19,6 +19,7 @@
                 <div class="col-12 ml-3">
                     <h6 class="inputTitle row">Nome:</h6>
                     <asp:TextBox ID="TextBoxName" CssClass="row col-12" runat="server" class="name_box"></asp:TextBox>
+                    <asp:Label ID="NameErr" CssClass="text-danger w-100" runat="server"></asp:Label>
                     <asp:RequiredFieldValidator ControlToValidate="TextBoxName"  runat="server"></asp:RequiredFieldValidator>
                 </div>
                 <div class="col-12 ml-3 mt-3">

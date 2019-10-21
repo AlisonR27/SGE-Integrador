@@ -30,9 +30,11 @@
                 <div class="col-sm-6">
                     <h6 class="inputTitle">Nome:</h6>
                     <asp:TextBox ID="TextBoxName" CssClass="w-75 col-auto border-0" runat="server"></asp:TextBox>
+                    <asp:Label ID="NameErr" CssClass="text-danger w-100" runat="server"></asp:Label>
                     <asp:RequiredFieldValidator ControlToValidate="TextBoxName" runat="server"></asp:RequiredFieldValidator> 
                     <h6 class="inputTitle">Descrição:</h6>
                     <asp:TextBox ID="TextBoxDesc" TextMode="MultiLine" CssClass="w-100 col-auto border-0" Style="resize: none" runat="server"></asp:TextBox>
+                    <asp:Label ID="DescErr" CssClass="text-danger w-100" runat="server"></asp:Label>
                     <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator> 
                 </div>
                 <div class="col-sm-6">
@@ -167,7 +169,7 @@
             <h2 class="h2">Áreas Esportivas já cadastradas</h2>
         </div>
         <div class="col-12 form-inline">
-            <asp:GridView OnRowCommand="GridView1_RowCommand"  CssClass="table table-dark" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource3">
+            <asp:GridView  OnRowCommand="GridView1_RowCommand"  CssClass="table table-dark" ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="ObjectDataSource3">
                 <Columns>
                     <asp:BoundField DataField="id" HeaderText="ID" SortExpression="id" />
                     <asp:BoundField DataField="nome" HeaderText="Nome" SortExpression="nome" />

@@ -30,18 +30,19 @@
                 </div>
             </div>
         </div>
-        <asp:Button runat="server" ID="SubmitButton" OnClick="FormSubmit_Click" Text="Submeter" class="btn-success mt-3"/>
+        <asp:Button runat="server" ID="SubmitButton" OnClick="FormSubmit_Click" Text="Submeter" class="btn-success mt-3 ml-3"/>
         <div class="col-sm-12" >
             <h2 style="padding-top: 10px">Atividades esportivas já cadastradas:</h2>
         </div>
         <hr />
         <div class="container-fluid">
             <div class="row">
-                <asp:GridView ID="SportsView" runat="server" ViewStateMode="Disabled" DataSourceID="SportsOBJDS" class="gridview_sport" BackColor="White" EnableViewState="False" AutoGenerateColumns="False">
+                <asp:GridView ID="SportsView" runat="server" ViewStateMode="Disabled" DataSourceID="SportsOBJDS" class="gridview_sport" BackColor="White" OnRowCommand="SportsView_RowCommand" EnableViewState="False" AutoGenerateColumns="False">
                     <Columns>
-                        <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
-                        <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome" />
-                        <asp:BoundField DataField="descricao" HeaderText="descricao" SortExpression="descricao" />
+                        <asp:BoundField DataField="id" HeaderText="ID" SortExpression="id" />
+                        <asp:BoundField DataField="nome" HeaderText="Nome" SortExpression="nome" />
+                        <asp:BoundField DataField="descricao" HeaderText="Descricao" SortExpression="descricao" />
+                        <asp:ButtonField Text="Editar" CommandName="Editar"  />
                     </Columns>
                 </asp:GridView>        
                 <asp:ObjectDataSource ID="SportsOBJDS" runat="server" DataObjectTypeName="WebAppSGE.Modelo.Sports" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport" UpdateMethod="Update"></asp:ObjectDataSource>

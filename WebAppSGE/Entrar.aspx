@@ -36,8 +36,10 @@
                 <div class="h-40 mt-lg-0 mt-5 pt-5">
                     <asp:TextBox class="p-0" runat="server" ID="UsuarioTXT" placeholder="Usuario" CssClass="login-input">
                     </asp:TextBox>
+                    <asp:Label runat="server" ID="UsuarioErr" CssClass="text-danger"></asp:Label>
                     <asp:TextBox class="p-0 pt-md-3" runat="server" ID="PassTXT" TextMode="Password" placeholder="Senha" CssClass="login-input">
                     </asp:TextBox>
+                    <asp:Label runat="server" ID="PassErr" CssClass="text-danger"></asp:Label>
                     <asp:Button runat="server" Text="Entrar" CssClass="bg-transparent border-light btn-light rounded-pill mt-5 col-auto text-secondary px-sm-5 mx-auto" OnClick="Unnamed1_Click"/>
                 </div>
                 <div class="h-20 pt-md-5">

@@ -47,10 +47,24 @@ namespace WebAppSGE
                 Response.Redirect("/InitialPage.aspx");
 
             }
-            catch
+            catch(Exception ex)
             {
+                string a = "Email invalido, por favor colocar um valido";
+                if(ex.Message.Contains(a)) { SQLErr(TXTEmail, a, EmailErr); } else { SQLCor(TXTEmail, EmailErr); }
+                a = "Email já cadastrado";
+                if (ex.Message.Contains(a)) { SQLErr(TXTEmail, a, EmailErr); } else { SQLCor(TXTEmail, EmailErr); }
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
             }
+        }
+        protected void SQLErr(TextBox t, string d, Label a)
+        {
+            t.BorderColor = System.Drawing.Color.Red;
+            a.Text = d;
+        }
+        protected void SQLCor(TextBox t, Label a)
+        {
+            t.BorderColor = System.Drawing.Color.White;
+            a.Text = "";
         }
     }
 }
