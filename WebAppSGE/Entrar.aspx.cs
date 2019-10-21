@@ -15,6 +15,7 @@ namespace WebAppSGE
         DAL.Alternadores Alt = new DAL.Alternadores();
         protected void Page_Load(object sender, EventArgs e)
         {
+
         }
 
         protected void Unnamed1_Click(object sender, EventArgs e)
@@ -33,7 +34,7 @@ namespace WebAppSGE
                     Session["autenticado"] = true;
                     Session["uemail"] = query.email;
                     Session["unome"] = query.nome;
-                    Session["uid"] = query.nome;
+                    Session["id"] = query.id;
                     Session["utipo"] = query.tipo;
                     List<Modelo.Img> oImg = oDALImage.SelectUnic(query.fotoId.ToString());
                     Session["fotourl"] = oImg.First<Modelo.Img>().imgUrl;

@@ -56,7 +56,7 @@
     <div class="container-fluid">
        <h2 class="h2" style="padding-top: 10px">Gerenciar Perfil</h2>
        <div class="row bg-light m-0 pt-3">
-           <div class="col-5 ml-sm-2 m-auto">
+           <div class="col-auto ml-sm-2 m-auto">
                 <div class="thumb mx-auto">
                     <asp:Image runat="server" ID="ProfileImg" />
                 </div>

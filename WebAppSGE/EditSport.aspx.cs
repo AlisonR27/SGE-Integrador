@@ -24,14 +24,28 @@ namespace WebAppSGE
 
         protected void Unnamed3_Click(object sender, EventArgs e)
         {
-            oDALSport.Update(new Sports(Session["idsport"].ToString(), TextBoxName.Text, TextBoxDesc.Text));
-            Response.Redirect("~//ListSport.aspx");
+            try
+            {
+                oDALSport.Update(new Sports(Session["idsport"].ToString(), TextBoxName.Text, TextBoxDesc.Text));
+                Response.Redirect("~//ListSport.aspx");
+            }
+            catch
+            {
+                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
+            }
         }
 
         protected void Unnamed4_Click(object sender, EventArgs e)
         {
-            oDALSport.Delete(Session["idsport"].ToString());
-            Response.Redirect("~//ListSport.aspx");
+            try
+            {
+                oDALSport.Delete(Session["idsport"].ToString());
+                Response.Redirect("~//ListSport.aspx");
+            }
+            catch
+            {
+                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
+            }
         }
     }
 }

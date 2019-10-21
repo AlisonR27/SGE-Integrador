@@ -79,27 +79,22 @@ namespace WebAppSGE.DAL
             //}
             }
             [DataObjectMethod(DataObjectMethodType.Update)]
-            public void Update(Modelo.Usuario obj, string url)
+            public void Update(Modelo.Usuario obj)
             {
                 SqlConnection conn = new SqlConnection(connectionString);
-                conn.Open();
-                SqlCommand com = conn.CreateCommand();
-                com.CommandText= "UPDATE Image Set Img_Url = @img where id = @imgId"; com.Parameters.AddWithValue("@img",url);com.Parameters.AddWithValue("@imgId", obj.fotoId);
-            com.ExecuteNonQuery();
-                SqlCommand cmd = new SqlCommand("UPDATE Usuario SET senha = @senha, tipo_Usuario = @tipo_Usuario, nome = @nome, id_Img = @foto, email = @email, telefone = @telefone WHERE id = @id", conn);
+                conn.Open();                
+                SqlCommand cmd = new SqlCommand("UPDATE Usuario SET senha = @senha, tipo_Usuario = @tipo_Usuario, nome = @nome, email = @email, telefones = @telefone WHERE id = @id", conn);
                 cmd.Parameters.AddWithValue("@senha", obj.senha);
                 cmd.Parameters.AddWithValue("@id", obj.id);
                 cmd.Parameters.AddWithValue("@tipo_Usuario", obj.tipo);
                 cmd.Parameters.AddWithValue("@nome", obj.nome);
-                cmd.Parameters.AddWithValue("@foto", obj.fotoId);
                 cmd.Parameters.AddWithValue("@email", obj.email);
                 cmd.Parameters.AddWithValue("@telefone", obj.telefone);
-
                 cmd.ExecuteNonQuery();
             conn.Close();
-        }
+        }        
 
-            [DataObjectMethod(DataObjectMethodType.Select)]
+        [DataObjectMethod(DataObjectMethodType.Select)]
             public List<Modelo.Usuario> Select(string id)
             {
                 Modelo.Usuario aUsuario;
@@ -137,7 +132,7 @@ namespace WebAppSGE.DAL
             {
                 while (dr.Read())
                 {
-                    aUsuario = new Modelo.Usuario(dr["senha"].ToString(), Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()), dr["nome"].ToString(), dr["Id_Img"].ToString(), dr["email"].ToString(), dr["telefones"].ToString());
+                    aUsuario = new Modelo.Usuario(dr["senha"].ToString(), Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()), dr["nome"].ToString(), dr["Id_Img"].ToString(), dr["email"].ToString(), dr["telefones"].ToString(), Alternadores.AlternadorI(dr["id"].ToString()));
                     aListUsuario.Add(aUsuario);
                 }
             }
@@ -180,6 +175,51 @@ namespace WebAppSGE.DAL
                 cmd.CommandText = @"Insert into Img (img_Url) values (@url) 
                                     Select max(id) as id from Img";
                 cmd.Parameters.AddWithValue("@url", url);
+                SqlDataReader dr = cmd.ExecuteReader();
+                int id = 0;
+                if (dr.HasRows)
+                {
+                    int i = 0;
+                    while (dr.Read())
+                    {
+                        if (i > 0)
+                        {
+                            break;
+                        }
+                        id = Alternadores.AlternadorI(dr["id"].ToString());
+                        i++;
+                    }
+                }
+                dr.Close();
+                SqlCommand ncmd = conn.CreateCommand();
+                if (id > 0)
+                {
+                    return id;
+                }
+                else
+                {
+                    throw new Exception();
+                }
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public int UpdateUserImg(string url, int idUser)
+        {
+            try
+            {
+                Modelo.Img mimg = new Modelo.Img(url);
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = @"declare @img int;
+                select  @img = id_Img from Usuario_Img aimg where id_Area = @id
+                Update Img set img_Url = @url where id = @img";
+                cmd.Parameters.AddWithValue("@url", url);
+                cmd.Parameters.AddWithValue("@id", idUser);
                 SqlDataReader dr = cmd.ExecuteReader();
                 int id = 0;
                 if (dr.HasRows)
