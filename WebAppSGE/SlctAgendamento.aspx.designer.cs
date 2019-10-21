@@ -76,6 +76,15 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.DropDownList dropdown1;
         
         /// <summary>
+        /// Controle txtdataInit.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtdataInit;
+        
+        /// <summary>
         /// Controle txtdatalmite.
         /// </summary>
         /// <remarks>

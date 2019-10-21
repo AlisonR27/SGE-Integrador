@@ -85,7 +85,6 @@
     <form id="form1" runat="server" style="margin:0 !important;" class="row text-light">
         <asp:ScriptManager runat="server" ></asp:ScriptManager>
           <div class="w-100 bg-secondary" style="height:100vh;overflow-y: scroll;">
-               <!-- <Span>Todos os seus esportes em um clique, sem complicação!</Span> -->
                 <div class="w-100 bg-img">
                     <img id="xxv" src="src/sys/gymblur.jpg"/>
                     <img src="src/sys/gym.jpeg"/>

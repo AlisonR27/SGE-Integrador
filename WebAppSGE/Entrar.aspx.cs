@@ -15,7 +15,6 @@ namespace WebAppSGE
         DAL.Alternadores Alt = new DAL.Alternadores();
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
 
         protected void Unnamed1_Click(object sender, EventArgs e)

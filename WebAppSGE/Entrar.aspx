@@ -33,8 +33,8 @@
                     </span>
                     <p class="" style="font-size:1em;text-rendering:optimizeLegibility;"> Entre para utilizar todas as funcionalidades. </p>
                 </div>
-                <div class="h-40 mt-lg-0 mt-5 pt-5">
-                    <asp:TextBox class="p-0" runat="server" ID="UsuarioTXT" placeholder="Usuario" CssClass="login-input">
+                <div class="h-40 pt-md-2">
+                    <asp:TextBox class="p-0" runat="server" ID="UsuarioTXT" placeholder="E-mail" CssClass="login-input">
                     </asp:TextBox>
                     <asp:Label runat="server" ID="UsuarioErr" CssClass="text-danger"></asp:Label>
                     <asp:TextBox class="p-0 pt-md-3" runat="server" ID="PassTXT" TextMode="Password" placeholder="Senha" CssClass="login-input">

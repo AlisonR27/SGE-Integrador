@@ -2,6 +2,27 @@
 body{
     margin: 0;
 }
+input[type="submit" i]{
+    border-style:solid;
+}
+input{
+    border-style:solid;
+}
+.ml-66{
+    margin-left:66.9999%;
+}
+.btn-table{
+
+}
+.btn-table tr{
+}
+#ContentPlaceHolder1_semrow td{
+    cursor:pointer;
+}
+    #ContentPlaceHolder1_semrow td.active {
+        background-color: #007bff !important;
+        color: white;
+    }
     /* Centering  */
     .center100 {
         width: 100%;
