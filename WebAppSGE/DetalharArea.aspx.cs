@@ -13,11 +13,15 @@ namespace WebAppSGE
 {
     public partial class DetalharArea : System.Web.UI.Page
     {
+
+        LinkButton[] lbarray = new LinkButton[7];
+        int indexofDate =-1;
         static string mascaradata = "dd/MM/yyyy";
         DateTime domingo;
         DateTime hoje = DateTime.Now.Date;
         protected void Page_Load(object sender, EventArgs e)
         {
+            lbarray[0] = lb1; lbarray[1] = lb2; lbarray[2] = lb3; lbarray[3] = lb4; lbarray[4] = lb5; lbarray[5] = lb6; lbarray[6] = lb7;
             //Verifica se a página foi acessada da maneira correta
             if (Session["Redirected"] != null && (Session["Redirected"].ToString() == "true" || Session["Redirected"].ToString() == "True"))
             {
@@ -95,7 +99,8 @@ namespace WebAppSGE
                     int x = 0;
                     for (int j = 0; j < 7; j++)
                     {
-                        weekValues[j] = oDALhRegistrado.SelectDate(Convert.ToDateTime(semrow.Cells[j].InnerHtml).ToString("yyyy-MM-dd"));
+                        LinkButton Temporario = lbarray[i];
+                        weekValues[j] = oDALhRegistrado.SelectDate(Convert.ToDateTime(Temporario.Text).ToString("yyyy-MM-dd"));
                     }
                     for (int j = 0; j < 7; j++)
                     {
@@ -105,8 +110,8 @@ namespace WebAppSGE
                             {
                                 try { 
                                 x++;
-                                weekTable.Rows[x].Cells[j].InnerText = $"{hr.hInicio}~{hr.hFim}";
-                                weekTable.Rows[x].Cells[j].Attributes.Add("class", "bg-danger text-center");
+                                ((LinkButton)weekTable.Rows[x].Cells[j].Controls[0]).Text = $"{hr.hInicio}~{hr.hFim}";
+                                ((LinkButton)weekTable.Rows[x].Cells[j].Controls[0]).Attributes.Add("class", "bg-danger text-center");
                                 }
                                 catch(Exception e)
                                 {
@@ -153,10 +158,12 @@ namespace WebAppSGE
         protected int RowSize()
         {
             int maior = 0;
+
             for (int i = 0; i < 7; i++)
             {
-                 int atual = DALhRegistrado.NumberOfRows(Convert.ToDateTime(semrow.Cells[i].InnerHtml).ToString("yyyy-MM-dd"));
-                if ( atual > maior)
+                LinkButton Temporario = lbarray[i];
+                 int atual = DALhRegistrado.NumberOfRows(Convert.ToDateTime(Temporario.Text).ToString("yyyy-MM-dd"));
+            if ( atual > maior)
                 {
                     maior = atual;
                 }
@@ -173,7 +180,8 @@ namespace WebAppSGE
             for (int i = 0; i < 7; i++)
             {
                 DateTime x = domingo.AddDays(i);
-                semrow.Cells[i].InnerHtml = x.ToString(mascaradata);
+                lbarray[i].Text = x.ToString(mascaradata);
+
             }
         }
         //Abre página para solicitação
@@ -181,14 +189,16 @@ namespace WebAppSGE
         {
             bool flag = false;
             string selecteDate = "";
-            semrow.DataBind();
-            for (int i = 0; i < 7; i++){
-                if (semrow.Cells[i].Attributes["class"] == "px-2 active")
+            // Response.Write(Session["preSolDate"].ToString());
+            // Session["preSolDate"] = damn.Text;
+            for (int i = 0; i < 7; i++)
+            {
+                if (lbarray[i].BackColor == System.Drawing.Color.CadetBlue)
                 {
                     flag = true;
-                    selecteDate = semrow.Cells[i].InnerText;
+                    selecteDate = lbarray[i].Text;
                 }
-            }   
+            }
             if (flag)
             {
                 Session["preSolDate"] = selecteDate;
@@ -222,6 +232,29 @@ namespace WebAppSGE
         {
             Session["preSolDate"] = selecteDate;
             Response.Redirect("~//SlctAgendamento.aspx");
+        }
+        [WebMethod]
+        public void setIndex(string x)
+        {
+            indexofDate = int.Parse(x);
+        }
+
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            LinkButton lb = (LinkButton)sender;
+            if (lb.Attributes["active"] == "false")
+            {
+                lb.Attributes.Add("active", "true");
+                lb.BackColor = System.Drawing.Color.CadetBlue;
+                lb.ForeColor = System.Drawing.Color.WhiteSmoke;
+
+            }
+            else
+            {
+                lb.Attributes["active"] = "false";
+                lb.BackColor = System.Drawing.Color.Transparent;
+                lb.ForeColor = System.Drawing.Color.White;
+            }
         }
     }
 }

@@ -24,10 +24,10 @@ namespace WebAppSGE.DAL
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = @"Select horSol.id as id_horarioregistrado, solRes.id as id_solicitacaoOrigem, horSol.data_registro, horSol.hora_inicio, horSol.hora_fim, solRes.id_Usuario_solicitante, solRes.id_Area_Esportiva,ArEsp.nome from horario_Solicitado horSol 
+            cmd.CommandText = @"Select horSol.id as id_horarioregistrado, solRes.id as id_solicitacaoOrigem, horSol.data, horSol.hora_inicio, horSol.hora_fim, solRes.id_Usuario_solicitante, solRes.id_Area_Esportiva,ArEsp.nome from horario_Solicitado horSol 
                                 inner join solicitacao_Reserva solRes on horSol.id_SolicitacaoReserva = solRes.id
                                 inner join Area_Esportiva ArEsp on ArEsp.id = solRes.id_Area_Esportiva 
-                                where horSol.data_registro = @data order by horSol.hora_Inicio";
+                                where horSol.data = @data order by horSol.hora_Inicio";
             cmd.Parameters.AddWithValue("@data", data);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
@@ -36,7 +36,7 @@ namespace WebAppSGE.DAL
                 {
                     aArea = new Modelo.hRegistrado( 
                         dr["id_horarioregistrado"].ToString(),
-                        dr["data_registro"].ToString(),
+                        dr["data"].ToString(),
                         dr["hora_inicio"].ToString(),
                         dr["hora_fim"].ToString(),
                         dr["id_solicitacaoOrigem"].ToString(),
@@ -57,7 +57,7 @@ namespace WebAppSGE.DAL
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SGEConnectionString"].ConnectionString);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "Select * from horario_Solicitado where data_registro = @data";
+            cmd.CommandText = "Select * from horario_Solicitado where data = @data";
             cmd.Parameters.AddWithValue("@data",data);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)

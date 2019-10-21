@@ -37,7 +37,7 @@ namespace WebAppSGE
         {
             try
             {
-                oDALUsuario.Update(new Usuario(b.First().senha, b.First().tipo, TXTNome.Text,"1",TXTEmail.Text,TXTTelefone.Text, Alternadores.AlternadorI(Session["id"].ToString())));
+                //oDALUsuario.Update(new Usuario(b.First().senha, b.First().tipo, TXTNome.Text,"1",TXTEmail.Text,TXTTelefone.Text, Alternadores.AlternadorI(Session["id"].ToString())));
                 string p1 = IMGUPLD.FileName;
                 string p2 = Path.Combine("~/src/temp/" + p1);
                 oDALUsuario.UpdateUserImg(p2, Convert.ToInt16(Session["id"]));

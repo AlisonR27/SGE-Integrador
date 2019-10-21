@@ -30,22 +30,23 @@
         <asp:Button CssClass="px-3 py-1 bg-transparent ml-66 btn-outline-primary rounded-pill" runat="server" ID="go1week" OnClick="go1week_Click" Text="→"/>             
         <table class="table-bordered w-75 table-dark" runat="server" id="weekTable">
                 <tr runat="server" id="semrow">
-                    <td runat="server" class="px-2">Domingo</td>
-                    <td runat="server" class="px-2">Segunda</td>
-                    <td runat="server" class="px-2">Terça</td>
-                    <td runat="server" class="px-2">Quarta</td>
-                    <td runat="server" class="px-2">Quinta</td>
-                    <td runat="server" class="px-2">Sexta</td>
-                    <td runat="server" class="px-2">Sábado</td>
+                    <td runat="server"  index="0" class="p-0"><asp:LinkButton active="false" CssClass="w-100 h-100 d-block text-center text-light" OnClick="LinkButton1_Click" ID="lb1" runat="server"></asp:LinkButton></td>
+                    <td runat="server" index="1" class="p-0"><asp:LinkButton active="false"  CssClass="w-100 h-100 d-block text-center text-light"  OnClick="LinkButton1_Click" ID="lb2" runat="server"></asp:LinkButton></td>
+                    <td runat="server" index="2" class="p-0"><asp:LinkButton active="false"  CssClass="w-100 h-100 d-block text-center text-light"  OnClick="LinkButton1_Click" ID="lb3" runat="server"></asp:LinkButton></td>
+                    <td runat="server" index="3" class="p-0"><asp:LinkButton active="false"  CssClass="w-100 h-100 d-block text-center text-light"  OnClick="LinkButton1_Click" ID="lb4" runat="server"></asp:LinkButton></td>
+                    <td runat="server" index="4" class="p-0"><asp:LinkButton active="false"  CssClass="w-100 h-100 d-block text-center text-light"  OnClick="LinkButton1_Click" ID="lb5" runat="server"></asp:LinkButton></td>
+                    <td runat="server" index="5" class="p-0"><asp:LinkButton active="false"  CssClass="w-100 h-100 d-block text-center text-light"  OnClick="LinkButton1_Click" ID="lb6" runat="server"></asp:LinkButton></td>
+                    <td runat="server" index="6" class="p-0"><asp:LinkButton active="false"  CssClass="w-100 h-100 d-block text-center text-light"  OnClick="LinkButton1_Click" ID="lb7" runat="server"></asp:LinkButton></td>
                 </tr>
         </table>
         <asp:Button ID="solicit" OnClick="Unnamed_Click" ClientIDMode="Static" runat="server" CssClass="btn-primary rounded-pill" Text="Solicitar horário"/>
     </div>
+    <asp:Label runat="server" ID ="damn"></asp:Label>
     <script>
         $('#ContentPlaceHolder1_semrow').children().click(function () {
-            $('#ContentPlaceHolder1_semrow').children().not(this).removeClass("active");
-            $(this).toggleClass("active");
-            $(this).attr("
+            //$('#ContentPlaceHolder1_semrow').children().not(this).removeClass("active");
+            //$(this).toggleClass("active");
+            //sessionStorage.setItem('preSolDate',$(this).text);
         });
         $("#solicit").click(function () {
             var x = $('ContentPlaceHolder1_semrow').children('.active').text();
