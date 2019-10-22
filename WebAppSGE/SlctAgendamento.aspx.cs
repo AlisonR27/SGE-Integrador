@@ -18,6 +18,7 @@ namespace WebAppSGE
                 ErrorPanel.Style.Add("display", "none");
                 txtidarea.Text = Session["AreaID"].ToString();
                 txtdataInit.Text = Session["preSolDate"].ToString();
+                txtdatalmite.Text = Convert.ToDateTime(Session["preSolDate"].ToString()).ToString("dd/MM/yyyy");
             }
             else
             {
@@ -34,7 +35,7 @@ namespace WebAppSGE
             {
                 if (cbf.Checked) atv += cbf.Text+ ";";
             }
-            if (oDALSolicitacaoReserva.Insert(new SolicitacaoReserva(DateTime.Now, atv, TextBoxMotivo.Text, Alternadores.AlternadorDT(TextBoxDe.Text), Alternadores.AlternadorDT(TextBoxAte.Text), Alternadores.AlternadorI(Session["UserID"].ToString()), Alternadores.AlternadorI(txtidarea.Text))))
+            if (oDALSolicitacaoReserva.Insert(new SolicitacaoReserva(DateTime.Now, atv, TextBoxMotivo.Text, Alternadores.AlternadorDT(TextBoxDe.Text), Alternadores.AlternadorDT(TextBoxAte.Text), Alternadores.AlternadorI(Session["AreaId"].ToString()), Alternadores.AlternadorI(txtidarea.Text))))
             {
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
             }
