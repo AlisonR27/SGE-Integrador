@@ -154,43 +154,57 @@ namespace WebAppSGE
                 case 1:
                     {                        
                         t = TXTDomInit;
+                        t2 = TXTDomEnd;
                         l = DomInitErr;
+                        l2 = DomEndErr;
                         break;
                     }
                 case 2:
                     {
                         t = TXTSegInit;
                         l = SegInitErr;
+                        t2 = TXTSegEnd;
+                        l2 = SegEndErr;
                         break;
                     }
                 case 3:
                     {
                         t = TXTTerInit;
                         l = TerInitErr;
+                        t2 = TXTTerEnd;
+                        l2 = TerEndErr;
                         break;
                     }
                 case 4:
                     {
                         t = TXTQuaInit;
                         l = QuaInitErr;
+                        t2 = TXTQuaEnd;
+                        l2 = QuaEndErr;
                         break;
                     }
                 case 5:
                     {
                         t = TXTQuiInit;
                         l = QuiInitErr;
+                        t2 = TXTQuiEnd;
+                        l2 = QuiEndErr;
                         break;
                     }
                 case 6:
                     {
                         t = TXTSexInit;
                         l = SexInitErr;
+                        t2 = TXTSexEnd;
+                        l2 = SexEndErr;
                         break;
                     }
                 case 7:
                     {
                         t = TXTSabInit;
                         l = SabInitErr;
+                        t2 = TXTSabEnd;
+                        l2 = SabEndErr;
                         break;
                     }
             }
