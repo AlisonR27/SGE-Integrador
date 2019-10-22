@@ -29,8 +29,10 @@ namespace WebAppSGE
                 oDALSport.Update(new Sports(Session["idsport"].ToString(), TextBoxName.Text, TextBoxDesc.Text));
                 Response.Redirect("~//ListSport.aspx");
             }
-            catch
+            catch(Exception ex)
             {
+                string a = "Atividade já existente";
+                if (ex.Message.Contains(a)) { SQLErr(TextBoxName, a, NameErr); } else { SQLCor(TextBoxName, NameErr); }
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
             }
         }
@@ -42,10 +44,20 @@ namespace WebAppSGE
                 oDALSport.Delete(Session["idsport"].ToString());
                 Response.Redirect("~//ListSport.aspx");
             }
-            catch
+            catch(Exception ex)
             {
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
             }
+        }
+        protected void SQLErr(TextBox t, string d, Label a)
+        {
+            t.BorderColor = System.Drawing.Color.Red;
+            a.Text = d;
+        }
+        protected void SQLCor(TextBox t, Label a)
+        {
+            t.BorderColor = System.Drawing.Color.White;
+            a.Text = "";
         }
     }
 }

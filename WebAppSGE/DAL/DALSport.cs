@@ -47,7 +47,7 @@ namespace WebAppSGE.DAL
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
             SqlCommand com = conn.CreateCommand();
-            SqlCommand cmd = new SqlCommand("DELETE FROM atividadeEsportiva WHERE id = @id", conn);
+            SqlCommand cmd = new SqlCommand("DELETE FROM area_Atividade WHERE id_atividadeEsportiva = @id DELETE FROM atividadeEsportiva WHERE id = @id", conn);
             cmd.Parameters.AddWithValue("@id",id);
             cmd.ExecuteNonQuery();
 

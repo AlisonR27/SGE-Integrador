@@ -41,7 +41,7 @@ namespace WebAppSGE
             confilename = "Crop_" + oDALImage.NextIdentity()+".png";
             confilepath = Path.Combine(Server.MapPath("~/src/temp/"), confilename);
             bitmap.Save(confilepath);
-            cropimg.Visible = true;
+            //cropimg.Visible = true;
             cropimg.Src = "~/src/temp/" + confilename;
             //Submeter 
             int id = oDALUsuario.InsertUserImg("/src/temp/" + confilename);
@@ -49,12 +49,29 @@ namespace WebAppSGE
             {
                 throw new Exception();
             }
-            if (oDALUsuario.Insert(new Usuario(Pass.Text, 2, TextBox1.Text, id.ToString(), TXTEmail.Text, TXTPhone.Value))) ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
-            else
+            try { oDALUsuario.Insert(new Usuario(Pass.Text, 2, TextBox1.Text, id.ToString(), TXTEmail.Text, TXTPhone.Value)); ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true); }
+            catch(Exception ex)
             {
+                string a = "Email invalido, por favor colocar um valido";
+                if (ex.Message.Contains(a)) { SQLErr(TXTEmail, a, EmailErr); } else { SQLCor(TXTEmail, EmailErr); }
+                a = "Email já cadastrado";
+                if (ex.Message.Contains(a)) { SQLErr(TXTEmail, a, EmailErr); } else { SQLCor(TXTEmail, EmailErr); }
+                a = "Senha curta, por favor colocar uma com pelo menos 8 caracteres";
+                if (ex.Message.Contains(a)) { SQLErr(Pass, a,PassErr); } else { SQLCor(Pass,PassErr); }
+                if(Pass.Text != CnfrmPass.Text) { SQLErr(CnfrmPass, "As Senhas não batem",ConfirmPassErr); } else { SQLCor(CnfrmPass,ConfirmPassErr); }
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
 
             }
+        }
+        protected void SQLErr(TextBox t, string d, Label a)
+        {
+            t.BorderColor = System.Drawing.Color.Red;
+            a.Text = d;
+        }
+        protected void SQLCor(TextBox t, Label a)
+        {
+            t.BorderColor = System.Drawing.Color.White;
+            a.Text = "";
         }
     }
 }

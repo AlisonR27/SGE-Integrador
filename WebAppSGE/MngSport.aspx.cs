@@ -28,5 +28,18 @@ namespace WebAppSGE
         
     
         }
+        protected void SportsView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "Editar")
+            {
+                string codigo;
+                // Le o numero da linha selecionada
+                int index = Convert.ToInt32(e.CommandArgument);
+                // Copia o conteúdo da primeira célula da linha -> Código do Livro
+                codigo = SportsView.Rows[index].Cells[0].Text;
+                Session["idsport"] = codigo;
+                Response.Redirect("~//EditSport.aspx");
+            }
+        }
     }
 }

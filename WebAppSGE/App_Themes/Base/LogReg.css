@@ -154,3 +154,6 @@ input:focus {
 #xxv {
     z-index: 3;
 }
+.txterrs{
+    border: solid red 1px !important;
+}

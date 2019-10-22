@@ -79,6 +79,7 @@
               <div class="w-100 mb-2">
                     <div>Email:</div>
                     <asp:TextBox runat="server" CssClass="w-100" ID="TXTEmail"></asp:TextBox>
+                    <asp:Label ID="EmailErr" CssClass="text-danger w-100" runat="server"></asp:Label>
                </div> 
            </div>
            <div class="col-auto">

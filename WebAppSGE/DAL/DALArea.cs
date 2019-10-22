@@ -17,33 +17,33 @@ namespace WebAppSGE.DAL
         {
             connectionstring = ConfigurationManager.ConnectionStrings["SGEConnectionString"].ConnectionString;
         }
-        [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.Areas> SelectAll()
-        {
-            Modelo.Areas aArea;
-            List<Modelo.Areas> aListAreas = new List<Modelo.Areas>();
-            SqlConnection conn = new SqlConnection(connectionstring);
-            conn.Open();
-            SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "Select * from area_Esportiva";
-            SqlDataReader dr = cmd.ExecuteReader();
-            if (dr.HasRows)
+            [DataObjectMethod(DataObjectMethodType.Select)]
+            public List<Modelo.Areas> SelectAll()
             {
-
-                while (dr.Read())
+                Modelo.Areas aArea;
+                List<Modelo.Areas> aListAreas = new List<Modelo.Areas>();
+                SqlConnection conn = new SqlConnection(connectionstring);
+                conn.Open();
+                SqlCommand cmd = conn.CreateCommand();
+                cmd.CommandText = "Select * from area_Esportiva";
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.HasRows)
                 {
-                    aArea = new Modelo.Areas(dr["id"].ToString(),
-                        dr["nome"].ToString(),
-                        dr["descricao"].ToString()
-                        );
-                    aListAreas.Add(aArea);
-                }
-            }
-            dr.Close();
-            conn.Close();
 
-            return aListAreas;
-        }
+                    while (dr.Read()) 
+                    {
+                        aArea = new Modelo.Areas( dr["id"].ToString(),
+                            dr["nome"].ToString(),
+                            dr["descricao"].ToString()    
+                            );
+                        aListAreas.Add(aArea);
+                    }
+                }
+                dr.Close();
+                conn.Close();
+
+                return aListAreas;
+            }
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.FullFieldsArea> SelectAllFields()
         {
@@ -56,7 +56,7 @@ namespace WebAppSGE.DAL
                                        join area_img aimg on aimg.id_Area = areap.id inner
                                        join Img img on img.id = aimg.id_Img";
 
-            SqlDataReader dr = cmd.ExecuteReader();
+SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
                 while (dr.Read())
@@ -81,10 +81,10 @@ namespace WebAppSGE.DAL
                 conn.Open();
                 SqlCommand com = conn.CreateCommand();
                 SqlCommand cmd = new SqlCommand("INSERT INTO area_Esportiva (nome,descricao) VALUES(@nome,@descricao)", conn);
-                cmd.Parameters.AddWithValue("@nome", obj.nome); cmd.Parameters.AddWithValue("@descricao", obj.desc);
+                cmd.Parameters.AddWithValue("@nome", obj.nome);cmd.Parameters.AddWithValue("@descricao", obj.desc);
                 cmd.ExecuteNonQuery();
                 return true;
-            }
+            }              
             catch
             {
                 return false;
@@ -130,7 +130,7 @@ namespace WebAppSGE.DAL
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "Select * from area_Esportiva areap inner join area_img aimg on aimg.id_Area = areap.id inner join Img img on  img.id = aimg.id_Img where areap.id = @id"; cmd.Parameters.AddWithValue("@id", id);
+            cmd.CommandText = "Select * from area_Esportiva areap inner join area_img aimg on aimg.id_Area = areap.id inner join Img img on  img.id = aimg.id_Img where areap.id = @id";cmd.Parameters.AddWithValue("@id", id);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
@@ -157,7 +157,7 @@ namespace WebAppSGE.DAL
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "Select * from area_Esportiva where descricao like '%" + txt + "%'";
+            cmd.CommandText = "Select * from area_Esportiva where descricao like '%" + txt+"%'";
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
@@ -178,8 +178,7 @@ namespace WebAppSGE.DAL
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public bool InsertAreaImg(string url, int idArea)
         {
-            try
-            {
+            try { 
                 Modelo.Img mimg = new Modelo.Img(url);
                 SqlConnection conn = new SqlConnection(connectionstring);
                 conn.Open();
@@ -191,32 +190,28 @@ namespace WebAppSGE.DAL
                 int id = 0;
                 if (dr.HasRows)
                 {
-                    int i = 0;
+                    int i =0;
                     while (dr.Read())
                     {
-                        if (i > 0)
-                        {
+                        if (i > 0) {
                             break;
                         }
-                        id = Alternadores.AlternadorI(dr["id"].ToString());
+                          id = Alternadores.AlternadorI(dr["id"].ToString());
                         i++;
                     }
                 }
                 dr.Close();
                 SqlCommand ncmd = conn.CreateCommand();
-                if (id > 0)
-                {
-                    ncmd.CommandText = "Insert into Area_Img (id_Area,id_Img) values (@idA,@idI)"; ncmd.Parameters.AddWithValue("@idA", Identity()); ncmd.Parameters.AddWithValue("@idI", id);
-                    ncmd.ExecuteNonQuery();
+                if (id > 0) { 
+                ncmd.CommandText = "Insert into Area_Img (id_Area,id_Img) values (@idA,@idI)"; ncmd.Parameters.AddWithValue("@idA", Identity()); ncmd.Parameters.AddWithValue("@idI", id);
+                ncmd.ExecuteNonQuery();
                 }
-                else
-                {
+                else{
                     throw new Exception();
                 }
                 return true;
             }
-            catch
-            {
+            catch{
                 return false;
             }
         }
@@ -257,19 +252,20 @@ namespace WebAppSGE.DAL
             cmd.Parameters.AddWithValue("@id", obj.id);
             cmd.Parameters.AddWithValue("@nome", obj.nome);
             cmd.Parameters.AddWithValue("@desc", obj.desc);
+            //cmd.Parameters.AddWithValue("@img", obj.imgUrl); Configurar pra mudar a imagem também
             cmd.ExecuteNonQuery();
         }
-        /*[DataObjectMethod(DataObjectMethodType.Delete)]
+        [DataObjectMethod(DataObjectMethodType.Update)]
         public void Delete(string id)
         {
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             SqlCommand com = conn.CreateCommand();
-            SqlCommand cmd = new SqlCommand("DELETE FROM area_Atividade WHERE id_AreaPoliesportiva = @id DELETE FROM area_Esportiva WHERE id = @id DELETE FROM area_horario_Disponivel WHERE id_Area = @id DELETE FROM solicitacao_Reserva WHERE id_Area_Esportiva = @id", conn);
+            SqlCommand cmd = new SqlCommand("UPDATE area_Esportiva SET sit = 1 WHERE id = @id ", conn);
             cmd.Parameters.AddWithValue("@id", id);
             cmd.ExecuteNonQuery();
 
-        } Falta configurar pra ser capaz de excluir a imagem linkada a tabela de intermediação o horário disponível e o horário solicitado sobre essa área */
+        }
         [DataObjectMethod(DataObjectMethodType.Update)]
         public bool UpdateAreaImg(string url, int idArea)
         {
@@ -279,11 +275,9 @@ namespace WebAppSGE.DAL
                 SqlConnection conn = new SqlConnection(connectionstring);
                 conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = @"declare @img int;
-                select  @img = id_Img from Area_Img aimg where id_Area = @id_area
-                update Img set img_url = @url where id = @img";
+                cmd.CommandText = @"Update Img set img_Url = @url 
+                                    Select max(id) as id from Img";
                 cmd.Parameters.AddWithValue("@url", url);
-                cmd.Parameters.AddWithValue("@id_area", idArea);
                 SqlDataReader dr = cmd.ExecuteReader();
                 int id = 0;
                 if (dr.HasRows)
@@ -300,6 +294,16 @@ namespace WebAppSGE.DAL
                     }
                 }
                 dr.Close();
+                SqlCommand ncmd = conn.CreateCommand();
+                if (id > 0)
+                {
+                    ncmd.CommandText = "Update Area_Img set id_Area = @idA,set id_Img = @idI"; ncmd.Parameters.AddWithValue("@idA", Identity()); ncmd.Parameters.AddWithValue("@idI", id);
+                    ncmd.ExecuteNonQuery();
+                }
+                else
+                {
+                    throw new Exception();
+                }
                 return true;
             }
             catch
@@ -307,5 +311,5 @@ namespace WebAppSGE.DAL
                 return false;
             }
         }
-    }
+    } 
 }

@@ -31,6 +31,15 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.TextBox UsuarioTXT;
         
         /// <summary>
+        /// Controle UsuarioErr.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label UsuarioErr;
+        
+        /// <summary>
         /// Controle PassTXT.
         /// </summary>
         /// <remarks>
@@ -38,5 +47,14 @@ namespace WebAppSGE {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox PassTXT;
+        
+        /// <summary>
+        /// Controle PassErr.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PassErr;
     }
 }
