@@ -19,6 +19,7 @@ namespace WebAppSGE
         static string mascaradata = "dd/MM/yyyy";
         DateTime domingo;
         DateTime hoje = DateTime.Now.Date;
+        int idArea;
         protected void Page_Load(object sender, EventArgs e)
         {
             lbarray[0] = lb1; lbarray[1] = lb2; lbarray[2] = lb3; lbarray[3] = lb4; lbarray[4] = lb5; lbarray[5] = lb6; lbarray[6] = lb7;
@@ -26,7 +27,7 @@ namespace WebAppSGE
             if (Session["Redirected"] != null && (Session["Redirected"].ToString() == "true" || Session["Redirected"].ToString() == "True"))
             {
                 ErrorPanel.Style.Add("display", "none");
-
+                idArea = int.Parse(Session["AreaID"].ToString());
                 string x = dv1.Rows[3].Cells[1].Text;
                 AreaImage.ImageUrl = x;
                 dv1.Rows[3].Style.Add("display", "none");
@@ -99,31 +100,30 @@ namespace WebAppSGE
                     int x = 0;
                     for (int j = 0; j < 7; j++)
                     {
-                        LinkButton Temporario = lbarray[i];
-                        weekValues[j] = oDALhRegistrado.SelectDate(Convert.ToDateTime(Temporario.Text).ToString("yyyy-MM-dd"));
+                        LinkButton Temporario = lbarray[j];
+                        weekValues[j] = oDALhRegistrado.SelectDate(Convert.ToDateTime(Temporario.Text).ToString("yyyy-MM-dd"),idArea.ToString());
                     }
                     for (int j = 0; j < 7; j++)
                     {
                         if (weekValues[j].Count > 0)
                         {
-                            foreach (hRegistrado hr in weekValues[i])
+                            for(int k = 0; k < weekValues[i].Count+2; k++)
                             {
-                                try { 
-                                x++;
-                                ((LinkButton)weekTable.Rows[x].Cells[j].Controls[0]).Text = $"{hr.hInicio}~{hr.hFim}";
-                                ((LinkButton)weekTable.Rows[x].Cells[j].Controls[0]).Attributes.Add("class", "bg-danger text-center");
-                                }
-                                catch(Exception e)
-                                {
-                                    Response.Write(e.Message);
-                                }
+                                weekTable.Rows[k+1].Cells[j].InnerText = $"{weekValues[j][k].hInicio}~{weekValues[j][k].hFim}";
+                                weekTable.Rows[k+1].Cells[j].Attributes.Add("class", "bg-danger text-center");
                             }
+                            //foreach(hRegistrado hr in weekValues[i]){
+                            //    x++;
+                            //    ((LinkButton)weekTable.Rows[x].Cells[j].Controls[0]).Text = $"{hr.hInicio}~{hr.hFim}";
+                            //    ((LinkButton)weekTable.Rows[x].Cells[j].Controls[0]).Attributes.Add("class", "bg-danger text-center");
+                            //}
                             //if (weekValues[j-1][i-1] != null)
                             //{
                             //    weekTable.Rows[i].Cells[j].InnerText = $"{weekValues[i][j].hInicio}~{weekValues[i][j].hFim}";
                             //    weekTable.Rows[i].Cells[j].Attributes.Add("class", "bg-danger text-center");
                             //}
                         }
+                        else { }
                     }
                 }
             }
@@ -162,7 +162,7 @@ namespace WebAppSGE
             for (int i = 0; i < 7; i++)
             {
                 LinkButton Temporario = lbarray[i];
-                 int atual = DALhRegistrado.NumberOfRows(Convert.ToDateTime(Temporario.Text).ToString("yyyy-MM-dd"));
+                 int atual = DALhRegistrado.NumberOfRows(Convert.ToDateTime(Temporario.Text).ToString("yyyy-MM-dd"),idArea.ToString());
             if ( atual > maior)
                 {
                     maior = atual;
@@ -202,6 +202,8 @@ namespace WebAppSGE
             if (flag)
             {
                 Session["preSolDate"] = selecteDate;
+                Session["area_Id"] = dv1.Rows[0].Cells[1].Text;
+                Session["Redirected"] = true;
                 Response.Redirect("~//SlctAgendamento.aspx");
             }
             else

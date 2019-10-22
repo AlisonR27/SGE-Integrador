@@ -27,7 +27,131 @@
                     </div>
             </div>
         </div>
-            
+
+            <h6 class="inputTitle mt-1">Lista de Esportes: </h6>
+                <div class="row ml-1">
+                    <div class="col-sm-6">
+                        <div class="selectedSports">
+                            <h5 class="TAlignCenter">Esportes selecionados</h5>
+                            <asp:CheckBoxList runat="server" DataSourceID="ObjectDataSource1" DataTextField="nome" DataValueField="id" CssClass="d-inline-block" ID="CBL" RepeatLayout="UnorderedList"></asp:CheckBoxList>
+                            <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport"></asp:ObjectDataSource>
+                        </div>
+                    </div>
+                    <div class="col-6"></div>
+                <div class="col-12">
+                <h6 class="row h6">Horários </h6>
+                <div class="w-100">
+                    <div class="slideDContainer">
+                        <div class="slideDTitle">   
+                            <h5>Domingo</h5>
+                        </div>
+                        <div class="slideDOcult">
+                            <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
+                            <label for="checkDay">Disponível</label>
+                            <h6> Inicio: </h6>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTDomInit"></asp:TextBox>
+                            <asp:Label runat="server" ID="DomInitErr" CssClass="text-danger w-100"></asp:Label>
+                            <br />
+                            <h6>Fim:</h6>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTDomEnd"></asp:TextBox>
+                            <asp:Label runat="server" ID="DomEndErr" CssClass="text-danger w-100"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="slideDContainer">
+                        <div class="slideDTitle">   
+                            <h5>Segunda</h5>
+                        </div>
+                        <div class="slideDOcult">
+                            <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
+                            <label for="checkDay">Disponível</label>                            <h6> Inicio: </h6>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSegInit"></asp:TextBox>
+                            <asp:Label runat="server" ID="SegInitErr" CssClass="text-danger w-100"></asp:Label>
+                            <br />
+                            <h6>Fim:</h6>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSegEnd"></asp:TextBox>
+                            <asp:Label runat="server" ID="SegEndErr" CssClass="text-danger w-100"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="slideDContainer">
+                        <div class="slideDTitle">   
+                            <h5>Terça</h5>
+                        </div>
+                        <div class="slideDOcult">
+                            <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
+                            <label for="checkDay">Disponível</label>
+                            <h6> Inicio: </h6>
+                            <asp:TextBox runat="server"  TextMode="Time" ID="TXTTerInit"></asp:TextBox>
+                            <asp:Label runat="server" ID="TerInitErr" CssClass="text-danger w-100"></asp:Label>
+                            <br />
+                            <h6>Fim:</h6>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTTerEnd"></asp:TextBox>
+                            <asp:Label runat="server" ID="TerEndErr" CssClass="text-danger w-100"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="slideDContainer">
+                        <div class="slideDTitle">   
+                            <h5>Quarta</h5>
+                        </div>
+                        <div class="slideDOcult">
+                            <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
+                            <label for="checkDay">Disponível</label>
+                            <h6> Inicio: </h6>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTQuaInit"></asp:TextBox>
+                            <asp:Label runat="server" ID="QuaInitErr" CssClass="text-danger w-100"></asp:Label>
+                            <br />
+                            <h6>Fim:</h6>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTQuaEnd"></asp:TextBox>
+                            <asp:Label runat="server" ID="QuaEndErr" CssClass="text-danger w-100"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="slideDContainer">
+                        <div class="slideDTitle">   
+                            <h5>Quinta</h5>
+                        </div>
+                        <div class="slideDOcult">
+                            <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
+                            <label for="checkDay">Disponível</label>
+                            <h6> Inicio: </h6>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTQuiInit"></asp:TextBox>
+                            <asp:Label runat="server" ID="QuiInitErr" CssClass="text-danger w-100"></asp:Label>
+                            <br />
+                            <h6>Fim:</h6>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTQuiEnd"></asp:TextBox>
+                            <asp:Label runat="server" ID="QuiEndErr" CssClass="text-danger w-100"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="slideDContainer">
+                        <div class="slideDTitle">   
+                            <h5>Sexta</h5>
+                        </div>
+                        <div class="slideDOcult">
+                            <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
+                            <label for="checkDay">Disponível</label>
+                            <h6> Inicio: </h6>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSexInit"></asp:TextBox>
+                            <asp:Label runat="server" ID="SexInitErr" CssClass="text-danger w-100"></asp:Label>
+                            <br />
+                            <h6>Fim:</h6>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSexEnd"></asp:TextBox>
+                            <asp:Label runat="server" ID="SexEndErr" CssClass="text-danger w-100"></asp:Label>
+                        </div>
+                    </div>
+                    <div class="slideDContainer">
+                        <div class="slideDTitle">   
+                            <h5>Sábado</h5>
+                        </div>
+                        <div class="slideDOcult">
+                            <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
+                            <label for="checkDay">Disponível</label>                            <h6> Inicio: </h6>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSabInit"></asp:TextBox>
+                            <asp:Label runat="server" ID="SabInitErr" CssClass="text-danger w-100"></asp:Label>
+                            <br />
+                            <h6>Fim:</h6>
+                            <asp:TextBox runat="server" TextMode="Time" ID="TXTSabEnd"></asp:TextBox>
+                            <asp:Label runat="server" ID="SabEndErr" CssClass="text-danger w-100"></asp:Label>
+                        </div>
+                </div>
+            </div>        
             <div  class="mt-2">
                 <asp:Button runat="server" CssClass="btn-primary rounded-pill col-auto b-none" Text="Atualizar" OnClick="Unnamed3_Click"/>                
                 <asp:Button runat="server" CssClass="btn-danger rounded-pill offset-md-9 offset-sm-8 col-auto b-none" Text="Excluir" OnClick="Unnamed4_Click"/>

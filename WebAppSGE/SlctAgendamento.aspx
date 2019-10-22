@@ -53,7 +53,7 @@
                     </div>
                     <div class="col-md-2">
                         <h6 class="row pl-3">Do dia:</h6>
-                        <asp:TextBox CssClass=" col-auto" runat="server" ReadOnly="true" ID="txtdataInit" TextMode="Date" ToolTip="dd/mm/yyyy"></asp:TextBox>
+                        <asp:TextBox CssClass=" col-auto" runat="server" ReadOnly="true" ID="txtdataInit" ToolTip="dd/mm/yyyy"></asp:TextBox>
                     </div>
                     <div class="col-md-2">
                         <h6 class="row pl-3">Até o dia:</h6>

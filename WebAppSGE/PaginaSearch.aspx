@@ -3,24 +3,26 @@
     <style>
             @media (max-width:575px){
                 .thumb{
-                    width:;
+                    width:150px;
+                    height:50px;
                 }
             }
             @media (min-width:576px){
                 .thumb{
-                    width: 150px;
+                    width: 250px;
+                    height:160px;
                 }
             }
             @media (min-width:768px){
                 .thumb{
-                    width: 200px;
+                    width: 280px;
                     height:160px;
                 }
             }
             @media (min-width:992px){
                 .thumb{
                     width: 250px;
-                    height: 200px;
+                    height: 160px;
                 }
             }
             @media (min-width:1200px){
@@ -31,19 +33,19 @@
             }
 
             .thumb img{
-                 object-fit: none;
-                  object-position: center; 
+                 /*object-fit: none;
+                  object-position: center;*/ 
                   width: 100%;
                   height:100%;
                   max-height: 200px;
-                  min-height:150px;
+                  min-height:100px;
                   margin-bottom: 1rem;
             }
         
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-            <div class="row">
+            <div class="row w-100 px-2">
                 <div class="col-12">
                     <h3>Pesquisar área por nome:</h3>
                 </div>
@@ -56,19 +58,15 @@
             </div>
                 <asp:Repeater ID="Repeater1" runat="server">
                     <HeaderTemplate>
-                        <div class="row">
+                    <div class="row w-100 mt-3 px-2">
                     </HeaderTemplate>
                     <ItemTemplate>
                         <asp:LinkButton OnCommand="Unnamed_Command" CommandArgument='<%# DataBinder.Eval(Container.DataItem,"id") %>' runat="server" OnClick="Unnamed_Click" class="col-auto">
-                            <div class="row justify-content-center">
-                                <div class="col-8 d-block m-auto">
-                                    <div  class="thumb">
-                                        <asp:Image runat="server" src='<%# DataBinder.Eval(Container.DataItem, "imgUrl")%>'/>
-                                    </div>
-                                </div>  
-                            </div>
-                            <div class="row justify-content-center">
-                                <asp:Label CssClass="align-middle" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "desc") %>'></asp:Label>
+                            <div class="card bg-secondary text-light" style="width: 18rem;">
+                              <asp:Image class="card-img-top" runat="server" src='<%# DataBinder.Eval(Container.DataItem, "imgUrl")%>'/>
+                                <div class="card-body">
+                                    <asp:Label CssClass="align-middle" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "nome") %>'></asp:Label>
+                                </div>
                             </div>
                         </asp:LinkButton>
                     </ItemTemplate>
@@ -77,7 +75,11 @@
                     </FooterTemplate>
                 </asp:Repeater>
             
-                <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" DataObjectTypeName="WebAppSGE.Modelo.Areas" DeleteMethod="Delete" InsertMethod="Insert" SelectMethod="SelectAllFields" TypeName="WebAppSGE.DAL.DALArea"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="SelectAllFields" TypeName="WebAppSGE.DAL.DALArea">
+        <SelectParameters>
+            <asp:Parameter Name="txt" Type="String"></asp:Parameter>
+        </SelectParameters>
+    </asp:ObjectDataSource>
             
                 <asp:GridView ID="GridView1" runat="server"></asp:GridView>
 </asp:Content>

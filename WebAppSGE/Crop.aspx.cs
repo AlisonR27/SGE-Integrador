@@ -19,9 +19,7 @@ namespace WebAppSGE
 
         protected void Unnamed_Click(object sender, EventArgs e)
         {
-            // string filename = "macaiba2.PNG";
-            // string filepath = Path.Combine(Server.MapPath("~/src/"), filename);
-            btn1_Click(null, EventArgs.Empty);
+            /*btn1_Click(null, EventArgs.Empty);
             string filepath = Path.Combine(Server.MapPath("/"), cropimage1.Src);
             Image outputfile = Image.FromFile(filepath);
             Rectangle cropcoordinate = new Rectangle(Convert.ToInt32(coordinate_x.Value), Convert.ToInt32(coordinate_y.Value), Convert.ToInt32(coordinate_w.Value), Convert.ToInt32(coordinate_h.Value));
@@ -33,7 +31,7 @@ namespace WebAppSGE
             confilepath = Path.Combine(Server.MapPath("~/src/temp/"), confilename);
             bitmap.Save(confilepath);
             cropimg.Visible = true;
-            cropimg.Src = "~/src/temp/" + confilename;
+            cropimg.Src = "~/src/temp/" + confilename;*/
         }
 
         protected void btn1_Click(object sender, EventArgs e)

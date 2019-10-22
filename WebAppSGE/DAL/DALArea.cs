@@ -56,12 +56,13 @@ namespace WebAppSGE.DAL
                                        join area_img aimg on aimg.id_Area = areap.id inner
                                        join Img img on img.id = aimg.id_Img where areap.sit <> 1";
 
-SqlDataReader dr = cmd.ExecuteReader();
+            SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
                 while (dr.Read())
                 {
                     aArea = new Modelo.FullFieldsArea(dr["id"].ToString(),
+                        dr["nome"].ToString(),
                         dr["descricao"].ToString(),
                         dr["img_url"].ToString());
                     aListAreas.Add(aArea);
