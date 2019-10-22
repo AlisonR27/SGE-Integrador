@@ -39,14 +39,13 @@ namespace WebAppSGE
         {
             try
             {
-                //oDALUsuario.Update(new Usuario(b.First().senha, b.First().tipo, TXTNome.Text,"1",TXTEmail.Text,TXTTelefone.Text, Alternadores.AlternadorI(Session["id"].ToString())));
+                oDALUsuario.Update(new Usuario(b.First().senha, b.First().tipo, TXTNome.Text,"1",TXTEmail.Text,TXTTelefone.Text, Alternadores.AlternadorI(Session["id"].ToString())), IMGUPLD.FileName);
                 string p1 = IMGUPLD.FileName;
                 string p2 = Path.Combine("~/src/temp/" + p1);
-                oDALUsuario.UpdateUserImg(p2, Convert.ToInt16(Session["id"]));
-                //Session["fotourl"] = p2; ajeitar para abrir a imagem
+                Session["fotourl"] = p2;
                 Session["unome"] = TXTNome.Text;
                 Session["uemail"] = TXTEmail.Text;
-                Response.Redirect("/InitialPage.aspx");
+                if(p1 != "")Response.Redirect("/Crop.aspx");
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
             }
             catch(Exception ex)

@@ -39,10 +39,13 @@
             </div>
             <div id="<%# DataBinder.Eval(Container.DataItem,"id")%>col" class="collapse tablecolapse bg-info" aria-labelledby="<%# DataBinder.Eval(Container.DataItem,"id") %>" data-parent="#<%# DataBinder.Eval(Container.DataItem,"id") %>">
                 <div class="row">
-                    <div class="col-4 px-4 py-1 text-left">
+                    <div class="col-md-4 px-4 py-1 text-left">
                         <h5 class="h5">Motivo:</h5>
                         <span><%#DataBinder.Eval(Container.DataItem,"motivo_solicitacao")%></span>
                     </div>
+                    <div class="col-auto px-md-4 py-1 offset-xl-auto my-auto ml-sm-0 ml-2"><asp:Button runat="server" ID="btnDef" CssClass="btn btn-primary text-center" OnClick="btnDef_Click" Text="Deferir" /></div>
+                    <div class="col-auto px-md-4 py-1 offset-xl-1 my-auto"><asp:Button runat="server" ID="btnIndef" CssClass="btn btn-danger text-center" OnClick="btnIndef_Click" Text="Indeferir" /></div>
+                    <div class="col-auto px-md-4 py-1 offset-xl-1 my-auto"><asp:LinkButton runat="server" CssClass="btn btn-secondary" OnClick="Unnamed_Click"><p class="d-none"><%# DataBinder.Eval(Container.DataItem,"id")%></p><span class="w-100 d-block">Indeferir Com Especificação</span></asp:LinkButton></div>
                 </div>
                 <div class="row">
                     <asp:Button runat="server" CssClass="btn btn-success"/>

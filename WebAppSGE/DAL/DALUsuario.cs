@@ -84,8 +84,8 @@ namespace WebAppSGE.DAL
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
                 SqlCommand com = conn.CreateCommand();
-                com.CommandText= "UPDATE Image Set Img_Url = @img where id = @imgId"; com.Parameters.AddWithValue("@img",url);com.Parameters.AddWithValue("@imgId", obj.fotoId);
-            com.ExecuteNonQuery();
+                /*com.CommandText= "UPDATE Image Set Img_Url = @img where id = @imgId"; com.Parameters.AddWithValue("@img",url);com.Parameters.AddWithValue("@imgId", obj.fotoId);
+            com.ExecuteNonQuery();*/
                 SqlCommand cmd = new SqlCommand("UPDATE Usuario SET senha = @senha, tipo_Usuario = @tipo_Usuario, nome = @nome, id_Img = @foto, email = @email, telefone = @telefone WHERE id = @id", conn);
                 cmd.Parameters.AddWithValue("@senha", obj.senha);
                 cmd.Parameters.AddWithValue("@id", obj.id);
@@ -113,11 +113,11 @@ namespace WebAppSGE.DAL
                 {
                     while (dr.Read())
                     {
-                        aUsuario = new Modelo.Usuario(dr["senha"].ToString(), Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()), dr["nome"].ToString(), dr["Id_Img"].ToString() ,dr["email"].ToString(), dr["telefones"].ToString());
+                        aUsuario = new Modelo.Usuario(dr["senha"].ToString(), Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()), dr["nome"].ToString(), dr["Id_Img"].ToString() ,dr["email"].ToString(), dr["telefones"].ToString(), Alternadores.AlternadorI(dr["id"].ToString()));
                         aListUsuario.Add(aUsuario);
                     }
                 }
-                else { return null; }
+                else { throw new Exception(); }
                 dr.Close();
                 conn.Close();
                 return aListUsuario;
@@ -137,7 +137,7 @@ namespace WebAppSGE.DAL
             {
                 while (dr.Read())
                 {
-                    aUsuario = new Modelo.Usuario(dr["senha"].ToString(), Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()), dr["nome"].ToString(), dr["Id_Img"].ToString(), dr["email"].ToString(), dr["telefones"].ToString());
+                    aUsuario = new Modelo.Usuario(dr["senha"].ToString(), Alternadores.AlternadorI(dr["tipo_Usuario"].ToString()), dr["nome"].ToString(), dr["Id_Img"].ToString(), dr["email"].ToString(), dr["telefones"].ToString(), Alternadores.AlternadorI(dr["id"].ToString()));
                     aListUsuario.Add(aUsuario);
                 }
             }

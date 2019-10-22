@@ -45,7 +45,7 @@ namespace WebAppSGE
                 oDALSport.Delete(Session["idsport"].ToString());
                 Response.Redirect("~//ListSport.aspx");
             }
-            catch(Exception ex)
+            catch
             {
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
             }

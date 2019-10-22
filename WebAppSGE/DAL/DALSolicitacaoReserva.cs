@@ -171,17 +171,13 @@ namespace WebAppSGE.DAL
                 SqlConnection conn = new SqlConnection(connectionstring);
                 conn.Open();
                 SqlCommand com = conn.CreateCommand();
-                SqlCommand cmd = new SqlCommand("UPDATE solicitacao_Reserva SET horario_Solicitacao = @horario_Solicitacao,atividades = @atividades_Realizadas,motivo_Solicitacao = @motivo_Solicitacao,motivo_Indeferimento = @motivo_Indeferimento,Data_ini = @Data_ini,Data_fim = @Data_fim,id_Usuario_Solicitante = @id_Usuario_Solicitante,id_Usuario_Analise = @id_Usuario_Analise,id_AreaPoliesportiva = @id_AreaPoliesportiva, WHERE id = @id", conn);
-                cmd.Parameters.AddWithValue("@id", obj.id);
-                cmd.Parameters.AddWithValue("@horario_Solicitacao", obj.horario_Solicitacao);
-                cmd.Parameters.AddWithValue("@atividades_Realizadas", obj.atividades_Realizadas);
-                cmd.Parameters.AddWithValue("@motivo_Solicitacao", obj.motivo_Solicitacao);
+                SqlCommand cmd = new SqlCommand("UPDATE solicitacao_Reserva SET motivo_Indeferimento = @motivo_Indeferimento,Data_ini = @Data_ini,Data_fim = @Data_fim,id_Usuario_Analise = @id_Usuario_Analise, WHERE id = @id", conn);
+                SqlCommand cmd2 = new SqlCommand("INSERT INTO horario_Solicitado ()");
+                cmd.Parameters.AddWithValue("@id", obj.id);                                               
                 cmd.Parameters.AddWithValue("@motivo_Indeferimento", obj.motivo_Indeferimento);
                 cmd.Parameters.AddWithValue("@Data_ini", obj.Data_ini);
-                cmd.Parameters.AddWithValue("@Data_fim", obj.Data_fim);
-                cmd.Parameters.AddWithValue("@id_Usuario_Solicitante", obj.id_Usuario_Solicitante);
-                cmd.Parameters.AddWithValue("@id_Usuario_Analise", obj.id_Usuario_Analise);
-                cmd.Parameters.AddWithValue("@id_AreaPoliesportiva", obj.id_AreaPoliesportiva);
+                cmd.Parameters.AddWithValue("@Data_fim", obj.Data_fim);                
+                cmd.Parameters.AddWithValue("@id_Usuario_Analise", obj.id_Usuario_Analise);                
                 cmd.ExecuteNonQuery();
                 return true;
             }
