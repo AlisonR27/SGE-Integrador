@@ -87,13 +87,13 @@ namespace WebAppSGE.DAL
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public bool Insert(Modelo.SolicitacaoReserva obj)
         {
-            try
-            {
+            //try
+            //{
                 SqlConnection conn = new SqlConnection(connectionstring);
                 conn.Open();
                 SqlCommand com = conn.CreateCommand();
                 SqlCommand cmd = new SqlCommand("INSERT INTO solicitacao_Reserva (horario_Solicitacao,atividades_Realizadas ,motivo_Solicitacao,Data_ini,Data_fim,id_Usuario_Solicitante,id_AreaPoliesportiva) VALUES(@horario_Solicitacao,@atividades_Realizadas,@motivo_Solicitacao,@Data_ini,Data_fim,@id_Usuario_Solicitante,@id_AreaPoliesportiva)", conn);
-                cmd.Parameters.AddWithValue("@horario_Solicitacao", obj.horario_Solicitacao);
+                cmd.Parameters.AddWithValue("@horario_Solicitacao", obj.horario_Solicitacao.ToString("yyyy-MM-dd hh:mm:ss"));
                 cmd.Parameters.AddWithValue("@atividades_Realizadas", obj.atividades_Realizadas);
                 cmd.Parameters.AddWithValue("@motivo_Solicitacao", obj.motivo_Solicitacao);
                 cmd.Parameters.AddWithValue("@Data_ini", obj.Data_ini);
@@ -102,11 +102,11 @@ namespace WebAppSGE.DAL
                 cmd.Parameters.AddWithValue("@id_AreaPoliesportiva", obj.id_AreaPoliesportiva);
                 cmd.ExecuteNonQuery();
                 return true;
-            }
-            catch
-            {
-                return false;
-            }
+            //}
+            //catch
+            //{
+            //    return false;
+            //}
         }
         [DataObjectMethod(DataObjectMethodType.Delete)]
         public void Delete(Modelo.SolicitacaoReserva obj)
