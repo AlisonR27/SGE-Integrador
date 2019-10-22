@@ -13,6 +13,8 @@ namespace WebAppSGE
     public partial class EditArea : System.Web.UI.Page
     {
         DALArea oDALArea = new DALArea();
+        DALAreaSport oDALAreaSport = new DALAreaSport();
+        DALSport oDALSport = new DALSport();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -20,6 +22,11 @@ namespace WebAppSGE
                 List<FullFieldsArea> a = oDALArea.SelectUnic(Convert.ToInt16(Session["AreaId"]));
                 TextBoxName.Text = a.First().nome;
                 TextBoxDesc.Text = a.First().desc;
+                List<Sports> g = oDALAreaSport.SelectSportsOfArea(Session["AreaId"].ToString());
+                int b = 0;
+                foreach (CheckBox v in CBL.Items) {
+                    if (g[b].nome == v.Text) v.Checked = true; b++;
+                }
             }
         }
 
@@ -38,6 +45,20 @@ namespace WebAppSGE
                 string d = "Área já existente";
                 if (ex.Message.Contains(d)) { SQLErr(TextBoxName, d, NameErr); } else { SQLCor(TextBoxName, NameErr); }
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
+            }
+            List<string> selectedValues = CBL.Items.Cast<ListItem>().Where(li => li.Selected).Select(li => li.Value).ToList();                       
+            foreach (string s in selectedValues)
+            {
+                // li.Attributes["checked"]
+                if (oDALAreaSport.Update(new AreaSport(DALArea.Identity(), Alternadores.AlternadorI(s))))
+                {
+                    ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
+
+                }
             }
         }
 

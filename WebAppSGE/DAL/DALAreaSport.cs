@@ -70,6 +70,27 @@ namespace WebAppSGE.DAL
                 return false;
             }
         }
+
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public bool Update(Modelo.AreaSport obj)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand com = conn.CreateCommand();
+                SqlCommand cmd = new SqlCommand("Update area_Atividade SET id_AreaPoliesportiva = @id1 , SET id_AtividadeEsportiva = @id2", conn);
+                cmd.Parameters.AddWithValue("@id1", obj.idArea);
+                cmd.Parameters.AddWithValue("@id2", obj.idSport);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.Sports> SelectSportsOfArea(string id)
         {
