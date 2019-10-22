@@ -16,9 +16,9 @@
         <asp:Image CssClass="d-block m-auto" runat="server" ID="AreaImage"/>
         <asp:DetailsView CssClass="table-dark w-100" runat="server" ID="dv1" DataSourceID="ObjectDataSource1" AutoGenerateRows="False">
             <Fields>
-                <asp:BoundField DataField="id" HeaderText="id" SortExpression="id" />
-                <asp:BoundField DataField="nome" HeaderText="nome" SortExpression="nome" />
-                <asp:BoundField DataField="desc" HeaderText="desc" SortExpression="desc" />
+                <asp:BoundField DataField="id" HeaderText="Código" SortExpression="id" />
+                <asp:BoundField DataField="nome" HeaderText="Nome" SortExpression="nome" />
+                <asp:BoundField DataField="desc" HeaderText="Descrição" SortExpression="desc" />
                 <asp:BoundField  DataField="imgUrl" HeaderText="imgUrl" SortExpression="imgUrl" InsertVisible="False" />          
             </Fields>
             <PagerStyle />

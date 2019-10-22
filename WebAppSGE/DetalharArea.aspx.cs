@@ -202,6 +202,7 @@ namespace WebAppSGE
             if (flag)
             {
                 Session["preSolDate"] = selecteDate;
+                Session["Redirected"] = true;
                 Response.Redirect("~//SlctAgendamento.aspx");
             }
             else

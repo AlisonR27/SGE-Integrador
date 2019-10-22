@@ -52,16 +52,17 @@ namespace WebAppSGE.DAL
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = @"Select * from area_Esportiva areap inner
-                                       join area_img aimg on aimg.id_Area = areap.id inner
-                                       join Img img on img.id = aimg.id_Img";
+            cmd.CommandText = @"Select * from area_Esportiva areap 
+                                        inner join area_img aimg on aimg.id_Area = areap.id 
+                                        inner join Img img on img.id = aimg.id_Img";
 
-SqlDataReader dr = cmd.ExecuteReader();
+            SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
                 while (dr.Read())
                 {
                     aArea = new Modelo.FullFieldsArea(dr["id"].ToString(),
+                        dr["nome"].ToString(),
                         dr["descricao"].ToString(),
                         dr["img_url"].ToString());
                     aListAreas.Add(aArea);

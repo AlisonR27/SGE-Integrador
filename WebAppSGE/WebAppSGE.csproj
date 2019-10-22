@@ -107,6 +107,7 @@
     <Content Include="Scripts\jcrop\css\jcrop.css.map" />
     <Content Include="Scripts\jcrop\js\jcrop.dev.js.map" />
     <Content Include="Scripts\jcrop\js\jcrop.js.map" />
+    <Content Include="MasterLinks.Master" />
     <None Include="Scripts\jquery-3.2.1.intellisense.js" />
     <Content Include="Scripts\fullcalendar.js" />
     <Content Include="Scripts\fullcalendar.min.js" />
@@ -1878,6 +1879,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterLinks.Master.cs">
+      <DependentUpon>MasterLinks.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterLinks.Master.designer.cs">
+      <DependentUpon>MasterLinks.Master</DependentUpon>
     </Compile>
     <Compile Include="MngArea.aspx.cs">
       <DependentUpon>MngArea.aspx</DependentUpon>

@@ -13,7 +13,6 @@ namespace WebAppSGE
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            try { 
             if (Session["Redirected"] != null && Session["Redirected"].ToString() == "True")
             {
                 ErrorPanel.Style.Add("display", "none");
@@ -25,11 +24,7 @@ namespace WebAppSGE
                 //CBL1.DataSource = null;
                 //ErrorPanel.Visible = true;
             }
-            }
-            catch
-            {
-                
-            }
+
         }
         protected void btnsolicitar_Click(object sender, EventArgs e)
         {
