@@ -19,13 +19,17 @@ namespace WebAppSGE
         protected void FormSubmit_Click(object sender, EventArgs e)
         {
                     DALSport dSport = new DALSport();
-                     if (dSport.Insert(new Sports(TextBoxName.Text,TextBoxDesc.Text)))
-                    ScriptManager.RegisterStartupScript(this.Page, Page.GetType(),"mensagem", "AlertInsertSuccessful()", true);
-                     else
-                     {
+                    try
+                    {
+                        dSport.Insert(new Sports(TextBoxName.Text, TextBoxDesc.Text));
+                        ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);            
+                    }
+                    catch (Exception ex)
+                    {
+                        string a = "Atividade já existente";
+                        if (ex.Message.Contains(a)) { SQLErr(TextBoxName, a, NameErr); } else { SQLCor(TextBoxName, NameErr); }
                         ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
-                   }
-        
+                    }                    
     
         }
         protected void SportsView_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -40,6 +44,16 @@ namespace WebAppSGE
                 Session["idsport"] = codigo;
                 Response.Redirect("~//EditSport.aspx");
             }
+        }
+        protected void SQLErr(TextBox t, string d, Label a)
+        {
+            t.BorderColor = System.Drawing.Color.Red;
+            a.Text = d;
+        }
+        protected void SQLCor(TextBox t, Label a)
+        {
+            t.BorderColor = System.Drawing.Color.White;
+            a.Text = "";
         }
     }
 }

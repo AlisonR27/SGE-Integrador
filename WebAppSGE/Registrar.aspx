@@ -108,17 +108,18 @@
                         </div>
 
                         <asp:FileUpload ViewStateMode="Disabled" EnableViewState="false" runat="server" onchange="ImagePreview(this);" ID="FU1"/>
+                        <asp:Label runat="server" ID="ImgErr" CssClass=" text-danger w-100"></asp:Label>
                     </div>
                     <asp:TextBox ToolTip="Nome" placeholder="Nome" CssClass="w-75 login-input" ID="TextBox1" runat="server"></asp:TextBox>
-                    <asp:Label runat="server" ID="NomeErr" CssClass=" text-danger"></asp:Label>
+                    <asp:Label runat="server" ID="NomeErr" CssClass=" text-danger w-100"></asp:Label>
                     <asp:RequiredFieldValidator runat="server" ControlToValidate="TextBox1" ></asp:RequiredFieldValidator>
                     <asp:TextBox ToolTip="E-mail" placeholder="E-mail" CssClass="w-75 mt-4 login-input" ID="TXTEmail"  TextMode="Email" runat="server"></asp:TextBox>
-                    <asp:Label runat="server" ID="EmailErr" CssClass=" text-danger "></asp:Label>
+                    <asp:Label runat="server" ID="EmailErr" CssClass=" text-danger w-100"></asp:Label>
                     <input type="tel" placeholder="Telefone" title="Telefone" class="w-75 mt-4 login-input" id="TXTPhone" runat="server" name="phone" pattern="[0-9]{2}[0-9]{5}[0-9]{4}" required>                    
                     <asp:TextBox ToolTip="Senha" placeholder="Senha" CssClass="w-75 mt-3 login-input" runat="server" TextMode="Password" ID="Pass"></asp:TextBox>
-                    <asp:Label runat="server" ID="PassErr" CssClass=" text-danger"></asp:Label>
+                    <asp:Label runat="server" ID="PassErr" CssClass=" text-danger w-100"></asp:Label>
                     <asp:TextBox  ToolTip="Repetir a senha" placeholder="Repita a senha" CssClass="w-75 mt-4 login-input" runat="server" TextMode="Password" ID="CnfrmPass"></asp:TextBox>
-                    <asp:Label runat="server" ID="ConfirmPassErr" CssClass=" text-danger d-block"></asp:Label>
+                    <asp:Label runat="server" ID="ConfirmPassErr" CssClass=" text-danger d-block w-100"></asp:Label>
                         <img src="" class="mw-100" id="cropimg" runat="server" visible="false" />
 
                     <asp:Button  ID="Button12" class="btn-success px-3 py-2 rounded-pill w-75 border-0 mt-5" OnClick="submitcrop_Click"  runat="server"  Text="Cadastrar usuário" />

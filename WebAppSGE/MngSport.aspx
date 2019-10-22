@@ -19,6 +19,7 @@
                 <div class="col-sm-6">
                     <h6>Nome:</h6>
                     <asp:TextBox ID="TextBoxName" CssClass="w-75 col-auto border-0" runat="server" class="name_box"></asp:TextBox>
+                    <asp:Label ID="NameErr" CssClass="text-danger w-100" runat="server"></asp:Label>
                     <asp:RequiredFieldValidator ControlToValidate="TextBoxName"  runat="server"></asp:RequiredFieldValidator>
                 </div>
             </div>
@@ -26,6 +27,7 @@
                 <div class="col-sm-6">
                     <h6>Descrição:</h6>
                     <asp:TextBox ID="TextBoxDesc" CssClass="w-100 col-auto border-0" TextMode="MultiLine" runat="server" class="desc_box" Style="resize: none"></asp:TextBox>
+                    <asp:Label ID="DescErr" CssClass="text-danger w-100" runat="server"></asp:Label>
                     <asp:RequiredFieldValidator ControlToValidate="TextBoxDesc" runat="server"></asp:RequiredFieldValidator> 
                 </div>
             </div>

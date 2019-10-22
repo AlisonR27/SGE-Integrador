@@ -59,15 +59,30 @@ namespace WebAppSGE
             TXT[6, 1] = TXTSabEnd.Text;
             foreach (hDisponivel a in h)
             {
-                if (oDALhDisponivel.Insert(new hDisponivel(b + 1, TXT[b, 0], TXT[b, 1], DALArea.Identity()))) c++;
-                b++;
+                try
+                {
+                    oDALhDisponivel.Insert(new hDisponivel(b + 1, TXT[b, 0], TXT[b, 1], DALArea.Identity())); c++; b++;
+                }
+                catch (Exception ex)
+                {
+                    string d = "Hora inicio invalida";
+                    if (ex.Message.Contains(d)) { LoopDays(b, 0, true, d); } else { LoopDays(b, 0, false, d); }
+                    d = "Hora fim invalida";
+                    if (ex.Message.Contains(d)) { LoopDays(b, 1, true, d); } else { LoopDays(b, 1, false, d); }
+                    d = "Minuto inicio invalido";
+                    if (ex.Message.Contains(d)) { LoopDays(b, 0, true, d); } else { LoopDays(b, 0, false, d); }
+                    d = "Minuto fim invalido";
+                    if (ex.Message.Contains(d)) { LoopDays(b, 1, true, d); } else { LoopDays(b, 1, false, d); }
+                    d = "Horario invalido, coloque uma hora fim maior que a inicio";
+                    if (ex.Message.Contains(d)) { LoopDays(b, 1, true, d); } else { LoopDays(b, 1, false, d); }
+                    d = "Horario invalido, coloque um minuto fim maior que a inicio";
+                    if (ex.Message.Contains(d)) { LoopDays(b, 1, true, d); } else { LoopDays(b, 1, false, d); }                
+                    ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);                    
+                }
             }
             if (c == 7)
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
-            else
-            {
-                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
-            }
+            
             // Rodando esportes
             List<string> selectedValues = CBL.Items.Cast<ListItem>().Where(li => li.Selected).Select(li => li.Value).ToList();
             DALAreaSport oDALAreaSport = new DALAreaSport();
@@ -86,6 +101,7 @@ namespace WebAppSGE
             }
             }
             //Adiciona Imagem
+            //if (oDALArea.InsertAreaImg(Server.MapPath(FileUpload1.FileName), DALArea.Identity())) N pude testar ainda
             if (oDALArea.InsertAreaImg("https://i.ytimg.com/vi/IQgg_LNl1B4/hqdefault.jpg", DALArea.Identity()))
             {
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
@@ -126,6 +142,68 @@ namespace WebAppSGE
         {
             t.BorderColor = System.Drawing.Color.White;
             a.Text = "";
+        }
+        protected void LoopDays(int d, int h, bool v, string g)
+        {
+            TextBox t = new TextBox(); 
+            TextBox t2 = new TextBox();
+            Label l = new Label();
+            Label l2 = new Label();
+            switch (d)
+            {
+                case 1:
+                    {                        
+                        t = TXTDomInit;
+                        l = DomInitErr;
+                        break;
+                    }
+                case 2:
+                    {
+                        t = TXTSegInit;
+                        l = SegInitErr;
+                        break;
+                    }
+                case 3:
+                    {
+                        t = TXTTerInit;
+                        l = TerInitErr;
+                        break;
+                    }
+                case 4:
+                    {
+                        t = TXTQuaInit;
+                        l = QuaInitErr;
+                        break;
+                    }
+                case 5:
+                    {
+                        t = TXTQuiInit;
+                        l = QuiInitErr;
+                        break;
+                    }
+                case 6:
+                    {
+                        t = TXTSexInit;
+                        l = SexInitErr;
+                        break;
+                    }
+                case 7:
+                    {
+                        t = TXTSabInit;
+                        l = SabInitErr;
+                        break;
+                    }
+            }
+            if (h == 0)
+            {
+                if (v) SQLErr(t, g, l);
+                else SQLCor(t, l);
+            }
+            else
+            {
+                if (v) SQLErr(t2, g, l2);
+                else SQLCor(t2, l2);
+            }
         }
     }
 }

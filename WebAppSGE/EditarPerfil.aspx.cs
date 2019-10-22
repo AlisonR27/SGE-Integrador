@@ -20,16 +20,18 @@ namespace WebAppSGE
         {
             b = oDALUsuario.Select(Session["id"].ToString());
             c = oDALImage.SelectUnic(b.First().fotoId.ToString());
-            if (!IsPostBack)
             {
-                SlctNome.Text = SlctNome.Text.ToUpper();               
-                SlctNome.Text = b.First().nome.ToString();
-                SlctNome.Text = SlctNome.Text.ToUpper();
-                ProfileImg.ImageUrl = c.First().imgUrl;
-                SlctID.Text = Session["id"].ToString();
-                TXTNome.Text = b.First().nome.ToString();
-                TXTEmail.Text = b.First().email.ToString();
-                TXTTelefone.Text = b.First().telefone.ToString();
+                if (!IsPostBack)
+                {
+                    SlctNome.Text = SlctNome.Text.ToUpper();
+                    SlctNome.Text = b.First().nome.ToString();
+                    SlctNome.Text = SlctNome.Text.ToUpper();
+                    ProfileImg.ImageUrl = c.First().imgUrl;
+                    SlctID.Text = Session["id"].ToString();
+                    TXTNome.Text = b.First().nome.ToString();
+                    TXTEmail.Text = b.First().email.ToString();
+                    TXTTelefone.Text = b.First().telefone.ToString();
+                }
             }
         }
 
@@ -45,7 +47,7 @@ namespace WebAppSGE
                 Session["unome"] = TXTNome.Text;
                 Session["uemail"] = TXTEmail.Text;
                 Response.Redirect("/InitialPage.aspx");
-
+                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
             }
             catch(Exception ex)
             {

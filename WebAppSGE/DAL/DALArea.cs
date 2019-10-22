@@ -25,7 +25,7 @@ namespace WebAppSGE.DAL
                 SqlConnection conn = new SqlConnection(connectionstring);
                 conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "Select * from area_Esportiva";
+                cmd.CommandText = "Select * from area_Esportiva where sit <> 1";
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
@@ -52,9 +52,9 @@ namespace WebAppSGE.DAL
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = @"Select * from area_Esportiva areap 
-                                        inner join area_img aimg on aimg.id_Area = areap.id 
-                                        inner join Img img on img.id = aimg.id_Img";
+            cmd.CommandText = @"Select * from area_Esportiva areap inner
+                                       join area_img aimg on aimg.id_Area = areap.id inner
+                                       join Img img on img.id = aimg.id_Img where areap.sit <> 1";
 
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
