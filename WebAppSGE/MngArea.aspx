@@ -71,9 +71,11 @@
                             <label for="checkDay">Disponível</label>
                             <h6> Inicio: </h6>
                             <asp:TextBox runat="server" TextMode="Time" ID="TXTDomInit"></asp:TextBox>
+                            <asp:Label runat="server" ID="DomInitErr" CssClass="text-danger w-100"></asp:Label>
                             <br />
                             <h6>Fim:</h6>
                             <asp:TextBox runat="server" TextMode="Time" ID="TXTDomEnd"></asp:TextBox>
+                            <asp:Label runat="server" ID="DomEndErr" CssClass="text-danger w-100"></asp:Label>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -84,9 +86,11 @@
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>                            <h6> Inicio: </h6>
                             <asp:TextBox runat="server" TextMode="Time" ID="TXTSegInit"></asp:TextBox>
+                            <asp:Label runat="server" ID="SegInitErr" CssClass="text-danger w-100"></asp:Label>
                             <br />
                             <h6>Fim:</h6>
                             <asp:TextBox runat="server" TextMode="Time" ID="TXTSegEnd"></asp:TextBox>
+                            <asp:Label runat="server" ID="SegEndErr" CssClass="text-danger w-100"></asp:Label>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -98,9 +102,11 @@
                             <label for="checkDay">Disponível</label>
                             <h6> Inicio: </h6>
                             <asp:TextBox runat="server"  TextMode="Time" ID="TXTTerInit"></asp:TextBox>
+                            <asp:Label runat="server" ID="TerInitErr" CssClass="text-danger w-100"></asp:Label>
                             <br />
                             <h6>Fim:</h6>
                             <asp:TextBox runat="server" TextMode="Time" ID="TXTTerEnd"></asp:TextBox>
+                            <asp:Label runat="server" ID="TerEndErr" CssClass="text-danger w-100"></asp:Label>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -112,9 +118,11 @@
                             <label for="checkDay">Disponível</label>
                             <h6> Inicio: </h6>
                             <asp:TextBox runat="server" TextMode="Time" ID="TXTQuaInit"></asp:TextBox>
+                            <asp:Label runat="server" ID="QuaInitErr" CssClass="text-danger w-100"></asp:Label>
                             <br />
                             <h6>Fim:</h6>
                             <asp:TextBox runat="server" TextMode="Time" ID="TXTQuaEnd"></asp:TextBox>
+                            <asp:Label runat="server" ID="QuaEndErr" CssClass="text-danger w-100"></asp:Label>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -126,9 +134,11 @@
                             <label for="checkDay">Disponível</label>
                             <h6> Inicio: </h6>
                             <asp:TextBox runat="server" TextMode="Time" ID="TXTQuiInit"></asp:TextBox>
+                            <asp:Label runat="server" ID="QuiInitErr" CssClass="text-danger w-100"></asp:Label>
                             <br />
                             <h6>Fim:</h6>
                             <asp:TextBox runat="server" TextMode="Time" ID="TXTQuiEnd"></asp:TextBox>
+                            <asp:Label runat="server" ID="QuiEndErr" CssClass="text-danger w-100"></asp:Label>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -140,9 +150,11 @@
                             <label for="checkDay">Disponível</label>
                             <h6> Inicio: </h6>
                             <asp:TextBox runat="server" TextMode="Time" ID="TXTSexInit"></asp:TextBox>
+                            <asp:Label runat="server" ID="SexInitErr" CssClass="text-danger w-100"></asp:Label>
                             <br />
                             <h6>Fim:</h6>
                             <asp:TextBox runat="server" TextMode="Time" ID="TXTSexEnd"></asp:TextBox>
+                            <asp:Label runat="server" ID="SexEndErr" CssClass="text-danger w-100"></asp:Label>
                         </div>
                     </div>
                     <div class="slideDContainer">
@@ -153,9 +165,11 @@
                             <input type="checkbox" class="checkDay"  id="checkDay" name="checkDay" checked/>
                             <label for="checkDay">Disponível</label>                            <h6> Inicio: </h6>
                             <asp:TextBox runat="server" TextMode="Time" ID="TXTSabInit"></asp:TextBox>
+                            <asp:Label runat="server" ID="SabInitErr" CssClass="text-danger w-100"></asp:Label>
                             <br />
                             <h6>Fim:</h6>
                             <asp:TextBox runat="server" TextMode="Time" ID="TXTSabEnd"></asp:TextBox>
+                            <asp:Label runat="server" ID="SabEndErr" CssClass="text-danger w-100"></asp:Label>
                         </div>
                 </div>
             </div>        

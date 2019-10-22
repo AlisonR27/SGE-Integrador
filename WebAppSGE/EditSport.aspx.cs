@@ -28,6 +28,7 @@ namespace WebAppSGE
             {
                 oDALSport.Update(new Sports(Session["idsport"].ToString(), TextBoxName.Text, TextBoxDesc.Text));
                 Response.Redirect("~//ListSport.aspx");
+                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
             }
             catch(Exception ex)
             {
