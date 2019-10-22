@@ -17,7 +17,7 @@ namespace WebAppSGE.DAL
 
         }
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public List<Modelo.hRegistrado> SelectDate(string data)
+        public List<Modelo.hRegistrado> SelectDate(string data, string idArea)
         {
             Modelo.hRegistrado aArea;
             List<Modelo.hRegistrado> aListAreas = new List<Modelo.hRegistrado>();
@@ -27,8 +27,9 @@ namespace WebAppSGE.DAL
             cmd.CommandText = @"Select horSol.id as id_horarioregistrado, solRes.id as id_solicitacaoOrigem, horSol.data, horSol.hora_inicio, horSol.hora_fim, solRes.id_Usuario_solicitante, solRes.id_Area_Esportiva,ArEsp.nome from horario_Solicitado horSol 
                                 inner join solicitacao_Reserva solRes on horSol.id_SolicitacaoReserva = solRes.id
                                 inner join Area_Esportiva ArEsp on ArEsp.id = solRes.id_Area_Esportiva 
-                                where horSol.data = @data order by horSol.hora_Inicio";
+                                where horSol.data = @data and solRes.id_Area_Esportiva = @idArea order by horSol.hora_Inicio";
             cmd.Parameters.AddWithValue("@data", data);
+            cmd.Parameters.AddWithValue("@idArea", idArea);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
@@ -52,13 +53,16 @@ namespace WebAppSGE.DAL
 
             return aListAreas;
         }
-        public static int NumberOfRows(string data)
+        public static int NumberOfRows(string data,string idArea)
         {
             SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["SGEConnectionString"].ConnectionString);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "Select * from horario_Solicitado where data = @data";
+            cmd.CommandText = @"select * from horario_Solicitado hs
+                                inner join solicitacao_Reserva sr on sr.id = hs.id_SolicitacaoReserva
+                                where hs.data = @data and sr.id_Area_Esportiva = @idArea";
             cmd.Parameters.AddWithValue("@data",data);
+            cmd.Parameters.AddWithValue("@idArea",idArea);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
