@@ -13,15 +13,6 @@ namespace WebAppSGE {
     public partial class EspDeferimentoT2 {
         
         /// <summary>
-        /// Controle calendar1.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar calendar1;
-        
-        /// <summary>
         /// Controle DropDownList1.
         /// </summary>
         /// <remarks>
@@ -40,31 +31,40 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// Controle txtdatalmite.
+        /// Controle txtdataIni.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtdatalmite;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtdataIni;
         
         /// <summary>
-        /// Controle TextBoxDe.
+        /// Controle txtdataFim.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxDe;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtdataFim;
         
         /// <summary>
-        /// Controle TextBoxAte.
+        /// Controle txthoraIni.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxAte;
+        protected global::System.Web.UI.WebControls.TextBox txthoraIni;
+        
+        /// <summary>
+        /// Controle txthoraFim.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txthoraFim;
         
         /// <summary>
         /// Controle btnsolicitar.

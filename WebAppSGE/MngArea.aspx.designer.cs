@@ -76,15 +76,6 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.Image Image1;
         
         /// <summary>
-        /// Controle CBL.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList CBL;
-        
-        /// <summary>
         /// Controle ObjectDataSource1.
         /// </summary>
         /// <remarks>
@@ -92,6 +83,15 @@ namespace WebAppSGE {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
+        
+        /// <summary>
+        /// Controle CBL.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBoxList CBL;
         
         /// <summary>
         /// Controle TXTDomInit.

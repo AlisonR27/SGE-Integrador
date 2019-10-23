@@ -84,12 +84,26 @@ namespace WebAppSGE
         }
         protected void btnIndef_Click(object sender, EventArgs e)
         {
-
+            DALSolicitacaoReserva oDALSolicitacaoReserva = new DALSolicitacaoReserva();
+            DALhRegistrado oDALhRegistrado = new DALhRegistrado();
+            string codigo;
+            codigo = ((DataBoundLiteralControl)((LinkButton)sender).Controls[0]).Text;
+            codigo = codigo.Replace("<p class=\"d-none\">", "");
+            codigo = codigo.Replace("</p><span class=\"w-100 d-block\">Indeferir</span>", "");
+            Session["IdIndef"] = codigo;
+            Response.Redirect("/MotivoIndef.aspx");
         }
 
         protected void Unnamed_Click1(object sender, EventArgs e)
         {
-
+            DALSolicitacaoReserva oDALSolicitacaoReserva = new DALSolicitacaoReserva();
+            DALhRegistrado oDALhRegistrado = new DALhRegistrado();
+            string codigo;
+            codigo = ((DataBoundLiteralControl)((LinkButton)sender).Controls[0]).Text;
+            codigo = codigo.Replace("<p class=\"d-none\">", "");
+            codigo = codigo.Replace("</p><span class=\"w-100 d-block\">Deferir Com Especificação</span>", "");
+            Session["IdDef"] = codigo;
+            Response.Redirect("EspDeferimento.aspx");
         }
     }
 }

@@ -81,7 +81,7 @@ namespace WebAppSGE
             }
             //Adiciona Imagem
             //if (oDALArea.InsertAreaImg(Server.MapPath(FileUpload1.FileName), DALArea.Identity())) N pude testar ainda
-            if (oDALArea.InsertAreaImg("https://i.ytimg.com/vi/IQgg_LNl1B4/hqdefault.jpg", DALArea.Identity()))
+            if (oDALArea.InsertAreaImg(FileUpload1.FileName, DALArea.Identity()))
             {
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
             }

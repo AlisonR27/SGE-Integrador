@@ -32,7 +32,7 @@ namespace WebAppSGE.DAL
                 {
                     aAreaHorarios = new Modelo.AreaHorario(
                         Alternadores.AlternadorI(dr["id_horario_Disponivel"].ToString()),
-                        Alternadores.AlternadorI(dr["id_AreaPoliesportiva"].ToString()));
+                        Alternadores.AlternadorI(dr["id_Area"].ToString()));
                     aListAreaHorarios.Add(aAreaHorarios);
                 }
             }
@@ -68,7 +68,7 @@ namespace WebAppSGE.DAL
                 SqlConnection conn = new SqlConnection(connectionString);
                 conn.Open();
                 SqlCommand com = conn.CreateCommand();
-                SqlCommand cmd = new SqlCommand("Update area_horario_Disponivel SET id_AreaPoliesportiva = @id1 , SET id_horario_Disponivel = @id2", conn);
+                SqlCommand cmd = new SqlCommand("Update area_horario_Disponivel SET id_Area = @id1 ,id_horario_Disponivel = @id2", conn);
                 cmd.Parameters.AddWithValue("@id1", obj.idArea);
                 cmd.Parameters.AddWithValue("@id2", obj.idHorario);
                 cmd.ExecuteNonQuery();

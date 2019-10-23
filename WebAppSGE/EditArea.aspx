@@ -172,9 +172,6 @@
     </script>
         </div>
         </div>
-       <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="SelectUnic" TypeName="WebAppSGE.DAL.DALArea">
-        <SelectParameters>
-            <asp:SessionParameter DefaultValue="" Name="id" SessionField="AreaId" Type="Int32" />
-        </SelectParameters>
+       <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="SelectAll" TypeName="WebAppSGE.DAL.DALSport">
     </asp:ObjectDataSource>
 </asp:Content>

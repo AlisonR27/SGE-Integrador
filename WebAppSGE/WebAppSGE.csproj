@@ -96,6 +96,7 @@
     <Content Include="MngArea.aspx" />
     <Content Include="MngSport.aspx" />
     <Content Include="MngUser.aspx" />
+    <Content Include="MotivoIndef.aspx" />
     <Content Include="PaginaSearch.aspx" />
     <Content Include="Registrar.aspx" />
     <Content Include="Scripts\jcrop\css\jcrop.css" />
@@ -1847,6 +1848,13 @@
     <Compile Include="Modelo\SolicitacaoReserva.cs" />
     <Compile Include="Modelo\Sports.cs" />
     <Compile Include="Modelo\Usuario.cs" />
+    <Compile Include="MotivoIndef.aspx.cs">
+      <DependentUpon>MotivoIndef.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MotivoIndef.aspx.designer.cs">
+      <DependentUpon>MotivoIndef.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PaginaSearch.aspx.cs">
       <DependentUpon>PaginaSearch.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -48,7 +48,7 @@
                 <div class="row px-2 pl-4 w-100 pb-3">
                     <asp:LinkButton runat="server" CssClass="btn btn-success text-center px-4 py-2" OnClick="btnDef_Click"><p class="d-none"><%# DataBinder.Eval(Container.DataItem,"id")%></p><span class="w-100 d-block">Deferir</span></asp:LinkButton>
                     <asp:LinkButton runat="server" CssClass="ml-5 btn btn-danger text-center px-4 py-2" OnClick="btnIndef_Click"><p class="d-none"><%# DataBinder.Eval(Container.DataItem,"id")%></p><span class="w-100 d-block">Indeferir</span></asp:LinkButton>
-                    <asp:LinkButton runat="server" CssClass="ml-5 btn btn-secondary px-4 py-2" OnClick="Unnamed_Click"><p class="d-none"><%# DataBinder.Eval(Container.DataItem,"id")%></p><span class="w-100 d-block">Deferir Com Especificação</span></asp:LinkButton>
+                    <asp:LinkButton runat="server" CssClass="ml-5 btn btn-secondary px-4 py-2" OnClick="Unnamed_Click1"><p class="d-none"><%# DataBinder.Eval(Container.DataItem,"id")%></p><span class="w-100 d-block">Deferir Com Especificação</span></asp:LinkButton>
                 </div>
             </div>
         </ItemTemplate>

@@ -48,7 +48,9 @@ namespace WebAppSGE.Modelo
             this.id_Usuario_Solicitante = aid_Usuario_Solicitante;
             this.id_AreaPoliesportiva = aid_AreaPoliesportiva;
         }
-        public SolicitacaoReserva(DateTime ahorario_Solicitacao, string aatividades_Realizadas, string amotivo_Solicitacao, string amotivo_Indeferimento, DateTime adata_Ini, DateTime adata_Fim, int aid_Usuario_Solicitante, int aid_Usuario_Analise, int aid_AreaPoliesportiva) // Admin Update
+        public SolicitacaoReserva(DateTime ahorario_Solicitacao, string aatividades_Realizadas, 
+            string amotivo_Solicitacao, string amotivo_Indeferimento, DateTime adata_Ini, DateTime adata_Fim, 
+            int aid_Usuario_Solicitante, int aid_Usuario_Analise, int aid_AreaPoliesportiva, int astatus,bool arep) // Admin Update
         {
             this.horario_Solicitacao = ahorario_Solicitacao;
             this.status = 0;
@@ -60,6 +62,8 @@ namespace WebAppSGE.Modelo
             this.id_Usuario_Solicitante = aid_Usuario_Solicitante;
             this.id_Usuario_Analise = aid_Usuario_Analise;
             this.id_AreaPoliesportiva = aid_AreaPoliesportiva;
+            this.status = astatus;
+            this.rep = arep;
         }
         
         //public SolicitacaoReserva(DateTime ahorario_Solicitacao, string aatividades_Realizadas, string amotivo_Solicitacao, DateTime adata_Ini, DateTime adata_Fim, int aid_Usuario_Solicitante, int aid_AreaPoliesportiva, int astatus, bool arep) // Solicitar

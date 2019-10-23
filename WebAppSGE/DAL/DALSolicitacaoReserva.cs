@@ -226,20 +226,20 @@ namespace WebAppSGE.DAL
             catch { return false; }
         }
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public bool UpdateAdmin(Modelo.SolicitacaoReserva obj)
+        public bool DeferirEsp(Modelo.SolicitacaoReserva obj)
         {
             try
             {
                 SqlConnection conn = new SqlConnection(connectionstring);
                 conn.Open();
                 SqlCommand com = conn.CreateCommand();
-                SqlCommand cmd = new SqlCommand("UPDATE solicitacao_Reserva SET motivo_Indeferimento = @motivo_Indeferimento,Data_ini = @Data_ini,Data_fim = @Data_fim,id_Usuario_Analise = @id_Usuario_Analise, WHERE id = @id", conn);
-                SqlCommand cmd2 = new SqlCommand("INSERT INTO horario_Solicitado ()");
-                cmd.Parameters.AddWithValue("@id", obj.id);                                               
-                cmd.Parameters.AddWithValue("@motivo_Indeferimento", obj.motivo_Indeferimento);
+                SqlCommand cmd = new SqlCommand("UPDATE solicitacao_Reserva Data_ini = @Data_ini,Data_fim = @Data_fim,id_Usuario_Analise = @id_Usuario_Analise, rep = @rep, status = @status WHERE id = @id", conn);                
+                cmd.Parameters.AddWithValue("@id", obj.id);                                               ;
                 cmd.Parameters.AddWithValue("@Data_ini", obj.Data_ini);
                 cmd.Parameters.AddWithValue("@Data_fim", obj.Data_fim);                
-                cmd.Parameters.AddWithValue("@id_Usuario_Analise", obj.id_Usuario_Analise);                
+                cmd.Parameters.AddWithValue("@id_Usuario_Analise", obj.id_Usuario_Analise);
+                cmd.Parameters.AddWithValue("@rep", obj.rep);
+                cmd.Parameters.AddWithValue("@status", obj.status);
                 cmd.ExecuteNonQuery();
                 return true;
             }
@@ -254,6 +254,22 @@ namespace WebAppSGE.DAL
                 SqlCommand cmd = new SqlCommand("UPDATE solicitacao_Reserva SET status = 1 WHERE id = @id", conn);
                 cmd.Parameters.AddWithValue("@id", Alternadores.AlternadorI(id));
                 cmd.ExecuteNonQuery();
+        }
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public bool Indeferir(string id, string motivo)
+        {
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionstring);
+                conn.Open();
+                SqlCommand com = conn.CreateCommand();
+                SqlCommand cmd = new SqlCommand("UPDATE solicitacao_Reserva SET status = 2, motivo_indeferimento = @motivo WHERE id = @id", conn);
+                cmd.Parameters.AddWithValue("@id", Alternadores.AlternadorI(id));
+                cmd.Parameters.AddWithValue("@motivo", motivo);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch { return false; }
         }
     }
 }

@@ -26,10 +26,10 @@ namespace WebAppSGE
                 TextBoxDesc.Text = a.First().desc;
                 List<Sports> g = oDALAreaSport.SelectSportsOfArea(Session["AreaId"].ToString());
                 int b = 0;
-                foreach (CheckBox v in CBL.Items) {
-                    if (g[b].nome == v.Text)  v.Checked = true; 
-                        b++;                    
-                }
+                List<ListItem> selected = new List<ListItem>();
+                foreach (ListItem item in CBL.Items)
+                    if (item.Selected) selected.Add(item);
+
                 List<hDisponivel> h = oDALAreaHorario.SelecthDisponivelOfArea(Session["AreaId"].ToString());
                 TXTDomInit.Text = h[0].horaInicio.ToString();
                 TXTDomEnd.Text = h[0].horaFim.ToString();
