@@ -1795,6 +1795,7 @@
     </Compile>
     <Compile Include="DAL\Alternadores.cs" />
     <Compile Include="DAL\DALArea.cs" />
+    <Compile Include="DAL\DALAreaHorario.cs" />
     <Compile Include="DAL\DALAreaSport.cs" />
     <Compile Include="DAL\DALhDisponivel.cs" />
     <Compile Include="DAL\DALhRegistrado.cs" />
@@ -1900,6 +1901,7 @@
     <Compile Include="MngUser.aspx.designer.cs">
       <DependentUpon>MngUser.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Modelo\AreaHorario.cs" />
     <Compile Include="Modelo\AreaImage.cs" />
     <Compile Include="Modelo\Areas.cs" />
     <Compile Include="Modelo\AreaSport.cs" />

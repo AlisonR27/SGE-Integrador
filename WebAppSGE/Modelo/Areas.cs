@@ -10,6 +10,7 @@ namespace WebAppSGE.Modelo
         public int id { get; set; }
         public string nome { get; set; }
         public string desc { get; set; }
+        public int sit { get; set; }
         public Areas() {
             desc = "";
         }
@@ -17,16 +18,18 @@ namespace WebAppSGE.Modelo
         {
             this.nome = anome;
         }
-        public Areas(string anome, string adesc)
+        public Areas(string anome, string adesc, int asit)
         {
             this.desc = adesc;
             this.nome = anome;
+            this.sit = asit;
         }
-        public Areas(string aid, string anome, string adesc)
+        public Areas(string aid, string anome, string adesc, int asit)
         {
             this.id = int.Parse(aid);
             this.nome = anome;
             this.desc = adesc;
+            this.sit = asit;
         }
     }
 }

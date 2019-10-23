@@ -42,15 +42,19 @@ namespace WebAppSGE.DAL
             return aListSports;
         }
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(string id)
+        public bool Delete(string id)
         {
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand com = conn.CreateCommand();
-            SqlCommand cmd = new SqlCommand("DELETE FROM area_Atividade WHERE id_atividadeEsportiva = @id DELETE FROM atividadeEsportiva WHERE id = @id", conn);
-            cmd.Parameters.AddWithValue("@id",id);
-            cmd.ExecuteNonQuery();
-
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand com = conn.CreateCommand();
+                SqlCommand cmd = new SqlCommand("DELETE FROM area_Atividade WHERE id_atividadeEsportiva = @id DELETE FROM atividadeEsportiva WHERE id = @id", conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch { return false; }
         }
         [DataObjectMethod(DataObjectMethodType.Insert)]
         public bool Insert(Modelo.Sports obj)
@@ -71,16 +75,21 @@ namespace WebAppSGE.DAL
             }
         }
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.Sports obj)
+        public bool Update(Modelo.Sports obj)
         {
-            SqlConnection conn = new SqlConnection(connectionString);
-            conn.Open();
-            SqlCommand com = conn.CreateCommand();
-            SqlCommand cmd = new SqlCommand("UPDATE atividadeEsportiva SET nome = @nome, descricao = @desc WHERE id = @id", conn);
-            cmd.Parameters.AddWithValue("@id", obj.id);
-            cmd.Parameters.AddWithValue("@nome", obj.nome);
-            cmd.Parameters.AddWithValue("@desc", obj.descricao);
-            cmd.ExecuteNonQuery();
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand com = conn.CreateCommand();
+                SqlCommand cmd = new SqlCommand("UPDATE atividadeEsportiva SET nome = @nome, descricao = @desc WHERE id = @id", conn);
+                cmd.Parameters.AddWithValue("@id", obj.id);
+                cmd.Parameters.AddWithValue("@nome", obj.nome);
+                cmd.Parameters.AddWithValue("@desc", obj.descricao);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch { return false; }
         }
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.Sports> Select(string id)

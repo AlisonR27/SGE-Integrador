@@ -11,6 +11,7 @@ namespace WebAppSGE.Modelo
         public int id { get; set; }
         public string nome { get; set; }
         public string desc { get; set; }
+        public int sit { get; set; }
         public string imgUrl { get; set; }
         public FullFieldsArea()
         {
@@ -20,19 +21,21 @@ namespace WebAppSGE.Modelo
         {
             this.desc = adesc;
         }
-        public FullFieldsArea(string aid, string anome, string adesc, string aimgUrl)
+        public FullFieldsArea(string aid, string anome, string adesc, int asit, string aimgUrl)
         {
             this.id = WebAppSGE.DAL.Alternadores.AlternadorI(aid);
             this.nome=anome;
             this.desc = adesc;
             this.imgUrl = aimgUrl;
+            this.sit = asit;
         }
 
-        public FullFieldsArea(string aid, string anome, string adesc)
+        public FullFieldsArea(string aid, string anome, string adesc, int asit)
         {
             this.id = WebAppSGE.DAL.Alternadores.AlternadorI(aid);
             this.nome = anome;
             this.desc = adesc;
+            this.sit = asit;
         }
 
         /*public FullFieldsArea(string aid, string anome, string aimgUrl)

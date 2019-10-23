@@ -25,16 +25,17 @@ namespace WebAppSGE.DAL
                 SqlConnection conn = new SqlConnection(connectionstring);
                 conn.Open();
                 SqlCommand cmd = conn.CreateCommand();
-                cmd.CommandText = "Select * from area_Esportiva where sit <> 1";
+                cmd.CommandText = "Select * from Area_Esportiva where sit = 1";
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.HasRows)
                 {
 
                     while (dr.Read()) 
                     {
-                        aArea = new Modelo.Areas( dr["id"].ToString(),
-                            dr["nome"].ToString(),
-                            dr["descricao"].ToString()    
+                    aArea = new Modelo.Areas(dr["id"].ToString(),
+                        dr["nome"].ToString(),                        
+                        dr["descricao"].ToString(),
+                        Alternadores.AlternadorI(dr["sit"].ToString())
                             );
                         aListAreas.Add(aArea);
                     }
@@ -54,7 +55,7 @@ namespace WebAppSGE.DAL
             SqlCommand cmd = conn.CreateCommand();
             cmd.CommandText = @"Select * from area_Esportiva areap inner
                                        join area_img aimg on aimg.id_Area = areap.id inner
-                                       join Img img on img.id = aimg.id_Img where areap.sit <> 1";
+                                       join Img img on img.id = aimg.id_Img where areap.sit = 1";
 
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
@@ -64,6 +65,7 @@ namespace WebAppSGE.DAL
                     aArea = new Modelo.FullFieldsArea(dr["id"].ToString(),
                         dr["nome"].ToString(),
                         dr["descricao"].ToString(),
+                        Alternadores.AlternadorI(dr["sit"].ToString()),
                         dr["img_url"].ToString());
                     aListAreas.Add(aArea);
                 }
@@ -81,8 +83,8 @@ namespace WebAppSGE.DAL
                 SqlConnection conn = new SqlConnection(connectionstring);
                 conn.Open();
                 SqlCommand com = conn.CreateCommand();
-                SqlCommand cmd = new SqlCommand("INSERT INTO area_Esportiva (nome,descricao) VALUES(@nome,@descricao)", conn);
-                cmd.Parameters.AddWithValue("@nome", obj.nome);cmd.Parameters.AddWithValue("@descricao", obj.desc);
+                SqlCommand cmd = new SqlCommand("INSERT INTO area_Esportiva (nome,descricao,sit) VALUES(@nome,@descricao,@sit)", conn);
+                cmd.Parameters.AddWithValue("@nome", obj.nome);cmd.Parameters.AddWithValue("@descricao", obj.desc);cmd.Parameters.AddWithValue("@sit", obj.sit);
                 cmd.ExecuteNonQuery();
                 return true;
             }              
@@ -92,15 +94,19 @@ namespace WebAppSGE.DAL
             }
         }
         [DataObjectMethod(DataObjectMethodType.Delete)]
-        public void Delete(Modelo.Areas obj)
+        public bool Delete(Modelo.Areas obj)
         {
-            SqlConnection conn = new SqlConnection(connectionstring);
-            conn.Open();
-            SqlCommand com = conn.CreateCommand();
-            SqlCommand cmd = new SqlCommand("DELETE FROM area_Esportiva WHERE ID = @id", conn);
-            cmd.Parameters.AddWithValue("@id", obj.id);
-            cmd.ExecuteNonQuery();
-
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionstring);
+                conn.Open();
+                SqlCommand com = conn.CreateCommand();
+                SqlCommand cmd = new SqlCommand("DELETE FROM area_Esportiva WHERE ID = @id", conn);
+                cmd.Parameters.AddWithValue("@id", obj.id);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch { return false; }
         }
         public static int Identity()
         {
@@ -131,7 +137,7 @@ namespace WebAppSGE.DAL
             SqlConnection conn = new SqlConnection(connectionstring);
             conn.Open();
             SqlCommand cmd = conn.CreateCommand();
-            cmd.CommandText = "Select * from area_Esportiva areap inner join area_img aimg on aimg.id_Area = areap.id inner join Img img on  img.id = aimg.id_Img where areap.id = @id";cmd.Parameters.AddWithValue("@id", id);
+            cmd.CommandText = "Select * from Area_Esportiva areap inner join area_img aimg on aimg.id_Area = areap.id inner join Img img on  img.id = aimg.id_Img where areap.id = @id and areap.sit = 1";cmd.Parameters.AddWithValue("@id", id);
             SqlDataReader dr = cmd.ExecuteReader();
             if (dr.HasRows)
             {
@@ -140,6 +146,7 @@ namespace WebAppSGE.DAL
                     aArea = new Modelo.FullFieldsArea(dr["id"].ToString(),
                         dr["nome"].ToString(),
                         dr["descricao"].ToString(),
+                        Alternadores.AlternadorI(dr["sit"].ToString()),
                         dr["img_Url"].ToString()
                     );
                     aListAreas.Add(aArea);
@@ -166,7 +173,8 @@ namespace WebAppSGE.DAL
                 while (dr.Read())
                 {
                     aArea = new Modelo.Areas(dr["id"].ToString(),
-                        dr["descricao"].ToString()
+                        dr["descricao"].ToString(),
+                        Alternadores.AlternadorI(dr["sit"].ToString())
                         );
                     aListAreas.Add(aArea);
                 }
@@ -233,6 +241,7 @@ namespace WebAppSGE.DAL
                     aArea = new Modelo.FullFieldsArea(dr["id"].ToString(),
                         dr["nome"].ToString(),
                         dr["descricao"].ToString(),
+                        Alternadores.AlternadorI(dr["sit"].ToString()),
                         dr["img_Url"].ToString()
                     );
                     aListAreas.Add(aArea);
@@ -244,27 +253,37 @@ namespace WebAppSGE.DAL
             return aListAreas;
         }
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Update(Modelo.FullFieldsArea obj)
+        public bool Update(Modelo.FullFieldsArea obj)
         {
-            SqlConnection conn = new SqlConnection(connectionstring);
-            conn.Open();
-            SqlCommand com = conn.CreateCommand();
-            SqlCommand cmd = new SqlCommand("UPDATE area_Esportiva SET nome = @nome, descricao = @desc WHERE id = @id", conn);
-            cmd.Parameters.AddWithValue("@id", obj.id);
-            cmd.Parameters.AddWithValue("@nome", obj.nome);
-            cmd.Parameters.AddWithValue("@desc", obj.desc);
-            //cmd.Parameters.AddWithValue("@img", obj.imgUrl); Configurar pra mudar a imagem também
-            cmd.ExecuteNonQuery();
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionstring);
+                conn.Open();
+                SqlCommand com = conn.CreateCommand();
+                SqlCommand cmd = new SqlCommand("UPDATE area_Esportiva SET nome = @nome, descricao = @desc WHERE id = @id", conn);
+                cmd.Parameters.AddWithValue("@id", obj.id);
+                cmd.Parameters.AddWithValue("@nome", obj.nome);
+                cmd.Parameters.AddWithValue("@desc", obj.desc);
+                //cmd.Parameters.AddWithValue("@img", obj.imgUrl); Configurar pra mudar a imagem também
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch { return false; }
         }
         [DataObjectMethod(DataObjectMethodType.Update)]
-        public void Delete(string id)
+        public bool Delete(string id)
         {
-            SqlConnection conn = new SqlConnection(connectionstring);
-            conn.Open();
-            SqlCommand com = conn.CreateCommand();
-            SqlCommand cmd = new SqlCommand("UPDATE area_Esportiva SET sit = 1 WHERE id = @id ", conn);
-            cmd.Parameters.AddWithValue("@id", id);
-            cmd.ExecuteNonQuery();
+            try
+            {
+                SqlConnection conn = new SqlConnection(connectionstring);
+                conn.Open();
+                SqlCommand com = conn.CreateCommand();
+                SqlCommand cmd = new SqlCommand("UPDATE area_Esportiva SET sit = 1 WHERE id = @id ", conn);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                return true;
+            }
+            catch { return false; }
 
         }
         [DataObjectMethod(DataObjectMethodType.Update)]

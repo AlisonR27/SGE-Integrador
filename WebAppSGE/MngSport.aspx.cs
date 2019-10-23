@@ -19,15 +19,12 @@ namespace WebAppSGE
         protected void FormSubmit_Click(object sender, EventArgs e)
         {
                     DALSport dSport = new DALSport();
-                    try
-                    {
-                        dSport.Insert(new Sports(TextBoxName.Text, TextBoxDesc.Text));
+                    if(dSport.Insert(new Sports(TextBoxName.Text, TextBoxDesc.Text)))
+                    {                        
                         ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);            
                     }
-                    catch (Exception ex)
-                    {
-                        string a = "Atividade já existente";
-                        if (ex.Message.Contains(a)) { SQLErr(TextBoxName, a, NameErr); } else { SQLCor(TextBoxName, NameErr); }
+                    else
+                    {                        
                         ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
                     }                    
     
@@ -45,7 +42,7 @@ namespace WebAppSGE
                 Response.Redirect("~//EditSport.aspx");
             }
         }
-        protected void SQLErr(TextBox t, string d, Label a)
+        /*protected void SQLErr(TextBox t, string d, Label a)
         {
             t.BorderColor = System.Drawing.Color.Red;
             a.Text = d;
@@ -54,6 +51,6 @@ namespace WebAppSGE
         {
             t.BorderColor = System.Drawing.Color.White;
             a.Text = "";
-        }
+        }*/
     }
 }
