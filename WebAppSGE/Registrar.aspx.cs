@@ -16,7 +16,7 @@ namespace WebAppSGE
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            FUButton.Attributes.Add("onclick", "$('#"+Fu1.ClientID+"').click(); return false;");
         }
 
         protected void Button2_Click(object sender, EventArgs e)
@@ -32,9 +32,9 @@ namespace WebAppSGE
             //Manipulação do corte da imagem
             try
             {
-                FU1.PostedFile.SaveAs(Server.MapPath("~/src/temp/") + FU1.FileName);
+                Fu1.PostedFile.SaveAs(Server.MapPath("~/src/temp/") + Fu1.FileName);
                 //Submeter 
-                id = oDALUsuario.InsertUserImg("/src/temp/" + FU1.FileName);
+                id = oDALUsuario.InsertUserImg("/src/temp/" + Fu1.FileName);
                 if (id < 0)
                 {
                     throw new Exception();
@@ -69,6 +69,28 @@ namespace WebAppSGE
         {
             t.BorderColor = System.Drawing.Color.White;
             a.Text = "";
+        }
+        protected string getcropID()
+        {
+            if (Fu1.HasFile)
+            {
+                Fu1.PostedFile.SaveAs(Server.MapPath("~/src/temp/") + Fu1.FileName);
+                return cropimage1.ClientID;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        protected string getFile()
+        {
+            if (Fu1.HasFile) { 
+            return Server.MapPath("~/src/temp/") + Fu1.FileName;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

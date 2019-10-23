@@ -22,6 +22,60 @@ namespace WebAppSGE {
         protected global::System.Web.UI.WebControls.Panel ErrorPanel;
         
         /// <summary>
+        /// Controle txtidarea.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtidarea;
+        
+        /// <summary>
+        /// Controle txtdataInit.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtdataInit;
+        
+        /// <summary>
+        /// Controle txtdatalmite.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtdatalmite;
+        
+        /// <summary>
+        /// Controle dropdown1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList dropdown1;
+        
+        /// <summary>
+        /// Controle TextBoxDe.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxDe;
+        
+        /// <summary>
+        /// Controle TextBoxAte.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxAte;
+        
+        /// <summary>
         /// Controle TextBoxMotivo.
         /// </summary>
         /// <remarks>
@@ -47,60 +101,6 @@ namespace WebAppSGE {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSource1;
-        
-        /// <summary>
-        /// Controle TextBoxDe.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxDe;
-        
-        /// <summary>
-        /// Controle TextBoxAte.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBoxAte;
-        
-        /// <summary>
-        /// Controle dropdown1.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList dropdown1;
-        
-        /// <summary>
-        /// Controle txtdataInit.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtdataInit;
-        
-        /// <summary>
-        /// Controle txtdatalmite.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtdatalmite;
-        
-        /// <summary>
-        /// Controle txtidarea.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtidarea;
         
         /// <summary>
         /// Controle btnsolicitar.

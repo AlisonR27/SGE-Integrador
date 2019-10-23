@@ -38,17 +38,17 @@
                 <div class="col bg-secondary border p-0"><button class="w-100 btn btn-outline-primary" type="button" onclick="sli(this)" Id="<%#  DataBinder.Eval(Container.DataItem,"id") %>" data-toggle="collapse" data-target="#<%# DataBinder.Eval(Container.DataItem,"id")%>col" aria-expanded="false" aria-controls="<%# DataBinder.Eval(Container.DataItem,"id")%>col">▼</button></div>
             </div>
             <div id="<%# DataBinder.Eval(Container.DataItem,"id")%>col" class="collapse tablecolapse bg-info" aria-labelledby="<%# DataBinder.Eval(Container.DataItem,"id") %>" data-parent="#<%# DataBinder.Eval(Container.DataItem,"id") %>">
-                <div class="row">
+                <div class="row w-100 pl-2">
                     <div class="col-md-4 px-4 py-1 text-left">
                         <h5 class="h5">Motivo:</h5>
                         <span><%#DataBinder.Eval(Container.DataItem,"motivo_solicitacao")%></span>
                     </div>
-                    <div class="col-auto px-md-4 py-1 offset-xl-auto my-auto ml-sm-0 ml-2"><asp:Button runat="server" ID="btnDef" CssClass="btn btn-primary text-center" OnClick="btnDef_Click" Text="Deferir" /></div>
-                    <div class="col-auto px-md-4 py-1 offset-xl-1 my-auto"><asp:Button runat="server" ID="btnIndef" CssClass="btn btn-danger text-center" OnClick="btnIndef_Click" Text="Indeferir" /></div>
-                    <div class="col-auto px-md-4 py-1 offset-xl-1 my-auto"><asp:LinkButton runat="server" CssClass="btn btn-secondary" OnClick="Unnamed_Click"><p class="d-none"><%# DataBinder.Eval(Container.DataItem,"id")%></p><span class="w-100 d-block">Indeferir Com Especificação</span></asp:LinkButton></div>
+                    
                 </div>
-                <div class="row">
-                    <asp:Button runat="server" CssClass="btn btn-success"/>
+                <div class="row px-2 pl-4 w-100 pb-3">
+                    <asp:LinkButton runat="server" CssClass="btn btn-success text-center px-4 py-2" OnClick="btnDef_Click"><p class="d-none"><%# DataBinder.Eval(Container.DataItem,"id")%></p><span class="w-100 d-block">Deferir</span></asp:LinkButton>
+                    <asp:LinkButton runat="server" CssClass="ml-5 btn btn-danger text-center px-4 py-2" OnClick="btnIndef_Click"><p class="d-none"><%# DataBinder.Eval(Container.DataItem,"id")%></p><span class="w-100 d-block">Indeferir</span></asp:LinkButton>
+                    <asp:LinkButton runat="server" CssClass="ml-5 btn btn-secondary px-4 py-2" OnClick="Unnamed_Click"><p class="d-none"><%# DataBinder.Eval(Container.DataItem,"id")%></p><span class="w-100 d-block">Deferir Com Especificação</span></asp:LinkButton>
                 </div>
             </div>
         </ItemTemplate>

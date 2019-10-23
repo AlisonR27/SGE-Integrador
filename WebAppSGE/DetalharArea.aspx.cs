@@ -107,7 +107,7 @@ namespace WebAppSGE
                     {
                         if (weekValues[j].Count > 0)
                         {
-                            for(int k = 0; k < weekValues[i].Count+2; k++)
+                            for(int k = 0; k < weekValues[i].Count+1; k++)
                             {
                                 weekTable.Rows[k+1].Cells[j].InnerText = $"{weekValues[j][k].hInicio}~{weekValues[j][k].hFim}";
                                 weekTable.Rows[k+1].Cells[j].Attributes.Add("class", "bg-danger text-center");

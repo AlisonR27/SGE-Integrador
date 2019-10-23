@@ -12,6 +12,7 @@ namespace WebAppSGE.Modelo
         public string horaInicio { get; set; }
         public string horaFim { get; set; }
         public int idAreaEsportiva { get; set; }
+        public DateTime data { get; set; }
         public hDisponivel()
         {
             diaSemana = 0;

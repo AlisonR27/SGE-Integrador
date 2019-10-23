@@ -67,13 +67,40 @@ namespace WebAppSGE {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden coordinate_h;
         
         /// <summary>
-        /// Controle FU1.
+        /// Controle Button12.
         /// </summary>
         /// <remarks>
         /// Campo gerado automaticamente.
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FU1;
+        protected global::System.Web.UI.WebControls.Button Button12;
+        
+        /// <summary>
+        /// Controle Fu1.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload Fu1;
+        
+        /// <summary>
+        /// Controle FUButton.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton FUButton;
+        
+        /// <summary>
+        /// Controle TXTFile.
+        /// </summary>
+        /// <remarks>
+        /// Campo gerado automaticamente.
+        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label TXTFile;
         
         /// <summary>
         /// Controle ImgErr.
@@ -173,14 +200,5 @@ namespace WebAppSGE {
         /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlImage cropimg;
-        
-        /// <summary>
-        /// Controle Button12.
-        /// </summary>
-        /// <remarks>
-        /// Campo gerado automaticamente.
-        /// Modificar a declaração do campo de movimento do arquivo de designer para o arquivo code-behind.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button12;
     }
 }

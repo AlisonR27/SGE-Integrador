@@ -11,6 +11,7 @@ namespace WebAppSGE
 {
     public partial class SlctAgendamento : System.Web.UI.Page
     {
+        bool Repeat;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["Redirected"] != null && Session["Redirected"].ToString() == "True")
@@ -18,7 +19,6 @@ namespace WebAppSGE
                 ErrorPanel.Style.Add("display", "none");
                 txtidarea.Text = Session["AreaID"].ToString();
                 txtdataInit.Text = Session["preSolDate"].ToString();
-                txtdatalmite.Text = Convert.ToDateTime(Session["preSolDate"].ToString()).ToString("dd/MM/yyyy");
             }
             else
             {
@@ -29,13 +29,28 @@ namespace WebAppSGE
         }
         protected void btnsolicitar_Click(object sender, EventArgs e)
         {
+            switch (dropdown1.SelectedIndex)
+            {
+                case 0:
+                    Repeat = false;
+                    break;
+                case 1:
+                    Repeat = true;
+                    break;
+                case 2:
+                    Repeat = false;
+                    break;
+            }
             DALSolicitacaoReserva oDALSolicitacaoReserva = new DALSolicitacaoReserva();
             string atv = "";  //Adaptar para colocar todas
             foreach (CheckBox cbf in CBL1.Items)
             {
                 if (cbf.Checked) atv += cbf.Text+ ";";
             }
-            if (oDALSolicitacaoReserva.Insert(new SolicitacaoReserva(DateTime.Now, atv, TextBoxMotivo.Text, Alternadores.AlternadorDT(TextBoxDe.Text), Alternadores.AlternadorDT(TextBoxAte.Text), Alternadores.AlternadorI(Session["AreaId"].ToString()), Alternadores.AlternadorI(txtidarea.Text))))
+            if (oDALSolicitacaoReserva.Insert(new SolicitacaoReserva(0,DateTime.Now, 0,atv, TextBoxMotivo.Text,
+                null,Alternadores.AlternadorDT(TextBoxDe.Text), Alternadores.AlternadorDT(TextBoxAte.Text),
+                Alternadores.AlternadorI(Session["id"].ToString()), 0 ,Alternadores.AlternadorI(Session["AreaId"].ToString()),
+                Repeat, TextBoxDe.Text,TextBoxAte.Text)))
             {
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
             }

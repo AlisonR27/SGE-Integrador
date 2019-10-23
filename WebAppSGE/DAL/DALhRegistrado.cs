@@ -16,6 +16,19 @@ namespace WebAppSGE.DAL
             connectionString = ConfigurationManager.ConnectionStrings["SGEConnectionString"].ConnectionString;
 
         }
+        [DataObjectMethod(DataObjectMethodType.Insert)]
+        public void Insert(Modelo.hRegistrado obj)
+        {
+                SqlConnection conn = new SqlConnection(connectionString);
+                conn.Open();
+                SqlCommand com = conn.CreateCommand();
+                SqlCommand cmd = new SqlCommand("INSERT INTO horario_solicitado (data,hora_inicio,hora_fim,id_SolicitacaoReserva) VALUES(@dia,@hinit,@hfim,@idArea)", conn);
+                cmd.Parameters.AddWithValue("@dia", obj.dia);
+                cmd.Parameters.AddWithValue("@hinit", obj.hInicio);
+                cmd.Parameters.AddWithValue("@hfim", obj.hFim);
+                cmd.Parameters.AddWithValue("@idArea", obj.solId);
+                cmd.ExecuteNonQuery();
+        }
         [DataObjectMethod(DataObjectMethodType.Select)]
         public List<Modelo.hRegistrado> SelectDate(string data, string idArea)
         {

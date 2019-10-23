@@ -9,6 +9,8 @@ namespace WebAppSGE.Modelo
     {
         public int id { get; set; }
         public DateTime horario_Solicitacao { get; set; }
+        public string horaIni { get; set; }
+        public string horaFim { get; set; }
         public int status { get; set; }
         public string atividades_Realizadas { get; set; }
         public string motivo_Solicitacao { get; set; }
@@ -18,6 +20,7 @@ namespace WebAppSGE.Modelo
         public int id_Usuario_Solicitante { get; set; }
         public int id_Usuario_Analise { get; set; }
         public int id_AreaPoliesportiva { get; set; }
+        public bool rep { get; set; }
 
         public SolicitacaoReserva() // No parameters
         {
@@ -45,7 +48,7 @@ namespace WebAppSGE.Modelo
             this.id_Usuario_Solicitante = aid_Usuario_Solicitante;
             this.id_AreaPoliesportiva = aid_AreaPoliesportiva;
         }
-        public SolicitacaoReserva(DateTime ahorario_Solicitacao, string aatividades_Realizadas, string amotivo_Solicitacao, string amotivo_Indeferimento, DateTime adata_Ini, DateTime adata_Fim, int aid_Usuario_Solicitante, int aid_AreaPoliesportiva) // Admin Update
+        public SolicitacaoReserva(DateTime ahorario_Solicitacao, string aatividades_Realizadas, string amotivo_Solicitacao, string amotivo_Indeferimento, DateTime adata_Ini, DateTime adata_Fim, int aid_Usuario_Solicitante, int aid_Usuario_Analise, int aid_AreaPoliesportiva) // Admin Update
         {
             this.horario_Solicitacao = ahorario_Solicitacao;
             this.status = 0;
@@ -55,9 +58,25 @@ namespace WebAppSGE.Modelo
             this.Data_ini = adata_Ini;
             this.Data_fim = adata_Fim;
             this.id_Usuario_Solicitante = aid_Usuario_Solicitante;
+            this.id_Usuario_Analise = aid_Usuario_Analise;
             this.id_AreaPoliesportiva = aid_AreaPoliesportiva;
         }
-        public SolicitacaoReserva(int aid, DateTime ahorario_Solicitacao, int astatus , string aatividades_Realizadas, string amotivo_Solicitacao, string amotivo_Indeferimento, DateTime adata_Ini, DateTime adata_Fim, int aid_Usuario_Solicitante, int aid_AreaPoliesportiva) // Total return
+        
+        //public SolicitacaoReserva(DateTime ahorario_Solicitacao, string aatividades_Realizadas, string amotivo_Solicitacao, DateTime adata_Ini, DateTime adata_Fim, int aid_Usuario_Solicitante, int aid_AreaPoliesportiva, int astatus, bool arep) // Solicitar
+        //{
+        //    this.horario_Solicitacao = ahorario_Solicitacao;
+        //    this.status = astatus;
+        //    this.atividades_Realizadas = aatividades_Realizadas;
+        //    this.motivo_Solicitacao = amotivo_Solicitacao;
+        //    this.Data_ini = adata_Ini;
+        //    this.Data_fim = adata_Fim;
+        //    this.id_Usuario_Solicitante = aid_Usuario_Solicitante;
+        //    this.id_AreaPoliesportiva = aid_AreaPoliesportiva;
+        //    this.status = astatus;
+        //    this.rep = arep;
+        //    this.status = astatus;
+        //}
+        public SolicitacaoReserva(int aid, DateTime ahorario_Solicitacao,int astatus, string aatividades_Realizadas, string amotivo_Solicitacao, string amotivo_Indeferimento, DateTime adata_Ini, DateTime adata_Fim, int aid_Usuario_Solicitante, int aid_Usuario_Analise, int aid_AreaPoliesportiva) // Retorno sem Resposta
         {
             this.id = aid;
             this.horario_Solicitacao = ahorario_Solicitacao;
@@ -68,7 +87,28 @@ namespace WebAppSGE.Modelo
             this.Data_ini = adata_Ini;
             this.Data_fim = adata_Fim;
             this.id_Usuario_Solicitante = aid_Usuario_Solicitante;
+            this.id_Usuario_Analise = aid_Usuario_Analise;
             this.id_AreaPoliesportiva = aid_AreaPoliesportiva;
         }
+        //Insert Solicitação, Get Solicitação
+        public SolicitacaoReserva(int id,DateTime ahorario_Solicitacao,int astatus, string aatividades_Realizadas, string amotivo_Solicitacao, string amotivo_Indeferimento, DateTime adata_Ini, DateTime adata_Fim, int aid_Usuario_Solicitante, int aid_Usuario_Analise, int aid_AreaPoliesportiva, bool arep, string ahora_ini, string ahora_fim) // Retorno sem Resposta
+        {
+            this.id = id;
+            this.horario_Solicitacao = ahorario_Solicitacao;
+            this.status = astatus;
+            this.atividades_Realizadas = aatividades_Realizadas;
+            this.motivo_Solicitacao = amotivo_Solicitacao;
+            this.motivo_Indeferimento = amotivo_Indeferimento;
+            this.Data_ini = adata_Ini;
+            this.Data_fim = adata_Fim;
+            this.id_Usuario_Solicitante = aid_Usuario_Solicitante;
+            this.id_Usuario_Analise = aid_Usuario_Analise;
+            this.rep = arep;
+            this.id_AreaPoliesportiva = aid_AreaPoliesportiva;
+            this.horaIni = ahora_ini;
+            this.horaFim = ahora_fim;
+        }
+
+
     }
 }

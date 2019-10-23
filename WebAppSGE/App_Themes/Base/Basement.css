@@ -349,7 +349,9 @@ input{
     border: 1px solid;
     border-radius: 5px;
 }
-
+.invert{
+    filter:invert();
+}
 .b-none{
     border: 0;
 }
@@ -371,7 +373,7 @@ input{
     color: #dddddd;
     border: 0;
     display: block;
-    border-bottom: solid #dddddd;
+    border-bottom: 1px solid #dddddd;
 }
     .login-input::-webkit-input-placeholder {
         font-weight: normal;
@@ -407,7 +409,7 @@ input{
         width: 95%;
         padding: calc(1em/4) !important;
         font-size: 1.2em !important;
-        border-width: 2px;
+        border-width: 1px;
         text-align:left;
     }
     .slideDContainer {
@@ -417,13 +419,13 @@ input{
 @media (min-width: 992px) {
     .login-input {
         font-size: 1.15em;
-        border-width: 3px;
+        border-width: 1px;
     }
 }
 @media (min-width: 1200px) {
     .login-input {
         font-size: 1.15em;
-        border-width: 3px;
+        border-width: 1px;
     }
 }
 
@@ -458,4 +460,7 @@ input{
 }
 .w-98{
     width:98% !important;
+}
+.bigInput{
+    font-size:1.3em;
 }
