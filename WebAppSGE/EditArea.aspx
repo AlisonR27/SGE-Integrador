@@ -156,6 +156,20 @@
                 <asp:Button runat="server" CssClass="btn-primary rounded-pill col-auto b-none" Text="Atualizar" OnClick="Unnamed3_Click"/>                
                 <asp:Button runat="server" CssClass="btn-danger rounded-pill offset-md-9 offset-sm-8 col-auto b-none" Text="Excluir" OnClick="Unnamed4_Click"/>
             </div>
+                     <script>
+         //PageLoad
+
+        //Ativar/Desativar Caixas de texto
+        $('input[class="checkDay"]').click(function () {
+            if ($(this).prop("checked") == true) { $(this).parents().children('input[type="text"]').prop("disabled", false); }
+            else { $(this).parents().children('input[type="text"]').prop("disabled", true); }
+        });
+        //SlideDown Dias
+        $('div[class="slideDTitle"]').click(function () {
+            if ($(this).parents().children('div[class="slideDOcult"]').css("display") == "none") $(this).parents().children('div[class="slideDOcult"]').slideDown();
+            else { $(this).parents().children('div[class="slideDOcult"]').slideUp();  }
+        });
+    </script>
         </div>
         </div>
        <asp:ObjectDataSource ID="ObjectDataSource1" runat="server" SelectMethod="SelectUnic" TypeName="WebAppSGE.DAL.DALArea">

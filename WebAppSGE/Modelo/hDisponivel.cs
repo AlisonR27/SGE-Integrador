@@ -20,13 +20,12 @@ namespace WebAppSGE.Modelo
             horaFim = "";
 
         }
-        public hDisponivel(int diaSemana, string horaInicio, string horaFim, int idAreaEsportiva)
+        public hDisponivel(int diaSemana, string horaInicio, string horaFim)
         {
             this.id = id;
             this.diaSemana = diaSemana;
             this.horaInicio = horaInicio;
             this.horaFim = horaFim;
-            this.idAreaEsportiva = idAreaEsportiva;
         }
     }
 }

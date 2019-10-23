@@ -28,18 +28,14 @@ namespace WebAppSGE
 
             //Adicionando Area Esportiva
             DALArea oDALArea = new DALArea();
-            try
+            if(oDALArea.Insert(new Areas(TextBoxName.Text, TextBoxDesc.Text, 1))) ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccesful()", true);
+            else
             {
-                oDALArea.Insert(new Areas(TextBoxName.Text, TextBoxDesc.Text));
-            }
-            catch(Exception ex)
-            {
-                string d = "Área já existente";
-                if (ex.Message.Contains(d)) { SQLErr(TextBoxName, d, NameErr); } else { SQLCor(TextBoxName, NameErr); }                
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
             }
             //Criando horários
             hDisponivel[] h = new hDisponivel[7];
+            DALAreaHorario oDALAreaHorario = new DALAreaHorario();
             DALhDisponivel oDALhDisponivel = new DALhDisponivel();
             int b = 0, c = 0;
             string[,] TXT = new string[7, 2];
@@ -59,46 +55,29 @@ namespace WebAppSGE
             TXT[6, 1] = TXTSabEnd.Text;
             foreach (hDisponivel a in h)
             {
-                try
-                {
-                    oDALhDisponivel.Insert(new hDisponivel(b + 1, TXT[b, 0], TXT[b, 1], DALArea.Identity())); c++; b++;
-                }
-                catch (Exception ex)
-                {
-                    string d = "Hora inicio invalida";
-                    if (ex.Message.Contains(d)) { LoopDays(b, 0, true, d); } else { LoopDays(b, 0, false, d); }
-                    d = "Hora fim invalida";
-                    if (ex.Message.Contains(d)) { LoopDays(b, 1, true, d); } else { LoopDays(b, 1, false, d); }
-                    d = "Minuto inicio invalido";
-                    if (ex.Message.Contains(d)) { LoopDays(b, 0, true, d); } else { LoopDays(b, 0, false, d); }
-                    d = "Minuto fim invalido";
-                    if (ex.Message.Contains(d)) { LoopDays(b, 1, true, d); } else { LoopDays(b, 1, false, d); }
-                    d = "Horario invalido, coloque uma hora fim maior que a inicio";
-                    if (ex.Message.Contains(d)) { LoopDays(b, 1, true, d); } else { LoopDays(b, 1, false, d); }
-                    d = "Horario invalido, coloque um minuto fim maior que a inicio";
-                    if (ex.Message.Contains(d)) { LoopDays(b, 1, true, d); } else { LoopDays(b, 1, false, d); }                
-                    ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);                    
-                }
+                if (oDALhDisponivel.Insert(new hDisponivel(b + 1, TXT[b, 0], TXT[b, 1]))) { ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true); } else { ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true); }
+                if (oDALAreaHorario.Insert(new AreaHorario(DALArea.Identity(), DALhDisponivel.Identity()))) { ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true); } else { ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true); }
+                c++; b++;
             }
             if (c == 7)
                 ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
-            
+
             // Rodando esportes
             List<string> selectedValues = CBL.Items.Cast<ListItem>().Where(li => li.Selected).Select(li => li.Value).ToList();
             DALAreaSport oDALAreaSport = new DALAreaSport();
             DALSport oDALSport = new DALSport();
             foreach (string s in selectedValues)
             {
-            // li.Attributes["checked"]
+                // li.Attributes["checked"]
                 if (oDALAreaSport.Insert(new AreaSport(DALArea.Identity(), Alternadores.AlternadorI(s))))
-            {
-                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
-            }
-            else
-            {
-                ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
+                {
+                    ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertSuccessful()", true);
+                }
+                else
+                {
+                    ScriptManager.RegisterStartupScript(this.Page, Page.GetType(), "mensagem", "AlertInsertFailed()", true);
 
-            }
+                }
             }
             //Adiciona Imagem
             //if (oDALArea.InsertAreaImg(Server.MapPath(FileUpload1.FileName), DALArea.Identity())) N pude testar ainda
@@ -117,7 +96,7 @@ namespace WebAppSGE
         }
         protected void FormSubmit_Click(object sender, EventArgs e)
         {
-        
+
         }
 
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -131,92 +110,6 @@ namespace WebAppSGE
                 codigo = GridView1.Rows[index].Cells[0].Text;
                 Session["AreaId"] = codigo;
                 Response.Redirect("~//EditArea.aspx");
-            }
-        }
-        protected void SQLErr(TextBox t, string d, Label a)
-        {
-            t.BorderColor = System.Drawing.Color.Red;
-            a.Text = d;
-        }
-        protected void SQLCor(TextBox t, Label a)
-        {
-            t.BorderColor = System.Drawing.Color.White;
-            a.Text = "";
-        }
-        protected void LoopDays(int d, int h, bool v, string g)
-        {
-            TextBox t = new TextBox(); 
-            TextBox t2 = new TextBox();
-            Label l = new Label();
-            Label l2 = new Label();
-            switch (d)
-            {
-                case 1:
-                    {                        
-                        t = TXTDomInit;
-                        t2 = TXTDomEnd;
-                        l = DomInitErr;
-                        l2 = DomEndErr;
-                        break;
-                    }
-                case 2:
-                    {
-                        t = TXTSegInit;
-                        l = SegInitErr;
-                        t2 = TXTSegEnd;
-                        l2 = SegEndErr;
-                        break;
-                    }
-                case 3:
-                    {
-                        t = TXTTerInit;
-                        l = TerInitErr;
-                        t2 = TXTTerEnd;
-                        l2 = TerEndErr;
-                        break;
-                    }
-                case 4:
-                    {
-                        t = TXTQuaInit;
-                        l = QuaInitErr;
-                        t2 = TXTQuaEnd;
-                        l2 = QuaEndErr;
-                        break;
-                    }
-                case 5:
-                    {
-                        t = TXTQuiInit;
-                        l = QuiInitErr;
-                        t2 = TXTQuiEnd;
-                        l2 = QuiEndErr;
-                        break;
-                    }
-                case 6:
-                    {
-                        t = TXTSexInit;
-                        l = SexInitErr;
-                        t2 = TXTSexEnd;
-                        l2 = SexEndErr;
-                        break;
-                    }
-                case 7:
-                    {
-                        t = TXTSabInit;
-                        l = SabInitErr;
-                        t2 = TXTSabEnd;
-                        l2 = SabEndErr;
-                        break;
-                    }
-            }
-            if (h == 0)
-            {
-                if (v) SQLErr(t, g, l);
-                else SQLCor(t, l);
-            }
-            else
-            {
-                if (v) SQLErr(t2, g, l2);
-                else SQLCor(t2, l2);
             }
         }
     }
